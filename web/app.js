@@ -1,174 +1,269 @@
 "use strict";
 
-// Static dashboard: load the JSON dataset generated daily by the GitHub
-// Actions workflow and render a filterable view of patches, CVEs, affected
-// products, Windows servicing info and remediation guidance, with client-side
-// export of the current filtered view.
+/* Patch Tracker — vulnerability triage console.
+   Loads the daily-generated data.json and presents it the way a vulnerability-
+   management engineer triages: risk-ranked, with an "act now" lane, platform
+   views, CISA KEV deadlines, and a detail drawer with remediation guidance. */
 
-const SEV_RANK = { critical: 4, important: 3, high: 3, moderate: 2,
-  medium: 2, low: 1 };
+const SEV_RANK = { critical: 4, important: 3, high: 3, moderate: 2, medium: 2, low: 1 };
 const SOURCE_LABEL = { apple: "Apple", microsoft: "Microsoft",
-  "cisa-kev": "Third-party (KEV)" };
+  "cisa-kev": "CISA KEV", nvd: "NVD" };
+
+const VIEWS = [
+  { id: "priority", label: "Priority queue", icon: "▲", desc: "All patches ranked by remediation priority.",
+    pred: () => true },
+  { id: "actnow", label: "Act now", icon: "⚑", danger: true,
+    desc: "Actively exploited or past their CISA KEV remediation deadline.",
+    pred: (p) => p.exploited_count > 0 || isOverdue(p) },
+  { id: "exploited", label: "Exploited / KEV", icon: "☣", danger: true,
+    desc: "Patches fixing vulnerabilities exploited in the wild.",
+    pred: (p) => p.exploited_count > 0 },
+  { id: "windows", label: "Windows", icon: "▢",
+    desc: "Microsoft Patch Tuesday updates, split by client and server.",
+    pred: (p) => p.source === "microsoft" },
+  { id: "apple", label: "Apple", icon: "", desc: "macOS, iOS and related Apple security releases.",
+    pred: (p) => p.source === "apple" },
+  { id: "thirdparty", label: "Third-party", icon: "◆",
+    desc: "Browsers and third-party software (CISA KEV + NVD advisories).",
+    pred: (p) => p.source === "cisa-kev" || p.source === "nvd" },
+  { id: "all", label: "All patches", icon: "≡", desc: "Everything currently tracked.",
+    pred: () => true },
+];
 
 const state = {
   data: null,
-  filters: {
-    q: "", cve: "", source: "", platform: "", affected: "", minSev: 0,
-    minCvss: 0, exploited: false, newonly: false,
-  },
-  view: [],
+  view: "priority",
+  sort: "priority",
+  filters: { q: "", cve: "", platform: "", affected: "", minSev: 0, minCvss: 0,
+    exploited: false, newonly: false },
+  results: [],
 };
 
 const $ = (s) => document.querySelector(s);
+const todayISO = new Date().toISOString().slice(0, 10);
 
 function esc(s) {
-  return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
-  }[c]));
+  return String(s == null ? "" : s).replace(/[&<>"']/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 const fmtDate = (s) => (s ? String(s).slice(0, 10) : "—");
-const sevRank = (sev) => SEV_RANK[(sev || "").toLowerCase()] || 0;
-function sevClass(sev) {
-  const r = sevRank(sev);
+const sevRank = (s) => SEV_RANK[(s || "").toLowerCase()] || 0;
+function sevClass(s) {
+  const r = sevRank(s);
   return r >= 4 ? "sev-critical" : r === 3 ? "sev-important"
     : r === 2 ? "sev-moderate" : "sev-low";
 }
+function isOverdue(p) { return !!(p.due_date && fmtDate(p.due_date) < todayISO); }
+function dueDays(d) {
+  if (!d) return null;
+  return Math.round((new Date(fmtDate(d)) - new Date(todayISO)) / 86400000);
+}
 
+/* ---------------- Load ---------------- */
 async function load() {
   try {
     const resp = await fetch("data.json?t=" + Date.now(), { cache: "no-store" });
     if (!resp.ok) throw new Error("HTTP " + resp.status);
     state.data = await resp.json();
-  } catch (err) {
-    $("#updated").textContent = "Failed to load data.json";
+  } catch (e) {
     $("#list").innerHTML =
       '<p class="empty">Could not load <code>data.json</code>. Run ' +
       "<code>patch-tracker build-site</code> or wait for the daily Action.</p>";
+    $("#updated").textContent = "Failed to load data";
     return;
   }
-  renderHeader();
-  renderStats();
+  const when = state.data.generated_at ? new Date(state.data.generated_at) : null;
+  $("#updated").innerHTML = "Updated<br>" + (when ? when.toUTCString() : "—");
+  initViewFromHash();
   populatePlatforms();
+  renderViews();
+  wire();
   render();
 }
 
-function renderHeader() {
-  const d = state.data;
-  const when = d.generated_at ? new Date(d.generated_at) : null;
-  $("#updated").textContent = when ? "Updated " + when.toUTCString() : "Updated —";
-  $("#footer-meta").textContent =
-    `${d.patches.length} patches · new window ${d.new_window_days}d`;
-}
-
-function statCard(num, label, cls) {
-  return `<div class="card ${cls || ""}"><div class="num">${num}</div>` +
-    `<div class="label">${label}</div></div>`;
-}
-
-function renderStats() {
-  const s = state.data.stats;
-  const bySrc = s.by_source || {};
-  const kind = s.by_product_kind || {};
-  let html =
-    statCard(s.total_patches, "Patches") +
-    statCard(s.total_cves, "CVEs") +
-    statCard(s.exploited_cves || 0, "Exploited", "alert") +
-    statCard(s.new_cves || 0, `New (${state.data.new_window_days}d)`, "new");
-  if (bySrc["cisa-kev"])
-    html += statCard(bySrc["cisa-kev"], "Third-party zero-days", "alert");
-  if (kind.client) html += statCard(kind.client, "Win client CVEs");
-  if (kind.server) html += statCard(kind.server, "Win server CVEs");
-  html += statCard(bySrc.apple || 0, "Apple");
-  html += statCard(bySrc.microsoft || 0, "Microsoft");
-  $("#stats").innerHTML = html;
+function initViewFromHash() {
+  const h = (location.hash || "").replace("#", "");
+  if (VIEWS.some((v) => v.id === h)) state.view = h;
 }
 
 function populatePlatforms() {
-  const platforms = [...new Set(state.data.patches.map((p) => p.platform)
-    .filter(Boolean))].sort();
+  const set = [...new Set(state.data.patches.map((p) => p.platform).filter(Boolean))].sort();
   const sel = $("#platform");
-  for (const pl of platforms) {
+  for (const pl of set) {
     const o = document.createElement("option");
-    o.value = pl; o.textContent = pl;
-    sel.appendChild(o);
+    o.value = pl; o.textContent = pl; sel.appendChild(o);
   }
 }
 
-function cveFiltersActive() {
-  const f = state.filters;
-  return !!(f.cve || f.minSev || f.minCvss || f.exploited || f.newonly ||
-    f.affected);
+/* ---------------- Sidebar views ---------------- */
+function renderViews() {
+  const nav = $("#views");
+  nav.innerHTML = VIEWS.map((v) => {
+    const n = state.data.patches.filter(v.pred).length;
+    return `<button class="view-btn ${v.id === state.view ? "active" : ""} ${v.danger ? "danger" : ""}"
+      data-view="${v.id}"><span class="vi">${v.icon || "•"}</span>
+      <span>${esc(v.label)}</span><span class="vcount">${n}</span></button>`;
+  }).join("");
+  nav.querySelectorAll(".view-btn").forEach((b) =>
+    b.addEventListener("click", () => setView(b.dataset.view)));
 }
 
+function setView(id) {
+  state.view = id;
+  location.hash = id;
+  renderViews();
+  render();
+}
+
+/* ---------------- KPIs ---------------- */
+function kpi(id, num, label, filterAttr) {
+  return `<div class="kpi k-${id}" data-kpi="${filterAttr || ""}">
+    <div class="kn">${num}</div><div class="kl">${label}</div></div>`;
+}
+function renderKPIs() {
+  const ps = state.data.patches;
+  const s = state.data.stats;
+  const actnow = ps.filter((p) => p.exploited_count > 0 || isOverdue(p)).length;
+  const overdue = ps.filter(isOverdue).length;
+  $("#kpis").innerHTML =
+    kpi("actnow", actnow, "Act now", "actnow") +
+    kpi("exploit", s.exploited_cves || 0, "Exploited CVEs", "exploited") +
+    kpi("crit", s.by_severity?.Critical || 0, "Critical patches", "crit") +
+    kpi("new", s.new_cves || 0, `New CVEs (${state.data.new_window_days}d)`, "new") +
+    kpi("overdue", overdue, "KEV overdue", "overdue") +
+    kpi("total", s.total_patches || 0, "Patches tracked", "");
+  $("#kpis").querySelectorAll(".kpi").forEach((el) =>
+    el.addEventListener("click", () => applyKPI(el.dataset.kpi)));
+}
+function applyKPI(kind) {
+  const f = state.filters;
+  if (kind === "actnow") { setView("actnow"); return; }
+  if (kind === "exploited") { f.exploited = !f.exploited; $("#exploited").checked = f.exploited; }
+  else if (kind === "new") { f.newonly = !f.newonly; $("#newonly").checked = f.newonly; }
+  else if (kind === "crit") { f.minSev = f.minSev === 4 ? 0 : 4; $("#severity").value = f.minSev ? "critical" : ""; }
+  else if (kind === "overdue") { setView("actnow"); return; }
+  render();
+}
+
+/* ---------------- Filtering / sorting ---------------- */
+function cveFiltersActive() {
+  const f = state.filters;
+  return !!(f.cve || f.minSev || f.minCvss || f.exploited || f.newonly || f.affected);
+}
 function cveMatches(c) {
   const f = state.filters;
   if (f.cve && !c.cve_id.toLowerCase().includes(f.cve)) return false;
   if (f.minSev && sevRank(c.severity) < f.minSev) return false;
-  if (f.minCvss && !(c.base_score != null && c.base_score >= f.minCvss))
-    return false;
+  if (f.minCvss && !(c.base_score != null && c.base_score >= f.minCvss)) return false;
   if (f.exploited && !c.exploited) return false;
   if (f.newonly && !c.is_new) return false;
   if (f.affected && !(c.product_kinds || []).includes(f.affected)) return false;
   return true;
 }
-
 function patchMatches(p) {
   const f = state.filters;
-  if (f.source && p.source !== f.source) return false;
   if (f.platform && p.platform !== f.platform) return false;
   if (f.affected && !(p.affected && p.affected[f.affected])) return false;
   if (f.q) {
-    const hay = (p.title + " " + (p.product || "") + " " + p.patch_id)
-      .toLowerCase();
+    const hay = (p.title + " " + (p.product || "") + " " + p.patch_id).toLowerCase();
     if (!hay.includes(f.q)) return false;
   }
   return true;
 }
-
-function computeView() {
+const SORTERS = {
+  priority: (a, b) => (b.patch.priority?.score || 0) - (a.patch.priority?.score || 0),
+  cvss: (a, b) => (b.patch.max_cvss || 0) - (a.patch.max_cvss || 0),
+  date: (a, b) => String(b.patch.release_date || "").localeCompare(String(a.patch.release_date || "")),
+  due: (a, b) => (a.patch.due_date || "9999").localeCompare(b.patch.due_date || "9999"),
+};
+function computeResults() {
+  const view = VIEWS.find((v) => v.id === state.view);
   const active = cveFiltersActive();
   const out = [];
   for (const p of state.data.patches) {
+    if (!view.pred(p)) continue;
     if (!patchMatches(p)) continue;
     const cves = active ? p.cves.filter(cveMatches) : p.cves;
     if (active && cves.length === 0) continue;
     out.push({ patch: p, cves });
   }
-  state.view = out;
+  out.sort(SORTERS[state.sort] || SORTERS.priority);
+  state.results = out;
   return out;
 }
 
-function patchBadges(p) {
+/* ---------------- Badges ---------------- */
+function dueBadge(p) {
+  if (!p.due_date) return "";
+  const d = dueDays(p.due_date);
+  if (d == null) return "";
+  if (d < 0) return `<span class="badge due overdue">KEV overdue ${-d}d</span>`;
+  return `<span class="badge due">KEV due ${d}d</span>`;
+}
+function patchBadges(p, full) {
   let b = `<span class="badge src-${esc(p.source)}">${esc(SOURCE_LABEL[p.source] || p.source)}</span>`;
-  if (p.platform)
-    b += `<span class="badge platform">${esc(p.platform)}</span>`;
-  if (p.severity)
-    b += `<span class="badge ${sevClass(p.severity)}">${esc(p.severity)}</span>`;
-  if (p.exploited_count)
-    b += `<span class="badge exploit">⚠ ${p.exploited_count} exploited</span>`;
-  if (p.new_count)
-    b += `<span class="badge new">${p.new_count} new</span>`;
+  if (p.platform) b += `<span class="badge platform">${esc(p.platform)}</span>`;
+  if (p.severity) b += `<span class="badge ${sevClass(p.severity)}">${esc(p.severity)}</span>`;
+  if (p.exploited_count) b += `<span class="badge exploit">⚠ ${p.exploited_count} exploited</span>`;
+  if (p.ransomware_count) b += `<span class="badge ransom">ransomware</span>`;
+  b += dueBadge(p);
+  if (p.new_count) b += `<span class="badge new">${p.new_count} new</span>`;
   const a = p.affected || {};
-  if (a.client) b += `<span class="badge kind">💻 ${a.client} client</span>`;
-  if (a.server) b += `<span class="badge kind">🖥️ ${a.server} server</span>`;
-  if (p.patch_tuesday)
-    b += `<span class="badge ptues">Patch Tuesday ${fmtDate(p.patch_tuesday)}</span>`;
-  if (p.servicing) {
+  if (a.client) b += `<span class="badge kind">${a.client} client</span>`;
+  if (a.server) b += `<span class="badge kind">${a.server} server</span>`;
+  if (full && p.patch_tuesday) b += `<span class="badge ptues">Patch Tue ${fmtDate(p.patch_tuesday)}</span>`;
+  if (full && p.servicing) {
     const hp = p.servicing.hotpatch || {};
-    const cls = hp.is_hotpatch_month ? "hotpatch" : "cumulative";
-    const txt = hp.is_hotpatch_month ? "Hotpatch · no reboot" : "Cumulative · reboot";
-    b += `<span class="badge ${cls}" title="${esc(hp.note || "")}">${esc(p.servicing.channel)}-release · ${txt}</span>`;
+    b += `<span class="badge ${hp.is_hotpatch_month ? "hotpatch" : "cumulative"}">${esc(p.servicing.channel)}-release · ${hp.is_hotpatch_month ? "hotpatch" : "cumulative"}</span>`;
   }
   return b;
 }
 
+/* ---------------- Cards ---------------- */
+function render() {
+  renderViews();
+  renderKPIs();
+  const view = VIEWS.find((v) => v.id === state.view);
+  $("#view-title").textContent = view.label;
+  $("#view-desc").textContent = view.desc;
+
+  const results = computeResults();
+  const shown = results.reduce((n, r) => n + r.cves.length, 0);
+  $("#resultcount").textContent = `${results.length} patches · ${shown} CVEs`;
+  $("#empty").hidden = results.length !== 0;
+
+  $("#list").innerHTML = results.map(({ patch: p, cves }, i) => {
+    const pr = p.priority || { score: 0, band: "low", reasons: [] };
+    const sub = [p.product, p.version, fmtDate(p.release_date), `${cves.length} CVEs`]
+      .filter(Boolean).join(" · ");
+    const reasons = pr.reasons && pr.reasons.length
+      ? `<div class="preasons">Why: <b>${esc(pr.reasons.join(" · "))}</b></div>` : "";
+    return `<article class="pcard" data-i="${i}" tabindex="0">
+      <div class="rail b-${pr.band}"><span class="score">${pr.score}</span><span class="band">${pr.band}</span></div>
+      <div class="pbody">
+        <div class="pcard-head"><span class="ptitle">${esc(p.title)}</span>
+          <span class="psub">${esc(sub)}</span></div>
+        <div class="pbadges">${patchBadges(p, false)}</div>
+        ${reasons}
+      </div>
+    </article>`;
+  }).join("");
+
+  $("#list").querySelectorAll(".pcard").forEach((el) => {
+    const open = () => openDrawer(results[+el.dataset.i]);
+    el.addEventListener("click", open);
+    el.addEventListener("keydown", (e) => { if (e.key === "Enter") open(); });
+  });
+}
+
+/* ---------------- Detail drawer ---------------- */
 function remediationHTML(p) {
   const r = p.remediation;
   if (!r) return "";
-  let h = `<div class="rem rem-${esc(r.urgency)}">`;
-  h += `<div class="rem-head"><span class="rem-urgency ${esc(r.urgency)}">${esc((r.urgency || "").toUpperCase())}</span>`
-    + ` <span>${esc(r.note)}</span></div>`;
-  h += `<p class="rem-summary">${esc(r.summary)}</p>`;
+  let h = `<div class="rem rem-${esc(r.urgency)}"><div class="rem-head">
+    <span class="rem-urgency ${esc(r.urgency)}">${esc((r.urgency || "").toUpperCase())}</span>
+    <span class="rem-note">${esc(r.note)}</span></div>
+    <div class="rem-summary">${esc(r.summary)}</div>`;
   if (p.servicing) {
     const sv = p.servicing, hp = sv.hotpatch || {};
     h += `<div class="rem-servicing"><b>Windows servicing:</b> ${esc(sv.channel_label)}.
@@ -182,184 +277,150 @@ function remediationHTML(p) {
   }
   if (r.links && r.links.length) {
     h += `<div class="rem-links">` + r.links.map((l) =>
-      `<a class="btn btn-link" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`)
-      .join("") + `</div>`;
+      `<a class="btn-link" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`).join("") + `</div>`;
   }
   return h + `</div>`;
 }
-
-function cveRows(cves) {
-  return cves.slice().sort((a, b) =>
-    (b.exploited - a.exploited) || (b.is_new - a.is_new) ||
-    (sevRank(b.severity) - sevRank(a.severity)))
+function cveTable(cves) {
+  const rows = cves.slice().sort((a, b) =>
+    (b.exploited - a.exploited) || (b.is_new - a.is_new) || (sevRank(b.severity) - sevRank(a.severity)) ||
+    ((b.base_score || 0) - (a.base_score || 0)))
     .map((c) => {
       const url = c.url || ("https://nvd.nist.gov/vuln/detail/" + c.cve_id);
-      const kinds = (c.product_kinds || []).join(", ") || "—";
-      return `<tr class="${c.exploited ? "exploited" : ""}">` +
-        `<td class="cve"><a href="${esc(url)}" target="_blank" rel="noopener">${esc(c.cve_id)}</a></td>` +
-        `<td>${esc(c.severity || "—")}</td>` +
-        `<td>${c.base_score != null ? esc(c.base_score) : "—"}</td>` +
-        `<td>${esc(c.impact || "—")}</td>` +
-        `<td>${c.exploited ? '<span class="pill yes">exploited</span>' : "—"}</td>` +
-        `<td>${c.is_new ? '<span class="pill new">new</span>' : "—"}</td>` +
-        `<td>${esc(kinds)}</td></tr>`;
+      const due = c.due_date ? (dueDays(c.due_date) < 0
+        ? `<span class="pill overdue">overdue</span>` : fmtDate(c.due_date)) : "—";
+      return `<tr class="${c.exploited ? "exploited" : ""}">
+        <td class="cve"><a href="${esc(url)}" target="_blank" rel="noopener">${esc(c.cve_id)}</a></td>
+        <td><span class="sevdot ${sevClass(c.severity)}"></span>${esc(c.severity || "—")}</td>
+        <td>${c.base_score != null ? esc(c.base_score) : "—"}</td>
+        <td>${c.exploited ? '<span class="pill yes">exploited</span>' : "—"}${c.ransomware ? ' <span class="pill ransom">ransom</span>' : ""}</td>
+        <td>${due}</td>
+        <td>${c.is_new ? '<span class="pill new">new</span>' : "—"}</td>
+        <td>${esc((c.product_kinds || []).join(", ") || "—")}</td>
+        <td>${esc(c.impact || "—")}</td></tr>`;
     }).join("");
+  return `<table class="cvetable"><thead><tr><th>CVE</th><th>Severity</th><th>CVSS</th>
+    <th>Exploited</th><th>KEV due</th><th>New</th><th>Affected</th><th>Impact</th></tr></thead>
+    <tbody>${rows}</tbody></table>`;
 }
-
-function render() {
-  const view = computeView();
-  const list = $("#list");
-  const shownCves = view.reduce((n, v) => n + v.cves.length, 0);
-  $("#resultcount").textContent =
-    `${view.length} of ${state.data.patches.length} patches · ${shownCves} CVEs shown`;
-  $("#empty").hidden = view.length !== 0;
-  const filtered = cveFiltersActive();
-
-  list.innerHTML = view.map(({ patch: p, cves }) => {
-    const cveLabel = filtered && cves.length !== p.cve_count
-      ? `${cves.length} of ${p.cve_count} CVEs` : `${p.cve_count} CVEs`;
-    const sub = [p.product, p.version, "released " + fmtDate(p.release_date),
-      cveLabel].filter(Boolean).join(" · ");
-    return `<div class="patch${filtered ? " open" : ""}">
-      <div class="patch-head">
-        <span class="chev">▶</span>
-        <span class="patch-title">${esc(p.title)}
-          <span class="patch-sub">${esc(sub)}</span></span>
-        ${patchBadges(p)}
-      </div>
-      <div class="cves">
-        ${remediationHTML(p)}
-        <table>
-          <thead><tr><th>CVE</th><th>Severity</th><th>CVSS</th>
-            <th>Impact</th><th>Exploited</th><th>New</th>
-            <th>Affected</th></tr></thead>
-          <tbody>${cveRows(cves)}</tbody>
-        </table>
-      </div>
+function openDrawer({ patch: p, cves }) {
+  const pr = p.priority || { score: 0, band: "low" };
+  const drawer = $("#drawer");
+  drawer.innerHTML = `
+    <div class="drawer-head">
+      <div class="dh-score rail b-${pr.band}" style="border-radius:10px">
+        <span style="font-size:18px">${pr.score}</span></div>
+      <div><h2>${esc(p.title)}</h2>
+        <div class="psub">${esc(SOURCE_LABEL[p.source] || p.source)} · ${esc(p.platform || "")} · released ${fmtDate(p.release_date)}</div></div>
+      <button class="drawer-close" id="drawer-close" aria-label="Close">✕</button>
+    </div>
+    <div class="drawer-body">
+      <div class="pbadges">${patchBadges(p, true)}</div>
+      <div class="section-title">Remediation</div>
+      ${remediationHTML(p)}
+      <div class="section-title">Vulnerabilities (${cves.length})</div>
+      ${cveTable(cves)}
     </div>`;
-  }).join("");
-
-  list.querySelectorAll(".patch-head").forEach((head) => {
-    head.addEventListener("click", () =>
-      head.parentElement.classList.toggle("open"));
-  });
+  drawer.hidden = false;
+  $("#overlay").hidden = false;
+  document.body.style.overflow = "hidden";
+  $("#drawer-close").addEventListener("click", closeDrawer);
+}
+function closeDrawer() {
+  $("#drawer").hidden = true;
+  $("#overlay").hidden = true;
+  document.body.style.overflow = "";
 }
 
-/* ---------------------------- Export ---------------------------- */
-
-function download(filename, mime, content) {
-  const blob = new Blob([content], { type: mime });
-  const url = URL.createObjectURL(blob);
+/* ---------------- Export ---------------- */
+function download(name, mime, content) {
+  const url = URL.createObjectURL(new Blob([content], { type: mime }));
   const a = document.createElement("a");
-  a.href = url; a.download = filename;
-  document.body.appendChild(a); a.click(); a.remove();
+  a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 const stamp = () => new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-");
-function csvCell(v) {
-  const s = v == null ? "" : String(v);
-  return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
-}
-
+const csvCell = (v) => { const s = v == null ? "" : String(v);
+  return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
 function exportCSV() {
-  const head = ["patch_id", "source", "platform", "patch_title", "release_date",
-    "patch_tuesday", "servicing", "patch_severity", "cve_id", "cve_severity",
-    "cvss", "exploited", "new", "affected_kinds", "impact", "first_seen"];
+  const head = ["priority", "band", "patch_id", "source", "platform", "patch_title",
+    "release_date", "due_date", "cve_id", "severity", "cvss", "exploited",
+    "ransomware", "new", "affected_kinds", "impact"];
   const lines = [head.join(",")];
-  for (const { patch: p, cves } of state.view) {
-    const sv = p.servicing ? (p.servicing.hotpatch || {}).update_type : "";
-    for (const c of cves) {
-      lines.push([p.patch_id, p.source, p.platform, p.title,
-        fmtDate(p.release_date), p.patch_tuesday || "", sv, p.severity || "",
-        c.cve_id, c.severity || "", c.base_score != null ? c.base_score : "",
-        c.exploited, c.is_new, (c.product_kinds || []).join("|"),
-        c.impact || "", c.first_seen || ""].map(csvCell).join(","));
-    }
+  for (const { patch: p, cves } of state.results) {
+    const pr = p.priority || {};
+    for (const c of cves) lines.push([pr.score, pr.band, p.patch_id, p.source,
+      p.platform, p.title, fmtDate(p.release_date), c.due_date || "", c.cve_id,
+      c.severity || "", c.base_score != null ? c.base_score : "", c.exploited,
+      c.ransomware, c.is_new, (c.product_kinds || []).join("|"), c.impact || ""]
+      .map(csvCell).join(","));
   }
-  download(`patch-tracker-${stamp()}.csv`, "text/csv", lines.join("\n") + "\n");
+  download(`patch-tracker-${state.view}-${stamp()}.csv`, "text/csv", lines.join("\n") + "\n");
 }
-
 function exportJSON() {
-  const payload = {
-    generated_at: state.data.generated_at,
-    exported_at: new Date().toISOString(),
-    filters: state.filters,
-    patches: state.view.map(({ patch, cves }) => ({ ...patch, cves })),
-  };
-  download(`patch-tracker-${stamp()}.json`, "application/json",
-    JSON.stringify(payload, null, 2));
+  download(`patch-tracker-${state.view}-${stamp()}.json`, "application/json",
+    JSON.stringify({ generated_at: state.data.generated_at, exported_at: new Date().toISOString(),
+      view: state.view, filters: state.filters,
+      patches: state.results.map(({ patch, cves }) => ({ ...patch, cves })) }, null, 2));
 }
-
 function exportHTML() {
-  const sections = state.view.map(({ patch: p, cves }) => {
-    const rem = p.remediation ? remediationHTML(p) : "";
-    const rows = cves.map((c) => `<tr class="${c.exploited ? "x" : ""}">
-      <td>${esc(c.cve_id)}</td><td>${esc(c.severity || "—")}</td>
-      <td>${c.base_score != null ? esc(c.base_score) : "—"}</td>
-      <td>${esc(c.impact || "—")}</td><td>${c.exploited ? "yes" : ""}</td>
-      <td>${c.is_new ? "new" : ""}</td>
-      <td>${esc((c.product_kinds || []).join(", ") || "—")}</td></tr>`).join("");
-    return `<h2>${esc(p.title)} <small>${esc(SOURCE_LABEL[p.source] || p.source)}
-      · ${esc(p.platform || "")} · ${fmtDate(p.release_date)}</small></h2>
-      ${rem}
-      <table><thead><tr><th>CVE</th><th>Severity</th><th>CVSS</th><th>Impact</th>
-      <th>Exploited</th><th>New</th><th>Affected</th></tr></thead>
-      <tbody>${rows}</tbody></table>`;
+  const sec = state.results.map(({ patch: p, cves }) => {
+    const pr = p.priority || {};
+    const rows = cves.map((c) => `<tr class="${c.exploited ? "x" : ""}"><td>${esc(c.cve_id)}</td>
+      <td>${esc(c.severity || "—")}</td><td>${c.base_score != null ? esc(c.base_score) : "—"}</td>
+      <td>${c.exploited ? "yes" : ""}</td><td>${c.due_date ? fmtDate(c.due_date) : ""}</td>
+      <td>${c.is_new ? "new" : ""}</td><td>${esc((c.product_kinds || []).join(", ") || "—")}</td>
+      <td>${esc(c.impact || "—")}</td></tr>`).join("");
+    const rem = (p.remediation?.sections || []).map((s) =>
+      `<p><b>${esc(s.audience)}</b></p><ul>${s.steps.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>`).join("");
+    return `<h2>[${pr.score} ${pr.band}] ${esc(p.title)} <small>${esc(SOURCE_LABEL[p.source] || p.source)} ·
+      ${esc(p.platform || "")} · ${fmtDate(p.release_date)}${p.due_date ? " · KEV due " + fmtDate(p.due_date) : ""}</small></h2>
+      <p><b>${esc((p.remediation?.urgency || "").toUpperCase())}</b> — ${esc(p.remediation?.note || "")}</p>${rem}
+      <table><thead><tr><th>CVE</th><th>Sev</th><th>CVSS</th><th>Exploited</th><th>KEV due</th>
+      <th>New</th><th>Affected</th><th>Impact</th></tr></thead><tbody>${rows}</tbody></table>`;
   }).join("");
-  const doc = `<!DOCTYPE html><html><head><meta charset="utf-8">
-<title>Patch Tracker report ${stamp()}</title><style>
-body{font-family:system-ui,Segoe UI,Arial,sans-serif;margin:24px;color:#16202c}
-h1{margin:0 0 4px} .meta{color:#667;margin-bottom:18px;font-size:14px}
+  download(`patch-tracker-${state.view}-${stamp()}.html`, "text/html",
+    `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Patch Tracker — ${esc(state.view)}</title>
+<style>body{font-family:system-ui,Segoe UI,Arial,sans-serif;margin:24px;color:#16202c}
+h1{margin:0 0 4px}.meta{color:#667;font-size:14px;margin-bottom:18px}
 h2{margin:22px 0 6px;font-size:16px;border-bottom:2px solid #e3e8ee;padding-bottom:4px}
-h2 small{font-weight:400;color:#789;font-size:12px}
-.rem{border-left:4px solid #888;background:#f7f9fb;padding:8px 12px;margin:8px 0;border-radius:4px;font-size:13px}
-.rem-critical{border-color:#d23;background:#fdecec}.rem-high{border-color:#e8910c;background:#fff6e8}
-.rem .aud{font-weight:600;margin:6px 0 2px}.rem ul{margin:2px 0 8px 18px}
-.rem-urgency{font-weight:700}.rem-servicing{margin:4px 0;font-size:12px}
-.rem-links a{margin-right:8px} .muted{color:#789}
-table{border-collapse:collapse;width:100%;font-size:13px;margin-bottom:8px}
-th,td{border:1px solid #dce3ea;padding:5px 8px;text-align:left}
-th{background:#f3f6f9} tr.x{background:#fdecec}
-</style></head><body>
-<h1>🛡️ Patch Tracker report</h1>
-<div class="meta">Generated ${esc(new Date().toUTCString())} · data updated
-  ${esc(state.data.generated_at)} · ${state.view.length} patches ·
-  ${state.view.reduce((n, v) => n + v.cves.length, 0)} CVEs</div>
-${sections || "<p>No patches match the current filters.</p>"}
-</body></html>`;
-  download(`patch-tracker-${stamp()}.html`, "text/html", doc);
+h2 small{font-weight:400;color:#789;font-size:12px}ul{margin:4px 0 8px 18px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:6px 0 8px}
+th,td{border:1px solid #dce3ea;padding:5px 8px;text-align:left}th{background:#f3f6f9}tr.x{background:#fdecec}
+</style></head><body><h1>Patch Tracker report — ${esc(state.view)}</h1>
+<div class="meta">Generated ${esc(new Date().toUTCString())} · data updated ${esc(state.data.generated_at)} ·
+${state.results.length} patches</div>${sec || "<p>No matches.</p>"}</body></html>`);
 }
 
-/* ---------------------------- Controls ---------------------------- */
-
-function wireControls() {
+/* ---------------- Wire up ---------------- */
+function wire() {
   const f = state.filters;
   const on = (id, ev, fn) => $(id).addEventListener(ev, fn);
   on("#search", "input", (e) => { f.q = e.target.value.trim().toLowerCase(); render(); });
   on("#cve", "input", (e) => { f.cve = e.target.value.trim().toLowerCase(); render(); });
-  on("#source", "change", (e) => { f.source = e.target.value; render(); });
   on("#platform", "change", (e) => { f.platform = e.target.value; render(); });
   on("#affected", "change", (e) => { f.affected = e.target.value; render(); });
   on("#severity", "change", (e) => { f.minSev = sevRank(e.target.value); render(); });
   on("#cvss", "input", (e) => { f.minCvss = parseFloat(e.target.value) || 0; render(); });
   on("#exploited", "change", (e) => { f.exploited = e.target.checked; render(); });
   on("#newonly", "change", (e) => { f.newonly = e.target.checked; render(); });
+  on("#sort", "change", (e) => { state.sort = e.target.value; render(); });
   on("#reset", "click", () => {
-    Object.assign(f, { q: "", cve: "", source: "", platform: "", affected: "",
-      minSev: 0, minCvss: 0, exploited: false, newonly: false });
-    for (const el of document.querySelectorAll(".controls input, .controls select")) {
-      if (el.type === "checkbox") el.checked = false; else el.value = "";
+    Object.assign(f, { q: "", cve: "", platform: "", affected: "", minSev: 0,
+      minCvss: 0, exploited: false, newonly: false });
+    for (const el of document.querySelectorAll(".toolbar input, .toolbar select")) {
+      if (el.type === "checkbox") el.checked = false;
+      else if (el.id !== "sort") el.value = "";
     }
     render();
   });
-  document.querySelectorAll("[data-export]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const k = btn.getAttribute("data-export");
-      if (k === "csv") exportCSV(); else if (k === "json") exportJSON();
-      else if (k === "html") exportHTML();
-    });
-  });
+  document.querySelectorAll("[data-export]").forEach((b) => b.addEventListener("click", () => {
+    const k = b.dataset.export;
+    if (k === "csv") exportCSV(); else if (k === "json") exportJSON(); else exportHTML();
+  }));
+  $("#overlay").addEventListener("click", closeDrawer);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
+  window.addEventListener("hashchange", () => { initViewFromHash(); render(); });
 }
 
-wireControls();
 load();

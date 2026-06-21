@@ -86,16 +86,18 @@ def parse_feed(
                 patch_id=patch_id,
                 source=SOURCE,
                 # KEV doesn't carry CVSS; flag ransomware-linked as Critical.
-                severity="Critical" if ransomware else None,
+                severity="Critical" if ransomware else "High",
                 impact=i.get("vulnerabilityName"),
                 exploited=True,                 # KEV == exploited in the wild
                 publicly_disclosed=True,
                 url=f"https://nvd.nist.gov/vuln/detail/{i['cveID']}",
                 first_seen=i.get("dateAdded"),
+                due_date=i.get("dueDate"),
+                ransomware=ransomware,
                 products=[{"name": label, "kind": "other"}],
             ))
 
-        patches.append(Patch(
+        patch = Patch(
             source=SOURCE,
             patch_id=patch_id,
             title=label,
@@ -105,7 +107,9 @@ def parse_feed(
             url="https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
             fetched_at=fetched_at,
             cves=cves,
-        ))
+        )
+        patch.recompute_severity()
+        patches.append(patch)
     return patches
 
 

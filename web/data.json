@@ -1,26 +1,28 @@
 {
-  "generated_at": "2026-06-21T17:03:18+00:00",
+  "generated_at": "2026-06-21T17:29:59+00:00",
   "new_window_days": 7,
   "stats": {
-    "total_patches": 6,
-    "total_cves": 8,
+    "total_patches": 7,
+    "total_cves": 10,
     "exploited_cves": 5,
     "by_source": {
       "apple": 2,
       "cisa-kev": 3,
-      "microsoft": 1
+      "microsoft": 1,
+      "nvd": 1
     },
     "by_status": {
-      "new": 6
+      "new": 7
     },
     "by_severity": {
-      "unknown": 5,
-      "Critical": 1
+      "unknown": 2,
+      "Critical": 3,
+      "High": 2
     },
     "new_cves": 5,
     "by_product_kind": {
       "client": 2,
-      "other": 3,
+      "other": 5,
       "server": 1
     }
   },
@@ -53,6 +55,19 @@
       "cve_count": 2,
       "exploited_count": 1,
       "new_count": 2,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": 8.8,
+      "due_date": null,
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "critical severity"
+        ]
+      },
       "affected": {
         "client": 2,
         "server": 1,
@@ -112,6 +127,8 @@
           "impact": "Remote Code Execution",
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30000",
           "first_seen": "2026-06-21",
+          "due_date": null,
+          "ransomware": false,
           "is_new": true,
           "product_kinds": [
             "client",
@@ -131,12 +148,109 @@
           "impact": "Elevation of Privilege",
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30001",
           "first_seen": "2026-06-21",
+          "due_date": null,
+          "ransomware": false,
           "is_new": true,
           "product_kinds": [
             "client"
           ],
           "products": [
             "Windows 11 Version 24H2 for x64-based Systems"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "nvd:Adobe",
+      "source": "nvd",
+      "platform": "Adobe",
+      "title": "Adobe",
+      "product": "Adobe",
+      "version": null,
+      "release_date": "2025-06-10",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://nvd.nist.gov/vuln/search/results?query=Adobe",
+      "severity": "Critical",
+      "status": "new",
+      "cve_count": 2,
+      "exploited_count": 0,
+      "new_count": 0,
+      "ransomware_count": 0,
+      "disclosed_count": 0,
+      "max_cvss": 9.1,
+      "due_date": null,
+      "priority": {
+        "score": 58,
+        "band": "high",
+        "reasons": [
+          "critical severity"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 2
+      },
+      "remediation": {
+        "summary": "Patch Adobe to the vendor's fixed release (recent high/critical CVEs from NVD).",
+        "urgency": "high",
+        "note": "Critical-severity fixes included \u2014 schedule promptly.",
+        "links": [
+          {
+            "label": "NVD advisories",
+            "url": "https://nvd.nist.gov/vuln/search/results?query=Adobe"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Adobe (all installs)",
+            "icon": "\ud83e\udde9",
+            "steps": [
+              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
+              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
+              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2025-43500",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Acrobat Reader versions 24.x and earlier are affected by a use-after-free vulnerability that could result in arbitrary code execution in the context of th\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-43500",
+          "first_seen": "2025-06-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2025-43501",
+          "severity": "Critical",
+          "base_score": 9.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Photoshop out-of-bounds write could lead to code execution.",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-43501",
+          "first_seen": "2025-06-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
           ]
         }
       ]
@@ -152,11 +266,23 @@
       "patch_tuesday": null,
       "servicing": null,
       "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": null,
+      "severity": "High",
       "status": "new",
       "cve_count": 1,
       "exploited_count": 1,
       "new_count": 0,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2025-06-26",
+      "priority": {
+        "score": 98,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "KEV overdue by 360d"
+        ]
+      },
       "affected": {
         "client": 0,
         "server": 0,
@@ -187,13 +313,15 @@
       "cves": [
         {
           "cve_id": "CVE-2025-5419",
-          "severity": null,
+          "severity": "High",
           "base_score": null,
           "exploited": true,
           "publicly_disclosed": true,
           "impact": "Google Chromium V8 Out-of-Bounds Read and Write Vulnerability",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-5419",
           "first_seen": "2025-06-05",
+          "due_date": "2025-06-26",
+          "ransomware": false,
           "is_new": false,
           "product_kinds": [
             "other"
@@ -215,11 +343,25 @@
       "patch_tuesday": null,
       "servicing": null,
       "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": null,
+      "severity": "Critical",
       "status": "new",
       "cve_count": 1,
       "exploited_count": 1,
       "new_count": 0,
+      "ransomware_count": 1,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2025-06-25",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "ransomware-linked",
+          "critical severity",
+          "KEV overdue by 361d"
+        ]
+      },
       "affected": {
         "client": 0,
         "server": 0,
@@ -257,6 +399,8 @@
           "impact": "Adobe Acrobat Reader Use-After-Free Vulnerability",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-1234",
           "first_seen": "2025-06-04",
+          "due_date": "2025-06-25",
+          "ransomware": true,
           "is_new": false,
           "product_kinds": [
             "other"
@@ -278,11 +422,23 @@
       "patch_tuesday": null,
       "servicing": null,
       "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": null,
+      "severity": "High",
       "status": "new",
       "cve_count": 1,
       "exploited_count": 1,
       "new_count": 0,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2025-06-24",
+      "priority": {
+        "score": 98,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "KEV overdue by 362d"
+        ]
+      },
       "affected": {
         "client": 0,
         "server": 0,
@@ -313,13 +469,15 @@
       "cves": [
         {
           "cve_id": "CVE-2025-2857",
-          "severity": null,
+          "severity": "High",
           "base_score": null,
           "exploited": true,
           "publicly_disclosed": true,
           "impact": "Mozilla Firefox Sandbox Escape Vulnerability",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-2857",
           "first_seen": "2025-06-03",
+          "due_date": "2025-06-24",
+          "ransomware": false,
           "is_new": false,
           "product_kinds": [
             "other"
@@ -346,6 +504,18 @@
       "cve_count": 2,
       "exploited_count": 1,
       "new_count": 2,
+      "ransomware_count": 0,
+      "disclosed_count": 0,
+      "max_cvss": null,
+      "due_date": null,
+      "priority": {
+        "score": 60,
+        "band": "high",
+        "reasons": [
+          "actively exploited",
+          "newly released"
+        ]
+      },
       "affected": {
         "client": 0,
         "server": 0,
@@ -383,6 +553,8 @@
           "impact": null,
           "url": "https://support.apple.com/en-us/100100",
           "first_seen": "2026-06-21",
+          "due_date": null,
+          "ransomware": false,
           "is_new": true,
           "product_kinds": [],
           "products": []
@@ -396,6 +568,8 @@
           "impact": null,
           "url": "https://support.apple.com/en-us/100100",
           "first_seen": "2026-06-21",
+          "due_date": null,
+          "ransomware": false,
           "is_new": true,
           "product_kinds": [],
           "products": []
@@ -418,6 +592,17 @@
       "cve_count": 1,
       "exploited_count": 0,
       "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 0,
+      "max_cvss": null,
+      "due_date": null,
+      "priority": {
+        "score": 15,
+        "band": "low",
+        "reasons": [
+          "newly released"
+        ]
+      },
       "affected": {
         "client": 0,
         "server": 0,
@@ -455,6 +640,8 @@
           "impact": null,
           "url": "https://support.apple.com/en-us/100099",
           "first_seen": "2026-06-21",
+          "due_date": null,
+          "ransomware": false,
           "is_new": true,
           "product_kinds": [],
           "products": []

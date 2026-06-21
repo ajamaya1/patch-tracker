@@ -7,10 +7,18 @@ a static web dashboard to GitHub Pages.
 
 Sources:
 
-| Source | Vendor | Feed |
-| ------ | ------ | ---- |
+| Source | Coverage | Feed |
+| ------ | -------- | ---- |
 | **SOFA** | Apple | [`sofa.macadmins.io`](https://sofa.macadmins.io) — macOS/iOS security releases & actively-exploited CVEs |
-| **MSRC CVRF v3.0** | Microsoft | [`api.msrc.microsoft.com`](https://github.com/Microsoft/MSRC-Microsoft-Security-Updates-API) — monthly "Patch Tuesday" security updates |
+| **MSRC CVRF v3.0** | Microsoft | [`api.msrc.microsoft.com`](https://github.com/Microsoft/MSRC-Microsoft-Security-Updates-API) — monthly "Patch Tuesday" updates, with Windows **client vs. server** breakdown and **hotpatch / B-release** servicing |
+| **CISA KEV** | Third-party zero-days | [`cisa.gov`](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) — actively-exploited vulns across Chrome, Firefox, Adobe, … with BOD 22-01 **due dates** |
+| **NVD CVE API 2.0** | Third-party advisories | [`services.nvd.nist.gov`](https://nvd.nist.gov/developers/vulnerabilities) — recent high/critical CVEs per vendor (Adobe, Cisco, Fortinet, …) with CVSS |
+
+The web UI is a **vulnerability-triage console**: a left rail of views
+(Priority queue · Act now · Exploited/KEV · Windows · Apple · Third-party),
+a clickable KPI bar, **risk-ranked** cards (priority score from exploitation,
+CVSS, severity, recency and KEV deadline), and a detail drawer with full
+remediation guidance and a CVE table.
 
 Both feeds are normalized into a common model — a **patch** (a released
 update) that fixes one or more **CVEs** — and stored in a local SQLite

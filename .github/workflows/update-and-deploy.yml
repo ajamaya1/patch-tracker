@@ -58,6 +58,10 @@ jobs:
         continue-on-error: true
         run: patch-tracker --db data/patches.db fetch --source kev
 
+      - name: Fetch third-party advisories (NVD — Adobe, Cisco, …)
+        continue-on-error: true
+        run: patch-tracker --db data/patches.db fetch --source nvd --nvd-days 30
+
       - name: Build dashboard data
         run: patch-tracker --db data/patches.db build-site --out web/data.json --new-days 7
 

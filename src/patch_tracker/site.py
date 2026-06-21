@@ -19,7 +19,52 @@ import os
 from typing import Optional
 
 from .db import Database
+from .models import severity_rank
 from .patch_tuesday import patch_tuesday_for_update_id
+
+_SEV_POINTS = {4: 40, 3: 28, 2: 14, 1: 5, 0: 0}
+
+
+def _priority_score(severity, exploited_count, new_count, max_cvss,
+                    ransomware_count, earliest_due, now) -> dict:
+    """Compute a 0-100 remediation-priority score and band with reasons.
+
+    Models how a vulnerability-management engineer triages: active
+    exploitation and ransomware dominate, then CVSS/severity, then recency and
+    any CISA KEV deadline (overdue items are escalated hard).
+    """
+    score = 0
+    reasons = []
+    score += _SEV_POINTS.get(severity_rank(severity), 0)
+    if max_cvss:
+        score += round(max_cvss * 2)            # 0-20
+    if exploited_count:
+        score += 45
+        reasons.append("actively exploited")
+    if ransomware_count:
+        score += 12
+        reasons.append("ransomware-linked")
+    if new_count:
+        score += 15
+        reasons.append("newly released")
+    if severity_rank(severity) >= 4:
+        reasons.append("critical severity")
+    if earliest_due:
+        try:
+            due = _dt.date.fromisoformat(earliest_due[:10])
+            days = (due - now.date()).days
+            if days < 0:
+                score += 25
+                reasons.append(f"KEV overdue by {-days}d")
+            elif days <= 7:
+                score += 12
+                reasons.append(f"KEV due in {days}d")
+        except ValueError:
+            pass
+    score = max(0, min(100, score))
+    band = ("critical" if score >= 70 else "high" if score >= 45
+            else "medium" if score >= 20 else "low")
+    return {"score": score, "band": band, "reasons": reasons[:4]}
 
 # Windows hotpatch baseline months: Jan/Apr/Jul/Oct ship a full cumulative
 # update (reboot); the two months in between are hotpatch-only (no reboot) for
@@ -188,7 +233,25 @@ def remediation_for(
             "label": "CISA KEV catalog",
             "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
         })
-    else:
+    elif source == "nvd":
+        summary = (f"Patch {title} to the vendor's fixed release "
+                   "(recent high/critical CVEs from NVD).")
+        sections.append({
+            "audience": f"{title} (all installs)",
+            "icon": "🧩",
+            "steps": [
+                "Identify affected versions in your estate (software inventory "
+                "/ SBOM) and upgrade to the vendor's patched build.",
+                "Managed fleets: deploy via your software-deployment tool "
+                "(Intune, Jamf, SCCM, WSUS-imported) and enforce an app "
+                "restart; remove end-of-life versions.",
+                "Subscribe to the vendor's PSIRT/security advisories so future "
+                "fixes are caught early; prioritise internet-facing systems.",
+            ],
+        })
+        if url:
+            links.append({"label": "NVD advisories", "url": url})
+    elif source == "apple":
         target = (f"{product} {version}".strip() if product else title) or title
         path = _UPDATE_PATH.get(platform, "Software Update")
         summary = f"Update affected {platform} devices to {target}."
@@ -230,6 +293,8 @@ def platform_for(source: str, product: Optional[str], title: Optional[str]) -> s
     if source == "cisa-kev":
         # For third-party zero-days the vendor is the most useful grouping.
         return product or "Third-party"
+    if source == "nvd":
+        return product or title or "Third-party"
     text = f"{product or ''} {title or ''}".lower()
     if "ipados" in text:
         return "iPadOS"
@@ -287,6 +352,8 @@ def build_payload(
                 "impact": c["impact"],
                 "url": c["url"],
                 "first_seen": c["first_seen"],
+                "due_date": c["due_date"],
+                "ransomware": bool(c["ransomware"]),
                 "is_new": is_new,
                 "product_kinds": kinds,
                 "products": [pr["name"] for pr in prods],
@@ -307,6 +374,16 @@ def build_payload(
             p["url"], p["exploited_count"], p["severity"], affected,
         )
 
+        due_dates = [c["due_date"] for c in cves if c["due_date"]]
+        ransomware_count = sum(1 for c in cves if c["ransomware"])
+        disclosed_count = sum(1 for c in cves if c["publicly_disclosed"])
+        max_cvss = max((c["base_score"] for c in cves
+                        if c["base_score"] is not None), default=None)
+        priority = _priority_score(
+            p["severity"], p["exploited_count"], new_count, max_cvss,
+            ransomware_count, min(due_dates) if due_dates else None, now,
+        )
+
         patches.append({
             "patch_id": p["patch_id"],
             "source": p["source"],
@@ -323,6 +400,11 @@ def build_payload(
             "cve_count": p["cve_count"],
             "exploited_count": p["exploited_count"],
             "new_count": new_count,
+            "ransomware_count": ransomware_count,
+            "disclosed_count": disclosed_count,
+            "max_cvss": max_cvss,
+            "due_date": min(due_dates) if due_dates else None,
+            "priority": priority,
             "affected": affected,
             "remediation": remediation,
             "cves": cves,

@@ -3,82 +3,85 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Patch Tracker — Apple &amp; Microsoft security updates</title>
+  <title>Patch Tracker — vulnerability triage</title>
   <meta name="description"
-        content="Daily-updated dashboard of Apple (SOFA) and Microsoft (MSRC) security patches and CVEs." />
+        content="Risk-ranked Apple, Microsoft and third-party security patches with remediation guidance, refreshed daily." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <h1>🛡️ Patch Tracker</h1>
-      <div class="updated" id="updated">Loading…</div>
-    </div>
-    <p class="subtitle">
-      Apple (SOFA) &amp; Microsoft (MSRC) security updates, refreshed daily by
-      GitHub Actions.
-    </p>
-  </header>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">▦</span>
+        <span class="brand-text">Patch&nbsp;Tracker<small>vulnerability triage</small></span>
+      </div>
 
-  <main class="container">
-    <section class="cards" id="stats" aria-label="Summary statistics"></section>
+      <nav class="views" id="views" aria-label="Views"></nav>
 
-    <div class="sticky-filters">
-    <section class="controls" aria-label="Filters">
-      <input type="search" id="search" placeholder="Search title / product…"
-             autocomplete="off" />
-      <input type="search" id="cve" placeholder="CVE id…" autocomplete="off" />
-      <select id="source">
-        <option value="">All sources</option>
-        <option value="apple">Apple</option>
-        <option value="microsoft">Microsoft</option>
-        <option value="cisa-kev">Third-party (CISA KEV)</option>
-      </select>
-      <select id="platform" title="Platform / vendor">
-        <option value="">All platforms</option>
-      </select>
-      <select id="affected" title="Windows client vs server">
-        <option value="">Client + server</option>
-        <option value="client">Windows client</option>
-        <option value="server">Windows server</option>
-      </select>
-      <select id="severity" title="Minimum severity">
-        <option value="">Any severity</option>
-        <option value="critical">Critical</option>
-        <option value="important">Important+</option>
-        <option value="moderate">Moderate+</option>
-        <option value="low">Low+</option>
-      </select>
-      <input type="number" id="cvss" min="0" max="10" step="0.1"
-             placeholder="Min CVSS" class="num-input" />
-      <label class="check">
-        <input type="checkbox" id="exploited" /> Exploited only
-      </label>
-      <label class="check">
-        <input type="checkbox" id="newonly" /> New only
-      </label>
-      <button type="button" id="reset" class="btn-ghost">Reset</button>
-    </section>
+      <div class="side-foot">
+        <div class="legend">
+          <div class="legend-title">Sources</div>
+          <div class="legend-row"><span class="dot src-apple"></span>Apple · SOFA</div>
+          <div class="legend-row"><span class="dot src-microsoft"></span>Microsoft · MSRC</div>
+          <div class="legend-row"><span class="dot src-cisa-kev"></span>CISA KEV · zero-days</div>
+          <div class="legend-row"><span class="dot src-nvd"></span>NVD · third-party</div>
+        </div>
+        <div class="updated" id="updated">Loading…</div>
+      </div>
+    </aside>
 
-    <section class="toolbar" aria-label="Export">
-      <span class="count" id="resultcount"></span>
-      <span class="export-group">
-        <span class="export-label">Export filtered:</span>
-        <button type="button" class="btn" data-export="csv">CSV</button>
-        <button type="button" class="btn" data-export="json">JSON</button>
-        <button type="button" class="btn" data-export="html">HTML</button>
-      </span>
-    </section>
-    </div>
+    <main class="main">
+      <header class="main-head">
+        <div class="head-title">
+          <h1 id="view-title">Priority queue</h1>
+          <p id="view-desc" class="muted"></p>
+        </div>
+        <div class="head-actions">
+          <span class="export-label">Export view</span>
+          <button class="btn" data-export="csv">CSV</button>
+          <button class="btn" data-export="json">JSON</button>
+          <button class="btn" data-export="html">HTML</button>
+        </div>
+      </header>
 
-    <section id="list" class="list" aria-live="polite"></section>
-    <p id="empty" class="empty" hidden>No patches match your filters.</p>
-  </main>
+      <section class="kpis" id="kpis" aria-label="Risk summary"></section>
 
-  <footer class="footer">
-    <span id="footer-meta"></span>
-    <a href="https://github.com/ajamaya1/patch-tracker">Source on GitHub</a>
-  </footer>
+      <section class="toolbar" aria-label="Filters">
+        <input type="search" id="search" placeholder="Search title / product…" autocomplete="off" />
+        <input type="search" id="cve" placeholder="CVE id…" autocomplete="off" />
+        <select id="platform" title="Platform / vendor"><option value="">All platforms</option></select>
+        <select id="affected" title="Windows client vs server">
+          <option value="">Client + server</option>
+          <option value="client">Windows client</option>
+          <option value="server">Windows server</option>
+        </select>
+        <select id="severity" title="Minimum severity">
+          <option value="">Any severity</option>
+          <option value="critical">Critical</option>
+          <option value="important">High+</option>
+          <option value="moderate">Medium+</option>
+          <option value="low">Low+</option>
+        </select>
+        <input type="number" id="cvss" min="0" max="10" step="0.1" placeholder="Min CVSS" class="num-input" />
+        <label class="check"><input type="checkbox" id="exploited" /> Exploited</label>
+        <label class="check"><input type="checkbox" id="newonly" /> New</label>
+        <select id="sort" title="Sort by">
+          <option value="priority">Sort: Priority</option>
+          <option value="cvss">Sort: CVSS</option>
+          <option value="date">Sort: Release date</option>
+          <option value="due">Sort: KEV due date</option>
+        </select>
+        <button type="button" id="reset" class="btn-ghost">Reset</button>
+        <span class="count" id="resultcount"></span>
+      </section>
+
+      <section id="list" class="cards" aria-live="polite"></section>
+      <p id="empty" class="empty" hidden>Nothing matches the current view and filters.</p>
+    </main>
+  </div>
+
+  <div class="drawer-overlay" id="overlay" hidden></div>
+  <aside class="drawer" id="drawer" aria-label="Patch details" hidden></aside>
 
   <script src="app.js"></script>
 </body>

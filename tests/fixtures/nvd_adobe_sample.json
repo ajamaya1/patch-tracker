@@ -1,0 +1,51 @@
+{
+  "resultsPerPage": 3,
+  "totalResults": 3,
+  "format": "NVD_CVE",
+  "version": "2.0",
+  "vulnerabilities": [
+    {
+      "cve": {
+        "id": "CVE-2025-43500",
+        "published": "2025-06-10T15:15:00.000",
+        "lastModified": "2025-06-11T09:00:00.000",
+        "descriptions": [
+          { "lang": "en", "value": "Adobe Acrobat Reader versions 24.x and earlier are affected by a use-after-free vulnerability that could result in arbitrary code execution in the context of the current user." }
+        ],
+        "metrics": {
+          "cvssMetricV31": [
+            { "cvssData": { "baseScore": 8.8, "baseSeverity": "HIGH", "vectorString": "CVSS:3.1/AV:L/AC:L" } }
+          ]
+        }
+      }
+    },
+    {
+      "cve": {
+        "id": "CVE-2025-43501",
+        "published": "2025-06-10T15:15:00.000",
+        "descriptions": [
+          { "lang": "en", "value": "Adobe Photoshop out-of-bounds write could lead to code execution." }
+        ],
+        "metrics": {
+          "cvssMetricV31": [
+            { "cvssData": { "baseScore": 9.1, "baseSeverity": "CRITICAL" } }
+          ]
+        }
+      }
+    },
+    {
+      "cve": {
+        "id": "CVE-2025-43502",
+        "published": "2025-06-02T12:00:00.000",
+        "descriptions": [
+          { "lang": "en", "value": "Adobe ColdFusion low-severity information disclosure." }
+        ],
+        "metrics": {
+          "cvssMetricV31": [
+            { "cvssData": { "baseScore": 3.1, "baseSeverity": "LOW" } }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -76,6 +76,8 @@ class Cve:
     publicly_disclosed: bool = False
     url: Optional[str] = None
     first_seen: Optional[str] = None      # date (YYYY-MM-DD) first ingested
+    due_date: Optional[str] = None        # remediation deadline (CISA KEV)
+    ransomware: bool = False              # linked to known ransomware campaigns
     # Affected products as {"name": str, "kind": "client"|"server"|"other"}.
     products: List["dict"] = field(default_factory=list)
 

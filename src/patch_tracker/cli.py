@@ -27,7 +27,7 @@ from .fetcher import FetchError, http_get_json, load_json_file
 from .models import TRACKING_STATUSES
 from .report import render_table, short_date
 from .site import write_site_data
-from .sources import apple_sofa, cisa_kev, microsoft_msrc
+from .sources import apple_sofa, cisa_kev, microsoft_msrc, nvd
 
 
 def _now() -> str:
@@ -54,6 +54,8 @@ def cmd_fetch(args: argparse.Namespace, db: Database) -> int:
             patches = apple_sofa.parse_feed(data, fetched_at)
         elif args.source == "kev":
             patches = cisa_kev.parse_feed(data, fetched_at)
+        elif args.source == "nvd":
+            patches = nvd.parse_feed(data, fetched_at, args.vendor or "Vendor")
         else:
             # A single CVRF document; synthesize a minimal summary from it.
             summary = _summary_from_cvrf(data)
@@ -64,7 +66,7 @@ def cmd_fetch(args: argparse.Namespace, db: Database) -> int:
         return 0
 
     sources = (
-        ["apple", "microsoft", "kev"] if args.source in (None, "all")
+        ["apple", "microsoft", "kev", "nvd"] if args.source in (None, "all")
         else [args.source]
     )
     platforms = ["macos"]
@@ -88,6 +90,13 @@ def cmd_fetch(args: argparse.Namespace, db: Database) -> int:
             kev_patches = cisa_kev.fetch(http_get_json, fetched_at)
             patches.extend(kev_patches)
             print(f"CISA KEV (third-party): {len(kev_patches)} vendor group(s)")
+        if "nvd" in sources:
+            vendors = args.vendor.split(",") if args.vendor else None
+            nvd_patches = nvd.fetch(http_get_json, fetched_at, vendors=vendors,
+                                    days=args.nvd_days)
+            patches.extend(nvd_patches)
+            print(f"NVD (third-party advisories): "
+                  f"{len(nvd_patches)} vendor group(s)")
     except FetchError as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
@@ -363,19 +372,24 @@ def build_parser() -> argparse.ArgumentParser:
 
     p_fetch = sub.add_parser("fetch", help="Fetch latest security feeds")
     p_fetch.add_argument("--source",
-                         choices=["apple", "microsoft", "kev", "all"],
+                         choices=["apple", "microsoft", "kev", "nvd", "all"],
                          default="all")
     p_fetch.add_argument("--months", type=int, default=3,
                          help="How many recent MSRC monthly updates to pull")
     p_fetch.add_argument("--ios", action="store_true",
                          help="Also fetch the Apple iOS feed")
+    p_fetch.add_argument("--vendor",
+                         help="NVD: comma-separated vendor keywords "
+                              "(default: a curated third-party list)")
+    p_fetch.add_argument("--nvd-days", type=int, default=30,
+                         help="NVD: look-back window in days (default 30)")
     p_fetch.add_argument("--file",
                          help="Ingest a saved feed JSON file instead of the "
                               "network (requires --source)")
     p_fetch.set_defaults(func=cmd_fetch)
 
     p_list = sub.add_parser("list", help="List tracked patches")
-    p_list.add_argument("--source", choices=["apple", "microsoft", "cisa-kev"])
+    p_list.add_argument("--source", choices=["apple", "microsoft", "cisa-kev", "nvd"])
     p_list.add_argument("--status", choices=list(TRACKING_STATUSES))
     p_list.add_argument("--severity")
     p_list.add_argument("--exploited", action="store_true",
@@ -394,7 +408,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_cves.add_argument("--cve", help="Look up a specific CVE id")
     p_cves.add_argument("--severity")
     p_cves.add_argument("--exploited", action="store_true")
-    p_cves.add_argument("--source", choices=["apple", "microsoft", "cisa-kev"])
+    p_cves.add_argument("--source", choices=["apple", "microsoft", "cisa-kev", "nvd"])
     p_cves.add_argument("--since")
     p_cves.add_argument("--limit", type=int)
     p_cves.add_argument("--json", action="store_true")

@@ -44,6 +44,8 @@ CREATE TABLE IF NOT EXISTS cves (
     publicly_disclosed INTEGER NOT NULL DEFAULT 0,
     url                TEXT,
     first_seen         TEXT,
+    due_date           TEXT,
+    ransomware         INTEGER NOT NULL DEFAULT 0,
     PRIMARY KEY (cve_id, patch_id),
     FOREIGN KEY (patch_id) REFERENCES patches(patch_id) ON DELETE CASCADE
 );
@@ -157,20 +159,22 @@ class Database:
                     INSERT INTO cves
                         (cve_id, patch_id, source, severity, impact,
                          base_score, exploited, publicly_disclosed, url,
-                         first_seen)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                         first_seen, due_date, ransomware)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     ON CONFLICT(cve_id, patch_id) DO UPDATE SET
                         source=excluded.source, severity=excluded.severity,
                         impact=excluded.impact, base_score=excluded.base_score,
                         exploited=excluded.exploited,
                         publicly_disclosed=excluded.publicly_disclosed,
-                        url=excluded.url
+                        url=excluded.url, due_date=excluded.due_date,
+                        ransomware=excluded.ransomware
                     """,
                     (
                         cve.cve_id, cve.patch_id, cve.source, cve.severity,
                         cve.impact, cve.base_score, int(cve.exploited),
                         int(cve.publicly_disclosed), cve.url,
-                        cve.first_seen or today,
+                        cve.first_seen or today, cve.due_date,
+                        int(cve.ransomware),
                     ),
                 )
             # Refresh the affected-product breakdown for this patch.
