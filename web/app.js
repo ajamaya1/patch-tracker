@@ -18,7 +18,8 @@ const VIEWS = [
     pred: () => true },
   { id: "zeroday", label: "Zero-day", icon: "", danger: true,
     desc: "Actively exploited in the wild — zero-days and CISA KEV entries.",
-    pred: (p) => p.exploited_count > 0 },
+    pred: (p) => p.exploited_count > 0,
+    count: (p) => p.exploited_count || 0 },   // count exploited CVEs, not all
   { id: "windows", label: "Windows", icon: "▢",
     desc: "Microsoft Patch Tuesday updates, split by client and server.",
     pred: (p) => p.source === "microsoft" },
@@ -34,6 +35,7 @@ const state = {
   view: "all",
   sort: "date",
   range: "month",            // day | week | month — time slice of the board
+  drawerWide: false,         // remember expanded-drawer preference
   filters: { q: "", cve: "", platform: "", affected: "", minSev: 0, minCvss: 0,
     exploited: false, newonly: false, overdue: false },
   results: [],
@@ -165,9 +167,13 @@ function initViewFromHash() {
 function renderViews() {
   const nav = $("#views");
   nav.innerHTML = VIEWS.map((v) => {
-    const n = state.data.patches.filter(v.pred).length;
+    // Count vulnerabilities (CVEs), not patches, so "Windows" shows the true
+    // number of CVEs (e.g. 869). Zero-day counts exploited CVEs only.
+    const metric = v.count || ((p) => p.cve_count || 0);
+    const n = state.data.patches.filter(v.pred)
+      .reduce((s, p) => s + metric(p), 0);
     return `<button class="view-btn ${v.id === state.view ? "active" : ""} ${v.danger ? "danger" : ""}"
-      data-view="${v.id}"><span class="vlabel">${esc(v.label)}</span>
+      data-view="${v.id}" title="${n} vulnerabilities"><span class="vlabel">${esc(v.label)}</span>
       <span class="vcount">${n}</span></button>`;
   }).join("");
   nav.querySelectorAll(".view-btn").forEach((b) =>
@@ -421,6 +427,7 @@ function openDrawer({ patch: p, cves }) {
         <span class="dh-num">${pr.score}</span><span class="dh-band">${bandLabel(pr.band)}</span></div>
       <div class="dh-meta"><h2>${esc(p.title)}</h2>
         <div class="psub">${esc(SOURCE_LABEL[p.source] || p.source)} · ${esc(p.platform || "")} · released ${fmtDate(p.release_date)}</div></div>
+      <button class="drawer-expand" id="drawer-expand" title="Expand / collapse full width" aria-label="Expand">⤢</button>
       <button class="drawer-close" id="drawer-close" aria-label="Close">&times;</button>
     </div>
     <div class="drawer-body">
@@ -437,9 +444,14 @@ function openDrawer({ patch: p, cves }) {
       ${cveTable(cves)}
     </div>`;
   drawer.hidden = false;
+  drawer.classList.toggle("wide", state.drawerWide);
   $("#overlay").hidden = false;
   document.body.style.overflow = "hidden";
   $("#drawer-close").addEventListener("click", closeDrawer);
+  $("#drawer-expand").addEventListener("click", () => {
+    state.drawerWide = !state.drawerWide;
+    drawer.classList.toggle("wide", state.drawerWide);
+  });
   drawer.querySelectorAll("[data-dexport]").forEach((b) =>
     b.addEventListener("click", () =>
       runExport(b.dataset.dexport, [{ patch: p, cves }], p.title)));

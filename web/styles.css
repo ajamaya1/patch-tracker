@@ -240,10 +240,17 @@ h1, h2 { letter-spacing: -0.01em; }
 /* ---------------- Detail drawer ---------------- */
 .drawer-overlay { position: fixed; inset: 0; background: rgba(4, 7, 11, 0.62); z-index: 40; }
 .drawer {
-  position: fixed; top: 0; right: 0; height: 100vh; width: min(740px, 96vw);
+  position: fixed; top: 0; right: 0; height: 100vh; width: min(820px, 96vw);
   background: var(--surface); border-left: 1px solid var(--line); z-index: 50;
   box-shadow: var(--shadow); overflow-y: auto; animation: slidein .16s ease-out;
+  transition: width .15s ease;
 }
+.drawer.wide { width: 98vw; }
+.drawer-expand { align-self: flex-start; background: var(--surface-2); border: 1px solid var(--line);
+  color: var(--muted); width: 30px; height: 30px; border-radius: 6px; cursor: pointer;
+  font-size: 15px; line-height: 1; margin-left: auto; }
+.drawer-expand:hover { color: var(--text); border-color: var(--line); }
+.drawer.wide .drawer-expand { color: var(--accent); border-color: var(--accent); }
 @keyframes slidein { from { transform: translateX(20px); opacity: .5; } to { transform: none; opacity: 1; } }
 .drawer-head { position: sticky; top: 0; background: var(--surface); border-bottom: 1px solid var(--line); padding: 16px 20px; display: flex; gap: 14px; align-items: center; }
 .dh-score { flex: 0 0 auto; width: 56px; height: 56px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid var(--line); }
