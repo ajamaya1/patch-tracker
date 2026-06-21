@@ -13,11 +13,10 @@ venv/
 .coverage
 htmlcov/
 
-# Tracker data
+# Tracker data — DBs are ephemeral now (stateless rebuild each run)
 *.db
 .patch-tracker/
-# ...but the CI dashboard's persisted DB is committed (carries first_seen).
-!data/patches.db
+data/
 
 # OS / editor
 .DS_Store

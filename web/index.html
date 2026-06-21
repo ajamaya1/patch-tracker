@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'" />
+  <meta name="referrer" content="no-referrer" />
   <title>Patch Tracker — vulnerability triage</title>
   <meta name="description"
         content="Risk-ranked Apple, Microsoft and third-party security patches with remediation guidance, refreshed daily." />
@@ -25,13 +28,11 @@
 
       <div class="side-foot">
         <div class="legend">
-          <div class="legend-title">Sources</div>
-          <div class="legend-row"><span class="dot src-apple"></span>Apple · SOFA</div>
-          <div class="legend-row"><span class="dot src-microsoft"></span>Microsoft · MSRC</div>
-          <div class="legend-row"><span class="dot src-cisa-kev"></span>CISA KEV · zero-days</div>
-          <div class="legend-row"><span class="dot src-nvd"></span>NVD · third-party</div>
+          <div class="legend-title">Feed health</div>
+          <div id="legend"></div>
         </div>
         <div class="updated" id="updated">Loading…</div>
+        <div class="provenance" id="provenance"></div>
       </div>
     </aside>
 

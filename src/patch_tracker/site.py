@@ -475,10 +475,16 @@ def build_payload(
 
     patches = _windowed(patches, window_days, now)
 
+    # Per-source health from the full ingest (pre-window) so the board can show
+    # whether each feed actually returned data this run — a CISO needs to know
+    # when a number is incomplete, not silently trust a partial board.
+    feeds = db.stats().get("by_source", {})
+
     return {
         "generated_at": now.isoformat(timespec="seconds"),
         "new_window_days": new_days,
         "window_days": window_days,
+        "feeds": feeds,
         "stats": _compute_stats(patches),
         "patches": patches,
     }

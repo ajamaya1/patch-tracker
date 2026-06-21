@@ -92,6 +92,27 @@ def test_stats_and_export_csv(tmp_path, capsys):
     assert "CVE-2025-30000" in html
 
 
+def test_build_site_fail_if_empty(tmp_path, capsys):
+    db_path = str(tmp_path / "empty.db")
+    # No fetch -> empty DB. --fail-if-empty must refuse and exit non-zero.
+    assert run(["build-site", "--out", str(tmp_path / "d.json"),
+                "--fail-if-empty"], db_path) == 1
+    assert not (tmp_path / "d.json").exists()
+
+
+def test_build_site_reports_feed_health(tmp_path, capsys):
+    fixtures = os.path.join(os.path.dirname(__file__), "fixtures")
+    db_path = str(tmp_path / "t.db")
+    seed(db_path, fixtures)  # apple + microsoft
+    capsys.readouterr()
+    out_json = str(tmp_path / "d.json")
+    assert run(["build-site", "--out", out_json, "--window-days", "3650"],
+               db_path) == 0
+    payload = json.loads(open(out_json).read())
+    assert payload["feeds"].get("apple", 0) >= 1
+    assert payload["feeds"].get("microsoft", 0) == 1
+
+
 def test_fetch_kev_from_file(tmp_path, capsys):
     fixtures = os.path.join(os.path.dirname(__file__), "fixtures")
     db_path = str(tmp_path / "t.db")

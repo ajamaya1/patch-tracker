@@ -164,6 +164,7 @@ def parse_cvrf(summary: dict, doc: Any, fetched_at: str) -> Patch:
     )
 
     name_map = _product_name_map(doc)
+    first_seen = (summary.get("release_date") or "")[:10] or None
     for vuln in doc.get("Vulnerability", []) or []:
         cve_id = vuln.get("CVE")
         if not cve_id:
@@ -181,6 +182,7 @@ def parse_cvrf(summary: dict, doc: Any, fetched_at: str) -> Patch:
                 exploited=exploited,
                 publicly_disclosed=disclosed,
                 url=f"https://msrc.microsoft.com/update-guide/vulnerability/{cve_id}",
+                first_seen=first_seen,
                 products=_affected_products(vuln, name_map),
             )
         )

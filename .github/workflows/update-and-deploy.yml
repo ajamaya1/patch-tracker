@@ -45,27 +45,28 @@ jobs:
       - name: Install
         run: pip install -e .
 
-      # Persisted SQLite DB (committed) carries each CVE's first_seen date so
-      # "new" detection works across runs. Fetch each vendor independently so
-      # one feed outage can't blank the whole dashboard.
+      # Stateless: the DB is rebuilt fresh each run (recency derives from each
+      # feed's own dates), so nothing is persisted in git. Fetch each vendor
+      # independently so one feed outage can't blank the whole board.
       - name: Fetch Apple (SOFA)
         continue-on-error: true
-        run: patch-tracker --db data/patches.db fetch --source apple --ios
+        run: patch-tracker --db /tmp/pt.db fetch --source apple --ios
 
       - name: Fetch Microsoft (latest Patch Tuesday)
         continue-on-error: true
-        run: patch-tracker --db data/patches.db fetch --source microsoft --months 1
+        run: patch-tracker --db /tmp/pt.db fetch --source microsoft --months 1
 
       - name: Fetch third-party zero-days (CISA KEV, last 90d)
         continue-on-error: true
-        run: patch-tracker --db data/patches.db fetch --source kev --kev-days 90
+        run: patch-tracker --db /tmp/pt.db fetch --source kev --kev-days 90
 
       - name: Fetch third-party advisories (NVD — Adobe, Cisco, …, last 30d)
         continue-on-error: true
-        run: patch-tracker --db data/patches.db fetch --source nvd --nvd-days 30 --retain-days 120
+        run: patch-tracker --db /tmp/pt.db fetch --source nvd --nvd-days 30
 
+      # --fail-if-empty keeps the last good Pages deploy if every feed is down.
       - name: Build dashboard data (last ~30 days + latest MS monthly)
-        run: patch-tracker --db data/patches.db build-site --out web/data.json --new-days 7 --window-days 30
+        run: patch-tracker --db /tmp/pt.db build-site --out web/data.json --new-days 7 --window-days 30 --fail-if-empty
 
       # Capture the Pages artifact BEFORE committing, so the deploy never
       # depends on the data commit succeeding.
@@ -86,7 +87,7 @@ jobs:
           for i in 1 2 3 4 5; do
             git fetch origin main
             git reset --soft origin/main
-            git add -f data/patches.db web/data.json
+            git add web/data.json
             if git diff --staged --quiet; then
               echo "No CVE changes since last run."; exit 0
             fi

@@ -102,12 +102,45 @@ async function load() {
     $("#updated").textContent = "Failed to load data";
     return;
   }
-  const when = state.data.generated_at ? new Date(state.data.generated_at) : null;
-  $("#updated").innerHTML = "Updated<br>" + (when ? when.toUTCString() : "—");
+  renderFreshness();
+  renderFeeds();
+  $("#provenance").textContent =
+    "Priority = exploitation + CVSS + severity + recency + KEV deadline. " +
+    "Sources: Apple SOFA, Microsoft MSRC, CISA KEV, NVD.";
   initViewFromHash();
   renderViews();
   wire();
   render();
+}
+
+const EXPECTED_FEEDS = [
+  ["apple", "Apple · SOFA"], ["microsoft", "Microsoft · MSRC"],
+  ["cisa-kev", "CISA KEV · zero-days"], ["nvd", "NVD · third-party"],
+];
+function renderFeeds() {
+  const feeds = state.data.feeds || {};
+  $("#legend").innerHTML = EXPECTED_FEEDS.map(([id, label]) => {
+    const n = feeds[id] || 0;
+    return `<div class="legend-row ${n ? "" : "feed-down"}">
+      <span class="dot src-${id}"></span>
+      <span class="feed-label">${esc(label)}</span>
+      <span class="feed-stat">${n ? n : "no data"}</span></div>`;
+  }).join("");
+}
+function relTime(d) {
+  const s = Math.max(0, (Date.now() - d.getTime()) / 1000);
+  if (s < 90) return "just now";
+  if (s < 5400) return Math.round(s / 60) + "m ago";
+  if (s < 129600) return Math.round(s / 3600) + "h ago";
+  return Math.round(s / 86400) + "d ago";
+}
+function renderFreshness() {
+  const gen = state.data.generated_at ? new Date(state.data.generated_at) : null;
+  const stale = gen && (Date.now() - gen.getTime()) > 26 * 3600 * 1000;
+  $("#updated").innerHTML =
+    (stale ? '<span class="stale">STALE — refresh overdue</span><br>' : "") +
+    (gen ? "Updated " + relTime(gen) + '<br><span class="abs">' +
+      gen.toUTCString() + "</span>" : "Updated —");
 }
 
 function initViewFromHash() {

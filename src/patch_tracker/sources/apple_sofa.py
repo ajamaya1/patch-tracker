@@ -70,6 +70,8 @@ def _parse_release(rel: dict, fetched_at: str) -> Patch | None:
     patch_id = f"{SOURCE}:{update_name}"
     exploited = set(rel.get("ActivelyExploitedCVEs") or [])
     url = rel.get("SecurityInfo")
+    # Derive recency from the release date (stateless: no persisted first_seen).
+    first_seen = (rel.get("ReleaseDate") or "")[:10] or None
 
     cves: List[Cve] = []
     cve_map = rel.get("CVEs") or {}
@@ -83,6 +85,7 @@ def _parse_release(rel: dict, fetched_at: str) -> Patch | None:
                 source=SOURCE,
                 exploited=bool(flag) or cve_id in exploited,
                 url=url,
+                first_seen=first_seen,
             )
         )
     # Include any exploited CVE that somehow only appears in the list.
@@ -90,6 +93,7 @@ def _parse_release(rel: dict, fetched_at: str) -> Patch | None:
         if cve_id not in cve_map:
             cves.append(
                 Cve(cve_id=cve_id, patch_id=patch_id, source=SOURCE,
+                    first_seen=first_seen,
                     exploited=True, url=url)
             )
 

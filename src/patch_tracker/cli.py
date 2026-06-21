@@ -296,13 +296,21 @@ def cmd_stats(args: argparse.Namespace, db: Database) -> int:
 
 
 def cmd_build_site(args: argparse.Namespace, db: Database) -> int:
+    # Safety: never publish an empty board. If every feed came back empty
+    # (total ingest is zero), fail so the workflow keeps the last good deploy.
+    total_ingested = db.stats()["total_patches"]
+    if args.fail_if_empty and total_ingested == 0:
+        print("error: no data ingested from any feed; refusing to build an "
+              "empty board (keeping the last good deploy).", file=sys.stderr)
+        return 1
     payload = write_site_data(db, args.out, new_days=args.new_days,
                               window_days=args.window_days)
     s = payload["stats"]
+    feeds = ", ".join(f"{k}={v}" for k, v in sorted(payload["feeds"].items())) or "none"
     print(
         f"Wrote {len(payload['patches'])} patches, {s['total_cves']} CVEs "
         f"(window {args.window_days}d, {s['new_cves']} new in {args.new_days}d, "
-        f"{s['exploited_cves']} exploited) -> {args.out}"
+        f"{s['exploited_cves']} exploited). Feeds: {feeds} -> {args.out}"
     )
     return 0
 
@@ -453,6 +461,9 @@ def build_parser() -> argparse.ArgumentParser:
     p_site.add_argument("--window-days", type=int, default=30,
                         help="Recency window in days for the board "
                              "(Microsoft's latest monthly is always shown)")
+    p_site.add_argument("--fail-if-empty", action="store_true",
+                        help="Exit non-zero if no data was ingested (so a total "
+                             "feed outage doesn't publish a blank board)")
     p_site.set_defaults(func=cmd_build_site)
 
     p_export = sub.add_parser("export", help="Export patches+CVEs")
