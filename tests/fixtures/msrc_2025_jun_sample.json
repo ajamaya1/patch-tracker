@@ -1,0 +1,42 @@
+{
+  "DocumentTitle": { "Value": "June 2025 Security Updates" },
+  "DocumentTracking": {
+    "Identification": { "ID": { "Value": "2025-Jun" } },
+    "CurrentReleaseDate": "2025-06-10T07:00:00Z"
+  },
+  "ProductTree": {
+    "FullProductName": [
+      { "ProductID": "11926", "Value": "Windows 11 Version 24H2 for x64-based Systems" }
+    ]
+  },
+  "Vulnerability": [
+    {
+      "Ordinal": "1",
+      "Title": { "Value": "Windows SMB Remote Code Execution Vulnerability" },
+      "CVE": "CVE-2025-30000",
+      "CVSSScoreSets": [
+        { "BaseScore": 8.8, "TemporalScore": 7.7, "Vector": "CVSS:3.1/AV:N", "ProductID": ["11926"] }
+      ],
+      "ProductStatuses": [ { "ProductID": ["11926"], "Type": 3 } ],
+      "Threats": [
+        { "Type": 0, "Description": { "Value": "Remote Code Execution" }, "ProductID": ["11926"] },
+        { "Type": 3, "Description": { "Value": "Critical" }, "ProductID": ["11926"] },
+        { "Type": 1, "Description": { "Value": "Publicly Disclosed:No;Exploited:Yes;Latest Software Release:Exploitation Detected" }, "ProductID": ["11926"] }
+      ]
+    },
+    {
+      "Ordinal": "2",
+      "Title": { "Value": "Windows Kernel Elevation of Privilege Vulnerability" },
+      "CVE": "CVE-2025-30001",
+      "CVSSScoreSets": [
+        { "BaseScore": 7.0, "Vector": "CVSS:3.1/AV:L", "ProductID": ["11926"] }
+      ],
+      "ProductStatuses": [ { "ProductID": ["11926"], "Type": 3 } ],
+      "Threats": [
+        { "Type": 0, "Description": { "Value": "Elevation of Privilege" }, "ProductID": ["11926"] },
+        { "Type": 3, "Description": { "Value": "Important" }, "ProductID": ["11926"] },
+        { "Type": 1, "Description": { "Value": "Publicly Disclosed:Yes;Exploited:No;Latest Software Release:Exploitation Less Likely" }, "ProductID": ["11926"] }
+      ]
+    }
+  ]
+}

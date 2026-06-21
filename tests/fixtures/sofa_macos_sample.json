@@ -1,0 +1,52 @@
+{
+  "UpdateHash": "sample-hash-0001",
+  "OSVersions": [
+    {
+      "OSVersion": "Sequoia 15",
+      "Latest": {
+        "ProductVersion": "15.5",
+        "Build": "24F74",
+        "ReleaseDate": "2025-05-12T00:00:00Z",
+        "SecurityInfo": "https://support.apple.com/en-us/100100",
+        "CVEs": {
+          "CVE-2025-31200": true,
+          "CVE-2025-31201": false
+        },
+        "ActivelyExploitedCVEs": ["CVE-2025-31200"],
+        "UniqueCVEsCount": 2
+      },
+      "SecurityReleases": [
+        {
+          "UpdateName": "macOS Sequoia 15.5",
+          "ProductName": "macOS Sequoia",
+          "ProductVersion": "15.5",
+          "ReleaseDate": "2025-05-12T00:00:00Z",
+          "ReleaseType": "OS",
+          "SecurityInfo": "https://support.apple.com/en-us/100100",
+          "CVEs": {
+            "CVE-2025-31200": true,
+            "CVE-2025-31201": false
+          },
+          "ActivelyExploitedCVEs": ["CVE-2025-31200"],
+          "UniqueCVEsCount": 2,
+          "DaysSincePreviousRelease": 28
+        },
+        {
+          "UpdateName": "macOS Sequoia 15.4.1",
+          "ProductName": "macOS Sequoia",
+          "ProductVersion": "15.4.1",
+          "ReleaseDate": "2025-04-16T00:00:00Z",
+          "ReleaseType": "OS",
+          "SecurityInfo": "https://support.apple.com/en-us/100099",
+          "CVEs": {
+            "CVE-2025-31100": false
+          },
+          "ActivelyExploitedCVEs": [],
+          "UniqueCVEsCount": 1,
+          "DaysSincePreviousRelease": 14
+        }
+      ],
+      "SupportedModels": []
+    }
+  ]
+}

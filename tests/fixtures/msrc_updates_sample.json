@@ -1,0 +1,23 @@
+{
+  "@odata.context": "https://api.msrc.microsoft.com/cvrf/v3.0/$metadata#updates",
+  "value": [
+    {
+      "ID": "2025-May",
+      "Alias": "2025-May",
+      "DocumentTitle": "May 2025 Security Updates",
+      "Severity": null,
+      "InitialReleaseDate": "2025-05-13T07:00:00Z",
+      "CurrentReleaseDate": "2025-05-13T07:00:00Z",
+      "CvrfUrl": "https://api.msrc.microsoft.com/cvrf/v3.0/document/2025-May"
+    },
+    {
+      "ID": "2025-Jun",
+      "Alias": "2025-Jun",
+      "DocumentTitle": "June 2025 Security Updates",
+      "Severity": null,
+      "InitialReleaseDate": "2025-06-10T07:00:00Z",
+      "CurrentReleaseDate": "2025-06-10T07:00:00Z",
+      "CvrfUrl": "https://api.msrc.microsoft.com/cvrf/v3.0/document/2025-Jun"
+    }
+  ]
+}

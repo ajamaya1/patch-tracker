@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "patch-tracker"
+version = "1.0.0"
+description = "Track Apple (SOFA) and Microsoft (MSRC) security patches and remediation status."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Aaron" }]
+keywords = ["security", "cve", "patch", "msrc", "sofa", "apple", "microsoft"]
+dependencies = []
+
+[project.scripts]
+patch-tracker = "patch_tracker.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
