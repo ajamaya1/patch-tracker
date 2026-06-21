@@ -425,6 +425,12 @@ function openDrawer({ patch: p, cves }) {
     </div>
     <div class="drawer-body">
       <div class="pbadges">${patchBadges(p, true)}</div>
+      <div class="drawer-export">
+        <span class="export-label">Export this update</span>
+        <button type="button" class="btn" data-dexport="csv">CSV</button>
+        <button type="button" class="btn" data-dexport="json">JSON</button>
+        <button type="button" class="btn" data-dexport="html">HTML</button>
+      </div>
       <div class="section-title">Remediation</div>
       ${remediationHTML(p)}
       <div class="section-title">Vulnerabilities (${cves.length})</div>
@@ -434,6 +440,9 @@ function openDrawer({ patch: p, cves }) {
   $("#overlay").hidden = false;
   document.body.style.overflow = "hidden";
   $("#drawer-close").addEventListener("click", closeDrawer);
+  drawer.querySelectorAll("[data-dexport]").forEach((b) =>
+    b.addEventListener("click", () =>
+      runExport(b.dataset.dexport, [{ patch: p, cves }], p.title)));
 }
 function closeDrawer() {
   $("#drawer").hidden = true;
@@ -451,12 +460,15 @@ function download(name, mime, content) {
 const stamp = () => new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-");
 const csvCell = (v) => { const s = v == null ? "" : String(v);
   return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
-function exportCSV() {
+const slug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-")
+  .replace(/^-|-$/g, "").slice(0, 60) || "export";
+
+function exportCSV(rows = state.results, name = state.view) {
   const head = ["priority", "band", "patch_id", "source", "platform", "patch_title",
     "release_date", "due_date", "cve_id", "severity", "cvss", "exploited",
     "ransomware", "new", "affected_kinds", "impact"];
   const lines = [head.join(",")];
-  for (const { patch: p, cves } of state.results) {
+  for (const { patch: p, cves } of rows) {
     const pr = p.priority || {};
     for (const c of cves) lines.push([pr.score, pr.band, p.patch_id, p.source,
       p.platform, p.title, fmtDate(p.release_date), c.due_date || "", c.cve_id,
@@ -464,18 +476,17 @@ function exportCSV() {
       c.ransomware, c.is_new, (c.product_kinds || []).join("|"), c.impact || ""]
       .map(csvCell).join(","));
   }
-  download(`patch-tracker-${state.view}-${stamp()}.csv`, "text/csv", lines.join("\n") + "\n");
+  download(`patch-tracker-${slug(name)}-${stamp()}.csv`, "text/csv", lines.join("\n") + "\n");
 }
-function exportJSON() {
-  download(`patch-tracker-${state.view}-${stamp()}.json`, "application/json",
+function exportJSON(rows = state.results, name = state.view) {
+  download(`patch-tracker-${slug(name)}-${stamp()}.json`, "application/json",
     JSON.stringify({ generated_at: state.data.generated_at, exported_at: new Date().toISOString(),
-      view: state.view, filters: state.filters,
-      patches: state.results.map(({ patch, cves }) => ({ ...patch, cves })) }, null, 2));
+      scope: name, patches: rows.map(({ patch, cves }) => ({ ...patch, cves })) }, null, 2));
 }
-function exportHTML() {
-  const sec = state.results.map(({ patch: p, cves }) => {
+function exportHTML(rows = state.results, name = state.view) {
+  const sec = rows.map(({ patch: p, cves }) => {
     const pr = p.priority || {};
-    const rows = cves.map((c) => `<tr class="${c.exploited ? "x" : ""}"><td>${esc(c.cve_id)}</td>
+    const trs = cves.map((c) => `<tr class="${c.exploited ? "x" : ""}"><td>${esc(c.cve_id)}</td>
       <td>${esc(c.severity || "—")}</td><td>${c.base_score != null ? esc(c.base_score) : "—"}</td>
       <td>${c.exploited ? "yes" : ""}</td><td>${c.due_date ? fmtDate(c.due_date) : ""}</td>
       <td>${c.is_new ? "new" : ""}</td><td>${esc((c.product_kinds || []).join(", ") || "—")}</td>
@@ -486,19 +497,24 @@ function exportHTML() {
       ${esc(p.platform || "")} · ${fmtDate(p.release_date)}${p.due_date ? " · KEV due " + fmtDate(p.due_date) : ""}</small></h2>
       <p><b>${esc((p.remediation?.urgency || "").toUpperCase())}</b> — ${esc(p.remediation?.note || "")}</p>${rem}
       <table><thead><tr><th>CVE</th><th>Sev</th><th>CVSS</th><th>Exploited</th><th>KEV due</th>
-      <th>New</th><th>Affected</th><th>Impact</th></tr></thead><tbody>${rows}</tbody></table>`;
+      <th>New</th><th>Affected</th><th>Impact</th></tr></thead><tbody>${trs}</tbody></table>`;
   }).join("");
-  download(`patch-tracker-${state.view}-${stamp()}.html`, "text/html",
-    `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Patch Tracker — ${esc(state.view)}</title>
+  download(`patch-tracker-${slug(name)}-${stamp()}.html`, "text/html",
+    `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Patch Tracker — ${esc(name)}</title>
 <style>body{font-family:system-ui,Segoe UI,Arial,sans-serif;margin:24px;color:#16202c}
 h1{margin:0 0 4px}.meta{color:#667;font-size:14px;margin-bottom:18px}
 h2{margin:22px 0 6px;font-size:16px;border-bottom:2px solid #e3e8ee;padding-bottom:4px}
 h2 small{font-weight:400;color:#789;font-size:12px}ul{margin:4px 0 8px 18px}
 table{border-collapse:collapse;width:100%;font-size:13px;margin:6px 0 8px}
 th,td{border:1px solid #dce3ea;padding:5px 8px;text-align:left}th{background:#f3f6f9}tr.x{background:#fdecec}
-</style></head><body><h1>Patch Tracker report — ${esc(state.view)}</h1>
+</style></head><body><h1>Patch Tracker report — ${esc(name)}</h1>
 <div class="meta">Generated ${esc(new Date().toUTCString())} · data updated ${esc(state.data.generated_at)} ·
-${state.results.length} patches</div>${sec || "<p>No matches.</p>"}</body></html>`);
+${rows.length} patch(es)</div>${sec || "<p>No matches.</p>"}</body></html>`);
+}
+function runExport(kind, rows, name) {
+  if (kind === "csv") exportCSV(rows, name);
+  else if (kind === "json") exportJSON(rows, name);
+  else exportHTML(rows, name);
 }
 
 /* ---------------- Wire up ---------------- */
@@ -525,10 +541,8 @@ function wire() {
   });
   const def = document.querySelector(`#range [data-range="${state.range}"]`);
   if (def) def.classList.add("active");
-  document.querySelectorAll("[data-export]").forEach((b) => b.addEventListener("click", () => {
-    const k = b.dataset.export;
-    if (k === "csv") exportCSV(); else if (k === "json") exportJSON(); else exportHTML();
-  }));
+  document.querySelectorAll("[data-export]").forEach((b) => b.addEventListener("click",
+    () => runExport(b.dataset.export, state.results, state.view)));
   $("#overlay").addEventListener("click", closeDrawer);
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
   window.addEventListener("hashchange", () => { initViewFromHash(); render(); });
