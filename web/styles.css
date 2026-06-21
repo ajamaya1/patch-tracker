@@ -15,18 +15,18 @@
   --accent: #4d8bff;
   --accent-soft: #18243b;
 
-  --crit: #e85d68;
-  --high: #e0913f;
-  --med: #d2b13f;
-  --low: #7a8694;
-  --exploit: #ff5c63;
-  --new: #3fb27a;
+  --crit: #c1535b;
+  --high: #b9863f;
+  --med: #a99544;
+  --low: #6f7a88;
+  --exploit: #c1535b;
+  --new: #4a8d6c;
   --info: #4d8bff;
 
-  --crit-tx: #ff8a91;
-  --high-tx: #f0ad63;
-  --med-tx: #e6cf61;
-  --low-tx: #9aa6b3;
+  --crit-tx: #d98088;
+  --high-tx: #cc9b5f;
+  --med-tx: #c4b061;
+  --low-tx: #97a3b1;
 
   --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -167,17 +167,14 @@ h1, h2 { letter-spacing: -0.01em; }
 .pcard:focus-visible { outline: 2px solid var(--accent); outline-offset: -1px; }
 
 .rail { display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 2px; padding: 12px 4px; border-right: 1px solid var(--line-soft); }
-.rail .score { font-size: 19px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
-.rail .band { font-size: 8.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
-.rail.b-critical { background: rgba(232, 93, 104, 0.09); box-shadow: inset 3px 0 0 var(--crit); }
-.rail.b-critical .score { color: var(--crit-tx); }
-.rail.b-high { background: rgba(224, 145, 63, 0.08); box-shadow: inset 3px 0 0 var(--high); }
-.rail.b-high .score { color: var(--high-tx); }
-.rail.b-medium { background: rgba(210, 177, 63, 0.07); box-shadow: inset 3px 0 0 var(--med); }
-.rail.b-medium .score { color: var(--med-tx); }
-.rail.b-low { background: rgba(122, 134, 148, 0.06); box-shadow: inset 3px 0 0 var(--low); }
-.rail.b-low .score { color: var(--low-tx); }
+  gap: 3px; padding: 12px 4px; border-right: 1px solid var(--line-soft); background: var(--surface); }
+.rail .score { font-size: 18px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; color: var(--text); }
+.rail .band { font-size: 8px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--faint); }
+/* Severity is conveyed by a single thin edge, not a loud fill. */
+.rail.b-critical { box-shadow: inset 2px 0 0 var(--crit); }
+.rail.b-high { box-shadow: inset 2px 0 0 var(--high); }
+.rail.b-medium { box-shadow: inset 2px 0 0 var(--med); }
+.rail.b-low { box-shadow: inset 2px 0 0 var(--low); }
 
 .pbody { padding: 12px 14px; min-width: 0; }
 .pcard-head { display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap; }
@@ -195,29 +192,35 @@ h1, h2 { letter-spacing: -0.01em; }
 .preasons b { color: var(--high-tx); font-weight: 600; }
 
 /* ---------------- Badges ---------------- */
+/* Restrained outline chips: no loud fills. A leading dot carries the only
+   colour for severity / risk signals, so a row of badges stays calm. */
 .badge {
-  font-size: 10.5px; padding: 2px 7px; border-radius: 4px; font-weight: 600;
-  white-space: nowrap; border: 1px solid transparent; line-height: 1.5;
-  text-transform: uppercase; letter-spacing: 0.035em;
+  font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 600;
+  white-space: nowrap; border: 1px solid var(--line); background: transparent;
+  color: var(--text-2); line-height: 1.6; text-transform: uppercase; letter-spacing: 0.04em;
+  display: inline-flex; align-items: center; gap: 5px;
 }
-.badge.src-apple { background: #1a212b; color: #c4cfdb; border-color: #2b3540; }
-.badge.src-microsoft { background: #11233a; color: #6fb0ff; border-color: #1f3c5e; }
-.badge.src-cisa-kev { background: #2a1417; color: #ff8a91; border-color: #4a2127; }
-.badge.src-nvd { background: #1d1730; color: #b79aff; border-color: #322755; }
-.badge.sev-critical { background: rgba(232, 93, 104, 0.13); color: var(--crit-tx); border-color: rgba(232, 93, 104, 0.4); }
-.badge.sev-important { background: rgba(224, 145, 63, 0.12); color: var(--high-tx); border-color: rgba(224, 145, 63, 0.4); }
-.badge.sev-moderate { background: rgba(210, 177, 63, 0.12); color: var(--med-tx); border-color: rgba(210, 177, 63, 0.38); }
-.badge.sev-low { background: #1c242e; color: #9aa6b3; border-color: #2b3540; }
-.badge.exploit { background: rgba(255, 92, 99, 0.16); color: #ff9aa0; border-color: rgba(255, 92, 99, 0.45); }
-.badge.ransom { background: #2a1014; color: #ffacb4; border-color: #54222a; }
-.badge.due { background: rgba(210, 177, 63, 0.10); color: var(--med-tx); border-color: rgba(210, 177, 63, 0.3); }
-.badge.due.overdue { background: rgba(232, 93, 104, 0.14); color: var(--crit-tx); border-color: rgba(232, 93, 104, 0.42); }
-.badge.new { background: rgba(63, 178, 122, 0.12); color: #6fd3a1; border-color: rgba(63, 178, 122, 0.36); }
-.badge.platform { background: #1a212b; color: #aebbc8; border-color: #2b3540; }
-.badge.kind { background: #161d26; color: #9fabb8; border-color: #28313c; }
-.badge.ptues { background: #11233a; color: #6fb0ff; border-color: #1f3c5e; }
-.badge.hotpatch { background: rgba(63, 178, 122, 0.10); color: #6fd3a1; border-color: rgba(63, 178, 122, 0.32); }
-.badge.cumulative { background: rgba(224, 145, 63, 0.10); color: var(--high-tx); border-color: rgba(224, 145, 63, 0.32); }
+.badge.dot::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: currentColor; flex: 0 0 auto; }
+.badge.src-apple { color: #c4cfdb; }
+.badge.src-microsoft { color: #84bcff; }
+.badge.src-cisa-kev { color: var(--crit-tx); }
+.badge.src-nvd { color: #b79aff; }
+.badge.sev-critical { color: var(--crit-tx); border-color: rgba(193, 83, 91, 0.4); }
+.badge.sev-critical::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--crit); margin-right: 1px; }
+.badge.sev-important { color: var(--high-tx); border-color: rgba(185, 134, 63, 0.4); }
+.badge.sev-important::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--high); margin-right: 1px; }
+.badge.sev-moderate { color: var(--med-tx); border-color: rgba(169, 149, 68, 0.36); }
+.badge.sev-moderate::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--med); margin-right: 1px; }
+.badge.sev-low { color: #9aa6b3; }
+.badge.sev-low::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--low); margin-right: 1px; }
+.badge.exploit { color: var(--crit-tx); border-color: rgba(193, 83, 91, 0.42); }
+.badge.ransom { color: var(--crit-tx); border-color: rgba(193, 83, 91, 0.42); }
+.badge.due { color: var(--high-tx); border-color: rgba(185, 134, 63, 0.36); }
+.badge.due.overdue { color: var(--crit-tx); border-color: rgba(193, 83, 91, 0.42); }
+.badge.new { color: #6fc09a; border-color: rgba(74, 141, 108, 0.4); }
+.badge.platform { color: #aebbc8; }
+.badge.kind { color: #9fabb8; }
+.badge.plain { color: var(--muted); }
 
 /* ---------------- Detail drawer ---------------- */
 .drawer-overlay { position: fixed; inset: 0; background: rgba(4, 7, 11, 0.62); z-index: 40; }

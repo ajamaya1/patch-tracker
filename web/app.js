@@ -12,6 +12,9 @@ const SOURCE_LABEL = { apple: "Apple", microsoft: "Microsoft",
 const VIEWS = [
   { id: "all", label: "All patches", icon: "≡", desc: "Everything currently tracked, ranked by remediation priority.",
     pred: () => true },
+  { id: "zeroday", label: "Zero-day", icon: "", danger: true,
+    desc: "Actively exploited in the wild — zero-days and CISA KEV entries.",
+    pred: (p) => p.exploited_count > 0 },
   { id: "windows", label: "Windows", icon: "▢",
     desc: "Microsoft Patch Tuesday updates, split by client and server.",
     pred: (p) => p.source === "microsoft" },
@@ -46,9 +49,26 @@ function sevClass(s) {
     : r === 2 ? "sev-moderate" : "sev-low";
 }
 function isOverdue(p) { return !!(p.due_date && fmtDate(p.due_date) < todayISO); }
+
+const FIX_LABEL = { microsoft: "MSRC update", apple: "Apple advisory",
+  "cisa-kev": "Vendor advisory", nvd: "Vendor advisory" };
+
+// The most decision-relevant CVE in a patch (exploited first, then highest CVSS).
+function leadCve(p) {
+  const cves = p.cves || [];
+  return cves.find((c) => c.exploited) ||
+    cves.slice().sort((a, b) => (b.base_score || 0) - (a.base_score || 0))[0] || null;
+}
+// A specific, actionable destination — not a generic catalog/API URL. The lead
+// CVE's per-vendor page (MSRC vulnerability / Apple HT / NVD detail) links to
+// the actual KB / patched build / vendor references.
 function primaryFixUrl(p) {
+  const c = leadCve(p);
+  if (c && c.url) return c.url;
   const links = (p.remediation && p.remediation.links) || [];
-  return (links[0] && links[0].url) || p.url || null;
+  const good = links.map((l) => l.url)
+    .find((u) => u && !/known-exploited-vulnerabilities-catalog\/?$/.test(u));
+  return good || p.url || null;
 }
 function dueDays(d) {
   if (!d) return null;
@@ -96,7 +116,7 @@ function renderViews() {
   const nav = $("#views");
   nav.innerHTML = VIEWS.map((v) => {
     const n = state.data.patches.filter(v.pred).length;
-    return `<button class="view-btn ${v.id === state.view ? "active" : ""}"
+    return `<button class="view-btn ${v.id === state.view ? "active" : ""} ${v.danger ? "danger" : ""}"
       data-view="${v.id}"><span class="vlabel">${esc(v.label)}</span>
       <span class="vcount">${n}</span></button>`;
   }).join("");
@@ -158,13 +178,21 @@ function cveMatches(c) {
   if (f.minCvss && !(c.base_score != null && c.base_score >= f.minCvss)) return false;
   if (f.exploited && !c.exploited) return false;
   if (f.newonly && !c.is_new) return false;
-  if (f.affected && !(c.product_kinds || []).includes(f.affected)) return false;
+  if (f.affected) {
+    const k = c.product_kinds || [];
+    if (f.affected === "both") { if (!(k.includes("client") && k.includes("server"))) return false; }
+    else if (!k.includes(f.affected)) return false;
+  }
   return true;
 }
 function patchMatches(p) {
   const f = state.filters;
   if (f.platform && p.platform !== f.platform) return false;
-  if (f.affected && !(p.affected && p.affected[f.affected])) return false;
+  if (f.affected) {
+    const a = p.affected || {};
+    if (f.affected === "both") { if (!(a.client && a.server)) return false; }
+    else if (!a[f.affected]) return false;
+  }
   if (f.overdue && !isOverdue(p)) return false;
   if (f.q) {
     const hay = (p.title + " " + (p.product || "") + " " + p.patch_id).toLowerCase();
@@ -174,6 +202,8 @@ function patchMatches(p) {
 }
 const SORTERS = {
   priority: (a, b) => (b.patch.priority?.score || 0) - (a.patch.priority?.score || 0),
+  severity: (a, b) => (sevRank(b.patch.severity) - sevRank(a.patch.severity)) ||
+    ((b.patch.priority?.score || 0) - (a.patch.priority?.score || 0)),
   cvss: (a, b) => (b.patch.max_cvss || 0) - (a.patch.max_cvss || 0),
   date: (a, b) => String(b.patch.release_date || "").localeCompare(String(a.patch.release_date || "")),
   due: (a, b) => (a.patch.due_date || "9999").localeCompare(b.patch.due_date || "9999"),
@@ -203,20 +233,24 @@ function dueBadge(p) {
   return `<span class="badge due">KEV due ${d}d</span>`;
 }
 function patchBadges(p, full) {
+  // Cards stay scannable: source, platform, severity + the few decisive risk
+  // signals. The drawer (full) shows the complete set.
   let b = `<span class="badge src-${esc(p.source)}">${esc(SOURCE_LABEL[p.source] || p.source)}</span>`;
   if (p.platform) b += `<span class="badge platform">${esc(p.platform)}</span>`;
   if (p.severity) b += `<span class="badge ${sevClass(p.severity)}">${esc(p.severity)}</span>`;
-  if (p.exploited_count) b += `<span class="badge exploit">${p.exploited_count} exploited</span>`;
-  if (p.ransomware_count) b += `<span class="badge ransom">ransomware</span>`;
+  if (p.exploited_count) b += `<span class="badge exploit">Exploited</span>`;
   b += dueBadge(p);
   if (p.new_count) b += `<span class="badge new">${p.new_count} new</span>`;
-  const a = p.affected || {};
-  if (a.client) b += `<span class="badge kind">${a.client} client</span>`;
-  if (a.server) b += `<span class="badge kind">${a.server} server</span>`;
-  if (full && p.patch_tuesday) b += `<span class="badge ptues">Patch Tuesday ${fmtDate(p.patch_tuesday)}</span>`;
-  if (full && p.servicing) {
-    const hp = p.servicing.hotpatch || {};
-    b += `<span class="badge ${hp.is_hotpatch_month ? "hotpatch" : "cumulative"}">${esc(p.servicing.channel)}-release · ${hp.is_hotpatch_month ? "hotpatch" : "cumulative"}</span>`;
+  if (full) {
+    if (p.ransomware_count) b += `<span class="badge ransom">Ransomware</span>`;
+    const a = p.affected || {};
+    if (a.client) b += `<span class="badge kind">${a.client} client</span>`;
+    if (a.server) b += `<span class="badge kind">${a.server} server</span>`;
+    if (p.patch_tuesday) b += `<span class="badge plain">Patch Tuesday ${fmtDate(p.patch_tuesday)}</span>`;
+    if (p.servicing) {
+      const hp = p.servicing.hotpatch || {};
+      b += `<span class="badge plain">${esc(p.servicing.channel)}-release · ${hp.is_hotpatch_month ? "hotpatch" : "cumulative"}</span>`;
+    }
   }
   return b;
 }
@@ -242,7 +276,7 @@ function render() {
       ? `<div class="preasons">Why: <b>${esc(pr.reasons.join(" · "))}</b></div>` : "";
     const fixUrl = primaryFixUrl(p);
     const fixChip = fixUrl
-      ? `<a class="pnext-cta" href="${esc(fixUrl)}" target="_blank" rel="noopener" title="Open vendor patch / advisory">Remediate &rarr;</a>`
+      ? `<a class="pnext-cta" href="${esc(fixUrl)}" target="_blank" rel="noopener" title="Open the vendor advisory / patch reference for the lead CVE">${esc(FIX_LABEL[p.source] || "Advisory")} &rarr;</a>`
       : "";
     const next = p.remediation
       ? `<div class="pnext"><span class="pnext-label">Action</span> ${esc(p.remediation.summary)} ${fixChip}</div>` : "";

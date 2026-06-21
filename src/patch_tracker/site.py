@@ -203,8 +203,10 @@ def remediation_for(
                 "actively-exploited CVEs for emergency change.",
             ],
         })
-        if url:
-            links.append({"label": "MSRC update guide", "url": url})
+        release_note = (f"https://msrc.microsoft.com/update-guide/releaseNote/"
+                        f"{version}" if version else url)
+        if release_note:
+            links.append({"label": "MSRC release notes", "url": release_note})
         links.append({
             "label": "Microsoft Update Catalog",
             "url": "https://www.catalog.update.microsoft.com/Search.aspx?q="

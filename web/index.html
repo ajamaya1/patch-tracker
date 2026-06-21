@@ -56,9 +56,10 @@
         <input type="search" id="cve" placeholder="CVE id…" autocomplete="off" />
         <select id="platform" title="Platform / vendor"><option value="">All platforms</option></select>
         <select id="affected" title="Windows client vs server">
-          <option value="">Client + server</option>
+          <option value="">All (client &amp; server)</option>
           <option value="client">Windows client</option>
           <option value="server">Windows server</option>
+          <option value="both">Affects both</option>
         </select>
         <select id="severity" title="Minimum severity">
           <option value="">Any severity</option>
@@ -72,6 +73,7 @@
         <label class="check"><input type="checkbox" id="newonly" /> New</label>
         <select id="sort" title="Sort by">
           <option value="priority">Sort: Priority</option>
+          <option value="severity">Sort: Severity</option>
           <option value="cvss">Sort: CVSS</option>
           <option value="date">Sort: Release date</option>
           <option value="due">Sort: KEV due date</option>
