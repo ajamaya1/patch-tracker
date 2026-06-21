@@ -8,6 +8,10 @@
 const SEV_RANK = { critical: 4, important: 3, high: 3, moderate: 2, medium: 2, low: 1 };
 const SOURCE_LABEL = { apple: "Apple", microsoft: "Microsoft",
   "cisa-kev": "CISA KEV", nvd: "NVD" };
+// Priority is a remediation-urgency tier (P1 = act first), deliberately
+// distinct from CVE/CVSS severity so the two scales aren't confused.
+const BAND_LABEL = { critical: "P1", high: "P2", medium: "P3", low: "P4" };
+const bandLabel = (b) => BAND_LABEL[b] || b;
 
 const VIEWS = [
   { id: "all", label: "All patches", icon: "≡", desc: "Everything currently tracked, ranked by remediation priority.",
@@ -28,11 +32,21 @@ const VIEWS = [
 const state = {
   data: null,
   view: "all",
-  sort: "priority",
+  sort: "date",
   filters: { q: "", cve: "", platform: "", affected: "", minSev: 0, minCvss: 0,
     exploited: false, newonly: false, overdue: false },
   results: [],
 };
+
+// Reset every filter and clear the toolbar controls (sort is left as-is).
+function resetFilters() {
+  Object.assign(state.filters, { q: "", cve: "", platform: "", affected: "",
+    minSev: 0, minCvss: 0, exploited: false, newonly: false, overdue: false });
+  for (const el of document.querySelectorAll(".toolbar input, .toolbar select")) {
+    if (el.type === "checkbox") el.checked = false;
+    else if (el.id !== "sort") el.value = "";
+  }
+}
 
 const $ = (s) => document.querySelector(s);
 const todayISO = new Date().toISOString().slice(0, 10);
@@ -91,7 +105,6 @@ async function load() {
   const when = state.data.generated_at ? new Date(state.data.generated_at) : null;
   $("#updated").innerHTML = "Updated<br>" + (when ? when.toUTCString() : "—");
   initViewFromHash();
-  populatePlatforms();
   renderViews();
   wire();
   render();
@@ -100,15 +113,6 @@ async function load() {
 function initViewFromHash() {
   const h = (location.hash || "").replace("#", "");
   if (VIEWS.some((v) => v.id === h)) state.view = h;
-}
-
-function populatePlatforms() {
-  const set = [...new Set(state.data.patches.map((p) => p.platform).filter(Boolean))].sort();
-  const sel = $("#platform");
-  for (const pl of set) {
-    const o = document.createElement("option");
-    o.value = pl; o.textContent = pl; sel.appendChild(o);
-  }
 }
 
 /* ---------------- Sidebar views ---------------- */
@@ -127,6 +131,7 @@ function renderViews() {
 function setView(id) {
   state.view = id;
   location.hash = id;
+  resetFilters();          // each view starts clean — no lingering filters
   renderViews();
   render();
 }
@@ -281,7 +286,7 @@ function render() {
     const next = p.remediation
       ? `<div class="pnext"><span class="pnext-label">Action</span> ${esc(p.remediation.summary)} ${fixChip}</div>` : "";
     return `<article class="pcard b-${pr.band}" data-i="${i}" tabindex="0">
-      <div class="rail b-${pr.band}"><span class="score">${pr.score}</span><span class="band">${esc(pr.band)}</span></div>
+      <div class="rail b-${pr.band}" title="Remediation priority ${bandLabel(pr.band)} (P1 = act first) · score ${pr.score}/100"><span class="band-tag">PRIORITY</span><span class="score">${pr.score}</span><span class="band">${bandLabel(pr.band)}</span></div>
       <div class="pbody">
         <div class="pcard-head"><span class="ptitle">${esc(p.title)}</span>
           <span class="psub">${esc(sub)}</span></div>
@@ -355,8 +360,8 @@ function openDrawer({ patch: p, cves }) {
   const drawer = $("#drawer");
   drawer.innerHTML = `
     <div class="drawer-head">
-      <div class="dh-score b-${pr.band}">
-        <span class="dh-num">${pr.score}</span><span class="dh-band">${esc(pr.band)}</span></div>
+      <div class="dh-score b-${pr.band}" title="Remediation priority (P1 = act first)">
+        <span class="dh-num">${pr.score}</span><span class="dh-band">${bandLabel(pr.band)}</span></div>
       <div class="dh-meta"><h2>${esc(p.title)}</h2>
         <div class="psub">${esc(SOURCE_LABEL[p.source] || p.source)} · ${esc(p.platform || "")} · released ${fmtDate(p.release_date)}</div></div>
       <button class="drawer-close" id="drawer-close" aria-label="Close">&times;</button>
@@ -445,22 +450,14 @@ function wire() {
   const on = (id, ev, fn) => $(id).addEventListener(ev, fn);
   on("#search", "input", (e) => { f.q = e.target.value.trim().toLowerCase(); render(); });
   on("#cve", "input", (e) => { f.cve = e.target.value.trim().toLowerCase(); render(); });
-  on("#platform", "change", (e) => { f.platform = e.target.value; render(); });
   on("#affected", "change", (e) => { f.affected = e.target.value; render(); });
   on("#severity", "change", (e) => { f.minSev = sevRank(e.target.value); render(); });
   on("#cvss", "input", (e) => { f.minCvss = parseFloat(e.target.value) || 0; render(); });
   on("#exploited", "change", (e) => { f.exploited = e.target.checked; render(); });
   on("#newonly", "change", (e) => { f.newonly = e.target.checked; render(); });
   on("#sort", "change", (e) => { state.sort = e.target.value; render(); });
-  on("#reset", "click", () => {
-    Object.assign(f, { q: "", cve: "", platform: "", affected: "", minSev: 0,
-      minCvss: 0, exploited: false, newonly: false, overdue: false });
-    for (const el of document.querySelectorAll(".toolbar input, .toolbar select")) {
-      if (el.type === "checkbox") el.checked = false;
-      else if (el.id !== "sort") el.value = "";
-    }
-    render();
-  });
+  on("#reset", "click", () => { resetFilters(); render(); });
+  $("#sort").value = state.sort;   // reflect the default sort (release date)
   document.querySelectorAll("[data-export]").forEach((b) => b.addEventListener("click", () => {
     const k = b.dataset.export;
     if (k === "csv") exportCSV(); else if (k === "json") exportJSON(); else exportHTML();

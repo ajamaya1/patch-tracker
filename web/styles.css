@@ -168,8 +168,9 @@ h1, h2 { letter-spacing: -0.01em; }
 
 .rail { display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 3px; padding: 12px 4px; border-right: 1px solid var(--line-soft); background: var(--surface); }
+.rail .band-tag { font-size: 6.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
 .rail .score { font-size: 18px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; color: var(--text); }
-.rail .band { font-size: 8px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--faint); }
+.rail .band { font-size: 9.5px; font-weight: 700; letter-spacing: 0.06em; color: var(--text-2); }
 /* Severity is conveyed by a single thin edge, not a loud fill. */
 .rail.b-critical { box-shadow: inset 2px 0 0 var(--crit); }
 .rail.b-high { box-shadow: inset 2px 0 0 var(--high); }
