@@ -26,6 +26,7 @@ from .db import DEFAULT_DB_PATH, Database
 from .fetcher import FetchError, http_get_json, load_json_file
 from .models import TRACKING_STATUSES
 from .report import render_table, short_date
+from .site import write_site_data
 from .sources import apple_sofa, microsoft_msrc
 
 
@@ -248,19 +249,34 @@ def cmd_status(args: argparse.Namespace, db: Database) -> int:
 # stats
 # ---------------------------------------------------------------------------
 def cmd_stats(args: argparse.Namespace, db: Database) -> int:
-    s = db.stats()
+    cutoff = (
+        _dt.datetime.now(_dt.timezone.utc) - _dt.timedelta(days=args.new_days)
+    ).date().isoformat()
+    s = db.stats(new_since=cutoff)
     if args.json:
         print(json.dumps(s, indent=2))
         return 0
     print("Patch Tracker summary")
     print("=====================")
-    print(f"Patches:         {s['total_patches']}")
-    print(f"Unique CVEs:     {s['total_cves']}")
-    print(f"Exploited CVEs:  {s['exploited_cves']}")
+    print(f"Patches:               {s['total_patches']}")
+    print(f"Unique CVEs:           {s['total_cves']}")
+    print(f"Exploited CVEs:        {s['exploited_cves']}")
+    print(f"New CVEs ({args.new_days}d):        {s['new_cves']}")
     print()
     print("By source:   " + _kv(s["by_source"]))
     print("By severity: " + _kv(s["by_severity"]))
     print("By status:   " + _kv(s["by_status"]))
+    return 0
+
+
+def cmd_build_site(args: argparse.Namespace, db: Database) -> int:
+    payload = write_site_data(db, args.out, new_days=args.new_days)
+    s = payload["stats"]
+    print(
+        f"Wrote {len(payload['patches'])} patches, {s['total_cves']} CVEs "
+        f"({s['new_cves']} new in last {args.new_days}d, "
+        f"{s['exploited_cves']} exploited) -> {args.out}"
+    )
     return 0
 
 
@@ -380,8 +396,18 @@ def build_parser() -> argparse.ArgumentParser:
     p_status.set_defaults(func=cmd_status)
 
     p_stats = sub.add_parser("stats", help="Print a summary dashboard")
+    p_stats.add_argument("--new-days", type=int, default=7,
+                         help="Window (days) for counting newly-seen CVEs")
     p_stats.add_argument("--json", action="store_true")
     p_stats.set_defaults(func=cmd_stats)
+
+    p_site = sub.add_parser(
+        "build-site", help="Generate web/data.json for the dashboard")
+    p_site.add_argument("--out", default="web/data.json",
+                        help="Output JSON path (default: web/data.json)")
+    p_site.add_argument("--new-days", type=int, default=7,
+                        help="Window (days) used to flag CVEs as new")
+    p_site.set_defaults(func=cmd_build_site)
 
     p_export = sub.add_parser("export", help="Export patches+CVEs")
     p_export.add_argument("--format", choices=["json", "csv"], default="json")

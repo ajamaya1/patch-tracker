@@ -1,0 +1,86 @@
+name: Update CVE data & deploy
+
+# Refresh the security feeds and republish the dashboard.
+#
+#  * Daily 06:17 UTC  -> catches Apple (SOFA) releases and newly
+#    exploited CVEs, which can land any day.
+#  * Patch Tuesday    -> Microsoft (MSRC) ships monthly on the second
+#    Tuesday. The cron "0 18 8-14 * 2" fires on the Tuesday whose date is
+#    8-14, i.e. exactly the second Tuesday, ~10:00 PT after the release.
+on:
+  schedule:
+    - cron: "17 6 * * *"      # daily, all sources
+    - cron: "0 18 8-14 * 2"   # Patch Tuesday, Microsoft focus
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "web/**"
+      - "src/**"
+      - ".github/workflows/**"
+
+# Allow committing refreshed data and deploying to Pages.
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Never run two deploys at once; let an in-flight run finish.
+concurrency:
+  group: patch-tracker-pages
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install
+        run: pip install -e .
+
+      # Persisted SQLite DB (committed) carries each CVE's first_seen date so
+      # "new" detection works across runs. Fetch each vendor independently so
+      # one feed outage can't blank the whole dashboard.
+      - name: Fetch Apple (SOFA)
+        continue-on-error: true
+        run: patch-tracker --db data/patches.db fetch --source apple --ios
+
+      - name: Fetch Microsoft (MSRC / Patch Tuesday)
+        continue-on-error: true
+        run: patch-tracker --db data/patches.db fetch --source microsoft --months 3
+
+      - name: Build dashboard data
+        run: patch-tracker --db data/patches.db build-site --out web/data.json --new-days 7
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f data/patches.db web/data.json
+          if git diff --staged --quiet; then
+            echo "No CVE changes since last run."
+          else
+            git commit -m "data: refresh security feeds ($(date -u +%Y-%m-%d))"
+            git push
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -8,6 +8,7 @@ survives refreshes.
 
 from __future__ import annotations
 
+import datetime as _dt
 import os
 import sqlite3
 from typing import Iterable, List, Optional
@@ -42,6 +43,7 @@ CREATE TABLE IF NOT EXISTS cves (
     exploited          INTEGER NOT NULL DEFAULT 0,
     publicly_disclosed INTEGER NOT NULL DEFAULT 0,
     url                TEXT,
+    first_seen         TEXT,
     PRIMARY KEY (cve_id, patch_id),
     FOREIGN KEY (patch_id) REFERENCES patches(patch_id) ON DELETE CASCADE
 );
@@ -56,8 +58,13 @@ CREATE TABLE IF NOT EXISTS tracking (
 
 CREATE INDEX IF NOT EXISTS idx_cves_cve_id ON cves(cve_id);
 CREATE INDEX IF NOT EXISTS idx_cves_exploited ON cves(exploited);
+CREATE INDEX IF NOT EXISTS idx_cves_first_seen ON cves(first_seen);
 CREATE INDEX IF NOT EXISTS idx_patches_source ON patches(source);
 """
+
+
+def _today() -> str:
+    return _dt.date.today().isoformat()
 
 
 class Database:
@@ -117,20 +124,42 @@ class Database:
                     patch.severity, patch.fetched_at,
                 ),
             )
-            # Replace the CVE set for this patch so removals are reflected.
-            cur.execute("DELETE FROM cves WHERE patch_id = ?", (patch.patch_id,))
+            # Reconcile this patch's CVE set: drop CVEs no longer present,
+            # upsert the rest. Crucially we never overwrite first_seen, so a
+            # CVE keeps the date it was first ingested across daily refreshes.
+            today = (patch.fetched_at or "")[:10] or _today()
+            new_ids = [c.cve_id for c in patch.cves]
+            if new_ids:
+                placeholders = ",".join("?" * len(new_ids))
+                cur.execute(
+                    f"DELETE FROM cves WHERE patch_id = ? "
+                    f"AND cve_id NOT IN ({placeholders})",
+                    [patch.patch_id, *new_ids],
+                )
+            else:
+                cur.execute(
+                    "DELETE FROM cves WHERE patch_id = ?", (patch.patch_id,)
+                )
             for cve in patch.cves:
                 cur.execute(
                     """
-                    INSERT OR REPLACE INTO cves
+                    INSERT INTO cves
                         (cve_id, patch_id, source, severity, impact,
-                         base_score, exploited, publicly_disclosed, url)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                         base_score, exploited, publicly_disclosed, url,
+                         first_seen)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(cve_id, patch_id) DO UPDATE SET
+                        source=excluded.source, severity=excluded.severity,
+                        impact=excluded.impact, base_score=excluded.base_score,
+                        exploited=excluded.exploited,
+                        publicly_disclosed=excluded.publicly_disclosed,
+                        url=excluded.url
                     """,
                     (
                         cve.cve_id, cve.patch_id, cve.source, cve.severity,
                         cve.impact, cve.base_score, int(cve.exploited),
                         int(cve.publicly_disclosed), cve.url,
+                        cve.first_seen or today,
                     ),
                 )
             cur.execute(
@@ -282,8 +311,19 @@ class Database:
             params.append(limit)
         return self.conn.execute("\n".join(sql), params).fetchall()
 
-    def stats(self) -> dict:
-        """Return summary counts for the dashboard view."""
+    def count_new_cves(self, since: str) -> int:
+        """Count distinct CVEs first seen on/after ``since`` (YYYY-MM-DD)."""
+        return self.conn.execute(
+            "SELECT COUNT(DISTINCT cve_id) FROM cves WHERE first_seen >= ?",
+            (since,),
+        ).fetchone()[0]
+
+    def stats(self, new_since: Optional[str] = None) -> dict:
+        """Return summary counts for the dashboard view.
+
+        If ``new_since`` is given, include ``new_cves`` (CVEs first seen on or
+        after that date).
+        """
         c = self.conn
         total_patches = c.execute("SELECT COUNT(*) FROM patches").fetchone()[0]
         total_cves = c.execute(
@@ -310,7 +350,7 @@ class Database:
                 "SELECT severity, COUNT(*) AS n FROM patches GROUP BY severity"
             )
         }
-        return {
+        result = {
             "total_patches": total_patches,
             "total_cves": total_cves,
             "exploited_cves": exploited,
@@ -318,3 +358,6 @@ class Database:
             "by_status": by_status,
             "by_severity": by_severity,
         }
+        if new_since is not None:
+            result["new_cves"] = self.count_new_cves(new_since)
+        return result

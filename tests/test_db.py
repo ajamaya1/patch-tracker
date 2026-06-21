@@ -65,6 +65,20 @@ def test_list_cves_and_stats():
     assert s["by_source"] == {"apple": 1}
 
 
+def test_first_seen_is_preserved_across_reingest():
+    db = Database(":memory:")
+    p = make_patch()
+    p.cves[0].first_seen = "2020-01-01"  # pretend it was first seen long ago
+    p.cves[1].first_seen = "2020-02-02"
+    db.upsert_patches([p])
+    # Re-ingest the same patch with no first_seen set (as parsers produce).
+    db.upsert_patches([make_patch()])
+    rows = {r["cve_id"]: r for r in db.get_cves_for_patch("apple:test")}
+    assert rows["CVE-2025-1"]["first_seen"] == "2020-01-01"
+    # Older CVE is not counted as new in a recent window.
+    assert db.count_new_cves("2025-01-01") == 0
+
+
 def test_upsert_removes_stale_cves():
     db = Database(":memory:")
     db.upsert_patches([make_patch()])

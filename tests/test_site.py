@@ -1,0 +1,67 @@
+import datetime as dt
+import json
+
+from patch_tracker.db import Database
+from patch_tracker.models import Cve, Patch
+from patch_tracker.site import build_payload, write_site_data
+
+
+def seed_db():
+    db = Database(":memory:")
+    apple = Patch(
+        source="apple", patch_id="apple:macOS 15.5", title="macOS Sequoia 15.5",
+        product="macOS", version="15.5", release_date="2025-05-12T00:00:00Z",
+        fetched_at="2025-05-12",
+    )
+    apple.cves = [
+        Cve("CVE-2025-1", apple.patch_id, "apple", exploited=True,
+            first_seen="2025-05-12"),
+        Cve("CVE-2025-2", apple.patch_id, "apple", first_seen="2020-01-01"),
+    ]
+    ms = Patch(
+        source="microsoft", patch_id="msrc:2025-Jun",
+        title="June 2025 Security Updates", product="Microsoft Security Update",
+        version="2025-Jun", release_date="2025-06-10T07:00:00Z",
+        severity="Critical", fetched_at="2025-06-10",
+    )
+    ms.cves = [
+        Cve("CVE-2025-30000", ms.patch_id, "microsoft", severity="Critical",
+            base_score=8.8, exploited=True, first_seen="2025-06-10"),
+    ]
+    db.upsert_patches([apple, ms])
+    return db
+
+
+def test_build_payload_structure_and_new_flag():
+    db = seed_db()
+    # Pretend "now" is just after the June release; window 7 days.
+    now = dt.datetime(2025, 6, 12, tzinfo=dt.timezone.utc)
+    payload = build_payload(db, new_days=7, now=now)
+
+    assert payload["new_window_days"] == 7
+    assert payload["stats"]["total_patches"] == 2
+    # Only the June CVE (first_seen 2025-06-10) is within the 7-day window.
+    assert payload["stats"]["new_cves"] == 1
+
+    by_id = {p["patch_id"]: p for p in payload["patches"]}
+    ms = by_id["msrc:2025-Jun"]
+    assert ms["patch_tuesday"] == "2025-06-10"
+    assert ms["new_count"] == 1
+    assert ms["exploited_count"] == 1
+    assert ms["cves"][0]["is_new"] is True
+
+    apple = by_id["apple:macOS 15.5"]
+    # Apple patch has no Patch Tuesday concept.
+    assert apple["patch_tuesday"] is None
+    # CVE-2025-2 was first seen in 2020 -> not new.
+    flags = {c["cve_id"]: c["is_new"] for c in apple["cves"]}
+    assert flags["CVE-2025-2"] is False
+
+
+def test_write_site_data_creates_file(tmp_path):
+    db = seed_db()
+    out = tmp_path / "nested" / "data.json"
+    write_site_data(db, str(out), new_days=7)
+    payload = json.loads(out.read_text())
+    assert "patches" in payload and "stats" in payload
+    assert payload["patches"]  # non-empty

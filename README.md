@@ -1,7 +1,11 @@
 # patch-tracker
 
-A small, dependency-free CLI for tracking **security patches and your
-remediation status** for them, sourced from two authoritative public feeds:
+An auto-updating **security patch dashboard** plus a dependency-free CLI,
+tracking patches and remediation status sourced from two authoritative public
+feeds. A GitHub Actions workflow refreshes the data on a schedule and publishes
+a static web dashboard to GitHub Pages.
+
+Sources:
 
 | Source | Vendor | Feed |
 | ------ | ------ | ---- |
@@ -15,7 +19,43 @@ database. You can then triage each patch through a tracking workflow
 state survives feed refreshes.
 
 > Built with the Python standard library only — no third-party runtime
-> dependencies. Runs anywhere with Python 3.9+.
+> dependencies. Runs anywhere with Python 3.9+. The web dashboard is plain
+> static HTML/CSS/JS — no framework, no build step.
+
+## Web dashboard (auto-updating)
+
+The [`.github/workflows/update-and-deploy.yml`](.github/workflows/update-and-deploy.yml)
+workflow keeps a live dashboard fresh and deploys it to GitHub Pages:
+
+| When | What |
+| ---- | ---- |
+| **Daily** (`06:17 UTC`) | Catches Apple (SOFA) releases and newly-exploited CVEs, which can land any day. |
+| **Patch Tuesday** (`cron: 0 18 8-14 * 2`) | Microsoft ships monthly on the **second Tuesday**; this cron fires on the Tuesday whose date is 8–14, i.e. exactly Patch Tuesday, after the release. |
+
+Each run fetches both feeds into a committed SQLite database (so every CVE's
+`first_seen` date persists), regenerates `web/data.json`, commits it only when
+something changed, and publishes `web/` to Pages. CVEs first seen within the
+last 7 days are flagged **NEW**, so the dashboard surfaces CVEs released since
+the previous run. Microsoft updates are labelled with their **Patch Tuesday**
+date.
+
+### Enabling it
+
+1. In the repo: **Settings → Pages → Build and deployment → Source =
+   GitHub Actions**.
+2. The workflow has the needed `contents`/`pages`/`id-token` permissions; the
+   default `GITHUB_TOKEN` is sufficient and its data commits don't retrigger
+   the workflow (no loops).
+3. Trigger a first run via **Actions → Update CVE data & deploy → Run
+   workflow**, or just wait for the schedule.
+
+### Build/preview the site locally
+
+```bash
+patch-tracker fetch                       # or: --file <saved-feed.json>
+patch-tracker build-site --out web/data.json --new-days 7
+python -m http.server -d web 8000         # open http://localhost:8000
+```
 
 ## Install
 
@@ -53,6 +93,9 @@ patch-tracker list --status applied
 patch-tracker stats
 patch-tracker export --format csv --out patches.csv
 patch-tracker export --format json
+
+# Generate the dashboard dataset
+patch-tracker build-site --out web/data.json --new-days 7
 ```
 
 Most read commands accept `--json` for scripting.
@@ -102,14 +145,21 @@ overridden with `--db <path>` or the `PATCH_TRACKER_DB` environment variable.
 
 ```
 src/patch_tracker/
-  cli.py                 argparse CLI (fetch/list/show/cves/status/stats/export)
-  db.py                  SQLite store + queries
+  cli.py                 argparse CLI (fetch/list/show/cves/status/stats/
+                         export/build-site)
+  db.py                  SQLite store + queries (first_seen tracking)
   models.py              Patch / Cve dataclasses, severity ranking
   fetcher.py             stdlib HTTP JSON getter (allowlist-aware errors)
   report.py              text-table rendering
+  site.py                build web/data.json from the database
+  patch_tuesday.py       second-Tuesday math for Microsoft updates
   sources/
     apple_sofa.py        SOFA macOS/iOS feed parser
     microsoft_msrc.py    MSRC CVRF v3.0 parser
+web/                     static dashboard (index.html, app.js, styles.css,
+                         data.json)
+.github/workflows/
+  update-and-deploy.yml  daily + Patch Tuesday refresh, deploy to Pages
 tests/                   pytest suite + JSON fixtures for both feeds
 ```
 

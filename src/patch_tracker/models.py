@@ -75,6 +75,7 @@ class Cve:
     exploited: bool = False               # known exploited in the wild
     publicly_disclosed: bool = False
     url: Optional[str] = None
+    first_seen: Optional[str] = None      # date (YYYY-MM-DD) first ingested
 
 
 @dataclass

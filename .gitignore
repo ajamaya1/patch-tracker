@@ -16,6 +16,8 @@ htmlcov/
 # Tracker data
 *.db
 .patch-tracker/
+# ...but the CI dashboard's persisted DB is committed (carries first_seen).
+!data/patches.db
 
 # OS / editor
 .DS_Store

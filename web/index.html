@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Patch Tracker — Apple &amp; Microsoft security updates</title>
+  <meta name="description"
+        content="Daily-updated dashboard of Apple (SOFA) and Microsoft (MSRC) security patches and CVEs." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1>🛡️ Patch Tracker</h1>
+      <div class="updated" id="updated">Loading…</div>
+    </div>
+    <p class="subtitle">
+      Apple (SOFA) &amp; Microsoft (MSRC) security updates, refreshed daily by
+      GitHub Actions.
+    </p>
+  </header>
+
+  <main class="container">
+    <section class="cards" id="stats" aria-label="Summary statistics"></section>
+
+    <section class="controls" aria-label="Filters">
+      <input type="search" id="search" placeholder="Search CVE, title, product…"
+             autocomplete="off" />
+      <select id="source">
+        <option value="">All sources</option>
+        <option value="apple">Apple</option>
+        <option value="microsoft">Microsoft</option>
+      </select>
+      <select id="severity">
+        <option value="">All severities</option>
+        <option value="critical">Critical</option>
+        <option value="important">Important</option>
+        <option value="moderate">Moderate</option>
+        <option value="low">Low</option>
+      </select>
+      <label class="check">
+        <input type="checkbox" id="exploited" /> Exploited only
+      </label>
+      <label class="check">
+        <input type="checkbox" id="newonly" /> New only
+      </label>
+      <span class="count" id="resultcount"></span>
+    </section>
+
+    <section id="list" class="list" aria-live="polite"></section>
+    <p id="empty" class="empty" hidden>No patches match your filters.</p>
+  </main>
+
+  <footer class="footer">
+    <span id="footer-meta"></span>
+    <a href="https://github.com/ajamaya1/patch-tracker">Source on GitHub</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

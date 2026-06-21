@@ -1,0 +1,129 @@
+{
+  "generated_at": "2026-06-21T16:27:02+00:00",
+  "new_window_days": 7,
+  "stats": {
+    "total_patches": 3,
+    "total_cves": 5,
+    "exploited_cves": 2,
+    "by_source": {
+      "apple": 2,
+      "microsoft": 1
+    },
+    "by_status": {
+      "new": 3
+    },
+    "by_severity": {
+      "unknown": 2,
+      "Critical": 1
+    },
+    "new_cves": 5
+  },
+  "patches": [
+    {
+      "patch_id": "msrc:2025-Jun",
+      "source": "microsoft",
+      "title": "June 2025 Security Updates",
+      "product": "Microsoft Security Update",
+      "version": "2025-Jun",
+      "release_date": "2025-06-10T07:00:00Z",
+      "patch_tuesday": "2025-06-10",
+      "url": "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2025-Jun",
+      "severity": "Critical",
+      "status": "new",
+      "cve_count": 2,
+      "exploited_count": 1,
+      "new_count": 2,
+      "cves": [
+        {
+          "cve_id": "CVE-2025-30000",
+          "severity": "Critical",
+          "base_score": 8.8,
+          "exploited": true,
+          "publicly_disclosed": false,
+          "impact": "Remote Code Execution",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30000",
+          "first_seen": "2026-06-21",
+          "is_new": true
+        },
+        {
+          "cve_id": "CVE-2025-30001",
+          "severity": "Important",
+          "base_score": 7.0,
+          "exploited": false,
+          "publicly_disclosed": true,
+          "impact": "Elevation of Privilege",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30001",
+          "first_seen": "2026-06-21",
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "patch_id": "apple:macOS Sequoia 15.5",
+      "source": "apple",
+      "title": "macOS Sequoia 15.5",
+      "product": "macOS Sequoia",
+      "version": "15.5",
+      "release_date": "2025-05-12T00:00:00Z",
+      "patch_tuesday": null,
+      "url": "https://support.apple.com/en-us/100100",
+      "severity": null,
+      "status": "new",
+      "cve_count": 2,
+      "exploited_count": 1,
+      "new_count": 2,
+      "cves": [
+        {
+          "cve_id": "CVE-2025-31200",
+          "severity": null,
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/100100",
+          "first_seen": "2026-06-21",
+          "is_new": true
+        },
+        {
+          "cve_id": "CVE-2025-31201",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/100100",
+          "first_seen": "2026-06-21",
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "patch_id": "apple:macOS Sequoia 15.4.1",
+      "source": "apple",
+      "title": "macOS Sequoia 15.4.1",
+      "product": "macOS Sequoia",
+      "version": "15.4.1",
+      "release_date": "2025-04-16T00:00:00Z",
+      "patch_tuesday": null,
+      "url": "https://support.apple.com/en-us/100099",
+      "severity": null,
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 0,
+      "new_count": 1,
+      "cves": [
+        {
+          "cve_id": "CVE-2025-31100",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/100099",
+          "first_seen": "2026-06-21",
+          "is_new": true
+        }
+      ]
+    }
+  ]
+}
