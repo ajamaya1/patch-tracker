@@ -148,6 +148,11 @@ h1, h2 { letter-spacing: -0.01em; }
 }
 .toolbar input::placeholder { color: var(--faint); }
 .toolbar input:focus, .toolbar select:focus { outline: none; border-color: var(--accent); }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 7px; overflow: hidden; height: 32px; }
+.seg button { background: var(--surface-2); border: 0; border-right: 1px solid var(--line); color: var(--muted); padding: 0 13px; font-size: 12.5px; cursor: pointer; font-family: var(--sans); }
+.seg button:last-child { border-right: 0; }
+.seg button:hover { color: var(--text); }
+.seg button.active { background: var(--accent-soft); color: var(--text); font-weight: 600; box-shadow: inset 0 -2px 0 var(--accent); }
 #search { flex: 1 1 180px; min-width: 150px; }
 .num-input { width: 100px; }
 .check { color: var(--muted); font-size: 12.5px; display: flex; align-items: center; gap: 6px; }

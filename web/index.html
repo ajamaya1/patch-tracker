@@ -53,6 +53,11 @@
       <section class="kpis" id="kpis" aria-label="Risk summary"></section>
 
       <section class="toolbar" aria-label="Filters">
+        <div class="seg" id="range" role="group" aria-label="Time range">
+          <button type="button" data-range="day">Daily</button>
+          <button type="button" data-range="week">Weekly</button>
+          <button type="button" data-range="month">Monthly</button>
+        </div>
         <input type="search" id="search" placeholder="Search title / product…" autocomplete="off" />
         <input type="search" id="cve" placeholder="CVE id…" autocomplete="off" />
         <select id="affected" title="Windows client vs server">

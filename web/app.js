@@ -33,10 +33,21 @@ const state = {
   data: null,
   view: "all",
   sort: "date",
+  range: "month",            // day | week | month — time slice of the board
   filters: { q: "", cve: "", platform: "", affected: "", minSev: 0, minCvss: 0,
     exploited: false, newonly: false, overdue: false },
   results: [],
 };
+const RANGE_DAYS = { day: 1, week: 7, month: 9999 };
+
+// Keep patches released within the selected time slice (by release date).
+function rangeMatches(p) {
+  const days = RANGE_DAYS[state.range] || 9999;
+  if (days >= 9999) return true;            // "month" = the whole ~30d board
+  const rd = fmtDate(p.release_date);
+  if (!rd) return false;
+  return (new Date(todayISO) - new Date(rd)) / 86400000 <= days;
+}
 
 // Reset every filter and clear the toolbar controls (sort is left as-is).
 function resetFilters() {
@@ -252,6 +263,7 @@ function computeResults() {
   const out = [];
   for (const p of state.data.patches) {
     if (!view.pred(p)) continue;
+    if (!rangeMatches(p)) continue;
     if (!patchMatches(p)) continue;
     const cves = active ? p.cves.filter(cveMatches) : p.cves;
     if (active && cves.length === 0) continue;
@@ -303,7 +315,9 @@ function render() {
 
   const results = computeResults();
   const shown = results.reduce((n, r) => n + r.cves.length, 0);
-  $("#resultcount").textContent = `${results.length} patches · ${shown} CVEs`;
+  const RANGE_LABEL = { day: "Today", week: "Last 7 days", month: "Last 30 days" };
+  $("#resultcount").textContent =
+    `${RANGE_LABEL[state.range]} · ${results.length} patches · ${shown} CVEs`;
   $("#empty").hidden = results.length !== 0;
 
   $("#list").innerHTML = results.map(({ patch: p, cves }, i) => {
@@ -491,6 +505,16 @@ function wire() {
   on("#sort", "change", (e) => { state.sort = e.target.value; render(); });
   on("#reset", "click", () => { resetFilters(); render(); });
   $("#sort").value = state.sort;   // reflect the default sort (release date)
+  document.querySelectorAll("#range button").forEach((b) => {
+    b.addEventListener("click", () => {
+      state.range = b.dataset.range;
+      document.querySelectorAll("#range button").forEach(
+        (x) => x.classList.toggle("active", x === b));
+      render();
+    });
+  });
+  const def = document.querySelector(`#range [data-range="${state.range}"]`);
+  if (def) def.classList.add("active");
   document.querySelectorAll("[data-export]").forEach((b) => b.addEventListener("click", () => {
     const k = b.dataset.export;
     if (k === "csv") exportCSV(); else if (k === "json") exportJSON(); else exportHTML();
