@@ -39,15 +39,17 @@ const state = {
   results: [],
 };
 const RANGE_DAYS = { day: 1, week: 7, month: 9999 };
+const RANGE_NAME = { day: "Daily", week: "Weekly", month: "Monthly" };
 
 // Keep patches released within the selected time slice (by release date).
-function rangeMatches(p) {
-  const days = RANGE_DAYS[state.range] || 9999;
+function inRange(p, rangeKey) {
+  const days = RANGE_DAYS[rangeKey] || 9999;
   if (days >= 9999) return true;            // "month" = the whole ~30d board
   const rd = fmtDate(p.release_date);
   if (!rd) return false;
   return (new Date(todayISO) - new Date(rd)) / 86400000 <= days;
 }
+function rangeMatches(p) { return inRange(p, state.range); }
 
 // Reset every filter and clear the toolbar controls (sort is left as-is).
 function resetFilters() {
@@ -312,6 +314,14 @@ function render() {
   const view = VIEWS.find((v) => v.id === state.view);
   $("#view-title").textContent = view.label;
   $("#view-desc").textContent = view.desc;
+
+  // Per-range counts on the toggle (current view + filters, ignoring range).
+  const base = state.data.patches.filter((p) => view.pred(p) && patchMatches(p));
+  document.querySelectorAll("#range button").forEach((b) => {
+    const k = b.dataset.range;
+    const n = base.filter((p) => inRange(p, k)).length;
+    b.innerHTML = `${RANGE_NAME[k]} <span class="seg-n">${n}</span>`;
+  });
 
   const results = computeResults();
   const shown = results.reduce((n, r) => n + r.cves.length, 0);
