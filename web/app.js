@@ -54,6 +54,10 @@ function sevClass(s) {
     : r === 2 ? "sev-moderate" : "sev-low";
 }
 function isOverdue(p) { return !!(p.due_date && fmtDate(p.due_date) < todayISO); }
+function primaryFixUrl(p) {
+  const links = (p.remediation && p.remediation.links) || [];
+  return (links[0] && links[0].url) || p.url || null;
+}
 function dueDays(d) {
   if (!d) return null;
   return Math.round((new Date(fmtDate(d)) - new Date(todayISO)) / 86400000);
@@ -238,8 +242,12 @@ function render() {
       .filter(Boolean).join(" · ");
     const reasons = pr.reasons && pr.reasons.length
       ? `<div class="preasons">Why: <b>${esc(pr.reasons.join(" · "))}</b></div>` : "";
+    const fixUrl = primaryFixUrl(p);
+    const fixChip = fixUrl
+      ? `<a class="pnext-ic" href="${esc(fixUrl)}" target="_blank" rel="noopener" title="Open vendor patch / advisory">➜ Fix ↗</a>`
+      : `<span class="pnext-ic">➜ Fix</span>`;
     const next = p.remediation
-      ? `<div class="pnext"><span class="pnext-ic">➜ Fix</span> ${esc(p.remediation.summary)}</div>` : "";
+      ? `<div class="pnext">${fixChip} ${esc(p.remediation.summary)}</div>` : "";
     return `<article class="pcard" data-i="${i}" tabindex="0">
       <div class="rail b-${pr.band}"><span class="score">${pr.score}</span><span class="band">${pr.band}</span></div>
       <div class="pbody">
@@ -256,6 +264,10 @@ function render() {
     const open = () => openDrawer(results[+el.dataset.i]);
     el.addEventListener("click", open);
     el.addEventListener("keydown", (e) => { if (e.key === "Enter") open(); });
+    // Let in-card links (the Fix link) open the vendor URL without also
+    // triggering the drawer.
+    el.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", (e) => e.stopPropagation()));
   });
 }
 
