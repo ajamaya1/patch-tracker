@@ -287,37 +287,6 @@ def remediation_for(
             "links": links, "sections": sections}
 
 
-_CATEGORY_RULES = [
-    ("Browsers", ("chrome", "chromium", "firefox", "mozilla", "safari",
-                  "webkit", "opera", " brave", "internet explorer")),
-    ("Adobe", ("adobe", "acrobat", "coldfusion", "magento")),
-    ("VPN & Remote Access", ("vpn", "netscaler", "connect secure", "pulse",
-                             "globalprotect", "anyconnect", "fortios",
-                             "fortigate", "sonicos", "sonicwall", "ivanti",
-                             "openvpn", "wireguard", "remote access", "zyxel",
-                             "gateway")),
-    ("Security & Network", ("firewall", "fortinet", "palo alto", "cisco",
-                            "juniper", "f5", "big-ip", "sophos", "trend micro",
-                            "crowdstrike", "mcafee", "kaspersky", "check point",
-                            "endpoint", "antivirus", "splunk", "secureworks")),
-]
-
-
-def category_for(source: str, product: Optional[str], title: Optional[str]):
-    """Group third-party (KEV/NVD) software into a coarse product category.
-
-    Returns None for OS sources (Apple/Microsoft) — categories are only used to
-    break down the third-party view (Browsers / Adobe / VPN / Security / Other).
-    """
-    if source not in ("cisa-kev", "nvd"):
-        return None
-    text = f" {(product or '')} {(title or '')} ".lower()
-    for label, keywords in _CATEGORY_RULES:
-        if any(k in text for k in keywords):
-            return label
-    return "Other"
-
-
 def platform_for(source: str, product: Optional[str], title: Optional[str]) -> str:
     """Derive a coarse platform label used by the dashboard's platform filter."""
     if source == "microsoft":
@@ -482,7 +451,6 @@ def build_payload(
             "patch_id": p["patch_id"],
             "source": p["source"],
             "platform": platform,
-            "category": category_for(p["source"], p["product"], p["title"]),
             "title": p["title"],
             "product": p["product"],
             "version": p["version"],

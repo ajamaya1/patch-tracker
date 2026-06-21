@@ -86,9 +86,6 @@ h1, h2 { letter-spacing: -0.01em; }
   background: var(--bg); border: 1px solid var(--line); border-radius: 5px;
   padding: 0 7px; min-width: 24px; text-align: center;
 }
-.view-btn.subview { padding-left: 24px; font-size: 12.5px; color: var(--muted); }
-.view-btn.subview .vlabel::before { content: "›"; color: var(--faint); margin-right: 7px; }
-.view-btn.subview.active { font-weight: 600; }
 .view-btn.active .vcount { color: var(--text); border-color: var(--line); }
 
 .side-foot { margin-top: auto; padding-top: 16px; }

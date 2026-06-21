@@ -28,27 +28,6 @@ const VIEWS = [
     desc: "Browsers and third-party software (CISA KEV + NVD advisories).",
     pred: (p) => p.source === "cisa-kev" || p.source === "nvd" },
 ];
-const CATEGORY_ORDER = ["Browsers", "Adobe", "VPN & Remote Access",
-  "Security & Network", "Other"];
-
-// All views = the base list, with third-party sub-categories (only those
-// actually present in the data) inserted under "Third-party".
-function allViews() {
-  if (!state.data) return VIEWS;
-  const present = new Set(state.data.patches.map((p) => p.category).filter(Boolean));
-  const subs = CATEGORY_ORDER.filter((c) => present.has(c)).map((c) => ({
-    id: "cat:" + c, label: c, sub: true,
-    desc: "Third-party · " + c,
-    pred: (p) => (p.source === "cisa-kev" || p.source === "nvd") && p.category === c,
-  }));
-  const out = [];
-  for (const v of VIEWS) {
-    out.push(v);
-    if (v.id === "thirdparty") out.push(...subs);
-  }
-  return out;
-}
-const viewById = (id) => allViews().find((v) => v.id === id) || VIEWS[0];
 
 const state = {
   data: null,
@@ -179,16 +158,16 @@ function renderFreshness() {
 
 function initViewFromHash() {
   const h = (location.hash || "").replace("#", "");
-  if (VIEWS.some((v) => v.id === h)) state.view = h;   // only base views deep-link
+  if (VIEWS.some((v) => v.id === h)) state.view = h;
 }
 
 /* ---------------- Sidebar views ---------------- */
 function renderViews() {
   const nav = $("#views");
-  nav.innerHTML = allViews().map((v) => {
+  nav.innerHTML = VIEWS.map((v) => {
     const n = state.data.patches.filter(v.pred).length;
-    return `<button class="view-btn ${v.id === state.view ? "active" : ""} ${v.sub ? "subview" : ""}"
-      data-view="${esc(v.id)}"><span class="vlabel">${esc(v.label)}</span>
+    return `<button class="view-btn ${v.id === state.view ? "active" : ""} ${v.danger ? "danger" : ""}"
+      data-view="${v.id}"><span class="vlabel">${esc(v.label)}</span>
       <span class="vcount">${n}</span></button>`;
   }).join("");
   nav.querySelectorAll(".view-btn").forEach((b) =>
@@ -197,7 +176,7 @@ function renderViews() {
 
 function setView(id) {
   state.view = id;
-  location.hash = id.startsWith("cat:") ? "" : id;  // sub-views aren't deep-linked
+  location.hash = id;
   resetFilters();          // each view starts clean — no lingering filters
   renderViews();
   render();
@@ -281,7 +260,7 @@ const SORTERS = {
   due: (a, b) => (a.patch.due_date || "9999").localeCompare(b.patch.due_date || "9999"),
 };
 function computeResults() {
-  const view = viewById(state.view);
+  const view = VIEWS.find((v) => v.id === state.view);
   const active = cveFiltersActive();
   const out = [];
   for (const p of state.data.patches) {
@@ -332,7 +311,7 @@ function patchBadges(p, full) {
 function render() {
   renderViews();
   renderKPIs();
-  const view = viewById(state.view);
+  const view = VIEWS.find((v) => v.id === state.view);
   $("#view-title").textContent = view.label;
   $("#view-desc").textContent = view.desc;
 
