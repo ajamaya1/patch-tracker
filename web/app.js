@@ -35,7 +35,7 @@ const state = {
   view: "all",
   sort: "date",
   range: "month",            // day | week | month — time slice of the board
-  drawerWide: false,         // remember expanded-drawer preference
+  selected: null,            // {patch, cves} when viewing an update full-screen
   filters: { q: "", cve: "", platform: "", affected: "", minSev: 0, minCvss: 0,
     exploited: false, newonly: false, overdue: false },
   results: [],
@@ -316,6 +316,8 @@ function patchBadges(p, full) {
 /* ---------------- Cards ---------------- */
 function render() {
   renderViews();
+  if (state.selected) { renderDetail(); return; }
+  document.body.classList.remove("detail-mode");
   renderKPIs();
   const view = VIEWS.find((v) => v.id === state.view);
   $("#view-title").textContent = view.label;
@@ -361,11 +363,11 @@ function render() {
   }).join("");
 
   $("#list").querySelectorAll(".pcard").forEach((el) => {
-    const open = () => openDrawer(results[+el.dataset.i]);
+    const open = () => openDetail(results[+el.dataset.i]);
     el.addEventListener("click", open);
     el.addEventListener("keydown", (e) => { if (e.key === "Enter") open(); });
     // Let in-card links (the Fix link) open the vendor URL without also
-    // triggering the drawer.
+    // opening the detail view.
     el.querySelectorAll("a").forEach((a) =>
       a.addEventListener("click", (e) => e.stopPropagation()));
   });
@@ -418,48 +420,53 @@ function cveTable(cves) {
     <th>Exploited</th><th>KEV due</th><th>New</th><th>Affected</th><th>Impact</th></tr></thead>
     <tbody>${rows}</tbody></table>`;
 }
-function openDrawer({ patch: p, cves }) {
+function openDetail(item) {
+  state.selected = item;
+  render();
+  window.scrollTo(0, 0);
+}
+function backToList() {
+  if (!state.selected) return;
+  state.selected = null;
+  render();
+}
+// Full-width detail rendered inline in the main area (not a side drawer).
+function renderDetail() {
+  const { patch: p, cves } = state.selected;
   const pr = p.priority || { score: 0, band: "low" };
-  const drawer = $("#drawer");
-  drawer.innerHTML = `
-    <div class="drawer-head">
-      <div class="dh-score b-${pr.band}" title="Remediation priority (P1 = act first)">
-        <span class="dh-num">${pr.score}</span><span class="dh-band">${bandLabel(pr.band)}</span></div>
-      <div class="dh-meta"><h2>${esc(p.title)}</h2>
-        <div class="psub">${esc(SOURCE_LABEL[p.source] || p.source)} · ${esc(p.platform || "")} · released ${fmtDate(p.release_date)}</div></div>
-      <button class="drawer-expand" id="drawer-expand" title="Expand / collapse full width" aria-label="Expand">⤢</button>
-      <button class="drawer-close" id="drawer-close" aria-label="Close">&times;</button>
-    </div>
-    <div class="drawer-body">
-      <div class="pbadges">${patchBadges(p, true)}</div>
-      <div class="drawer-export">
-        <span class="export-label">Export this update</span>
-        <button type="button" class="btn" data-dexport="csv">CSV</button>
-        <button type="button" class="btn" data-dexport="json">JSON</button>
-        <button type="button" class="btn" data-dexport="html">HTML</button>
+  document.body.classList.add("detail-mode");
+  const view = VIEWS.find((v) => v.id === state.view);
+  $("#view-title").textContent = p.title;
+  $("#view-desc").textContent =
+    `${SOURCE_LABEL[p.source] || p.source} · ${p.platform || ""} · released ${fmtDate(p.release_date)}`;
+  $("#list").innerHTML = `
+    <div class="detail">
+      <div class="detail-bar">
+        <button class="btn back" id="detail-back">&larr; Back to ${esc(view ? view.label : "list")}</button>
+        <span class="detail-export">
+          <span class="export-label">Export this update</span>
+          <button type="button" class="btn" data-dexport="csv">CSV</button>
+          <button type="button" class="btn" data-dexport="json">JSON</button>
+          <button type="button" class="btn" data-dexport="html">HTML</button>
+        </span>
+      </div>
+      <div class="detail-head">
+        <div class="dh-score b-${pr.band}" title="Remediation priority (P1 = act first)">
+          <span class="dh-num">${pr.score}</span><span class="dh-band">${bandLabel(pr.band)}</span></div>
+        <div class="dh-meta"><h2>${esc(p.title)}</h2>
+          <div class="psub">${esc(SOURCE_LABEL[p.source] || p.source)} · ${esc(p.platform || "")} · released ${fmtDate(p.release_date)}</div>
+          <div class="pbadges">${patchBadges(p, true)}</div></div>
       </div>
       <div class="section-title">Remediation</div>
       ${remediationHTML(p)}
       <div class="section-title">Vulnerabilities (${cves.length})</div>
       ${cveTable(cves)}
     </div>`;
-  drawer.hidden = false;
-  drawer.classList.toggle("wide", state.drawerWide);
-  $("#overlay").hidden = false;
-  document.body.style.overflow = "hidden";
-  $("#drawer-close").addEventListener("click", closeDrawer);
-  $("#drawer-expand").addEventListener("click", () => {
-    state.drawerWide = !state.drawerWide;
-    drawer.classList.toggle("wide", state.drawerWide);
-  });
-  drawer.querySelectorAll("[data-dexport]").forEach((b) =>
+  $("#empty").hidden = true;
+  $("#detail-back").addEventListener("click", backToList);
+  $("#list").querySelectorAll("[data-dexport]").forEach((b) =>
     b.addEventListener("click", () =>
       runExport(b.dataset.dexport, [{ patch: p, cves }], p.title)));
-}
-function closeDrawer() {
-  $("#drawer").hidden = true;
-  $("#overlay").hidden = true;
-  document.body.style.overflow = "";
 }
 
 /* ---------------- Export ---------------- */
@@ -555,8 +562,7 @@ function wire() {
   if (def) def.classList.add("active");
   document.querySelectorAll("[data-export]").forEach((b) => b.addEventListener("click",
     () => runExport(b.dataset.export, state.results, state.view)));
-  $("#overlay").addEventListener("click", closeDrawer);
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") backToList(); });
   window.addEventListener("hashchange", () => { initViewFromHash(); render(); });
 }
 
