@@ -10,14 +10,8 @@ const SOURCE_LABEL = { apple: "Apple", microsoft: "Microsoft",
   "cisa-kev": "CISA KEV", nvd: "NVD" };
 
 const VIEWS = [
-  { id: "priority", label: "Priority queue", icon: "▲", desc: "All patches ranked by remediation priority.",
+  { id: "all", label: "All patches", icon: "≡", desc: "Everything currently tracked, ranked by remediation priority.",
     pred: () => true },
-  { id: "actnow", label: "Act now", icon: "⚑", danger: true,
-    desc: "Actively exploited or past their CISA KEV remediation deadline.",
-    pred: (p) => p.exploited_count > 0 || isOverdue(p) },
-  { id: "exploited", label: "Exploited / KEV", icon: "☣", danger: true,
-    desc: "Patches fixing vulnerabilities exploited in the wild.",
-    pred: (p) => p.exploited_count > 0 },
   { id: "windows", label: "Windows", icon: "▢",
     desc: "Microsoft Patch Tuesday updates, split by client and server.",
     pred: (p) => p.source === "microsoft" },
@@ -26,16 +20,14 @@ const VIEWS = [
   { id: "thirdparty", label: "Third-party", icon: "◆",
     desc: "Browsers and third-party software (CISA KEV + NVD advisories).",
     pred: (p) => p.source === "cisa-kev" || p.source === "nvd" },
-  { id: "all", label: "All patches", icon: "≡", desc: "Everything currently tracked.",
-    pred: () => true },
 ];
 
 const state = {
   data: null,
-  view: "priority",
+  view: "all",
   sort: "priority",
   filters: { q: "", cve: "", platform: "", affected: "", minSev: 0, minCvss: 0,
-    exploited: false, newonly: false },
+    exploited: false, newonly: false, overdue: false },
   results: [],
 };
 
@@ -104,9 +96,9 @@ function renderViews() {
   const nav = $("#views");
   nav.innerHTML = VIEWS.map((v) => {
     const n = state.data.patches.filter(v.pred).length;
-    return `<button class="view-btn ${v.id === state.view ? "active" : ""} ${v.danger ? "danger" : ""}"
-      data-view="${v.id}"><span class="vi">${v.icon || "•"}</span>
-      <span>${esc(v.label)}</span><span class="vcount">${n}</span></button>`;
+    return `<button class="view-btn ${v.id === state.view ? "active" : ""}"
+      data-view="${v.id}"><span class="vlabel">${esc(v.label)}</span>
+      <span class="vcount">${n}</span></button>`;
   }).join("");
   nav.querySelectorAll(".view-btn").forEach((b) =>
     b.addEventListener("click", () => setView(b.dataset.view)));
@@ -141,11 +133,16 @@ function renderKPIs() {
 }
 function applyKPI(kind) {
   const f = state.filters;
-  if (kind === "actnow") { setView("actnow"); return; }
-  if (kind === "exploited") { f.exploited = !f.exploited; $("#exploited").checked = f.exploited; }
-  else if (kind === "new") { f.newonly = !f.newonly; $("#newonly").checked = f.newonly; }
-  else if (kind === "crit") { f.minSev = f.minSev === 4 ? 0 : 4; $("#severity").value = f.minSev ? "critical" : ""; }
-  else if (kind === "overdue") { setView("actnow"); return; }
+  if (kind === "actnow" || kind === "exploited") {
+    f.exploited = !f.exploited; $("#exploited").checked = f.exploited;
+  } else if (kind === "new") {
+    f.newonly = !f.newonly; $("#newonly").checked = f.newonly;
+  } else if (kind === "crit") {
+    f.minSev = f.minSev === 4 ? 0 : 4;
+    $("#severity").value = f.minSev ? "critical" : "";
+  } else if (kind === "overdue") {
+    f.overdue = !f.overdue;
+  }
   render();
 }
 
@@ -168,6 +165,7 @@ function patchMatches(p) {
   const f = state.filters;
   if (f.platform && p.platform !== f.platform) return false;
   if (f.affected && !(p.affected && p.affected[f.affected])) return false;
+  if (f.overdue && !isOverdue(p)) return false;
   if (f.q) {
     const hay = (p.title + " " + (p.product || "") + " " + p.patch_id).toLowerCase();
     if (!hay.includes(f.q)) return false;
@@ -208,14 +206,14 @@ function patchBadges(p, full) {
   let b = `<span class="badge src-${esc(p.source)}">${esc(SOURCE_LABEL[p.source] || p.source)}</span>`;
   if (p.platform) b += `<span class="badge platform">${esc(p.platform)}</span>`;
   if (p.severity) b += `<span class="badge ${sevClass(p.severity)}">${esc(p.severity)}</span>`;
-  if (p.exploited_count) b += `<span class="badge exploit">⚠ ${p.exploited_count} exploited</span>`;
+  if (p.exploited_count) b += `<span class="badge exploit">${p.exploited_count} exploited</span>`;
   if (p.ransomware_count) b += `<span class="badge ransom">ransomware</span>`;
   b += dueBadge(p);
   if (p.new_count) b += `<span class="badge new">${p.new_count} new</span>`;
   const a = p.affected || {};
   if (a.client) b += `<span class="badge kind">${a.client} client</span>`;
   if (a.server) b += `<span class="badge kind">${a.server} server</span>`;
-  if (full && p.patch_tuesday) b += `<span class="badge ptues">Patch Tue ${fmtDate(p.patch_tuesday)}</span>`;
+  if (full && p.patch_tuesday) b += `<span class="badge ptues">Patch Tuesday ${fmtDate(p.patch_tuesday)}</span>`;
   if (full && p.servicing) {
     const hp = p.servicing.hotpatch || {};
     b += `<span class="badge ${hp.is_hotpatch_month ? "hotpatch" : "cumulative"}">${esc(p.servicing.channel)}-release · ${hp.is_hotpatch_month ? "hotpatch" : "cumulative"}</span>`;
@@ -244,12 +242,12 @@ function render() {
       ? `<div class="preasons">Why: <b>${esc(pr.reasons.join(" · "))}</b></div>` : "";
     const fixUrl = primaryFixUrl(p);
     const fixChip = fixUrl
-      ? `<a class="pnext-ic" href="${esc(fixUrl)}" target="_blank" rel="noopener" title="Open vendor patch / advisory">➜ Fix ↗</a>`
-      : `<span class="pnext-ic">➜ Fix</span>`;
+      ? `<a class="pnext-cta" href="${esc(fixUrl)}" target="_blank" rel="noopener" title="Open vendor patch / advisory">Remediate &rarr;</a>`
+      : "";
     const next = p.remediation
-      ? `<div class="pnext">${fixChip} ${esc(p.remediation.summary)}</div>` : "";
-    return `<article class="pcard" data-i="${i}" tabindex="0">
-      <div class="rail b-${pr.band}"><span class="score">${pr.score}</span><span class="band">${pr.band}</span></div>
+      ? `<div class="pnext"><span class="pnext-label">Action</span> ${esc(p.remediation.summary)} ${fixChip}</div>` : "";
+    return `<article class="pcard b-${pr.band}" data-i="${i}" tabindex="0">
+      <div class="rail b-${pr.band}"><span class="score">${pr.score}</span><span class="band">${esc(pr.band)}</span></div>
       <div class="pbody">
         <div class="pcard-head"><span class="ptitle">${esc(p.title)}</span>
           <span class="psub">${esc(sub)}</span></div>
@@ -286,7 +284,7 @@ function remediationHTML(p) {
       <span class="muted">Eligible: ${esc(sv.eligible_skus)}. ${esc(sv.preview_note)}</span></div>`;
   }
   for (const sec of r.sections || []) {
-    h += `<div class="rem-sec"><div class="aud">${esc(sec.icon || "")} ${esc(sec.audience)}</div><ul>`;
+    h += `<div class="rem-sec"><div class="aud">${esc(sec.audience)}</div><ul>`;
     for (const step of sec.steps || []) h += `<li>${esc(step)}</li>`;
     h += `</ul></div>`;
   }
@@ -323,11 +321,11 @@ function openDrawer({ patch: p, cves }) {
   const drawer = $("#drawer");
   drawer.innerHTML = `
     <div class="drawer-head">
-      <div class="dh-score rail b-${pr.band}" style="border-radius:10px">
-        <span style="font-size:18px">${pr.score}</span></div>
-      <div><h2>${esc(p.title)}</h2>
+      <div class="dh-score b-${pr.band}">
+        <span class="dh-num">${pr.score}</span><span class="dh-band">${esc(pr.band)}</span></div>
+      <div class="dh-meta"><h2>${esc(p.title)}</h2>
         <div class="psub">${esc(SOURCE_LABEL[p.source] || p.source)} · ${esc(p.platform || "")} · released ${fmtDate(p.release_date)}</div></div>
-      <button class="drawer-close" id="drawer-close" aria-label="Close">✕</button>
+      <button class="drawer-close" id="drawer-close" aria-label="Close">&times;</button>
     </div>
     <div class="drawer-body">
       <div class="pbadges">${patchBadges(p, true)}</div>
@@ -422,7 +420,7 @@ function wire() {
   on("#sort", "change", (e) => { state.sort = e.target.value; render(); });
   on("#reset", "click", () => {
     Object.assign(f, { q: "", cve: "", platform: "", affected: "", minSev: 0,
-      minCvss: 0, exploited: false, newonly: false });
+      minCvss: 0, exploited: false, newonly: false, overdue: false });
     for (const el of document.querySelectorAll(".toolbar input, .toolbar select")) {
       if (el.type === "checkbox") el.checked = false;
       else if (el.id !== "sort") el.value = "";
