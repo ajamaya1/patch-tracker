@@ -238,12 +238,15 @@ function render() {
       .filter(Boolean).join(" · ");
     const reasons = pr.reasons && pr.reasons.length
       ? `<div class="preasons">Why: <b>${esc(pr.reasons.join(" · "))}</b></div>` : "";
+    const next = p.remediation
+      ? `<div class="pnext"><span class="pnext-ic">➜ Fix</span> ${esc(p.remediation.summary)}</div>` : "";
     return `<article class="pcard" data-i="${i}" tabindex="0">
       <div class="rail b-${pr.band}"><span class="score">${pr.score}</span><span class="band">${pr.band}</span></div>
       <div class="pbody">
         <div class="pcard-head"><span class="ptitle">${esc(p.title)}</span>
           <span class="psub">${esc(sub)}</span></div>
         <div class="pbadges">${patchBadges(p, false)}</div>
+        ${next}
         ${reasons}
       </div>
     </article>`;

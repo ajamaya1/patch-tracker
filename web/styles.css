@@ -166,7 +166,10 @@ a:hover { text-decoration: underline; }
 .ptitle { font-weight: 650; font-size: 14.5px; }
 .psub { color: var(--muted); font-size: 12px; }
 .pbadges { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; align-items: center; }
-.preasons { color: var(--faint); font-size: 11.5px; margin-top: 7px; }
+.pnext { color: var(--muted); font-size: 12.5px; margin-top: 8px; display: flex; gap: 7px; align-items: baseline; }
+.pnext-ic { color: var(--new); font-weight: 700; font-size: 11px; white-space: nowrap; flex: 0 0 auto;
+  background: #11331f; border: 1px solid #1f6b43; border-radius: 5px; padding: 0 6px; }
+.preasons { color: var(--faint); font-size: 11.5px; margin-top: 6px; }
 .preasons b { color: var(--high); font-weight: 600; }
 
 /* Badges */
