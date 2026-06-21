@@ -1,0 +1,53 @@
+{
+  "title": "CISA Catalog of Known Exploited Vulnerabilities",
+  "catalogVersion": "2025.06.10",
+  "dateReleased": "2025-06-10T14:00:00.0000Z",
+  "count": 4,
+  "vulnerabilities": [
+    {
+      "cveID": "CVE-2025-5419",
+      "vendorProject": "Google",
+      "product": "Chromium V8",
+      "vulnerabilityName": "Google Chromium V8 Out-of-Bounds Read and Write Vulnerability",
+      "dateAdded": "2025-06-05",
+      "shortDescription": "Google Chromium V8 contains an out-of-bounds read and write vulnerability.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-06-26",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://chromereleases.googleblog.com/"
+    },
+    {
+      "cveID": "CVE-2025-2857",
+      "vendorProject": "Mozilla",
+      "product": "Firefox",
+      "vulnerabilityName": "Mozilla Firefox Sandbox Escape Vulnerability",
+      "dateAdded": "2025-06-03",
+      "shortDescription": "Mozilla Firefox contains a sandbox escape vulnerability.",
+      "requiredAction": "Apply mitigations per vendor instructions.",
+      "dueDate": "2025-06-24",
+      "knownRansomwareCampaignUse": "Unknown"
+    },
+    {
+      "cveID": "CVE-2025-1234",
+      "vendorProject": "Adobe",
+      "product": "Acrobat Reader",
+      "vulnerabilityName": "Adobe Acrobat Reader Use-After-Free Vulnerability",
+      "dateAdded": "2025-06-04",
+      "shortDescription": "Use-after-free leading to code execution.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2025-06-25",
+      "knownRansomwareCampaignUse": "Known"
+    },
+    {
+      "cveID": "CVE-2025-30000",
+      "vendorProject": "Microsoft",
+      "product": "Windows",
+      "vulnerabilityName": "Microsoft Windows SMB RCE (also tracked via MSRC)",
+      "dateAdded": "2025-06-10",
+      "shortDescription": "Overlaps with the MSRC feed; excluded from the third-party view by default.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2025-07-01",
+      "knownRansomwareCampaignUse": "Unknown"
+    }
+  ]
+}

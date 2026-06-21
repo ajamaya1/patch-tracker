@@ -27,7 +27,7 @@ from .fetcher import FetchError, http_get_json, load_json_file
 from .models import TRACKING_STATUSES
 from .report import render_table, short_date
 from .site import write_site_data
-from .sources import apple_sofa, microsoft_msrc
+from .sources import apple_sofa, cisa_kev, microsoft_msrc
 
 
 def _now() -> str:
@@ -45,13 +45,15 @@ def cmd_fetch(args: argparse.Namespace, db: Database) -> int:
     if args.file:
         if not args.source or args.source == "all":
             print(
-                "error: --file requires --source apple or --source microsoft",
+                "error: --file requires --source apple, microsoft or kev",
                 file=sys.stderr,
             )
             return 2
         data = load_json_file(args.file)
         if args.source == "apple":
             patches = apple_sofa.parse_feed(data, fetched_at)
+        elif args.source == "kev":
+            patches = cisa_kev.parse_feed(data, fetched_at)
         else:
             # A single CVRF document; synthesize a minimal summary from it.
             summary = _summary_from_cvrf(data)
@@ -62,7 +64,8 @@ def cmd_fetch(args: argparse.Namespace, db: Database) -> int:
         return 0
 
     sources = (
-        ["apple", "microsoft"] if args.source in (None, "all") else [args.source]
+        ["apple", "microsoft", "kev"] if args.source in (None, "all")
+        else [args.source]
     )
     platforms = ["macos"]
     if args.ios:
@@ -81,6 +84,10 @@ def cmd_fetch(args: argparse.Namespace, db: Database) -> int:
             )
             patches.extend(ms_patches)
             print(f"Microsoft (MSRC): {len(ms_patches)} monthly update(s)")
+        if "kev" in sources:
+            kev_patches = cisa_kev.fetch(http_get_json, fetched_at)
+            patches.extend(kev_patches)
+            print(f"CISA KEV (third-party): {len(kev_patches)} vendor group(s)")
     except FetchError as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
@@ -298,7 +305,11 @@ def cmd_export(args: argparse.Namespace, db: Database) -> int:
         rec["cves"] = [dict(c) for c in cves]
         payload.append(rec)
 
-    if args.format == "json":
+    if args.format == "html":
+        from .site import build_payload
+        from .report import render_html_report
+        out = render_html_report(build_payload(db, new_days=args.new_days))
+    elif args.format == "json":
         out = json.dumps(payload, indent=2, default=str)
     else:  # csv -- one row per CVE, flattened with its patch context
         buf = io.StringIO()
@@ -351,7 +362,8 @@ def build_parser() -> argparse.ArgumentParser:
     sub = parser.add_subparsers(dest="command", required=True)
 
     p_fetch = sub.add_parser("fetch", help="Fetch latest security feeds")
-    p_fetch.add_argument("--source", choices=["apple", "microsoft", "all"],
+    p_fetch.add_argument("--source",
+                         choices=["apple", "microsoft", "kev", "all"],
                          default="all")
     p_fetch.add_argument("--months", type=int, default=3,
                          help="How many recent MSRC monthly updates to pull")
@@ -363,7 +375,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_fetch.set_defaults(func=cmd_fetch)
 
     p_list = sub.add_parser("list", help="List tracked patches")
-    p_list.add_argument("--source", choices=["apple", "microsoft"])
+    p_list.add_argument("--source", choices=["apple", "microsoft", "cisa-kev"])
     p_list.add_argument("--status", choices=list(TRACKING_STATUSES))
     p_list.add_argument("--severity")
     p_list.add_argument("--exploited", action="store_true",
@@ -382,7 +394,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_cves.add_argument("--cve", help="Look up a specific CVE id")
     p_cves.add_argument("--severity")
     p_cves.add_argument("--exploited", action="store_true")
-    p_cves.add_argument("--source", choices=["apple", "microsoft"])
+    p_cves.add_argument("--source", choices=["apple", "microsoft", "cisa-kev"])
     p_cves.add_argument("--since")
     p_cves.add_argument("--limit", type=int)
     p_cves.add_argument("--json", action="store_true")
@@ -410,7 +422,10 @@ def build_parser() -> argparse.ArgumentParser:
     p_site.set_defaults(func=cmd_build_site)
 
     p_export = sub.add_parser("export", help="Export patches+CVEs")
-    p_export.add_argument("--format", choices=["json", "csv"], default="json")
+    p_export.add_argument("--format", choices=["json", "csv", "html"],
+                          default="json")
+    p_export.add_argument("--new-days", type=int, default=7,
+                          help="Window (days) to flag CVEs as new (html)")
     p_export.add_argument("--out", help="Output file (default: stdout)")
     p_export.set_defaults(func=cmd_export)
 

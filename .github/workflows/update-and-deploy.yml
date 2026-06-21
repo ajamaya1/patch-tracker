@@ -54,6 +54,10 @@ jobs:
         continue-on-error: true
         run: patch-tracker --db data/patches.db fetch --source microsoft --months 3
 
+      - name: Fetch third-party zero-days (CISA KEV)
+        continue-on-error: true
+        run: patch-tracker --db data/patches.db fetch --source kev
+
       - name: Build dashboard data
         run: patch-tracker --db data/patches.db build-site --out web/data.json --new-days 7
 

@@ -40,6 +40,48 @@ THREAT_EXPLOIT = 1
 THREAT_SEVERITY = 3
 
 
+def classify_product(name: str) -> str:
+    """Classify an affected product name as client / server / other.
+
+    Windows Server SKUs -> ``server``; other Windows desktop SKUs (10, 11,
+    7/8.1, etc.) -> ``client``; everything else (Office, Edge, .NET, SQL …)
+    -> ``other``.
+    """
+    n = (name or "").lower()
+    if "server" in n:
+        return "server"
+    if "windows" in n:
+        return "client"
+    return "other"
+
+
+def _product_name_map(doc: dict) -> dict:
+    """Map ProductID -> product name from the CVRF ProductTree."""
+    tree = doc.get("ProductTree") or {}
+    out = {}
+    for fp in tree.get("FullProductName", []) or []:
+        pid = fp.get("ProductID")
+        if pid is not None:
+            out[str(pid)] = fp.get("Value") or str(pid)
+    return out
+
+
+def _affected_products(vuln: dict, name_map: dict) -> list:
+    """Return [{'name', 'kind'}] for products this vuln is known to affect.
+
+    ProductStatuses Type 3 == "Known Affected".
+    """
+    seen = {}
+    for status in vuln.get("ProductStatuses", []) or []:
+        if status.get("Type") != 3:
+            continue
+        for pid in status.get("ProductID", []) or []:
+            name = name_map.get(str(pid))
+            if name and name not in seen:
+                seen[name] = {"name": name, "kind": classify_product(name)}
+    return list(seen.values())
+
+
 def cvrf_url(update_id: str) -> str:
     """The CVRF document URL for a given monthly update id (e.g. 2025-Jun)."""
     return f"{BASE_URL}/cvrf/{update_id}"
@@ -121,6 +163,7 @@ def parse_cvrf(summary: dict, doc: Any, fetched_at: str) -> Patch:
         fetched_at=fetched_at,
     )
 
+    name_map = _product_name_map(doc)
     for vuln in doc.get("Vulnerability", []) or []:
         cve_id = vuln.get("CVE")
         if not cve_id:
@@ -138,6 +181,7 @@ def parse_cvrf(summary: dict, doc: Any, fetched_at: str) -> Patch:
                 exploited=exploited,
                 publicly_disclosed=disclosed,
                 url=f"https://msrc.microsoft.com/update-guide/vulnerability/{cve_id}",
+                products=_affected_products(vuln, name_map),
             )
         )
 

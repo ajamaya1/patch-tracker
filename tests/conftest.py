@@ -35,9 +35,14 @@ def msrc_jun():
 
 
 @pytest.fixture
-def fake_http(msrc_updates, msrc_jun, sofa_macos):
+def kev_feed():
+    return load_fixture("cisa_kev_sample.json")
+
+
+@pytest.fixture
+def fake_http(msrc_updates, msrc_jun, sofa_macos, kev_feed):
     """A stand-in http_get that serves fixtures by URL."""
-    from patch_tracker.sources import apple_sofa, microsoft_msrc
+    from patch_tracker.sources import apple_sofa, cisa_kev, microsoft_msrc
 
     routes = {
         microsoft_msrc.UPDATES_URL: msrc_updates,
@@ -47,6 +52,7 @@ def fake_http(msrc_updates, msrc_jun, sofa_macos):
         microsoft_msrc.cvrf_url("2025-May"): msrc_jun,
         apple_sofa.MACOS_FEED_URL: sofa_macos,
         apple_sofa.IOS_FEED_URL: sofa_macos,
+        cisa_kev.KEV_URL: kev_feed,
     }
 
     def _get(url: str):

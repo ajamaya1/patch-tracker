@@ -6,7 +6,8 @@
   },
   "ProductTree": {
     "FullProductName": [
-      { "ProductID": "11926", "Value": "Windows 11 Version 24H2 for x64-based Systems" }
+      { "ProductID": "11926", "Value": "Windows 11 Version 24H2 for x64-based Systems" },
+      { "ProductID": "12097", "Value": "Windows Server 2025 (Server Core installation)" }
     ]
   },
   "Vulnerability": [
@@ -17,7 +18,7 @@
       "CVSSScoreSets": [
         { "BaseScore": 8.8, "TemporalScore": 7.7, "Vector": "CVSS:3.1/AV:N", "ProductID": ["11926"] }
       ],
-      "ProductStatuses": [ { "ProductID": ["11926"], "Type": 3 } ],
+      "ProductStatuses": [ { "ProductID": ["11926", "12097"], "Type": 3 } ],
       "Threats": [
         { "Type": 0, "Description": { "Value": "Remote Code Execution" }, "ProductID": ["11926"] },
         { "Type": 3, "Description": { "Value": "Critical" }, "ProductID": ["11926"] },

@@ -56,6 +56,17 @@ CREATE TABLE IF NOT EXISTS tracking (
     FOREIGN KEY (patch_id) REFERENCES patches(patch_id) ON DELETE CASCADE
 );
 
+CREATE TABLE IF NOT EXISTS products (
+    patch_id TEXT NOT NULL,
+    cve_id   TEXT NOT NULL,
+    name     TEXT NOT NULL,
+    kind     TEXT NOT NULL,            -- client | server | other
+    PRIMARY KEY (patch_id, cve_id, name),
+    FOREIGN KEY (patch_id) REFERENCES patches(patch_id) ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS idx_products_patch ON products(patch_id);
+CREATE INDEX IF NOT EXISTS idx_products_kind ON products(kind);
 CREATE INDEX IF NOT EXISTS idx_cves_cve_id ON cves(cve_id);
 CREATE INDEX IF NOT EXISTS idx_cves_exploited ON cves(exploited);
 CREATE INDEX IF NOT EXISTS idx_cves_first_seen ON cves(first_seen);
@@ -162,6 +173,19 @@ class Database:
                         cve.first_seen or today,
                     ),
                 )
+            # Refresh the affected-product breakdown for this patch.
+            cur.execute("DELETE FROM products WHERE patch_id = ?",
+                        (patch.patch_id,))
+            for cve in patch.cves:
+                for prod in cve.products:
+                    cur.execute(
+                        """
+                        INSERT OR IGNORE INTO products
+                            (patch_id, cve_id, name, kind)
+                        VALUES (?, ?, ?, ?)
+                        """,
+                        (patch.patch_id, cve.cve_id, prod["name"], prod["kind"]),
+                    )
             cur.execute(
                 """
                 INSERT INTO tracking (patch_id, status, note, updated_at)
@@ -270,6 +294,13 @@ class Database:
             (patch_id,),
         ).fetchall()
 
+    def get_products_for_patch(self, patch_id: str) -> List[sqlite3.Row]:
+        return self.conn.execute(
+            "SELECT cve_id, name, kind FROM products WHERE patch_id = ? "
+            "ORDER BY kind, name",
+            (patch_id,),
+        ).fetchall()
+
     def list_cves(
         self,
         cve_id: Optional[str] = None,
@@ -310,6 +341,16 @@ class Database:
             sql.append("LIMIT ?")
             params.append(limit)
         return self.conn.execute("\n".join(sql), params).fetchall()
+
+    def count_cves_by_product_kind(self) -> dict:
+        """Distinct CVE counts per affected product kind (client/server/other)."""
+        return {
+            r["kind"]: r["n"]
+            for r in self.conn.execute(
+                "SELECT kind, COUNT(DISTINCT cve_id) AS n FROM products "
+                "GROUP BY kind"
+            )
+        }
 
     def count_new_cves(self, since: str) -> int:
         """Count distinct CVEs first seen on/after ``since`` (YYYY-MM-DD)."""

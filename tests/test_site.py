@@ -58,6 +58,30 @@ def test_build_payload_structure_and_new_flag():
     assert flags["CVE-2025-2"] is False
 
 
+def test_microsoft_client_server_breakdown_and_servicing():
+    from patch_tracker.sources import microsoft_msrc
+    import json, os
+    db = Database(":memory:")
+    doc = json.load(open(os.path.join(os.path.dirname(__file__), "fixtures",
+                                      "msrc_2025_jun_sample.json")))
+    summary = {"id": "2025-Jun", "title": "June 2025 Security Updates",
+               "release_date": "2025-06-10T07:00:00Z",
+               "url": microsoft_msrc.cvrf_url("2025-Jun")}
+    db.upsert_patches([microsoft_msrc.parse_cvrf(summary, doc, "2025-06-10")])
+    payload = build_payload(db, new_days=7,
+                            now=dt.datetime(2025, 6, 12, tzinfo=dt.timezone.utc))
+    ms = payload["patches"][0]
+    # CVE-2025-30000 affects both client + server; CVE-2025-30001 client only.
+    assert ms["affected"]["client"] == 2
+    assert ms["affected"]["server"] == 1
+    assert ms["servicing"]["channel"] == "B"
+    assert ms["servicing"]["hotpatch"]["is_hotpatch_month"] is True
+    # Remediation has both client and server sections.
+    auds = " ".join(s["audience"] for s in ms["remediation"]["sections"]).lower()
+    assert "client" in auds and "server" in auds
+    assert payload["stats"]["by_product_kind"].get("server") == 1
+
+
 def test_write_site_data_creates_file(tmp_path):
     db = seed_db()
     out = tmp_path / "nested" / "data.json"

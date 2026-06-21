@@ -82,3 +82,24 @@ def test_stats_and_export_csv(tmp_path, capsys):
         content = fh.read()
     assert "CVE-2025-30000" in content
     assert content.startswith("patch_id,source")
+
+    out_html = str(tmp_path / "out.html")
+    assert run(["export", "--format", "html", "--out", out_html], db_path) == 0
+    with open(out_html) as fh:
+        html = fh.read()
+    assert "<!DOCTYPE html>" in html
+    assert "Patch Tracker report" in html
+    assert "CVE-2025-30000" in html
+
+
+def test_fetch_kev_from_file(tmp_path, capsys):
+    fixtures = os.path.join(os.path.dirname(__file__), "fixtures")
+    db_path = str(tmp_path / "t.db")
+    kev = os.path.join(fixtures, "cisa_kev_sample.json")
+    assert run(["fetch", "--source", "kev", "--file", kev], db_path) == 0
+    capsys.readouterr()
+    assert run(["list", "--source", "cisa-kev", "--json"], db_path) == 0
+    out = json.loads(capsys.readouterr().out)
+    titles = {r["title"] for r in out}
+    assert "Google Chromium V8" in titles
+    assert "Mozilla Firefox" in titles

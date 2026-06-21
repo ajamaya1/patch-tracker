@@ -1,38 +1,107 @@
 {
-  "generated_at": "2026-06-21T16:27:02+00:00",
+  "generated_at": "2026-06-21T17:03:18+00:00",
   "new_window_days": 7,
   "stats": {
-    "total_patches": 3,
-    "total_cves": 5,
-    "exploited_cves": 2,
+    "total_patches": 6,
+    "total_cves": 8,
+    "exploited_cves": 5,
     "by_source": {
       "apple": 2,
+      "cisa-kev": 3,
       "microsoft": 1
     },
     "by_status": {
-      "new": 3
+      "new": 6
     },
     "by_severity": {
-      "unknown": 2,
+      "unknown": 5,
       "Critical": 1
     },
-    "new_cves": 5
+    "new_cves": 5,
+    "by_product_kind": {
+      "client": 2,
+      "other": 3,
+      "server": 1
+    }
   },
   "patches": [
     {
       "patch_id": "msrc:2025-Jun",
       "source": "microsoft",
+      "platform": "Windows",
       "title": "June 2025 Security Updates",
       "product": "Microsoft Security Update",
       "version": "2025-Jun",
       "release_date": "2025-06-10T07:00:00Z",
       "patch_tuesday": "2025-06-10",
+      "servicing": {
+        "channel": "B",
+        "channel_label": "B release \u2014 Patch Tuesday (cumulative security)",
+        "is_cumulative": true,
+        "eligible_skus": "Windows 11 Enterprise 24H2 \u00b7 Windows Server 2025 (Azure-enrolled)",
+        "hotpatch": {
+          "is_hotpatch_month": true,
+          "update_type": "Hotpatch (no reboot for enrolled SKUs)",
+          "reboot_required": false,
+          "note": "Hotpatch month \u2014 enrolled Windows 11 Enterprise 24H2 \u00b7 Windows Server 2025 (Azure-enrolled) apply this security update without rebooting; all other systems receive the standard cumulative update (reboot required)."
+        },
+        "preview_note": "Optional non-security 'C' (3rd-week) and 'D' (4th-week) preview releases are not tracked here."
+      },
       "url": "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2025-Jun",
       "severity": "Critical",
       "status": "new",
       "cve_count": 2,
       "exploited_count": 1,
       "new_count": 2,
+      "affected": {
+        "client": 2,
+        "server": 1,
+        "other": 0
+      },
+      "remediation": {
+        "summary": "Apply the June 2025 Security Updates (2 affecting Windows clients; 1 affecting Windows Server).",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "MSRC update guide",
+            "url": "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2025-Jun"
+          },
+          {
+            "label": "Microsoft Update Catalog",
+            "url": "https://www.catalog.update.microsoft.com/Search.aspx?q=2025-Jun"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Windows clients (desktops & laptops)",
+            "icon": "\ud83d\udcbb",
+            "steps": [
+              "Managed fleets: deploy via Windows Update for Business or Microsoft Intune update rings with an install deadline and enforced reboot; validate on a pilot ring first.",
+              "Standalone/home devices: Settings \u25b8 Windows Update \u25b8 Check for updates \u25b8 Install, then restart.",
+              "Watch for application-compatibility regressions before broad rollout; keep the previous cumulative update on hand for rollback."
+            ]
+          },
+          {
+            "audience": "Windows Server",
+            "icon": "\ud83d\udda5\ufe0f",
+            "steps": [
+              "Schedule a maintenance window \u2014 servers require a reboot to finish installation.",
+              "Deploy via WSUS, Configuration Manager (SCCM), or Azure Update Manager; for failover clusters use Cluster-Aware Updating to patch nodes without downtime.",
+              "Role-sensitive hosts (Domain Controllers, Exchange, SQL): back up first and follow role-specific patch ordering.",
+              "After reboot, confirm critical services and the OS build number."
+            ]
+          },
+          {
+            "audience": "Update management (all)",
+            "icon": "\ud83d\udce6",
+            "steps": [
+              "For offline/air-gapped systems, download the specific KB from the Microsoft Update Catalog and import it into your tooling.",
+              "Track deployment per ring and prioritise Critical and actively-exploited CVEs for emergency change."
+            ]
+          }
+        ]
+      },
       "cves": [
         {
           "cve_id": "CVE-2025-30000",
@@ -43,7 +112,15 @@
           "impact": "Remote Code Execution",
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30000",
           "first_seen": "2026-06-21",
-          "is_new": true
+          "is_new": true,
+          "product_kinds": [
+            "client",
+            "server"
+          ],
+          "products": [
+            "Windows 11 Version 24H2 for x64-based Systems",
+            "Windows Server 2025 (Server Core installation)"
+          ]
         },
         {
           "cve_id": "CVE-2025-30001",
@@ -54,24 +131,248 @@
           "impact": "Elevation of Privilege",
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30001",
           "first_seen": "2026-06-21",
-          "is_new": true
+          "is_new": true,
+          "product_kinds": [
+            "client"
+          ],
+          "products": [
+            "Windows 11 Version 24H2 for x64-based Systems"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:Google:Chromium V8",
+      "source": "cisa-kev",
+      "platform": "Google",
+      "title": "Google Chromium V8",
+      "product": "Google",
+      "version": null,
+      "release_date": "2025-06-05",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": null,
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 0,
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Google Chromium V8 has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Google Chromium V8 (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2025-5419",
+          "severity": null,
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Google Chromium V8 Out-of-Bounds Read and Write Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-5419",
+          "first_seen": "2025-06-05",
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chromium V8"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:Adobe:Acrobat Reader",
+      "source": "cisa-kev",
+      "platform": "Adobe",
+      "title": "Adobe Acrobat Reader",
+      "product": "Adobe",
+      "version": null,
+      "release_date": "2025-06-04",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": null,
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 0,
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Adobe Acrobat Reader has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Adobe Acrobat Reader (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2025-1234",
+          "severity": "Critical",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Adobe Acrobat Reader Use-After-Free Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-1234",
+          "first_seen": "2025-06-04",
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe Acrobat Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:Mozilla:Firefox",
+      "source": "cisa-kev",
+      "platform": "Mozilla",
+      "title": "Mozilla Firefox",
+      "product": "Mozilla",
+      "version": null,
+      "release_date": "2025-06-03",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": null,
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 0,
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Mozilla Firefox has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Mozilla Firefox (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2025-2857",
+          "severity": null,
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Mozilla Firefox Sandbox Escape Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-2857",
+          "first_seen": "2025-06-03",
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Mozilla Firefox"
+          ]
         }
       ]
     },
     {
       "patch_id": "apple:macOS Sequoia 15.5",
       "source": "apple",
+      "platform": "macOS",
       "title": "macOS Sequoia 15.5",
       "product": "macOS Sequoia",
       "version": "15.5",
       "release_date": "2025-05-12T00:00:00Z",
       "patch_tuesday": null,
+      "servicing": null,
       "url": "https://support.apple.com/en-us/100100",
       "severity": null,
       "status": "new",
       "cve_count": 2,
       "exploited_count": 1,
       "new_count": 2,
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 0
+      },
+      "remediation": {
+        "summary": "Update affected macOS devices to macOS Sequoia 15.5.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "Apple security release notes",
+            "url": "https://support.apple.com/en-us/100100"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "All affected macOS devices",
+            "icon": "\ud83d\udcbb",
+            "steps": [
+              "On the device: System Settings \u25b8 General \u25b8 Software Update \u2014 install macOS Sequoia 15.5 and restart if prompted.",
+              "Managed fleets: push the update via MDM (Jamf, Kandji, Intune, Mosyle\u2026) or a software-update enforcement / deferral policy with a deadline.",
+              "Confirm the OS build matches the fixed version afterwards; remind users that a restart is required for kernel fixes."
+            ]
+          }
+        ]
+      },
       "cves": [
         {
           "cve_id": "CVE-2025-31200",
@@ -82,7 +383,9 @@
           "impact": null,
           "url": "https://support.apple.com/en-us/100100",
           "first_seen": "2026-06-21",
-          "is_new": true
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
         },
         {
           "cve_id": "CVE-2025-31201",
@@ -93,24 +396,55 @@
           "impact": null,
           "url": "https://support.apple.com/en-us/100100",
           "first_seen": "2026-06-21",
-          "is_new": true
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
         }
       ]
     },
     {
       "patch_id": "apple:macOS Sequoia 15.4.1",
       "source": "apple",
+      "platform": "macOS",
       "title": "macOS Sequoia 15.4.1",
       "product": "macOS Sequoia",
       "version": "15.4.1",
       "release_date": "2025-04-16T00:00:00Z",
       "patch_tuesday": null,
+      "servicing": null,
       "url": "https://support.apple.com/en-us/100099",
       "severity": null,
       "status": "new",
       "cve_count": 1,
       "exploited_count": 0,
       "new_count": 1,
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 0
+      },
+      "remediation": {
+        "summary": "Update affected macOS devices to macOS Sequoia 15.4.1.",
+        "urgency": "normal",
+        "note": "Apply within your normal patch cycle.",
+        "links": [
+          {
+            "label": "Apple security release notes",
+            "url": "https://support.apple.com/en-us/100099"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "All affected macOS devices",
+            "icon": "\ud83d\udcbb",
+            "steps": [
+              "On the device: System Settings \u25b8 General \u25b8 Software Update \u2014 install macOS Sequoia 15.4.1 and restart if prompted.",
+              "Managed fleets: push the update via MDM (Jamf, Kandji, Intune, Mosyle\u2026) or a software-update enforcement / deferral policy with a deadline.",
+              "Confirm the OS build matches the fixed version afterwards; remind users that a restart is required for kernel fixes."
+            ]
+          }
+        ]
+      },
       "cves": [
         {
           "cve_id": "CVE-2025-31100",
@@ -121,7 +455,9 @@
           "impact": null,
           "url": "https://support.apple.com/en-us/100099",
           "first_seen": "2026-06-21",
-          "is_new": true
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
         }
       ]
     }

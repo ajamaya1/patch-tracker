@@ -21,6 +21,230 @@ from typing import Optional
 from .db import Database
 from .patch_tuesday import patch_tuesday_for_update_id
 
+# Windows hotpatch baseline months: Jan/Apr/Jul/Oct ship a full cumulative
+# update (reboot); the two months in between are hotpatch-only (no reboot) for
+# enrolled SKUs.
+_HOTPATCH_BASELINE_MONTHS = {1, 4, 7, 10}
+_HOTPATCH_SKUS = ("Windows 11 Enterprise 24H2 · "
+                  "Windows Server 2025 (Azure-enrolled)")
+
+
+def windows_servicing(update_id: str) -> dict:
+    """Describe the Windows servicing channel for an MSRC monthly update.
+
+    MSRC publishes only the **B release** (Patch Tuesday, the cumulative
+    security update). Optional non-security **C** (3rd week) and **D** (4th
+    week) preview releases are not security updates and are not tracked here.
+    For hotpatch-enrolled SKUs we also flag whether this is a *baseline*
+    (cumulative, reboot) month or a *hotpatch* (no-reboot) month.
+    """
+    pt = patch_tuesday_for_update_id(update_id)
+    month = pt.month if pt else None
+    is_baseline = month in _HOTPATCH_BASELINE_MONTHS if month else True
+    if is_baseline:
+        hotpatch = {
+            "is_hotpatch_month": False,
+            "update_type": "Cumulative (hotpatch baseline)",
+            "reboot_required": True,
+            "note": ("Quarterly hotpatch baseline — even hotpatch-enrolled "
+                     "devices install the full cumulative update and must "
+                     "reboot this month."),
+        }
+    else:
+        hotpatch = {
+            "is_hotpatch_month": True,
+            "update_type": "Hotpatch (no reboot for enrolled SKUs)",
+            "reboot_required": False,
+            "note": ("Hotpatch month — enrolled " + _HOTPATCH_SKUS + " apply "
+                     "this security update without rebooting; all other "
+                     "systems receive the standard cumulative update (reboot "
+                     "required)."),
+        }
+    return {
+        "channel": "B",
+        "channel_label": "B release — Patch Tuesday (cumulative security)",
+        "is_cumulative": True,
+        "eligible_skus": _HOTPATCH_SKUS,
+        "hotpatch": hotpatch,
+        "preview_note": ("Optional non-security 'C' (3rd-week) and 'D' "
+                         "(4th-week) preview releases are not tracked here."),
+    }
+
+
+_UPDATE_PATH = {
+    "macOS": "System Settings ▸ General ▸ Software Update",
+    "iOS": "Settings ▸ General ▸ Software Update",
+    "iPadOS": "Settings ▸ General ▸ Software Update",
+    "tvOS": "Settings ▸ System ▸ Software Updates",
+    "watchOS": "Watch app ▸ General ▸ Software Update",
+}
+
+
+def remediation_for(
+    source: str,
+    platform: str,
+    product: Optional[str],
+    version: Optional[str],
+    title: str,
+    url: Optional[str],
+    exploited_count: int,
+    severity: Optional[str],
+    affected: Optional[dict] = None,
+) -> dict:
+    """Build detailed, source-appropriate remediation guidance for a patch.
+
+    Returns a dict with a ``summary``, an ``urgency``
+    (``critical``/``high``/``normal``) and ``note`` derived from exploitation
+    and severity, action ``links``, and audience-specific ``sections`` -- for
+    Microsoft these split Windows **client** (workstation) vs **server**
+    guidance so each team gets the steps that apply to them.
+    """
+    affected = affected or {}
+    links = []
+    sections = []
+
+    if source == "microsoft":
+        n_client = affected.get("client", 0)
+        n_server = affected.get("server", 0)
+        n_other = affected.get("other", 0)
+        bits = []
+        if n_client:
+            bits.append(f"{n_client} affecting Windows clients")
+        if n_server:
+            bits.append(f"{n_server} affecting Windows Server")
+        if n_other:
+            bits.append(f"{n_other} affecting other Microsoft products")
+        scope = ("; ".join(bits)) if bits else "all affected systems"
+        summary = f"Apply the {title} ({scope})."
+
+        if n_client or not (n_server or n_other):
+            sections.append({
+                "audience": "Windows clients (desktops & laptops)",
+                "icon": "💻",
+                "steps": [
+                    "Managed fleets: deploy via Windows Update for Business or "
+                    "Microsoft Intune update rings with an install deadline and "
+                    "enforced reboot; validate on a pilot ring first.",
+                    "Standalone/home devices: Settings ▸ Windows Update ▸ "
+                    "Check for updates ▸ Install, then restart.",
+                    "Watch for application-compatibility regressions before "
+                    "broad rollout; keep the previous cumulative update on hand "
+                    "for rollback.",
+                ],
+            })
+        if n_server:
+            sections.append({
+                "audience": "Windows Server",
+                "icon": "🖥️",
+                "steps": [
+                    "Schedule a maintenance window — servers require a reboot "
+                    "to finish installation.",
+                    "Deploy via WSUS, Configuration Manager (SCCM), or Azure "
+                    "Update Manager; for failover clusters use Cluster-Aware "
+                    "Updating to patch nodes without downtime.",
+                    "Role-sensitive hosts (Domain Controllers, Exchange, SQL): "
+                    "back up first and follow role-specific patch ordering.",
+                    "After reboot, confirm critical services and the OS build "
+                    "number.",
+                ],
+            })
+        sections.append({
+            "audience": "Update management (all)",
+            "icon": "📦",
+            "steps": [
+                "For offline/air-gapped systems, download the specific KB from "
+                "the Microsoft Update Catalog and import it into your tooling.",
+                "Track deployment per ring and prioritise Critical and "
+                "actively-exploited CVEs for emergency change.",
+            ],
+        })
+        if url:
+            links.append({"label": "MSRC update guide", "url": url})
+        links.append({
+            "label": "Microsoft Update Catalog",
+            "url": "https://www.catalog.update.microsoft.com/Search.aspx?q="
+                   + (version or "").replace(" ", "+"),
+        })
+    elif source == "cisa-kev":
+        summary = (f"{title} has a vulnerability on CISA's Known Exploited "
+                   "Vulnerabilities catalog — update to the vendor's patched "
+                   "release as an emergency.")
+        sections.append({
+            "audience": f"{title} (all installs)",
+            "icon": "🌐",
+            "steps": [
+                "Upgrade to the latest vendor-patched version. Browsers "
+                "(Chrome, Edge, Firefox) self-update on relaunch — force a "
+                "restart of the app to apply it.",
+                "Managed fleets: push the patched build via your deployment "
+                "tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app "
+                "restart; block older versions where possible.",
+                "Per CISA BOD 22-01, remediate by the catalog due date; given "
+                "confirmed in-the-wild exploitation, treat as an emergency "
+                "change regardless.",
+            ],
+        })
+        links.append({
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        })
+    else:
+        target = (f"{product} {version}".strip() if product else title) or title
+        path = _UPDATE_PATH.get(platform, "Software Update")
+        summary = f"Update affected {platform} devices to {target}."
+        sections.append({
+            "audience": f"All affected {platform} devices",
+            "icon": "📱" if platform in ("iOS", "iPadOS") else "💻",
+            "steps": [
+                f"On the device: {path} — install {target} and restart if "
+                "prompted.",
+                "Managed fleets: push the update via MDM (Jamf, Kandji, Intune, "
+                "Mosyle…) or a software-update enforcement / deferral policy "
+                "with a deadline.",
+                "Confirm the OS build matches the fixed version afterwards; "
+                "remind users that a restart is required for kernel fixes.",
+            ],
+        })
+        if url:
+            links.append({"label": "Apple security release notes", "url": url})
+
+    if exploited_count:
+        urgency = "critical"
+        note = (f"{exploited_count} CVE(s) are being actively exploited — patch "
+                "immediately, out-of-band if necessary.")
+    elif (severity or "").lower() == "critical":
+        urgency = "high"
+        note = "Critical-severity fixes included — schedule promptly."
+    else:
+        urgency = "normal"
+        note = "Apply within your normal patch cycle."
+
+    return {"summary": summary, "urgency": urgency, "note": note,
+            "links": links, "sections": sections}
+
+
+def platform_for(source: str, product: Optional[str], title: Optional[str]) -> str:
+    """Derive a coarse platform label used by the dashboard's platform filter."""
+    if source == "microsoft":
+        return "Windows"
+    if source == "cisa-kev":
+        # For third-party zero-days the vendor is the most useful grouping.
+        return product or "Third-party"
+    text = f"{product or ''} {title or ''}".lower()
+    if "ipados" in text:
+        return "iPadOS"
+    if "ios" in text:
+        return "iOS"
+    if "tvos" in text:
+        return "tvOS"
+    if "watchos" in text:
+        return "watchOS"
+    if "visionos" in text:
+        return "visionOS"
+    if "safari" in text:
+        return "Safari"
+    return "macOS"
+
 
 def build_payload(
     db: Database,
@@ -33,13 +257,27 @@ def build_payload(
 
     patches = []
     for p in db.list_patches():
+        # Group affected products by CVE so each CVE can show which platforms
+        # (Windows client vs server, etc.) it hits, and the patch can report a
+        # client/server breakdown.
+        prod_by_cve: dict = {}
+        for pr in db.get_products_for_patch(p["patch_id"]):
+            prod_by_cve.setdefault(pr["cve_id"], []).append(
+                {"name": pr["name"], "kind": pr["kind"]})
+
         cve_rows = db.get_cves_for_patch(p["patch_id"])
         cves = []
         new_count = 0
+        affected = {"client": 0, "server": 0, "other": 0}
         for c in cve_rows:
             is_new = bool(c["first_seen"] and c["first_seen"] >= cutoff)
             if is_new:
                 new_count += 1
+            prods = prod_by_cve.get(c["cve_id"], [])
+            kinds = sorted({pr["kind"] for pr in prods})
+            for k in ("client", "server", "other"):
+                if k in kinds:
+                    affected[k] += 1
             cves.append({
                 "cve_id": c["cve_id"],
                 "severity": c["severity"],
@@ -50,36 +288,53 @@ def build_payload(
                 "url": c["url"],
                 "first_seen": c["first_seen"],
                 "is_new": is_new,
+                "product_kinds": kinds,
+                "products": [pr["name"] for pr in prods],
             })
-        # For Microsoft, derive the Patch Tuesday date from the update id
-        # (e.g. "2025-Jun") so the dashboard can label/sort by it.
+
+        platform = platform_for(p["source"], p["product"], p["title"])
+
         patch_tuesday = None
+        servicing = None
         if p["source"] == "microsoft":
             pt = patch_tuesday_for_update_id(p["version"] or "")
             if pt:
                 patch_tuesday = pt.isoformat()
+            servicing = windows_servicing(p["version"] or "")
+
+        remediation = remediation_for(
+            p["source"], platform, p["product"], p["version"], p["title"],
+            p["url"], p["exploited_count"], p["severity"], affected,
+        )
 
         patches.append({
             "patch_id": p["patch_id"],
             "source": p["source"],
+            "platform": platform,
             "title": p["title"],
             "product": p["product"],
             "version": p["version"],
             "release_date": p["release_date"],
             "patch_tuesday": patch_tuesday,
+            "servicing": servicing,
             "url": p["url"],
             "severity": p["severity"],
             "status": p["status"],
             "cve_count": p["cve_count"],
             "exploited_count": p["exploited_count"],
             "new_count": new_count,
+            "affected": affected,
+            "remediation": remediation,
             "cves": cves,
         })
+
+    stats = db.stats(new_since=cutoff)
+    stats["by_product_kind"] = db.count_cves_by_product_kind()
 
     return {
         "generated_at": now.isoformat(timespec="seconds"),
         "new_window_days": new_days,
-        "stats": db.stats(new_since=cutoff),
+        "stats": stats,
         "patches": patches,
     }
 
