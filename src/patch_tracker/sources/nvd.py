@@ -130,7 +130,8 @@ def parse_feed(
         product=vendor_label,
         version=None,
         release_date=max(dates) if dates else None,
-        url=f"https://nvd.nist.gov/vuln/search/results?query="
+        url="https://nvd.nist.gov/vuln/search/results?form_type=Basic"
+            "&results_type=overview&search_type=all&query="
             + urllib.parse.quote(vendor_label),
         fetched_at=fetched_at,
         cves=cves,

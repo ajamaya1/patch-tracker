@@ -34,9 +34,10 @@ def seed_db():
 
 def test_build_payload_structure_and_new_flag():
     db = seed_db()
-    # Pretend "now" is just after the June release; window 7 days.
+    # Pretend "now" is just after the June release; window 7 days. Use a wide
+    # recency window so both seeded patches are present for the structure check.
     now = dt.datetime(2025, 6, 12, tzinfo=dt.timezone.utc)
-    payload = build_payload(db, new_days=7, now=now)
+    payload = build_payload(db, new_days=7, now=now, window_days=3650)
 
     assert payload["new_window_days"] == 7
     assert payload["stats"]["total_patches"] == 2
@@ -80,6 +81,29 @@ def test_microsoft_client_server_breakdown_and_servicing():
     auds = " ".join(s["audience"] for s in ms["remediation"]["sections"]).lower()
     assert "client" in auds and "server" in auds
     assert payload["stats"]["by_product_kind"].get("server") == 1
+
+
+def test_window_is_source_aware():
+    """Latest MS monthly is always kept; daily sources honour the window."""
+    db = Database(":memory:")
+    old_apple = Patch(source="apple", patch_id="apple:old", title="old macOS",
+                      product="macOS", version="15.1",
+                      release_date="2025-01-01T00:00:00Z", fetched_at="x")
+    old_apple.cves = [Cve("CVE-A", "apple:old", "apple", first_seen="2025-01-01")]
+    new_apple = Patch(source="apple", patch_id="apple:new", title="new macOS",
+                      product="macOS", version="15.5",
+                      release_date="2025-06-09T00:00:00Z", fetched_at="x")
+    new_apple.cves = [Cve("CVE-B", "apple:new", "apple", first_seen="2025-06-09")]
+    ms = Patch(source="microsoft", patch_id="msrc:2025-Jun",
+               title="June", product="MS", version="2025-Jun",
+               release_date="2025-06-10T07:00:00Z", fetched_at="x")
+    ms.cves = [Cve("CVE-C", "msrc:2025-Jun", "microsoft", first_seen="2025-06-10")]
+    db.upsert_patches([old_apple, new_apple, ms])
+
+    now = dt.datetime(2025, 6, 20, tzinfo=dt.timezone.utc)
+    ids = {p["patch_id"] for p in
+           build_payload(db, window_days=30, now=now)["patches"]}
+    assert ids == {"apple:new", "msrc:2025-Jun"}   # old Apple dropped, MS kept
 
 
 def test_write_site_data_creates_file(tmp_path):

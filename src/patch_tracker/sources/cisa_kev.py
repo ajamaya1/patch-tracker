@@ -51,17 +51,21 @@ def parse_feed(
     fetched_at: str,
     vendors: Optional[Iterable[str]] = None,
     include_os_vendors: bool = False,
+    since: Optional[str] = None,
 ) -> List[Patch]:
     """Parse the KEV catalog into per vendor+product :class:`Patch` records.
 
     ``vendors`` optionally restricts to specific vendor names (case-insensitive,
-    e.g. ``{"google", "mozilla"}``).
+    e.g. ``{"google", "mozilla"}``). ``since`` (YYYY-MM-DD) keeps only entries
+    added on/after that date, so we ingest just recent zero-days.
     """
     want = {v.lower() for v in vendors} if vendors else None
     groups: dict = {}
     for item in data.get("vulnerabilities", []) or []:
         cve_id = item.get("cveID")
         if not cve_id:
+            continue
+        if since and (item.get("dateAdded") or "")[:10] < since:
             continue
         vendor = (item.get("vendorProject") or "Unknown").strip()
         product = (item.get("product") or "").strip()
@@ -118,8 +122,9 @@ def fetch(
     fetched_at: str,
     vendors: Optional[Iterable[str]] = None,
     include_os_vendors: bool = False,
+    since: Optional[str] = None,
 ) -> List[Patch]:
     """Fetch and parse the CISA KEV catalog."""
     data = http_get(KEV_URL)
     return parse_feed(data, fetched_at, vendors=vendors,
-                      include_os_vendors=include_os_vendors)
+                      include_os_vendors=include_os_vendors, since=since)

@@ -203,15 +203,14 @@ def remediation_for(
                 "actively-exploited CVEs for emergency change.",
             ],
         })
+        # The MSRC release-notes page lists every CVE in the month with direct
+        # KB / Update Catalog links. (A catalog search by month id like
+        # "2025-Jun" returns nothing — the catalog is keyed by KB number, which
+        # lives on the per-CVE MSRC pages, so we link there instead.)
         release_note = (f"https://msrc.microsoft.com/update-guide/releaseNote/"
-                        f"{version}" if version else url)
-        if release_note:
-            links.append({"label": "MSRC release notes", "url": release_note})
-        links.append({
-            "label": "Microsoft Update Catalog",
-            "url": "https://www.catalog.update.microsoft.com/Search.aspx?q="
-                   + (version or "").replace(" ", "+"),
-        })
+                        f"{version}" if version else
+                        "https://msrc.microsoft.com/update-guide")
+        links.append({"label": "MSRC release notes", "url": release_note})
     elif source == "cisa-kev":
         summary = (f"{title} has a vulnerability on CISA's Known Exploited "
                    "Vulnerabilities catalog — update to the vendor's patched "
@@ -313,12 +312,74 @@ def platform_for(source: str, product: Optional[str], title: Optional[str]) -> s
     return "macOS"
 
 
+def _windowed(patches: list, window_days: int, now: _dt.datetime) -> list:
+    """Apply a source-aware recency window.
+
+    Microsoft ships monthly, so we always keep the **latest** monthly rollup
+    (regardless of how far into the cycle we are). Apple/NVD/CISA-KEV land any
+    day, so we keep items released/added within the last ``window_days``.
+    """
+    cutoff = (now - _dt.timedelta(days=window_days)).date().isoformat()
+    ms_dates = [p["release_date"] for p in patches
+                if p["source"] == "microsoft" and p["release_date"]]
+    latest_ms = max(ms_dates) if ms_dates else None
+    out = []
+    for p in patches:
+        if p["source"] == "microsoft":
+            if latest_ms is None or (p["release_date"] or "") >= latest_ms:
+                out.append(p)
+        else:
+            rd = (p["release_date"] or "")[:10]
+            if not rd or rd >= cutoff:
+                out.append(p)
+    return out
+
+
+def _compute_stats(patches: list) -> dict:
+    """Summary counts computed from the (windowed) patch set shown."""
+    cve_ids, exploited, new = set(), set(), set()
+    by_source, by_severity, by_status = {}, {}, {}
+    kinds = {"client": set(), "server": set(), "other": set()}
+    for p in patches:
+        by_source[p["source"]] = by_source.get(p["source"], 0) + 1
+        sev = p["severity"] or "unknown"
+        by_severity[sev] = by_severity.get(sev, 0) + 1
+        st = p["status"] or "new"
+        by_status[st] = by_status.get(st, 0) + 1
+        for c in p["cves"]:
+            cve_ids.add(c["cve_id"])
+            if c["exploited"]:
+                exploited.add(c["cve_id"])
+            if c["is_new"]:
+                new.add(c["cve_id"])
+            for k in c["product_kinds"]:
+                if k in kinds:
+                    kinds[k].add(c["cve_id"])
+    return {
+        "total_patches": len(patches),
+        "total_cves": len(cve_ids),
+        "exploited_cves": len(exploited),
+        "new_cves": len(new),
+        "by_source": by_source,
+        "by_severity": by_severity,
+        "by_status": by_status,
+        "by_product_kind": {k: len(v) for k, v in kinds.items() if v},
+    }
+
+
 def build_payload(
     db: Database,
     new_days: int = 7,
     now: Optional[_dt.datetime] = None,
+    window_days: int = 30,
 ) -> dict:
-    """Build the dashboard payload dict from the database."""
+    """Build the dashboard payload dict from the database.
+
+    ``window_days`` scopes the board to recent activity (default ~1 month),
+    source-aware: the latest monthly Microsoft rollup is always kept, while
+    Apple/NVD/CISA-KEV items must fall within the window. Stats reflect the
+    windowed set so the KPIs match what's listed.
+    """
     now = now or _dt.datetime.now(_dt.timezone.utc)
     cutoff = (now - _dt.timedelta(days=new_days)).date().isoformat()
 
@@ -412,20 +473,21 @@ def build_payload(
             "cves": cves,
         })
 
-    stats = db.stats(new_since=cutoff)
-    stats["by_product_kind"] = db.count_cves_by_product_kind()
+    patches = _windowed(patches, window_days, now)
 
     return {
         "generated_at": now.isoformat(timespec="seconds"),
         "new_window_days": new_days,
-        "stats": stats,
+        "window_days": window_days,
+        "stats": _compute_stats(patches),
         "patches": patches,
     }
 
 
-def write_site_data(db: Database, out_path: str, new_days: int = 7) -> dict:
+def write_site_data(db: Database, out_path: str, new_days: int = 7,
+                    window_days: int = 30) -> dict:
     """Build the payload and write it to ``out_path`` as pretty JSON."""
-    payload = build_payload(db, new_days=new_days)
+    payload = build_payload(db, new_days=new_days, window_days=window_days)
     parent = os.path.dirname(os.path.abspath(out_path))
     if parent:
         os.makedirs(parent, exist_ok=True)

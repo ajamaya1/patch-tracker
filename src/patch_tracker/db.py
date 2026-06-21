@@ -356,6 +356,21 @@ class Database:
             )
         }
 
+    def prune_older_than(self, cutoff_date: str) -> int:
+        """Delete patches released before ``cutoff_date`` (YYYY-MM-DD).
+
+        Keeps the committed database bounded to recent activity. Related CVE,
+        product and tracking rows cascade. Patches without a release date are
+        kept. Returns the number of patches removed.
+        """
+        cur = self.conn.execute(
+            "DELETE FROM patches WHERE release_date IS NOT NULL "
+            "AND substr(release_date, 1, 10) < ?",
+            (cutoff_date,),
+        )
+        self.conn.commit()
+        return cur.rowcount
+
     def count_new_cves(self, since: str) -> int:
         """Count distinct CVEs first seen on/after ``since`` (YYYY-MM-DD)."""
         return self.conn.execute(

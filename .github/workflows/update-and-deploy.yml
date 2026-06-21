@@ -52,20 +52,20 @@ jobs:
         continue-on-error: true
         run: patch-tracker --db data/patches.db fetch --source apple --ios
 
-      - name: Fetch Microsoft (MSRC / Patch Tuesday)
+      - name: Fetch Microsoft (latest Patch Tuesday)
         continue-on-error: true
-        run: patch-tracker --db data/patches.db fetch --source microsoft --months 3
+        run: patch-tracker --db data/patches.db fetch --source microsoft --months 1
 
-      - name: Fetch third-party zero-days (CISA KEV)
+      - name: Fetch third-party zero-days (CISA KEV, last 90d)
         continue-on-error: true
-        run: patch-tracker --db data/patches.db fetch --source kev
+        run: patch-tracker --db data/patches.db fetch --source kev --kev-days 90
 
-      - name: Fetch third-party advisories (NVD — Adobe, Cisco, …)
+      - name: Fetch third-party advisories (NVD — Adobe, Cisco, …, last 30d)
         continue-on-error: true
-        run: patch-tracker --db data/patches.db fetch --source nvd --nvd-days 30
+        run: patch-tracker --db data/patches.db fetch --source nvd --nvd-days 30 --retain-days 120
 
-      - name: Build dashboard data
-        run: patch-tracker --db data/patches.db build-site --out web/data.json --new-days 7
+      - name: Build dashboard data (last ~30 days + latest MS monthly)
+        run: patch-tracker --db data/patches.db build-site --out web/data.json --new-days 7 --window-days 30
 
       # Capture the Pages artifact BEFORE committing, so the deploy never
       # depends on the data commit succeeding.

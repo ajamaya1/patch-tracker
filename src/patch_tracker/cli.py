@@ -87,7 +87,11 @@ def cmd_fetch(args: argparse.Namespace, db: Database) -> int:
             patches.extend(ms_patches)
             print(f"Microsoft (MSRC): {len(ms_patches)} monthly update(s)")
         if "kev" in sources:
-            kev_patches = cisa_kev.fetch(http_get_json, fetched_at)
+            kev_since = None
+            if args.kev_days:
+                kev_since = (_dt.datetime.now(_dt.timezone.utc)
+                             - _dt.timedelta(days=args.kev_days)).date().isoformat()
+            kev_patches = cisa_kev.fetch(http_get_json, fetched_at, since=kev_since)
             patches.extend(kev_patches)
             print(f"CISA KEV (third-party): {len(kev_patches)} vendor group(s)")
         if "nvd" in sources:
@@ -103,6 +107,12 @@ def cmd_fetch(args: argparse.Namespace, db: Database) -> int:
 
     n = db.upsert_patches(patches)
     print(f"Stored {n} patch(es), {len(_all_cves(patches))} CVE links.")
+    if args.retain_days:
+        cutoff = (_dt.datetime.now(_dt.timezone.utc)
+                  - _dt.timedelta(days=args.retain_days)).date().isoformat()
+        removed = db.prune_older_than(cutoff)
+        if removed:
+            print(f"Pruned {removed} patch(es) older than {args.retain_days}d.")
     return 0
 
 
@@ -286,11 +296,12 @@ def cmd_stats(args: argparse.Namespace, db: Database) -> int:
 
 
 def cmd_build_site(args: argparse.Namespace, db: Database) -> int:
-    payload = write_site_data(db, args.out, new_days=args.new_days)
+    payload = write_site_data(db, args.out, new_days=args.new_days,
+                              window_days=args.window_days)
     s = payload["stats"]
     print(
         f"Wrote {len(payload['patches'])} patches, {s['total_cves']} CVEs "
-        f"({s['new_cves']} new in last {args.new_days}d, "
+        f"(window {args.window_days}d, {s['new_cves']} new in {args.new_days}d, "
         f"{s['exploited_cves']} exploited) -> {args.out}"
     )
     return 0
@@ -383,6 +394,12 @@ def build_parser() -> argparse.ArgumentParser:
                               "(default: a curated third-party list)")
     p_fetch.add_argument("--nvd-days", type=int, default=30,
                          help="NVD: look-back window in days (default 30)")
+    p_fetch.add_argument("--kev-days", type=int, default=0,
+                         help="CISA KEV: only ingest entries added in the last "
+                              "N days (0 = entire catalog)")
+    p_fetch.add_argument("--retain-days", type=int, default=0,
+                         help="Prune patches older than N days after fetching "
+                              "(0 = keep all)")
     p_fetch.add_argument("--file",
                          help="Ingest a saved feed JSON file instead of the "
                               "network (requires --source)")
@@ -433,6 +450,9 @@ def build_parser() -> argparse.ArgumentParser:
                         help="Output JSON path (default: web/data.json)")
     p_site.add_argument("--new-days", type=int, default=7,
                         help="Window (days) used to flag CVEs as new")
+    p_site.add_argument("--window-days", type=int, default=30,
+                        help="Recency window in days for the board "
+                             "(Microsoft's latest monthly is always shown)")
     p_site.set_defaults(func=cmd_build_site)
 
     p_export = sub.add_parser("export", help="Export patches+CVEs")

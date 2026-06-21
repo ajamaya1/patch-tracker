@@ -14,7 +14,7 @@ const BAND_LABEL = { critical: "P1", high: "P2", medium: "P3", low: "P4" };
 const bandLabel = (b) => BAND_LABEL[b] || b;
 
 const VIEWS = [
-  { id: "all", label: "All patches", icon: "≡", desc: "Everything currently tracked, ranked by remediation priority.",
+  { id: "all", label: "All patches", icon: "≡", desc: "Recent activity (last ~30 days) plus the latest monthly Microsoft rollup.",
     pred: () => true },
   { id: "zeroday", label: "Zero-day", icon: "", danger: true,
     desc: "Actively exploited in the wild — zero-days and CISA KEV entries.",
