@@ -36,6 +36,7 @@ const state = {
   sort: "date",
   range: "month",            // day | week | month — time slice of the board
   selected: null,            // {patch, cves} when viewing an update full-screen
+  detailFilters: { q: "", minSev: 0, exploited: false, newonly: false },
   filters: { q: "", cve: "", platform: "", affected: "", minSev: 0, minCvss: 0,
     exploited: false, newonly: false, overdue: false },
   results: [],
@@ -422,6 +423,7 @@ function cveTable(cves) {
 }
 function openDetail(item) {
   state.selected = item;
+  state.detailFilters = { q: "", minSev: 0, exploited: false, newonly: false };
   render();
   window.scrollTo(0, 0);
 }
@@ -430,10 +432,29 @@ function backToList() {
   state.selected = null;
   render();
 }
+// CVEs in the open update, narrowed by the in-detail filter bar.
+function detailFilteredCves() {
+  const { cves } = state.selected;
+  const f = state.detailFilters || {};
+  return cves.filter((c) => {
+    if (f.q && !((c.cve_id + " " + (c.impact || "")).toLowerCase().includes(f.q))) return false;
+    if (f.minSev && sevRank(c.severity) < f.minSev) return false;
+    if (f.exploited && !c.exploited) return false;
+    if (f.newonly && !c.is_new) return false;
+    return true;
+  });
+}
+function applyDetailFilter() {
+  const filt = detailFilteredCves();
+  $("#cvewrap").innerHTML = cveTable(filt);
+  $("#dcount").textContent =
+    `${filt.length} of ${state.selected.cves.length} CVEs`;
+}
 // Full-width detail rendered inline in the main area (not a side drawer).
 function renderDetail() {
   const { patch: p, cves } = state.selected;
   const pr = p.priority || { score: 0, band: "low" };
+  const f = state.detailFilters;
   document.body.classList.add("detail-mode");
   const view = VIEWS.find((v) => v.id === state.view);
   $("#view-title").textContent = p.title;
@@ -460,13 +481,31 @@ function renderDetail() {
       <div class="section-title">Remediation</div>
       ${remediationHTML(p)}
       <div class="section-title">Vulnerabilities (${cves.length})</div>
-      ${cveTable(cves)}
+      <div class="detail-filters">
+        <input type="search" id="dsearch" placeholder="Search CVE id / impact…" value="${esc(f.q)}" />
+        <select id="dsev">
+          <option value="">Any severity</option>
+          <option value="critical">Critical</option>
+          <option value="important">High+</option>
+          <option value="moderate">Medium+</option>
+          <option value="low">Low+</option>
+        </select>
+        <label class="check"><input type="checkbox" id="dexpl" ${f.exploited ? "checked" : ""}/> Exploited</label>
+        <label class="check"><input type="checkbox" id="dnew" ${f.newonly ? "checked" : ""}/> New</label>
+        <span class="count" id="dcount"></span>
+      </div>
+      <div id="cvewrap">${cveTable(cves)}</div>
     </div>`;
   $("#empty").hidden = true;
+  $("#dcount").textContent = `${cves.length} of ${cves.length} CVEs`;
   $("#detail-back").addEventListener("click", backToList);
+  $("#dsearch").addEventListener("input", (e) => { f.q = e.target.value.trim().toLowerCase(); applyDetailFilter(); });
+  $("#dsev").addEventListener("change", (e) => { f.minSev = sevRank(e.target.value); applyDetailFilter(); });
+  $("#dexpl").addEventListener("change", (e) => { f.exploited = e.target.checked; applyDetailFilter(); });
+  $("#dnew").addEventListener("change", (e) => { f.newonly = e.target.checked; applyDetailFilter(); });
   $("#list").querySelectorAll("[data-dexport]").forEach((b) =>
     b.addEventListener("click", () =>
-      runExport(b.dataset.dexport, [{ patch: p, cves }], p.title)));
+      runExport(b.dataset.dexport, [{ patch: p, cves: detailFilteredCves() }], p.title)));
 }
 
 /* ---------------- Export ---------------- */

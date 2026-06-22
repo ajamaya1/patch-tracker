@@ -260,6 +260,13 @@ body.detail-mode .head-actions { display: none; }
 .detail-head h2 { margin: 0 0 4px; font-size: 18px; }
 .detail-head .pbadges { margin-top: 10px; }
 .detail .cvetable th { background: var(--bg); }
+.detail-filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 10px; }
+.detail-filters input[type="search"], .detail-filters select {
+  background: var(--surface-2); border: 1px solid var(--line); color: var(--text);
+  padding: 6px 10px; border-radius: 6px; font-size: 12.5px; height: 30px; font-family: var(--sans); }
+.detail-filters input[type="search"] { flex: 1 1 200px; min-width: 160px; }
+.detail-filters input:focus, .detail-filters select:focus { outline: none; border-color: var(--accent); }
+.detail-filters .count { margin-left: auto; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
 .drawer-overlay { position: fixed; inset: 0; background: rgba(4, 7, 11, 0.62); z-index: 40; }
 .drawer {
   position: fixed; top: 0; right: 0; height: 100vh; width: min(820px, 96vw);
