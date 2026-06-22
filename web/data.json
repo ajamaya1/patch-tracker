@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T23:57:48+00:00",
+  "generated_at": "2026-06-22T02:53:51+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
@@ -8,27 +8,27 @@
     "microsoft": 1
   },
   "stats": {
-    "total_patches": 23,
-    "total_cves": 895,
-    "exploited_cves": 27,
+    "total_patches": 22,
+    "total_cves": 894,
+    "exploited_cves": 26,
     "new_cves": 873,
     "by_source": {
       "microsoft": 1,
-      "cisa-kev": 20,
+      "cisa-kev": 19,
       "apple": 2
     },
     "by_severity": {
       "Critical": 5,
-      "High": 16,
+      "High": 15,
       "unknown": 2
     },
     "by_status": {
-      "new": 23
+      "new": 22
     },
     "by_product_kind": {
       "client": 118,
       "server": 165,
-      "other": 737
+      "other": 736
     }
   },
   "patches": [
@@ -19959,7 +19959,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 0d"
+          "KEV overdue by 1d"
         ]
       },
       "affected": {
@@ -20037,7 +20037,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 2d"
+          "KEV overdue by 3d"
         ]
       },
       "affected": {
@@ -20115,7 +20115,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 59d"
+          "KEV overdue by 60d"
         ]
       },
       "affected": {
@@ -20250,7 +20250,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 23d"
+          "KEV overdue by 24d"
         ]
       },
       "affected": {
@@ -20348,7 +20348,7 @@
           "actively exploited",
           "ransomware-linked",
           "critical severity",
-          "KEV overdue by 6d"
+          "KEV overdue by 7d"
         ]
       },
       "affected": {
@@ -20425,7 +20425,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 7d"
+          "KEV overdue by 8d"
         ]
       },
       "affected": {
@@ -20502,7 +20502,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV due in 2d"
+          "KEV due in 1d"
         ]
       },
       "affected": {
@@ -20579,7 +20579,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV due in 2d"
+          "KEV due in 1d"
         ]
       },
       "affected": {
@@ -20656,7 +20656,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 41d"
+          "KEV overdue by 42d"
         ]
       },
       "affected": {
@@ -20754,7 +20754,7 @@
           "actively exploited",
           "ransomware-linked",
           "critical severity",
-          "KEV overdue by 10d"
+          "KEV overdue by 11d"
         ]
       },
       "affected": {
@@ -20831,7 +20831,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 2d"
+          "KEV overdue by 3d"
         ]
       },
       "affected": {
@@ -20908,7 +20908,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 15d"
+          "KEV overdue by 16d"
         ]
       },
       "affected": {
@@ -20985,7 +20985,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 16d"
+          "KEV overdue by 17d"
         ]
       },
       "affected": {
@@ -21062,7 +21062,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 37d"
+          "KEV overdue by 38d"
         ]
       },
       "affected": {
@@ -21266,7 +21266,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 17d"
+          "KEV overdue by 18d"
         ]
       },
       "affected": {
@@ -21343,7 +21343,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 43d"
+          "KEV overdue by 44d"
         ]
       },
       "affected": {
@@ -21439,7 +21439,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 22d"
+          "KEV overdue by 23d"
         ]
       },
       "affected": {
@@ -21518,7 +21518,7 @@
           "actively exploited",
           "ransomware-linked",
           "critical severity",
-          "KEV overdue by 11d"
+          "KEV overdue by 12d"
         ]
       },
       "affected": {
@@ -21597,7 +21597,7 @@
           "actively exploited",
           "ransomware-linked",
           "critical severity",
-          "KEV overdue by 11d"
+          "KEV overdue by 12d"
         ]
       },
       "affected": {
@@ -21645,83 +21645,6 @@
           ],
           "products": [
             "TanStack TanStack"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "kev:Drupal:Core",
-      "source": "cisa-kev",
-      "platform": "Drupal",
-      "title": "Drupal Core",
-      "product": "Drupal",
-      "version": null,
-      "release_date": "2026-05-22",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 1,
-      "exploited_count": 1,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 1,
-      "max_cvss": null,
-      "due_date": "2026-05-27",
-      "priority": {
-        "score": 98,
-        "band": "critical",
-        "reasons": [
-          "actively exploited",
-          "KEV overdue by 25d"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 1
-      },
-      "remediation": {
-        "summary": "Drupal Core has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
-        "urgency": "critical",
-        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
-        "links": [
-          {
-            "label": "CISA KEV catalog",
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Drupal Core (all installs)",
-            "icon": "\ud83c\udf10",
-            "steps": [
-              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
-              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
-              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-9082",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "Drupal Core SQL Injection Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9082",
-          "first_seen": "2026-05-22",
-          "due_date": "2026-05-27",
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Drupal Core"
           ]
         }
       ]
