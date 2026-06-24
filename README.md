@@ -30,6 +30,27 @@ state survives feed refreshes.
 > dependencies. Runs anywhere with Python 3.9+. The web dashboard is plain
 > static HTML/CSS/JS — no framework, no build step.
 
+## Also in this repo: `intune-tool`
+
+A sibling, dependency-free CLI + library for **inspecting and managing
+Microsoft Intune assignments** across every assignable area (configuration,
+compliance, apps, scripts, remediations, Windows Update rings, endpoint
+security, enrollment, app protection …). It resolves group GUIDs to real
+names, does the reverse lookup ("what is *this group* assigned to?"), and
+copies / bulk-assigns / templates / audits / exports assignments. Built on the
+Microsoft Graph `beta` API with device-code **or** client-credentials auth.
+
+```bash
+pip install -e .                 # provides the `intune-tool` command too
+intune-tool areas                # list inspectable areas/resource types
+intune-tool list --area Apps     # all app assignments, groups resolved
+intune-tool group "All Workstations"            # reverse lookup
+intune-tool copy --from "Pilot" --to "Prod" --dry-run
+intune-tool audit --out audit.txt
+```
+
+See **[docs/intune-tool.md](docs/intune-tool.md)** for the full guide.
+
 ## Web dashboard (auto-updating)
 
 The [`.github/workflows/update-and-deploy.yml`](.github/workflows/update-and-deploy.yml)
@@ -164,6 +185,16 @@ src/patch_tracker/
   sources/
     apple_sofa.py        SOFA macOS/iOS feed parser
     microsoft_msrc.py    MSRC CVRF v3.0 parser
+src/intune_tool/         Intune assignment CLI + engine (see docs/intune-tool.md)
+  auth.py                device-code + client-credentials Graph auth (stdlib)
+  graph.py               Graph client: paging, 429 retry, $batch
+  resources.py           declarative registry of all assignable Intune areas
+  directory.py           group + assignment-filter id<->name resolution
+  assignments.py         enumerate / reverse-lookup / copy / bulk / template
+  templates.py           reusable assignment templates (JSON)
+  report.py              tables, CSV/JSON export, audit report
+  cli.py                 argparse CLI (areas/list/group/copy/bulk-assign/
+                         template/audit)
 web/                     static dashboard (index.html, app.js, styles.css,
                          data.json)
 .github/workflows/
