@@ -1,4 +1,4 @@
-"""intune-tool — inspect and manage Microsoft Intune assignments.
+"""intuneassigner — inspect and manage Microsoft Intune assignments.
 
 A dependency-free toolkit for Intune administrators that answers two
 questions the Intune portal makes painfully slow:

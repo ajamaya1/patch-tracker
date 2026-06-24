@@ -30,7 +30,7 @@ state survives feed refreshes.
 > dependencies. Runs anywhere with Python 3.9+. The web dashboard is plain
 > static HTML/CSS/JS — no framework, no build step.
 
-## Also in this repo: `intune-tool`
+## Also in this repo: `intuneassigner`
 
 A sibling, dependency-free CLI + library for **inspecting and managing
 Microsoft Intune assignments** across every assignable area (configuration,
@@ -41,15 +41,15 @@ copies / bulk-assigns / templates / audits / exports assignments. Built on the
 Microsoft Graph `beta` API with device-code **or** client-credentials auth.
 
 ```bash
-pip install -e .                 # provides the `intune-tool` command too
-intune-tool areas                # list inspectable areas/resource types
-intune-tool list --area Apps     # all app assignments, groups resolved
-intune-tool group "All Workstations"            # reverse lookup
-intune-tool copy --from "Pilot" --to "Prod" --dry-run
-intune-tool audit --out audit.txt
+pip install -e .                 # provides the `intuneassigner` command too
+intuneassigner areas                # list inspectable areas/resource types
+intuneassigner list --area Apps     # all app assignments, groups resolved
+intuneassigner group "All Workstations"            # reverse lookup
+intuneassigner copy --from "Pilot" --to "Prod" --dry-run
+intuneassigner audit --out audit.txt
 ```
 
-See **[docs/intune-tool.md](docs/intune-tool.md)** for the full guide.
+See **[docs/intuneassigner.md](docs/intuneassigner.md)** for the full guide.
 
 ## Web dashboard (auto-updating)
 
@@ -185,7 +185,7 @@ src/patch_tracker/
   sources/
     apple_sofa.py        SOFA macOS/iOS feed parser
     microsoft_msrc.py    MSRC CVRF v3.0 parser
-src/intune_tool/         Intune assignment CLI + engine (see docs/intune-tool.md)
+src/intuneassigner/         Intune assignment CLI + engine (see docs/intuneassigner.md)
   auth.py                device-code + client-credentials Graph auth (stdlib)
   graph.py               Graph client: paging, 429 retry, $batch
   resources.py           declarative registry of all assignable Intune areas

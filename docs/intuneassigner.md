@@ -1,4 +1,4 @@
-# intune-tool
+# intuneassigner
 
 A dependency-free CLI + library for **inspecting and managing Microsoft Intune
 assignments** across every assignable area, built on the Microsoft Graph
@@ -12,7 +12,7 @@ export and audit.
 
 ## What it covers
 
-19 resource types across 9 areas (run `intune-tool areas` for the live list):
+19 resource types across 9 areas (run `intuneassigner areas` for the live list):
 
 | Area | Resource types |
 | ---- | -------------- |
@@ -39,24 +39,24 @@ Three ways in, in order of convenience:
    ```bash
    export INTUNE_TOKEN="$(az account get-access-token \
      --resource https://graph.microsoft.com --query accessToken -o tsv)"
-   intune-tool list
+   intuneassigner list
    ```
 2. **Device-code sign-in (delegated)** — interactive, uses *your* Intune RBAC,
    no app secret. Defaults to the public "Microsoft Graph Command Line Tools"
    client:
    ```bash
    export INTUNE_TENANT="contoso.onmicrosoft.com"
-   intune-tool list        # prints a URL + code to approve in a browser
+   intuneassigner list        # prints a URL + code to approve in a browser
    ```
 3. **App registration (client credentials)** — unattended, for scheduled
    audits/reports:
    ```bash
-   export INTUNE_TENANT=... INTUNE_TOOL_CLIENT_ID=... INTUNE_CLIENT_SECRET=...
-   intune-tool audit --out audit.txt
+   export INTUNE_TENANT=... INTUNEASSIGNER_CLIENT_ID=... INTUNE_CLIENT_SECRET=...
+   intuneassigner audit --out audit.txt
    ```
 
 Delegated tokens (and their refresh token) are cached at
-`~/.intune-tool/token-cache.json` (mode `0600`), so you sign in once per
+`~/.intuneassigner/token-cache.json` (mode `0600`), so you sign in once per
 session window.
 
 ### Graph permissions
@@ -71,36 +71,36 @@ continues.
 ## Commands
 
 ```bash
-intune-tool areas                         # list inspectable areas/types
+intuneassigner areas                         # list inspectable areas/types
 
 # See everything, groups resolved
-intune-tool list                          # all areas
-intune-tool list --area Apps --assigned-only
-intune-tool list --type configurationPolicies --output csv --out assignments.csv
-intune-tool list --platform windows --output json
+intuneassigner list                          # all areas
+intuneassigner list --area Apps --assigned-only
+intuneassigner list --type configurationPolicies --output csv --out assignments.csv
+intuneassigner list --platform windows --output json
 
 # Reverse lookup: what is a group assigned to?
-intune-tool group "All Workstations"
-intune-tool group <group-guid> --output json
+intuneassigner group "All Workstations"
+intuneassigner group <group-guid> --output json
 
 # Copy every assignment from one group to another (preserves include/exclude,
 # app intent + settings, and filters)
-intune-tool copy --from "Pilot Ring" --to "Production Ring" --dry-run
-intune-tool copy --from <guid-a> --to <guid-b>
+intuneassigner copy --from "Pilot Ring" --to "Production Ring" --dry-run
+intuneassigner copy --from <guid-a> --to <guid-b>
 
 # Bulk-assign one group to many resources
-intune-tool bulk-assign --group "All Macs" --area Compliance --intent required
-intune-tool bulk-assign --group "Kiosks" --type mobileApps \
+intuneassigner bulk-assign --group "All Macs" --area Compliance --intent required
+intuneassigner bulk-assign --group "Kiosks" --type mobileApps \
   --name-contains "Edge" --filter "Corp Windows" --filter-type include
-intune-tool bulk-assign --group "Legacy" --area Configuration --exclude
+intuneassigner bulk-assign --group "Legacy" --area Configuration --exclude
 
 # Templates: capture a group's assignments, then stamp new device groups onto them
-intune-tool template export --group "Gold Build" --name gold --out gold.json
-intune-tool template show --file gold.json
-intune-tool template apply --file gold.json --group "New Store Devices" --dry-run
+intuneassigner template export --group "Gold Build" --name gold --out gold.json
+intuneassigner template show --file gold.json
+intuneassigner template apply --file gold.json --group "New Store Devices" --dry-run
 
 # Tenant-wide audit report (for change reviews / compliance evidence)
-intune-tool audit --out audit.txt
+intuneassigner audit --out audit.txt
 ```
 
 ### Group arguments
@@ -144,9 +144,9 @@ found in the tenant are reported as skipped, not failed.
 ## Library use
 
 ```python
-from intune_tool.auth import Authenticator
-from intune_tool.graph import GraphClient
-from intune_tool.assignments import AssignmentEngine
+from intuneassigner.auth import Authenticator
+from intuneassigner.graph import GraphClient
+from intuneassigner.assignments import AssignmentEngine
 
 client = GraphClient(Authenticator.from_env().token)
 engine = AssignmentEngine(client)

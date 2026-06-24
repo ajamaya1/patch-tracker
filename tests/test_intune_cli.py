@@ -7,10 +7,10 @@ import pytest
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), "src"))
 
-from intune_tool import cli  # noqa: E402
-from intune_tool.assignments import AssignmentEngine  # noqa: E402
-from intune_tool.directory import Directory  # noqa: E402
-from intune_tool.graph import GraphClient  # noqa: E402
+from intuneassigner import cli  # noqa: E402
+from intuneassigner.assignments import AssignmentEngine  # noqa: E402
+from intuneassigner.directory import Directory  # noqa: E402
+from intuneassigner.graph import GraphClient  # noqa: E402
 from intune_fake import FakeGraph, grp_target  # noqa: E402
 
 A = "11111111-1111-1111-1111-111111111111"

@@ -7,7 +7,7 @@ Adding a new area is a one-entry change — no engine code to touch.
 
 The ``/assign`` action on every Intune resource *replaces the full assignment
 set*, so the engine always reads the current assignments, merges, and posts the
-complete list back (see :mod:`intune_tool.assignments`). The per-type
+complete list back (see :mod:`intuneassigner.assignments`). The per-type
 ``assign_body_key`` and ``assignment_odata_type`` capture Graph's
 frustratingly inconsistent payload shapes.
 

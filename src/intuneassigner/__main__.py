@@ -1,4 +1,4 @@
-"""Enable ``python -m intune_tool``."""
+"""Enable ``python -m intuneassigner``."""
 
 from __future__ import annotations
 

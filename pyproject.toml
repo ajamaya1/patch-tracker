@@ -15,7 +15,7 @@ dependencies = []
 
 [project.scripts]
 patch-tracker = "patch_tracker.cli:main"
-intune-tool = "intune_tool.cli:main"
+intuneassigner = "intuneassigner.cli:main"
 
 [project.optional-dependencies]
 dev = ["pytest>=7"]

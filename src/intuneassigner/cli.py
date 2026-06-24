@@ -1,16 +1,16 @@
-"""Command-line interface for intune-tool.
+"""Command-line interface for intuneassigner.
 
-    intune-tool areas                       # what can be inspected
-    intune-tool list --area Apps            # all assignments, groups resolved
-    intune-tool group "All Workstations"    # reverse lookup
-    intune-tool copy --from GRP_A --to GRP_B
-    intune-tool bulk-assign --group GRP --area Compliance
-    intune-tool template export --group GRP --name baseline --out baseline.json
-    intune-tool template apply --file baseline.json --group NEW_GRP
-    intune-tool audit --out audit.txt
+    intuneassigner areas                       # what can be inspected
+    intuneassigner list --area Apps            # all assignments, groups resolved
+    intuneassigner group "All Workstations"    # reverse lookup
+    intuneassigner copy --from GRP_A --to GRP_B
+    intuneassigner bulk-assign --group GRP --area Compliance
+    intuneassigner template export --group GRP --name baseline --out baseline.json
+    intuneassigner template apply --file baseline.json --group NEW_GRP
+    intuneassigner audit --out audit.txt
 
 Auth is read from the environment by default (``INTUNE_TENANT``,
-``INTUNE_TOOL_CLIENT_ID``, ``INTUNE_CLIENT_SECRET``) or supplied with flags.
+``INTUNEASSIGNER_CLIENT_ID``, ``INTUNE_CLIENT_SECRET``) or supplied with flags.
 Already have a bearer token (e.g. ``az account get-access-token``)? Pass
 ``--token`` / set ``INTUNE_TOKEN`` and skip interactive sign-in entirely.
 """
@@ -71,7 +71,7 @@ def _resolve_group(engine: AssignmentEngine, value: str):
 
 # ---- command handlers -------------------------------------------------
 def cmd_areas(args) -> int:
-    print("Areas and resource types intune-tool can inspect:\n")
+    print("Areas and resource types intuneassigner can inspect:\n")
     last = None
     for rt in sorted(REGISTRY, key=lambda r: (r.area, r.label)):
         if rt.area != last:
@@ -223,7 +223,7 @@ def _write(args, text: str) -> None:
 def _add_auth(p: argparse.ArgumentParser) -> None:
     g = p.add_argument_group("auth")
     g.add_argument("--tenant", help="Tenant id or domain (or INTUNE_TENANT)")
-    g.add_argument("--client-id", help="App/client id (or INTUNE_TOOL_CLIENT_ID)")
+    g.add_argument("--client-id", help="App/client id (or INTUNEASSIGNER_CLIENT_ID)")
     g.add_argument("--client-secret", help="App secret → client-credentials flow (or INTUNE_CLIENT_SECRET)")
     g.add_argument("--token", help="Use an existing bearer token; skip sign-in (or INTUNE_TOKEN)")
     g.add_argument("--graph-base", default=GRAPH_BETA, help="Graph base URL (default: beta)")
@@ -235,8 +235,8 @@ def _add_scope(p: argparse.ArgumentParser) -> None:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(prog="intune-tool", description=__doc__)
-    p.add_argument("--version", action="version", version=f"intune-tool {__version__}")
+    p = argparse.ArgumentParser(prog="intuneassigner", description=__doc__)
+    p.add_argument("--version", action="version", version=f"intuneassigner {__version__}")
     p.add_argument("-v", "--verbose", action="store_true", help="Progress to stderr")
     sub = p.add_subparsers(dest="cmd", required=True)
 

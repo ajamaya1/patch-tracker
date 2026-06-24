@@ -8,13 +8,13 @@ import pytest
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), "src"))
 
-from intune_tool import resources  # noqa: E402
-from intune_tool.auth import Authenticator  # noqa: E402
-from intune_tool.errors import GraphError  # noqa: E402
-from intune_tool.graph import GraphClient  # noqa: E402
-from intune_tool.models import Assignment, AssignmentTarget, ResourceItem  # noqa: E402
-from intune_tool import report  # noqa: E402
-from intune_tool.transport import Response  # noqa: E402
+from intuneassigner import resources  # noqa: E402
+from intuneassigner.auth import Authenticator  # noqa: E402
+from intuneassigner.errors import GraphError  # noqa: E402
+from intuneassigner.graph import GraphClient  # noqa: E402
+from intuneassigner.models import Assignment, AssignmentTarget, ResourceItem  # noqa: E402
+from intuneassigner import report  # noqa: E402
+from intuneassigner.transport import Response  # noqa: E402
 from intune_fake import grp_target  # noqa: E402
 
 

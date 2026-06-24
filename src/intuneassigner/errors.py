@@ -1,10 +1,10 @@
-"""Exception hierarchy for intune-tool."""
+"""Exception hierarchy for intuneassigner."""
 
 from __future__ import annotations
 
 
 class IntuneToolError(RuntimeError):
-    """Base class for all errors raised by intune-tool."""
+    """Base class for all errors raised by intuneassigner."""
 
 
 class AuthError(IntuneToolError):

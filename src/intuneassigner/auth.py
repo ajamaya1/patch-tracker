@@ -11,7 +11,7 @@ Two flows, both implemented with the standard library on top of the injectable
   registration's client id + secret. Best for scheduled audit/reporting.
 
 Delegated tokens are cached (with their refresh token) under
-``~/.intune-tool/token-cache.json`` so you sign in once per session window.
+``~/.intuneassigner/token-cache.json`` so you sign in once per session window.
 """
 
 from __future__ import annotations
@@ -41,10 +41,10 @@ DELEGATED_SCOPES = (
 )
 # Public client id for "Microsoft Graph Command Line Tools" — usable for
 # device-code sign-in without registering your own app. Override with
-# INTUNE_TOOL_CLIENT_ID to use your own public client.
+# INTUNEASSIGNER_CLIENT_ID to use your own public client.
 DEFAULT_PUBLIC_CLIENT_ID = "14d82eec-204b-4c2f-b7e8-296a70dab67e"
 
-DEFAULT_CACHE_PATH = Path.home() / ".intune-tool" / "token-cache.json"
+DEFAULT_CACHE_PATH = Path.home() / ".intuneassigner" / "token-cache.json"
 
 
 @dataclass
@@ -97,7 +97,7 @@ class Authenticator:
         if not tenant:
             raise ConfigError("A tenant id or domain is required (set INTUNE_TENANT).")
         if not client_id:
-            raise ConfigError("A client id is required (set INTUNE_TOOL_CLIENT_ID).")
+            raise ConfigError("A client id is required (set INTUNEASSIGNER_CLIENT_ID).")
         self.tenant = tenant
         self.client_id = client_id
         self.client_secret = client_secret
@@ -127,12 +127,12 @@ class Authenticator:
     def from_env(cls, **kw) -> "Authenticator":
         """Build from environment variables.
 
-        ``INTUNE_TENANT``, ``INTUNE_TOOL_CLIENT_ID`` (defaults to the public
+        ``INTUNE_TENANT``, ``INTUNEASSIGNER_CLIENT_ID`` (defaults to the public
         Graph CLI client), ``INTUNE_CLIENT_SECRET`` (presence selects app-only),
         ``INTUNE_AUTH_FLOW`` (``device_code``/``client_credentials``).
         """
         tenant = os.environ.get("INTUNE_TENANT", "")
-        client_id = os.environ.get("INTUNE_TOOL_CLIENT_ID", DEFAULT_PUBLIC_CLIENT_ID)
+        client_id = os.environ.get("INTUNEASSIGNER_CLIENT_ID", DEFAULT_PUBLIC_CLIENT_ID)
         secret = os.environ.get("INTUNE_CLIENT_SECRET")
         flow = os.environ.get("INTUNE_AUTH_FLOW") or (
             "client_credentials" if secret else "device_code"

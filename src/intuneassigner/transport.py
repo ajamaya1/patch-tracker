@@ -1,6 +1,6 @@
 """HTTP transport for Microsoft Graph, built on the standard library.
 
-Every network call in intune-tool flows through a ``Transport`` callable with
+Every network call in intuneassigner flows through a ``Transport`` callable with
 the signature::
 
     transport(method, url, headers, body) -> Response
@@ -22,7 +22,7 @@ from typing import Callable, Mapping, Optional
 
 from .errors import GraphError
 
-USER_AGENT = "intune-tool/0.1 (+https://github.com/ajamaya1/patch-tracker)"
+USER_AGENT = "intuneassigner/0.1 (+https://github.com/ajamaya1/patch-tracker)"
 
 
 @dataclass

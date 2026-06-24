@@ -1,4 +1,4 @@
-"""A fake Microsoft Graph transport for offline intune-tool tests.
+"""A fake Microsoft Graph transport for offline intuneassigner tests.
 
 Routes GET requests to canned ``value`` payloads (with optional paging),
 answers ``/groups/{id}`` and ``$batch`` group lookups from a group table,
@@ -11,7 +11,7 @@ from __future__ import annotations
 import json
 from typing import Any, Dict, List, Optional
 
-from intune_tool.transport import Response
+from intuneassigner.transport import Response
 
 
 def grp_target(group_id, exclude=False, filter_id=None, filter_type="include"):
