@@ -113,11 +113,47 @@ def cmd_copy(args) -> int:
     src = _resolve_group(engine, getattr(args, "from"))
     dst = _resolve_group(engine, args.to)
     items = _enumerate(engine, args, only_assigned=True)
+    if args.name_contains:
+        needle = args.name_contains.lower()
+        items = [it for it in items if needle in it.name.lower()]
+    include_ids = None
+    if args.select:
+        candidates = engine.copy_candidates(src.id, items)
+        include_ids = _interactive_select(candidates, src.display_name)
+        if not include_ids:
+            print("Nothing selected — no changes.")
+            return 0
     plans = engine.copy_group(
-        src.id, dst.id, items, dry_run=args.dry_run, include_filters=not args.no_filters
+        src.id, dst.id, items,
+        dry_run=args.dry_run, include_filters=not args.no_filters,
+        include_ids=include_ids,
     )
     print(f"Copying assignments: {src.display_name} → {dst.display_name}")
     print(report.render_change_plans(plans, dry_run=args.dry_run))
+    return 0
+
+
+def cmd_compare(args) -> int:
+    engine = build_engine(args)
+    a = _resolve_group(engine, args.a)
+    b = _resolve_group(engine, args.b)
+    items = _enumerate(engine, args, only_assigned=True)
+    cmp = engine.compare_groups(a.id, b.id, items)
+    _write(args, report.render_compare(a.display_name, b.display_name, cmp))
+    return 0
+
+
+def cmd_whatif(args) -> int:
+    engine = build_engine(args)
+    kind = "user" if args.user else "device"
+    value = args.user or args.device
+    display, gids = engine.dir.subject_groups(kind, value)
+    items = _enumerate(engine, args, only_assigned=True)
+    rows = engine.effective_for_subject(
+        gids, items,
+        all_users=(kind == "user"), all_devices=(kind == "device"),
+    )
+    _write(args, report.render_effective(display, kind, rows))
     return 0
 
 
@@ -144,7 +180,10 @@ def cmd_bulk_assign(args) -> int:
 def cmd_audit(args) -> int:
     engine = build_engine(args)
     items = _enumerate(engine, args)
-    text = report.render_audit(items)
+    empties = None
+    if args.check_empty_groups:
+        empties = engine.find_empty_targeted_groups(items)
+    text = report.render_audit(items, empty_groups=empties)
     _write(args, text)
     if args.out:
         _eprint(f"Audit written to {args.out}")
@@ -206,9 +245,54 @@ def _emit(items, args) -> None:
         _write(args, report.to_json(items))
     elif args.output == "csv":
         _write(args, report.to_csv(items))
+    elif args.output == "html":
+        _write(args, report.render_html(items))
+        if args.out:
+            _eprint(f"HTML report written to {args.out}")
     else:
         text = report.render_assignments_table(items)
         _write(args, text)
+
+
+def _interactive_select(candidates, src_name):
+    """Print a numbered checklist and read a selection from stdin.
+
+    Accepts ranges/lists like ``1-4,7``, ``all``, or an area name to pick a
+    whole area. Returns the set of chosen resource ids (or None for all).
+    """
+    if not candidates:
+        return set()
+    print(f"\n{src_name} is assigned to {len(candidates)} resource(s). "
+          "Choose which to mirror:\n")
+    for i, it in enumerate(candidates, 1):
+        print(f"  {i:>3}. [{it.area}] {it.name}")
+    print("\nEnter numbers (e.g. 1-4,7), an area name, or 'all'. Blank cancels.")
+    try:
+        raw = input("> ").strip()
+    except EOFError:
+        raw = ""
+    if not raw:
+        return set()
+    if raw.lower() == "all":
+        return {it.id for it in candidates}
+    chosen = set()
+    area_match = {it.id for it in candidates if it.area.lower() == raw.lower()}
+    if area_match:
+        return area_match
+    for part in raw.replace(" ", "").split(","):
+        if "-" in part:
+            try:
+                lo, hi = (int(x) for x in part.split("-", 1))
+                for n in range(lo, hi + 1):
+                    if 1 <= n <= len(candidates):
+                        chosen.add(candidates[n - 1].id)
+            except ValueError:
+                continue
+        elif part.isdigit():
+            n = int(part)
+            if 1 <= n <= len(candidates):
+                chosen.add(candidates[n - 1].id)
+    return chosen
 
 
 def _write(args, text: str) -> None:
@@ -247,7 +331,7 @@ def build_parser() -> argparse.ArgumentParser:
     _add_auth(sp); _add_scope(sp)
     sp.add_argument("--assigned-only", action="store_true", help="Hide unassigned resources")
     sp.add_argument("--platform", help="Filter by platform substring (windows/ios/…) ")
-    sp.add_argument("--output", choices=["table", "json", "csv"], default="table")
+    sp.add_argument("--output", choices=["table", "json", "csv", "html"], default="table")
     sp.add_argument("--out", help="Write to file instead of stdout")
     sp.set_defaults(func=cmd_list)
 
@@ -258,13 +342,31 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--out", help="Write to file instead of stdout")
     sp.set_defaults(func=cmd_group)
 
-    sp = sub.add_parser("copy", help="Copy all assignments from one group to another")
+    sp = sub.add_parser("copy", help="Copy assignments from one group to another (all or selected)")
     _add_auth(sp); _add_scope(sp)
     sp.add_argument("--from", required=True, help="Source group (name or id)")
     sp.add_argument("--to", required=True, help="Destination group (name or id)")
+    sp.add_argument("--select", action="store_true",
+                    help="Interactively pick which resources to mirror")
+    sp.add_argument("--name-contains", help="Only mirror resources whose name contains this")
     sp.add_argument("--no-filters", action="store_true", help="Don't copy assignment filters")
     sp.add_argument("--dry-run", action="store_true", help="Preview without writing")
     sp.set_defaults(func=cmd_copy)
+
+    sp = sub.add_parser("compare", help="Diff assignments between two groups")
+    _add_auth(sp); _add_scope(sp)
+    sp.add_argument("a", help="Group A (name or id)")
+    sp.add_argument("b", help="Group B (name or id)")
+    sp.add_argument("--out", help="Write to file instead of stdout")
+    sp.set_defaults(func=cmd_compare)
+
+    sp = sub.add_parser("whatif", help="Effective assignments for a user or device")
+    _add_auth(sp); _add_scope(sp)
+    g = sp.add_mutually_exclusive_group(required=True)
+    g.add_argument("--user", help="User UPN or object id")
+    g.add_argument("--device", help="Device name or Entra object id")
+    sp.add_argument("--out", help="Write to file instead of stdout")
+    sp.set_defaults(func=cmd_whatif)
 
     sp = sub.add_parser("bulk-assign", help="Assign one group to many resources")
     _add_auth(sp); _add_scope(sp)
@@ -279,6 +381,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     sp = sub.add_parser("audit", help="Tenant-wide assignment audit report")
     _add_auth(sp); _add_scope(sp)
+    sp.add_argument("--check-empty-groups", action="store_true",
+                    help="Flag targeted groups that have zero members (extra Graph calls)")
     sp.add_argument("--out", help="Write report to file")
     sp.set_defaults(func=cmd_audit)
 

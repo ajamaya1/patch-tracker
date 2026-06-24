@@ -9,6 +9,7 @@ tenant resolves every group with a handful of calls.
 from __future__ import annotations
 
 from typing import Dict, Iterable, List, Optional
+from urllib.parse import quote as _quote
 
 from .graph import GraphClient, GRAPH_V1
 from .models import GroupRef
@@ -21,6 +22,16 @@ class Directory:
         self._by_name: Dict[str, List[GroupRef]] = {}
         self._filters: Dict[str, str] = {}
         self._filters_loaded = False
+        self._counts: Dict[str, int] = {}
+        self._v1c: Optional[GraphClient] = None
+
+    def _v1(self) -> GraphClient:
+        # Users/groups/devices live on the v1.0 graph, not the Intune beta root.
+        if self._v1c is None:
+            self._v1c = GraphClient(
+                self.client._token, base=GRAPH_V1, transport=self.client.transport
+            )
+        return self._v1c
 
     # ---- assignment filters ------------------------------------------
     def load_filters(self) -> None:
@@ -66,8 +77,7 @@ class Directory:
             for i, gid in enumerate(unknown)
         ]
         # Group reads live on v1.0; use a v1.0 client view for the batch root.
-        v1 = GraphClient(self.client._token, base=GRAPH_V1, transport=self.client.transport)
-        for resp in v1.batch(reqs):
+        for resp in self._v1().batch(reqs):
             idx = int(resp.get("id"))
             gid = unknown[idx]
             if resp.get("status") == 200 and isinstance(resp.get("body"), dict):
@@ -121,6 +131,70 @@ class Directory:
             raise ValueError(f"No group found matching '{value}'.")
         names = ", ".join(f"{m.display_name} ({m.id})" for m in matches)
         raise ValueError(f"'{value}' is ambiguous — matches: {names}")
+
+    # ---- membership --------------------------------------------------
+    def member_count(self, group_id: str) -> int:
+        """Direct member count of a group (cached). Used for empty-group checks."""
+        if group_id in self._counts:
+            return self._counts[group_id]
+        try:
+            n = self._v1().count(f"groups/{group_id}/members/$count")
+        except Exception:
+            n = -1  # unknown (e.g. no permission) — don't flag as empty
+        self._counts[group_id] = n
+        return n
+
+    def member_counts(self, group_ids: Iterable[str]) -> Dict[str, int]:
+        return {gid: self.member_count(gid) for gid in {g for g in group_ids if g}}
+
+    def subject_groups(self, kind: str, value: str):
+        """Resolve a user or device to (display, set-of-group-ids).
+
+        ``kind`` is ``user`` or ``device``. Uses ``transitiveMemberOf`` so
+        nested group membership is included — the same set Intune evaluates
+        group-target assignments against.
+        """
+        v1 = self._v1()
+        if kind == "user":
+            ident = value if _looks_like_guid(value) else value  # UPN works directly
+            subj = v1.get(f"users/{_quote(ident)}?$select=id,displayName,userPrincipalName")
+            display = subj.get("displayName") or subj.get("userPrincipalName") or value
+            oid = subj["id"]
+        elif kind == "device":
+            oid, display = self._resolve_device(value)
+        else:
+            raise ValueError(f"Unknown subject kind: {kind}")
+        groups = v1.get_all(
+            f"{'users' if kind == 'user' else 'devices'}/{oid}"
+            "/transitiveMemberOf/microsoft.graph.group?$select=id,displayName"
+        )
+        gids = set()
+        for g in groups:
+            ref = GroupRef.from_graph(g)
+            self._cache_group(ref)
+            gids.add(ref.id)
+        return display, gids
+
+    def _resolve_device(self, value: str):
+        v1 = self._v1()
+        if _looks_like_guid(value):
+            # Could be the Entra object id already, or an Intune device id.
+            try:
+                d = v1.get(f"devices/{value}?$select=id,displayName")
+                return d["id"], d.get("displayName", value)
+            except Exception:
+                pass
+        # By display name in Entra ID.
+        esc = value.replace("'", "''")
+        matches = v1.get_all(
+            f"devices?$filter=displayName eq '{esc}'&$select=id,displayName,deviceId"
+        )
+        if len(matches) == 1:
+            return matches[0]["id"], matches[0].get("displayName", value)
+        if not matches:
+            raise ValueError(f"No Entra device found matching '{value}'.")
+        ids = ", ".join(m.get("displayName", m["id"]) for m in matches)
+        raise ValueError(f"'{value}' matches multiple devices: {ids}")
 
     def _cache_group(self, ref: GroupRef) -> None:
         self._groups[ref.id] = ref

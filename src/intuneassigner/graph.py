@@ -43,7 +43,13 @@ class GraphClient:
             return path
         return f"{self.base}/{path.lstrip('/')}"
 
-    def _request(self, method: str, path: str, body: Optional[dict] = None) -> Response:
+    def _request(
+        self,
+        method: str,
+        path: str,
+        body: Optional[dict] = None,
+        extra_headers: Optional[Dict[str, str]] = None,
+    ) -> Response:
         url = self._url(path)
         data = json.dumps(body).encode("utf-8") if body is not None else None
         attempt = 0
@@ -54,6 +60,8 @@ class GraphClient:
             }
             if data is not None:
                 headers["Content-Type"] = "application/json"
+            if extra_headers:
+                headers.update(extra_headers)
             resp = self.transport(method, url, headers, data)
             if resp.status in (429, 500, 502, 503, 504) and attempt < self.max_retries:
                 delay = _retry_after(resp, attempt)
@@ -65,8 +73,15 @@ class GraphClient:
             return resp
 
     # ---- read ---------------------------------------------------------
-    def get(self, path: str) -> Any:
-        return self._request("GET", path).json()
+    def get(self, path: str, *, extra_headers: Optional[Dict[str, str]] = None) -> Any:
+        return self._request("GET", path, extra_headers=extra_headers).json()
+
+    def count(self, path: str) -> int:
+        """GET a ``$count`` endpoint (adds the required advanced-query header)."""
+        val = self._request(
+            "GET", path, extra_headers={"ConsistencyLevel": "eventual"}
+        ).json()
+        return int(val or 0)
 
     def get_all(self, path: str, *, page_limit: Optional[int] = None) -> List[dict]:
         """Follow ``@odata.nextLink`` and return all ``value`` entries."""

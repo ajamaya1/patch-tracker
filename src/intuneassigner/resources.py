@@ -148,6 +148,17 @@ REGISTRY: List[ResourceType] = [
         "windowsManagedAppProtections", "App protection", "Windows app protection policy",
         "deviceAppManagement/windowsManagedAppProtections", expand_assignments=False,
     ),
+    # ----- Cloud PC (Windows 365) -----
+    ResourceType(
+        "cloudPcProvisioningPolicies", "Cloud PC", "Provisioning policy",
+        "deviceManagement/virtualEndpoint/provisioningPolicies", expand_assignments=False,
+    ),
+    # ----- Tenant administration -----
+    ResourceType(
+        "roleScopeTags", "Scope tags", "Scope tag",
+        "deviceManagement/roleScopeTags", expand_assignments=False,
+        notes="Scope tags are assigned to groups to scope RBAC visibility.",
+    ),
 ]
 
 REGISTRY_BY_KEY: Dict[str, ResourceType] = {r.key: r for r in REGISTRY}

@@ -25,6 +25,8 @@ export and audit.
 | Enrollment | Enrollment configurations |
 | Apps | Applications, app configuration policies, managed-app configs |
 | App protection | iOS / Android / Windows app protection policies |
+| Cloud PC | Windows 365 provisioning policies |
+| Scope tags | RBAC scope tags |
 
 Each assignment is resolved to: real **group display names**, include vs.
 **exclude** intent, **assignment filters** (with include/exclude mode), app
@@ -83,10 +85,25 @@ intuneassigner list --platform windows --output json
 intuneassigner group "All Workstations"
 intuneassigner group <group-guid> --output json
 
-# Copy every assignment from one group to another (preserves include/exclude,
-# app intent + settings, and filters)
+# Copy assignments from one group to another (preserves include/exclude,
+# app intent + settings, remediation schedules, and filters)
 intuneassigner copy --from "Pilot Ring" --to "Production Ring" --dry-run
 intuneassigner copy --from <guid-a> --to <guid-b>
+
+# Copy only SOME of them — mirror config profiles but not endpoint security:
+intuneassigner copy --from "Pilot" --to "Prod" --area Configuration
+# ...or pick interactively from a numbered checklist:
+intuneassigner copy --from "Pilot" --to "Prod" --select
+# ...or by name:
+intuneassigner copy --from "Pilot" --to "Prod" --name-contains "Defender"
+
+# Compare two groups (only-in-A / only-in-B / both / include-vs-exclude conflicts)
+intuneassigner compare "Pilot Ring" "Production Ring"
+
+# What-if: everything that effectively lands on a user or device
+# (resolves transitive group membership; exclusions win, filters flagged)
+intuneassigner whatif --user jdoe@contoso.com
+intuneassigner whatif --device LAPTOP-01
 
 # Bulk-assign one group to many resources
 intuneassigner bulk-assign --group "All Macs" --area Compliance --intent required
@@ -100,7 +117,10 @@ intuneassigner template show --file gold.json
 intuneassigner template apply --file gold.json --group "New Store Devices" --dry-run
 
 # Tenant-wide audit report (for change reviews / compliance evidence)
-intuneassigner audit --out audit.txt
+intuneassigner audit --check-empty-groups --out audit.txt
+
+# Interactive, filterable HTML report
+intuneassigner list --output html --out assignments.html
 ```
 
 ### Group arguments

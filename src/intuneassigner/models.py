@@ -26,6 +26,8 @@ _TARGET_ODATA = {
     "#microsoft.graph.allLicensedUsersAssignmentTarget": (TARGET_ALL_USERS, False),
     "#microsoft.graph.allDevicesAssignmentTarget": (TARGET_ALL_DEVICES, False),
     "#microsoft.graph.configurationManagerCollectionAssignmentTarget": (TARGET_COLLECTION, False),
+    # Cloud PC provisioning policies use a group target with a distinct type.
+    "#microsoft.graph.cloudPcManagementGroupAssignmentTarget": (TARGET_GROUP, False),
 }
 
 FILTER_TYPE_NONE = "none"
@@ -81,8 +83,13 @@ class AssignmentTarget:
         )
 
     def to_graph(self) -> Dict[str, Any]:
-        """Render back to a Graph assignment ``target`` payload."""
-        odata = {
+        """Render back to a Graph assignment ``target`` payload.
+
+        Preserves the original ``@odata.type`` when one was read (so non-standard
+        group targets like Cloud PC's round-trip correctly on write), otherwise
+        derives it from ``kind``.
+        """
+        odata = self.raw.get("@odata.type") or {
             TARGET_GROUP: "#microsoft.graph.groupAssignmentTarget",
             TARGET_EXCLUSION: "#microsoft.graph.exclusionGroupAssignmentTarget",
             TARGET_ALL_USERS: "#microsoft.graph.allLicensedUsersAssignmentTarget",
@@ -133,7 +140,16 @@ class Assignment:
         )
 
     def to_graph(self) -> Dict[str, Any]:
-        out: Dict[str, Any] = {"target": self.target.to_graph()}
+        # Preserve type-specific assignment fields read from Graph (e.g. a
+        # remediation's runSchedule / runRemediationScript) so copying an
+        # assignment doesn't silently drop them. Identity/read-only fields are
+        # stripped. The target/intent/settings are then (re)written on top.
+        out: Dict[str, Any] = {
+            k: v
+            for k, v in self.raw.items()
+            if k not in ("id", "source", "sourceId", "target")
+        }
+        out["target"] = self.target.to_graph()
         if self.intent is not None:
             out["intent"] = self.intent
         if self.settings is not None:

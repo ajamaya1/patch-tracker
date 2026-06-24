@@ -187,6 +187,12 @@ class AssignmentEngine:
     # ================================================================
     # COPY group -> group
     # ================================================================
+    def copy_candidates(
+        self, src_group_id: str, items: List[ResourceItem]
+    ) -> List[ResourceItem]:
+        """Resources the source group is currently assigned to (for selection)."""
+        return [it for it in items if it.targets_group(src_group_id)]
+
     def copy_group(
         self,
         src_group_id: str,
@@ -195,17 +201,23 @@ class AssignmentEngine:
         *,
         dry_run: bool = False,
         include_filters: bool = True,
+        include_ids: Optional[set] = None,
     ) -> List[ChangePlan]:
-        """Mirror every assignment of ``src`` onto ``dst``.
+        """Mirror assignments of ``src`` onto ``dst``.
 
         For each resource where the source group is targeted, an equivalent
         target for the destination group is appended (preserving include/exclude
         intent, app install intent + settings, and optionally the filter). Items
         already targeting ``dst`` for that edge are left untouched.
+
+        Pass ``include_ids`` to mirror only a chosen subset of resources (the
+        selective "mirror these, not those" workflow); ``None`` copies all.
         """
         plans: List[ChangePlan] = []
         dst_name = self.dir.name(dst_group_id) or dst_group_id
         for it in items:
+            if include_ids is not None and it.id not in include_ids:
+                continue
             rt = REGISTRY_BY_KEY[it.resource_type]
             src_edges = it.targets_group(src_group_id)
             if not src_edges:
@@ -380,3 +392,121 @@ class AssignmentEngine:
             self._execute(rt, it, merged, plan, dry_run)
             plans.append(plan)
         return plans
+
+    # ================================================================
+    # COMPARE two groups
+    # ================================================================
+    @staticmethod
+    def _group_mode(item: ResourceItem, group_id: str) -> str:
+        """How a group targets an item: include | exclude | mixed | none."""
+        edges = item.targets_group(group_id)
+        if not edges:
+            return "none"
+        has_excl = any(e.target.is_exclude for e in edges)
+        has_incl = any(not e.target.is_exclude for e in edges)
+        if has_excl and has_incl:
+            return "mixed"
+        return "exclude" if has_excl else "include"
+
+    def compare_groups(
+        self, a_id: str, b_id: str, items: List[ResourceItem]
+    ) -> Dict[str, Any]:
+        """Diff two groups' assignments across all resources.
+
+        Returns buckets: ``only_a`` / ``only_b`` (assigned to one but not the
+        other), ``both`` (assigned to both), and ``conflict`` (one includes
+        while the other excludes — mirroring would create opposite intents).
+        """
+        only_a, only_b, both, conflict = [], [], [], []
+        for it in items:
+            am = self._group_mode(it, a_id)
+            bm = self._group_mode(it, b_id)
+            if am == "none" and bm == "none":
+                continue
+            row = {"item": it, "a_mode": am, "b_mode": bm}
+            if am != "none" and bm == "none":
+                only_a.append(row)
+            elif bm != "none" and am == "none":
+                only_b.append(row)
+            else:
+                both.append(row)
+                if {am, bm} == {"include", "exclude"}:
+                    conflict.append(row)
+        return {"only_a": only_a, "only_b": only_b, "both": both, "conflict": conflict}
+
+    # ================================================================
+    # EFFECTIVE assignments for a user / device ("what-if")
+    # ================================================================
+    def effective_for_subject(
+        self,
+        group_ids: set,
+        items: List[ResourceItem],
+        *,
+        all_users: bool = False,
+        all_devices: bool = False,
+    ) -> List[Dict[str, Any]]:
+        """Compute what actually lands on a subject given its group memberships.
+
+        ``group_ids`` is the subject's (transitive) group set. ``all_users`` /
+        ``all_devices`` say whether the virtual "All Users"/"All Devices"
+        targets apply to this subject. An exclusion on any member group wins
+        over includes, exactly as Intune evaluates it. Rows whose applicable
+        include carries an assignment filter are flagged, since the filter may
+        further narrow whether it truly applies.
+        """
+        rows: List[Dict[str, Any]] = []
+        for it in items:
+            includes, excludes, filtered = [], [], False
+            for a in it.assignments:
+                t = a.target
+                applies = (
+                    (t.kind == "allUsers" and all_users)
+                    or (t.kind == "allDevices" and all_devices)
+                    or (t.group_id in group_ids)
+                )
+                if not applies:
+                    continue
+                if t.is_exclude:
+                    excludes.append(a)
+                else:
+                    includes.append(a)
+                    if t.filter_id:
+                        filtered = True
+            if not includes:
+                continue
+            rows.append(
+                {
+                    "item": it,
+                    "includes": includes,
+                    "excluded": bool(excludes),
+                    "exclude_targets": excludes,
+                    "filtered": filtered,
+                }
+            )
+        return rows
+
+    # ================================================================
+    # EMPTY targeted groups (audit)
+    # ================================================================
+    def find_empty_targeted_groups(
+        self, items: List[ResourceItem]
+    ) -> List[Dict[str, Any]]:
+        """Groups that are targeted by an assignment but have zero members."""
+        targeted: Dict[str, List[str]] = {}
+        for it in items:
+            for a in it.assignments:
+                gid = a.target.group_id
+                if gid:
+                    targeted.setdefault(gid, []).append(f"{it.area}/{it.name}")
+        counts = self.dir.member_counts(targeted.keys())
+        empties = []
+        for gid, resources in targeted.items():
+            if counts.get(gid, -1) == 0:
+                empties.append(
+                    {
+                        "group_id": gid,
+                        "group_name": self.dir.name(gid) or gid,
+                        "resources": resources,
+                    }
+                )
+        return sorted(empties, key=lambda e: e["group_name"].lower())
