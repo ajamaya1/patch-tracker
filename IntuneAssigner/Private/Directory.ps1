@@ -42,6 +42,14 @@ function Get-IaFilterIdByName {
     ($script:IaFilterCache.GetEnumerator() | Where-Object { $_.Value -and $_.Value.ToLower() -eq $Name.ToLower() } | Select-Object -First 1).Key
 }
 
+function Get-IaFilterList {
+    # All assignment filters as { Id, Name } objects (for the TUI picker).
+    Initialize-IaFilters
+    $script:IaFilterCache.GetEnumerator() |
+        ForEach-Object { [pscustomobject]@{ Id = $_.Key; Name = $_.Value } } |
+        Sort-Object Name
+}
+
 # ---- group name resolution ----
 function Add-IaGroupToCache {
     param([Parameter(Mandatory)][object]$Group)

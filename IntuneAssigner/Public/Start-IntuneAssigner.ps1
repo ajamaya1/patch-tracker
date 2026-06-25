@@ -181,6 +181,18 @@ function Invoke-IaTuiBulkAssign {
     $modeChoice = Read-SpectreSelection -Title 'Assignment mode' -Choices @('include', 'exclude (block)') -Color $Accent
     $exclude = $modeChoice -like 'exclude*'
 
+    # Optional assignment filter (include/exclude).
+    $filterId = $null; $filterType = 'include'
+    $filters = Get-IaFilterList
+    if ($filters) {
+        $fchoice = Read-SpectreSelection -Title 'Assignment filter' -Color $Accent `
+            -Choices (@('(no filter)') + @($filters | ForEach-Object Name))
+        if ($fchoice -ne '(no filter)') {
+            $filterId = ($filters | Where-Object Name -eq $fchoice | Select-Object -First 1).Id
+            $filterType = Read-SpectreSelection -Title "Filter mode for '$fchoice'" -Choices @('include', 'exclude') -Color $Accent
+        }
+    }
+
     $map = @{}; $i = 0
     $labels = foreach ($it in ($scoped | Sort-Object Area, Name)) {
         $i++; $lbl = "$i. [$($it.Area)] $($it.Name)"; $map[$lbl] = $it; $lbl
@@ -197,7 +209,7 @@ function Invoke-IaTuiBulkAssign {
     $commit = $confirm -eq 'Apply now'
 
     $plans = Invoke-IaBulkAssign -Items $sel -GroupId $g.Id -GroupName $g.DisplayName `
-        -Exclude:$exclude -Intent $intent -Commit:$commit
+        -Exclude:$exclude -Intent $intent -FilterId $filterId -FilterType $filterType -Commit:$commit
     $plans | ForEach-Object {
         [pscustomobject]@{
             Status = if ($_.Skipped) { 'SKIP' } elseif (-not $commit) { 'PREVIEW' } elseif ($_.Applied) { 'OK' } else { 'FAILED' }
