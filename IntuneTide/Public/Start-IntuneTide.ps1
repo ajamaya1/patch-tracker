@@ -28,8 +28,19 @@ function Start-IntuneTide {
 
     function Get-IaTuiInventory {
         if ($null -eq $script:IaTuiInventory) {
-            $script:IaTuiInventory = Invoke-SpectreCommandWithStatus -Spinner Dots -Title 'Reading Intune assignments…' -ScriptBlock {
-                Get-IaInventory
+            if ($script:IaTuiShowLog) {
+                # Live-stream each Graph call as the inventory loads.
+                Write-SpectreHost "[grey]reading intune — live graph calls:[/]"
+                Set-IaCallSink {
+                    param($c)
+                    $items = if ($c.Count) { " · $($c.Count) items" } else { '' }
+                    Write-Host ("  → {0,-4} {1}  {2}ms{3}" -f $c.Method, $c.Uri, $c.Ms, $items)
+                }
+                try { $script:IaTuiInventory = Get-IaInventory } finally { Set-IaCallSink $null }
+            } else {
+                $script:IaTuiInventory = Invoke-SpectreCommandWithStatus -Spinner Dots -Title 'Reading Intune assignments…' -ScriptBlock {
+                    Get-IaInventory
+                }
             }
         }
         $script:IaTuiInventory
@@ -51,6 +62,7 @@ function Start-IntuneTide {
             'Mirror assignments (copy A -> B, pick which)',
             'Assign a group to many (pick which)',
             'Templates (capture / apply)',
+            'Backup / Restore / Drift',
             'Reports (status · audit · approvals)',
             'Elevate (PIM) — activate an eligible role',
             'Audit',
@@ -71,6 +83,7 @@ function Start-IntuneTide {
                 'Mirror*'       { Invoke-IaTuiMirror -Accent $accent }
                 'Assign a group*' { Invoke-IaTuiBulkAssign -Accent $accent }
                 'Templates*'    { Invoke-IaTuiTemplates -Accent $accent }
+                'Backup*'       { Invoke-IaTuiBackup -Accent $accent }
                 'Reports*'      { Invoke-IaTuiReports -Accent $accent }
                 'Elevate*'      { Invoke-IaTuiElevate -Accent $accent }
                 'Audit'         { Invoke-IaTuiAudit -Accent $accent }
@@ -374,6 +387,44 @@ function Invoke-IaTuiReports {
             Invoke-SpectreCommandWithStatus -Spinner Dots -Title "Running $name…" -ScriptBlock {
                 Export-IntuneReport -Name $using:name
             } | Select-Object -First 100 | Format-SpectreTable -Color $Accent
+        }
+        default { return }
+    }
+}
+
+function Invoke-IaTuiBackup {
+    param([string]$Accent)
+    $pick = Read-SpectreSelection -Title 'Backup / Restore / Drift' -Color $Accent -Choices @(
+        'Backup all assignments to a file',
+        'Drift — compare current vs a snapshot',
+        'Restore from a snapshot',
+        'Back'
+    )
+    switch -Wildcard ($pick) {
+        'Backup*' {
+            $p = Read-SpectreText -Question 'Save snapshot to' -DefaultAnswer 'intune-assignments.json'
+            $snap = Backup-IntuneAssignment -Path $p
+            Write-SpectreHost "[$Accent]Backed up[/] $($snap.count) resource(s) → $p"
+        }
+        'Drift*' {
+            $p = Read-SpectreText -Question 'Snapshot file to compare against'
+            $d = @(Get-IntuneAssignmentDrift -Path $p)
+            if (-not $d) { Write-SpectreHost "[$Accent]No drift — current state matches the snapshot.[/]"; return }
+            Write-SpectreHost "[$Accent]$($d.Count)[/] drifted assignment target(s):"
+            $d | Format-SpectreTable -Color $Accent
+        }
+        'Restore*' {
+            $p = Read-SpectreText -Question 'Snapshot file to restore'
+            $mode = Read-SpectreSelection -Title 'Restore mode' -Color $Accent -Choices @('Preview only (no changes)', 'Apply now')
+            $plans = if ($mode -like 'Apply*') { Restore-IntuneAssignment -Path $p -Confirm:$false } else { Restore-IntuneAssignment -Path $p -WhatIf }
+            @($plans) | ForEach-Object {
+                [pscustomobject]@{
+                    Status = if ($_.Skipped) { 'SKIP' } elseif ($_.Error) { 'FAIL' } elseif ($_.Applied) { 'OK' } else { 'PREVIEW' }
+                    Area = $_.Area; Resource = $_.ResourceName
+                    Detail = if ($_.Skipped) { $_.Skipped } elseif ($_.Error) { $_.Error } else { ($_.Added -join '; ') }
+                }
+            } | Format-SpectreTable -Color $Accent
+            if ($mode -like 'Apply*') { $script:IaTuiInventory = $null }
         }
         default { return }
     }

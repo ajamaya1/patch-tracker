@@ -76,7 +76,8 @@ function Resolve-IaGroupName {
         return (Add-IaGroupToCache -Group $g).DisplayName
     } catch {
         # Deleted / inaccessible — record a marker so reports show it as orphaned.
-        $script:IaGroupCache[$Id] = [pscustomobject]@{ Id = $Id; DisplayName = "(unresolved $($Id.Substring(0,8))…)"; MembershipType = $null }
+        $stub = $Id.Substring(0, [Math]::Min(8, $Id.Length))
+        $script:IaGroupCache[$Id] = [pscustomobject]@{ Id = $Id; DisplayName = "(unresolved $stub…)"; MembershipType = $null }
         return $script:IaGroupCache[$Id].DisplayName
     }
 }

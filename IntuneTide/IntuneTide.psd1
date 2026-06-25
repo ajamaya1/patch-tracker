@@ -23,6 +23,10 @@
         'Import-IntuneAssignmentTemplate',
         'Get-IntuneAssignmentAudit',
         'Export-IntuneAssignmentReport',
+        # --- backup / restore / drift ---
+        'Backup-IntuneAssignment',
+        'Restore-IntuneAssignment',
+        'Get-IntuneAssignmentDrift',
         # --- reporting & auditing ---
         'Get-IntuneReportCatalog',
         'Export-IntuneReport',
