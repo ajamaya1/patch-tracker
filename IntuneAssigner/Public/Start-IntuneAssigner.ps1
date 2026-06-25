@@ -47,6 +47,8 @@ function Start-IntuneAssigner {
             'Compare two groups',
             'What-if (user / device effective assignments)',
             'Mirror assignments (copy A -> B, pick which)',
+            'Assign a group to many (pick which)',
+            'Templates (capture / apply)',
             'Audit',
             'Export HTML report',
             'Refresh data',
@@ -62,6 +64,8 @@ function Start-IntuneAssigner {
                 'Compare*'      { Invoke-IaTuiCompare -Accent $accent }
                 'What-if*'      { Invoke-IaTuiWhatIf -Accent $accent }
                 'Mirror*'       { Invoke-IaTuiMirror -Accent $accent }
+                'Assign a group*' { Invoke-IaTuiBulkAssign -Accent $accent }
+                'Templates*'    { Invoke-IaTuiTemplates -Accent $accent }
                 'Audit'         { Invoke-IaTuiAudit -Accent $accent }
                 'Export*'       { $p = Read-SpectreText -Question 'Output path' -DefaultAnswer 'intune-assignments.html'
                                   New-IaHtmlReport -Items (Get-IaTuiInventory) | Set-Content -Path $p -Encoding utf8
@@ -112,7 +116,8 @@ function Invoke-IaTuiWhatIf {
     param([string]$Accent)
     $kind = Read-SpectreSelection -Title 'Subject type' -Choices @('user', 'device') -Color $Accent
     $val = Read-SpectreText -Question "$kind (UPN/name or id)"
-    $rows = Get-IntuneEffectiveAssignment @{ ($kind -eq 'user' ? 'User' : 'Device') = $val }
+    $rows = if ($kind -eq 'user') { Get-IntuneEffectiveAssignment -User $val }
+            else { Get-IntuneEffectiveAssignment -Device $val }
     $rows | Format-SpectreTable -Color $Accent
 }
 
@@ -154,4 +159,88 @@ function Invoke-IaTuiAudit {
     Write-SpectreHost "Resources [$Accent]$($a.ResourceCount)[/]  ·  assigned [$Accent]$($a.AssignedCount)[/]  ·  unassigned [$Accent]$($a.UnassignedCount)[/]  ·  edges [$Accent]$($a.EdgeCount)[/]"
     $a.ByArea | Format-SpectreTable -Color $Accent
     if ($a.TopGroups) { Write-SpectreHost "[$Accent]Most-assigned groups[/]"; $a.TopGroups | Format-SpectreTable -Color $Accent }
+}
+
+function Invoke-IaTuiBulkAssign {
+    param([string]$Accent)
+    $g = Resolve-IaGroup -Value (Read-SpectreText -Question 'Group to assign')
+    $areas = @('All areas') + (@(Get-IaResourceRegistry | ForEach-Object Area | Select-Object -Unique | Sort-Object))
+    $area = Read-SpectreSelection -Title 'Which area?' -Choices $areas -Color $Accent
+
+    $items = Get-IaTuiInventory
+    $scoped = if ($area -eq 'All areas') { $items } else { @($items | Where-Object Area -eq $area) }
+    if (-not $scoped) { Write-SpectreHost "[yellow]No resources in $area.[/]"; return }
+
+    # Apps take an install intent.
+    $intent = $null
+    if ($area -eq 'Apps' -or ($scoped | Where-Object { (Find-IaResourceType -Key $_.ResourceType).HasIntent })) {
+        $intent = Read-SpectreSelection -Title 'Install intent (apps)' -Color $Accent `
+            -Choices @('required', 'available', 'uninstall', 'availableWithoutEnrollment', '(none / non-app)')
+        if ($intent -eq '(none / non-app)') { $intent = $null }
+    }
+    $modeChoice = Read-SpectreSelection -Title 'Assignment mode' -Choices @('include', 'exclude (block)') -Color $Accent
+    $exclude = $modeChoice -like 'exclude*'
+
+    $map = @{}; $i = 0
+    $labels = foreach ($it in ($scoped | Sort-Object Area, Name)) {
+        $i++; $lbl = "$i. [$($it.Area)] $($it.Name)"; $map[$lbl] = $it; $lbl
+    }
+    $picked = Read-SpectreMultiSelection -Title "Select resources to assign [$Accent]$($g.DisplayName)[/]" `
+        -Choices $labels -Color $Accent -PageSize 18
+    if (-not $picked) { Write-SpectreHost '[yellow]Nothing selected.[/]'; return }
+    $sel = @($picked | ForEach-Object { $map[$_] })
+
+    $verb = if ($exclude) { 'EXCLUDE' } else { 'assign' }
+    $confirm = Read-SpectreSelection -Color $Accent `
+        -Title "$verb [$Accent]$($g.DisplayName)[/] on $($sel.Count) resource(s)?" `
+        -Choices @('Preview only (no changes)', 'Apply now')
+    $commit = $confirm -eq 'Apply now'
+
+    $plans = Invoke-IaBulkAssign -Items $sel -GroupId $g.Id -GroupName $g.DisplayName `
+        -Exclude:$exclude -Intent $intent -Commit:$commit
+    $plans | ForEach-Object {
+        [pscustomobject]@{
+            Status = if ($_.Skipped) { 'SKIP' } elseif (-not $commit) { 'PREVIEW' } elseif ($_.Applied) { 'OK' } else { 'FAILED' }
+            Area = $_.Area; Resource = $_.ResourceName
+            Detail = if ($_.Skipped) { $_.Skipped } else { ($_.Added -join '; ') }
+        }
+    } | Format-SpectreTable -Color $Accent
+    if ($commit) { $script:IaTuiInventory = $null }  # state changed; force refresh next time
+    else { Write-SpectreHost "[grey]Preview only — choose 'Apply now' to write.[/]" }
+}
+
+function Invoke-IaTuiTemplates {
+    param([string]$Accent)
+    $action = Read-SpectreSelection -Title 'Templates' -Color $Accent -Choices @(
+        'Capture a group as a template (save to file)',
+        'Apply a template file to a group'
+    )
+    if ($action -like 'Capture*') {
+        $g = Resolve-IaGroup -Value (Read-SpectreText -Question 'Group to capture')
+        $name = Read-SpectreText -Question 'Template name' -DefaultAnswer 'baseline'
+        $path = Read-SpectreText -Question 'Save to path' -DefaultAnswer "$name.json"
+        $tmpl = New-IaTemplateFromGroup -Items (Get-IaTuiInventory) -GroupId $g.Id -Name $name
+        $tmpl | ConvertTo-Json -Depth 8 | Set-Content -Path $path -Encoding utf8
+        Write-SpectreHost "[$Accent]Saved[/] template '$name' with [$Accent]$($tmpl.resources.Count)[/] resource(s) -> $path"
+    }
+    else {
+        $path = Read-SpectreText -Question 'Template file path'
+        if (-not (Test-Path $path)) { Write-SpectreHost "[red]Not found:[/] $path"; return }
+        $tmpl = Get-Content $path -Raw | ConvertFrom-Json
+        $g = Resolve-IaGroup -Value (Read-SpectreText -Question 'Device group to stamp on')
+        $keys = @($tmpl.resources | ForEach-Object resource_type | Select-Object -Unique)
+        $items = Get-IaInventory -Type $keys
+        $confirm = Read-SpectreSelection -Color $Accent `
+            -Title "Apply template '$($tmpl.name)' ($($tmpl.resources.Count) resources) to [$Accent]$($g.DisplayName)[/]?" `
+            -Choices @('Preview only (no changes)', 'Apply now')
+        $commit = $confirm -eq 'Apply now'
+        $plans = Invoke-IaTemplateApply -Template $tmpl -Items $items -GroupId $g.Id -GroupName $g.DisplayName -Commit:$commit
+        $plans | ForEach-Object {
+            [pscustomobject]@{
+                Status = if ($_.Skipped) { 'SKIP' } elseif (-not $commit) { 'PREVIEW' } elseif ($_.Applied) { 'OK' } else { 'FAILED' }
+                Area = $_.Area; Resource = $_.ResourceName; Detail = if ($_.Skipped) { $_.Skipped } else { ($_.Added -join '; ') }
+            }
+        } | Format-SpectreTable -Color $Accent
+        if ($commit) { $script:IaTuiInventory = $null }
+    }
 }
