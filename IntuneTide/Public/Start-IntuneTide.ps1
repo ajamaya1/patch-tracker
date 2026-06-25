@@ -66,7 +66,7 @@ function Start-IntuneTide {
             'Reports (status · audit · approvals)',
             'Elevate (PIM) — activate an eligible role',
             'Audit',
-            'Export HTML report',
+            'Export report (HTML · Excel · Rich HTML)',
             'Toggle graph-call pane',
             'Refresh data',
             'Quit'
@@ -87,9 +87,7 @@ function Start-IntuneTide {
                 'Reports*'      { Invoke-IaTuiReports -Accent $accent }
                 'Elevate*'      { Invoke-IaTuiElevate -Accent $accent }
                 'Audit'         { Invoke-IaTuiAudit -Accent $accent }
-                'Export*'       { $p = Read-SpectreText -Question 'Output path' -DefaultAnswer 'intune-assignments.html'
-                                  New-IaHtmlReport -Items (Get-IaTuiInventory) | Set-Content -Path $p -Encoding utf8
-                                  Write-SpectreHost "[$accent]Wrote[/] $p" }
+                'Export*'       { Invoke-IaTuiExport -Accent $accent }
                 'Refresh*'      { $script:IaTuiInventory = $null; Get-IaTuiInventory | Out-Null; Write-SpectreHost "[$accent]Refreshed.[/]" }
                 'Toggle graph*' { $script:IaTuiShowLog = -not $script:IaTuiShowLog
                                   Write-SpectreHost "graph-call pane: $(if ($script:IaTuiShowLog) { "[green]on[/]" } else { "[grey]off[/]" })" }
@@ -427,5 +425,37 @@ function Invoke-IaTuiBackup {
             if ($mode -like 'Apply*') { $script:IaTuiInventory = $null }
         }
         default { return }
+    }
+}
+
+function Invoke-IaTuiExport {
+    param([string]$Accent)
+    $fmt = Read-SpectreSelection -Title 'Export format' -Color $Accent -Choices @(
+        'Built-in HTML (themed, no dependencies)',
+        'Excel workbook (ImportExcel)',
+        'Rich interactive HTML (PSWriteHTML)'
+    )
+    switch -Wildcard ($fmt) {
+        'Built-in*' {
+            $p = Read-SpectreText -Question 'Output path' -DefaultAnswer 'intune-assignments.html'
+            New-IaHtmlReport -Items (Get-IaTuiInventory) | Set-Content -Path $p -Encoding utf8
+            Write-SpectreHost "[$Accent]Wrote[/] $p"
+        }
+        'Excel*' {
+            if (-not (Get-Command Export-Excel -ErrorAction SilentlyContinue)) {
+                Write-SpectreHost "[yellow]ImportExcel not installed.[/] Install-Module ImportExcel -Scope CurrentUser"; return
+            }
+            $p = Read-SpectreText -Question 'Output path' -DefaultAnswer 'intune-assignments.xlsx'
+            Get-IntuneAssignment -Flat | Export-IntuneExcel -Path $p -WorksheetName Assignments -Title 'Intune assignments'
+            Write-SpectreHost "[$Accent]Wrote[/] $p"
+        }
+        'Rich*' {
+            if (-not (Get-Command New-HTML -ErrorAction SilentlyContinue)) {
+                Write-SpectreHost "[yellow]PSWriteHTML not installed.[/] Install-Module PSWriteHTML -Scope CurrentUser"; return
+            }
+            $p = Read-SpectreText -Question 'Output path' -DefaultAnswer 'intune-assignments-rich.html'
+            Export-IntuneHtmlReport -Path $p
+            Write-SpectreHost "[$Accent]Wrote[/] $p"
+        }
     }
 }
