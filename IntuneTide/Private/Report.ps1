@@ -54,6 +54,11 @@ body[data-theme=amber]{--bg:#0a0600;--panel:#170f02;--panel2:#0d0800;--line:#5a3
   --muted:#9c6b1f;--accent:#ffd479;--inc:#ffe6a8;--exc:#ff9d7d;--chip:#241607;font-family:ui-monospace,Courier New,monospace}
 body[data-theme=light]{--bg:#f3f5f9;--panel:#fff;--panel2:#eef2f8;--line:#d6deea;--text:#1b2434;
   --muted:#5b6678;--accent:#2563eb;--inc:#197a43;--exc:#c01244;--chip:#eaf0fb}
+body[data-theme=deepsea]{--bg:#02101e;--panel:#06223a;--panel2:#041a30;--line:#0d3a55;--text:#d6f0f6;
+  --muted:#6fa8bd;--accent:#5fe2dc;--inc:#6ee2a8;--exc:#ff8c78;--virtual:#ffd479;--chip:#06283f;
+  background-image:radial-gradient(circle at 18% 30%,rgba(60,170,200,.10),transparent 40%),radial-gradient(circle at 80% 70%,rgba(40,120,170,.10),transparent 40%)}
+body[data-theme=deepsea] header{background:linear-gradient(180deg,#08263f,#02101e);border-bottom:1px solid #0d3a55}
+body[data-theme=deepsea] th{background:#06283f;color:#9fe8e2}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);
   font:14px/1.5 -apple-system,Segoe UI,Roboto,Arial,sans-serif}
 header{padding:18px 22px;border-bottom:1px solid var(--line)}
@@ -95,7 +100,7 @@ body[data-theme=lego] th{background:#f5c518;color:#1b2030;font-weight:800}
   <input type="search" id="q" placeholder="Search resource, group, filter…">
   <select id="area"><option value="">All areas</option></select>
   <select id="theme"><option value="dark">Dark</option><option value="retro">Retro CRT</option>
-    <option value="amber">Amber</option><option value="lego">Lego</option><option value="light">Light</option></select>
+    <option value="amber">Amber</option><option value="deepsea">Deep Sea</option><option value="lego">Lego</option><option value="light">Light</option></select>
   <span class="count" id="count"></span>
 </div>
 <div class="wrap"><table id="t"><thead><tr>

@@ -12,7 +12,7 @@ function Start-IntuneTide {
         Connect-IntuneTide -UseDeviceCode; Start-IntuneTide
     #>
     [CmdletBinding()]
-    param([ValidateSet('green', 'amber', 'lego')][string]$Theme = 'green')
+    param([ValidateSet('green', 'amber', 'lego', 'deepsea')][string]$Theme = 'green')
 
     if (-not (Get-Command Read-SpectreSelection -ErrorAction SilentlyContinue)) {
         throw "The TUI needs PwshSpectreConsole. Install it with: Install-Module PwshSpectreConsole -Scope CurrentUser"
@@ -22,7 +22,7 @@ function Start-IntuneTide {
         Connect-IntuneTide -UseDeviceCode | Out-Null
     }
 
-    $accent = switch ($Theme) { 'amber' { 'orange1' } 'lego' { 'yellow' } default { 'green' } }
+    $accent = switch ($Theme) { 'amber' { 'orange1' } 'lego' { 'yellow' } 'deepsea' { 'turquoise2' } default { 'green' } }
     $script:IaTuiInventory = $null
     $script:IaTuiShowLog = $true
 
@@ -51,6 +51,7 @@ function Start-IntuneTide {
             'Mirror assignments (copy A -> B, pick which)',
             'Assign a group to many (pick which)',
             'Templates (capture / apply)',
+            'Reports (status · audit · approvals)',
             'Elevate (PIM) — activate an eligible role',
             'Audit',
             'Export HTML report',
@@ -70,6 +71,7 @@ function Start-IntuneTide {
                 'Mirror*'       { Invoke-IaTuiMirror -Accent $accent }
                 'Assign a group*' { Invoke-IaTuiBulkAssign -Accent $accent }
                 'Templates*'    { Invoke-IaTuiTemplates -Accent $accent }
+                'Reports*'      { Invoke-IaTuiReports -Accent $accent }
                 'Elevate*'      { Invoke-IaTuiElevate -Accent $accent }
                 'Audit'         { Invoke-IaTuiAudit -Accent $accent }
                 'Export*'       { $p = Read-SpectreText -Question 'Output path' -DefaultAnswer 'intune-assignments.html'
@@ -310,4 +312,69 @@ function Show-IaTuiCallLog {
     $okCount = @($calls | Where-Object { $_.Status -ge 200 -and $_.Status -lt 300 }).Count
     Write-SpectreHost "[grey]── graph calls ── last $($rows.Count) · $okCount ok · session total $((Get-IaCallLogEntries).Count) ──[/]"
     $rows | Format-SpectreTable -Color $Accent
+}
+
+function Invoke-IaTuiReports {
+    # Reports submenu — surfaces the status / audit / approval / any-report cmdlets.
+    param([string]$Accent)
+    $pick = Read-SpectreSelection -Title 'Reports' -Color $Accent -Choices @(
+        'App install status (device / user)',
+        'Configuration profile status',
+        'Compliance status',
+        'Deployment summary (success / fail, by group)',
+        'Audit log (who changed what)',
+        'Multi Admin Approval requests',
+        'PIM activations',
+        'Run any Intune report',
+        'Back'
+    )
+    switch -Wildcard ($pick) {
+        'App install*' {
+            $app = Read-SpectreText -Question 'App name (or id)'
+            $by = Read-SpectreSelection -Title 'Pivot by' -Choices @('Device', 'User') -Color $Accent
+            Invoke-SpectreCommandWithStatus -Spinner Dots -Title "Querying $app…" -ScriptBlock {
+                Get-IntuneAppInstallStatus -App $using:app -By $using:by
+            } | Format-SpectreTable -Color $Accent
+        }
+        'Configuration*' {
+            $p = Read-SpectreText -Question 'Configuration profile name (or id)'
+            Get-IntuneConfigurationStatus -Profile $p | Format-SpectreTable -Color $Accent
+        }
+        'Compliance*' {
+            $mode = Read-SpectreSelection -Title 'Compliance by' -Choices @('Tenant summary', 'Policy', 'Device') -Color $Accent
+            $rows = switch -Wildcard ($mode) {
+                'Policy'  { Get-IntuneComplianceStatus -Policy (Read-SpectreText -Question 'Policy name') }
+                'Device'  { Get-IntuneComplianceStatus -Device (Read-SpectreText -Question 'Device name') }
+                default   { Get-IntuneComplianceStatus }
+            }
+            $rows | Format-SpectreTable -Color $Accent
+        }
+        'Deployment*' {
+            $grp = Read-SpectreText -Question 'Scope to group (blank = all)' -DefaultAnswer ''
+            Invoke-SpectreCommandWithStatus -Spinner Dots -Title 'Rolling up deployment health…' -ScriptBlock {
+                if ($using:grp) { Get-IntuneDeploymentSummary -Group $using:grp } else { Get-IntuneDeploymentSummary }
+            } | Format-SpectreTable -Color $Accent
+        }
+        'Audit*' {
+            $since = Read-SpectreText -Question 'Since (e.g. 7d, 24h)' -DefaultAnswer '7d'
+            $act = Read-SpectreText -Question 'Activity contains (blank = any)' -DefaultAnswer ''
+            $p = @{ Since = $since }; if ($act) { $p.Activity = $act }
+            Get-IntuneAuditLog @p | Select-Object -First 50 | Format-SpectreTable -Color $Accent
+        }
+        'Multi Admin*' {
+            Get-IntuneApprovalRequest | Format-SpectreTable -Color $Accent
+        }
+        'PIM*' {
+            Get-IntunePimActivation | Format-SpectreTable -Color $Accent
+        }
+        'Run any*' {
+            $name = Read-SpectreSelection -Title 'Pick a report' -Color $Accent `
+                -Choices (@(Get-IntuneReportCatalog | ForEach-Object Name) + 'Other (type a name)')
+            if ($name -like 'Other*') { $name = Read-SpectreText -Question 'Report name' }
+            Invoke-SpectreCommandWithStatus -Spinner Dots -Title "Running $name…" -ScriptBlock {
+                Export-IntuneReport -Name $using:name
+            } | Select-Object -First 100 | Format-SpectreTable -Color $Accent
+        }
+        default { return }
+    }
 }
