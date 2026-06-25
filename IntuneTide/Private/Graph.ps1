@@ -5,6 +5,30 @@
 $script:IaGraphBase = 'https://graph.microsoft.com/beta'
 $script:IaGraphV1   = 'https://graph.microsoft.com/v1.0'
 
+# ---- live call log: every Graph call is recorded here (a ring buffer) so the
+# TUI can show a "graph calls" pane and Get-IntuneCallLog can replay it.
+$script:IaCallLog     = [System.Collections.Generic.List[object]]::new()
+$script:IaCallLogCap  = 1000
+$script:IaCallLogOn   = $true
+$script:IaCallSink    = $null   # optional scriptblock invoked per call (TUI live stream)
+
+function Add-IaCall {
+    param([string]$Method, [string]$Uri, [int]$Status, [double]$Ms, [int]$Count, [string]$ErrorText)
+    if (-not $script:IaCallLogOn) { return }
+    $short = $Uri -replace '^https://graph\.microsoft\.com', '' -replace '\?.*$', '?…'
+    $entry = [pscustomobject]@{
+        Time = (Get-Date); Method = $Method; Uri = $short
+        Status = $Status; Ms = [math]::Round($Ms); Count = $Count; Error = $ErrorText
+    }
+    $script:IaCallLog.Add($entry)
+    if ($script:IaCallLog.Count -gt $script:IaCallLogCap) { $script:IaCallLog.RemoveAt(0) }
+    if ($script:IaCallSink) { try { & $script:IaCallSink $entry } catch { } }
+}
+
+function Get-IaCallLogEntries { @($script:IaCallLog.ToArray()) }
+function Clear-IaCallLog { $script:IaCallLog.Clear() }
+function Set-IaCallSink { param([scriptblock]$Sink) $script:IaCallSink = $Sink }
+
 function Resolve-IaUri {
     param([Parameter(Mandatory)][string]$Path, [switch]$V1)
     if ($Path -match '^https?://') { return $Path }
@@ -28,7 +52,23 @@ function Invoke-IaRequest {
         $params.ContentType = 'application/json'
     }
     if ($Headers) { $params.Headers = $Headers }
-    Invoke-MgGraphRequest @params
+
+    $sw = [System.Diagnostics.Stopwatch]::StartNew()
+    try {
+        $resp = Invoke-MgGraphRequest @params
+        $sw.Stop()
+        $count = if ($resp -and $resp.PSObject.Properties['value']) { @($resp.value).Count } else { 0 }
+        Add-IaCall -Method $Method -Uri $Uri -Status 200 -Ms $sw.Elapsed.TotalMilliseconds -Count $count
+        return $resp
+    } catch {
+        $sw.Stop()
+        $status = 0
+        if ($_.Exception.Response -and $_.Exception.Response.StatusCode) {
+            $status = [int]$_.Exception.Response.StatusCode
+        }
+        Add-IaCall -Method $Method -Uri $Uri -Status $status -Ms $sw.Elapsed.TotalMilliseconds -Count 0 -ErrorText $_.Exception.Message
+        throw
+    }
 }
 
 function Get-IaCollection {

@@ -24,6 +24,7 @@ function Start-IntuneTide {
 
     $accent = switch ($Theme) { 'amber' { 'orange1' } 'lego' { 'yellow' } default { 'green' } }
     $script:IaTuiInventory = $null
+    $script:IaTuiShowLog = $true
 
     function Get-IaTuiInventory {
         if ($null -eq $script:IaTuiInventory) {
@@ -53,6 +54,7 @@ function Start-IntuneTide {
             'Elevate (PIM) — activate an eligible role',
             'Audit',
             'Export HTML report',
+            'Toggle graph-call pane',
             'Refresh data',
             'Quit'
         )
@@ -74,12 +76,17 @@ function Start-IntuneTide {
                                   New-IaHtmlReport -Items (Get-IaTuiInventory) | Set-Content -Path $p -Encoding utf8
                                   Write-SpectreHost "[$accent]Wrote[/] $p" }
                 'Refresh*'      { $script:IaTuiInventory = $null; Get-IaTuiInventory | Out-Null; Write-SpectreHost "[$accent]Refreshed.[/]" }
+                'Toggle graph*' { $script:IaTuiShowLog = -not $script:IaTuiShowLog
+                                  Write-SpectreHost "graph-call pane: $(if ($script:IaTuiShowLog) { "[green]on[/]" } else { "[grey]off[/]" })" }
                 'Quit'          { return }
             }
         } catch {
             Write-SpectreHost "[red]Error:[/] $($_.Exception.Message)"
         }
-        if ($choice -ne 'Quit') { Read-SpectrePause | Out-Null }
+        if ($choice -ne 'Quit') {
+            if ($script:IaTuiShowLog) { Show-IaTuiCallLog -Accent $accent }
+            Read-SpectrePause | Out-Null
+        }
     }
 }
 
@@ -283,4 +290,24 @@ function Invoke-IaTuiElevate {
         Write-SpectreHost '[yellow]Activation needs approval / is provisioning — re-check with Get-IntuneActiveRole.[/]'
     }
     Get-IntuneActiveRole | Format-SpectreTable -Color $Accent
+}
+
+function Show-IaTuiCallLog {
+    # The bottom "graph calls" pane: the last several Graph requests, status-colored.
+    param([string]$Accent, [int]$Tail = 12)
+    $calls = Get-IaCallLogEntries | Select-Object -Last $Tail
+    if (-not $calls) { return }
+    $rows = foreach ($c in $calls) {
+        [pscustomobject]@{
+            Time   = $c.Time.ToString('HH:mm:ss')
+            Method = $c.Method
+            Endpoint = $c.Uri
+            Status = $c.Status
+            Ms     = $c.Ms
+            Items  = $c.Count
+        }
+    }
+    $okCount = @($calls | Where-Object { $_.Status -ge 200 -and $_.Status -lt 300 }).Count
+    Write-SpectreHost "[grey]── graph calls ── last $($rows.Count) · $okCount ok · session total $((Get-IaCallLogEntries).Count) ──[/]"
+    $rows | Format-SpectreTable -Color $Accent
 }

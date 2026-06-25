@@ -37,6 +37,9 @@
         'Enable-IntuneAdminRole',
         'Get-IntuneActiveRole',
         'Get-IntunePimActivation',
+        # --- diagnostics ---
+        'Get-IntuneCallLog',
+        'Clear-IntuneCallLog',
         'Start-IntuneTide'
     )
     CmdletsToExport   = @()
