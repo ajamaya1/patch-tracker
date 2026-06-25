@@ -30,26 +30,25 @@ state survives feed refreshes.
 > dependencies. Runs anywhere with Python 3.9+. The web dashboard is plain
 > static HTML/CSS/JS — no framework, no build step.
 
-## Also in this repo: `intuneassigner`
+## Also in this repo: `IntuneAssigner` (PowerShell)
 
-A sibling, dependency-free CLI + library for **inspecting and managing
-Microsoft Intune assignments** across every assignable area (configuration,
-compliance, apps, scripts, remediations, Windows Update rings, endpoint
-security, enrollment, app protection …). It resolves group GUIDs to real
-names, does the reverse lookup ("what is *this group* assigned to?"), and
-copies / bulk-assigns / templates / audits / exports assignments. Built on the
-Microsoft Graph `beta` API with device-code **or** client-credentials auth.
+A cross-platform **PowerShell module + Spectre.Console TUI** for inspecting and
+managing Microsoft Intune assignments across every assignable area. It resolves
+group GUIDs to real names, does the reverse lookup ("what is *this group*
+assigned to?"), compares groups, computes effective (what-if) assignments for a
+user/device, and copies / mirrors / bulk-assigns / templates / audits / exports
+assignments. Auth is via the Microsoft Graph PowerShell SDK, so it runs on
+macOS, Windows and Linux under `pwsh`.
 
-```bash
-pip install -e .                 # provides the `intuneassigner` command too
-intuneassigner areas                # list inspectable areas/resource types
-intuneassigner list --area Apps     # all app assignments, groups resolved
-intuneassigner group "All Workstations"            # reverse lookup
-intuneassigner copy --from "Pilot" --to "Prod" --dry-run
-intuneassigner audit --out audit.txt
+```powershell
+Import-Module ./IntuneAssigner/IntuneAssigner.psd1
+Connect-IntuneAssigner -UseDeviceCode
+Get-IntuneAssignment -AssignedOnly | Format-Table
+Get-IntuneGroupAssignment -Group "All Workstations"
+Start-IntuneAssigner            # launch the retro Spectre.Console TUI
 ```
 
-See **[docs/intuneassigner.md](docs/intuneassigner.md)** for the full guide.
+See **[IntuneAssigner/README.md](IntuneAssigner/README.md)** for the full guide.
 
 ## Web dashboard (auto-updating)
 
@@ -185,16 +184,12 @@ src/patch_tracker/
   sources/
     apple_sofa.py        SOFA macOS/iOS feed parser
     microsoft_msrc.py    MSRC CVRF v3.0 parser
-src/intuneassigner/         Intune assignment CLI + engine (see docs/intuneassigner.md)
-  auth.py                device-code + client-credentials Graph auth (stdlib)
-  graph.py               Graph client: paging, 429 retry, $batch
-  resources.py           declarative registry of all assignable Intune areas
-  directory.py           group + assignment-filter id<->name resolution
-  assignments.py         enumerate / reverse-lookup / copy / bulk / template
-  templates.py           reusable assignment templates (JSON)
-  report.py              tables, CSV/JSON export, audit report
-  cli.py                 argparse CLI (areas/list/group/copy/bulk-assign/
-                         template/audit)
+IntuneAssigner/          PowerShell module + Spectre.Console TUI for Intune
+  IntuneAssigner.psd1    module manifest
+  IntuneAssigner.psm1    loader (dot-sources Public/Private)
+  Public/                exported cmdlets (Get/Compare/Copy/…-IntuneAssignment)
+  Private/               Graph helpers, resource registry, directory, model
+  IntuneAssigner.Tests.ps1   Pester tests (mocked Graph)
 web/                     static dashboard (index.html, app.js, styles.css,
                          data.json)
 .github/workflows/
