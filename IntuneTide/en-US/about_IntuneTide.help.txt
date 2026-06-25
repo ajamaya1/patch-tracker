@@ -1,0 +1,68 @@
+TOPIC
+    about_IntuneTide
+
+SHORT DESCRIPTION
+    TIDE (Targeted Intune Deployment & Endpoints) — inspect, manage and report
+    on Microsoft Intune assignments and deployments, with an interactive Deep
+    Sea Spectre.Console TUI.
+
+LONG DESCRIPTION
+    IntuneTide is a cross-platform PowerShell module (macOS / Windows / Linux
+    under pwsh 7+) built on the Microsoft Graph PowerShell SDK. It answers the
+    questions the Intune portal makes slow — what is assigned, to which groups,
+    and did it actually deploy — and lets you act on the answers (copy, mirror,
+    bulk-assign, template) and report/audit at scale.
+
+    Launch the TUI with `Start-IntuneTide` or the alias `tide`.
+
+GETTING STARTED
+    # Install prerequisites (once)
+    Install-Module Microsoft.Graph.Authentication -Scope CurrentUser
+    Install-Module PwshSpectreConsole            -Scope CurrentUser   # TUI only
+
+    Import-Module ./IntuneTide/IntuneTide.psd1
+    Connect-IntuneTide -UseDeviceCode
+    tide                                   # or: Start-IntuneTide
+
+ASSIGNMENTS
+    Get-IntuneAssignment -AssignedOnly | Format-Table Area, Name, AssignedTo
+    Get-IntuneGroupAssignment -Group "All Workstations"
+    Compare-IntuneAssignment -GroupA Pilot -GroupB Prod
+    Get-IntuneEffectiveAssignment -User jdoe@contoso.com | Where-Object Effective
+
+CHANGING ASSIGNMENTS  (all support -WhatIf; non-destructive read-merge-write)
+    Copy-IntuneAssignment -FromGroup Pilot -ToGroup Prod -Area Configuration -WhatIf
+    Add-IntuneBulkAssignment -Group "All Macs" -Area Compliance -WhatIf
+    Add-IntuneBulkAssignment -Group Kiosks -Type mobileApps -NameLike Edge -Intent required
+    Export-IntuneAssignmentTemplate -Group "Gold Build" -Name gold -Path gold.json
+    Import-IntuneAssignmentTemplate -Path gold.json -Group "New Devices" -WhatIf
+
+REPORTING & STATUS
+    Get-IntuneAppInstallStatus -App "Microsoft Edge" | Where-Object Status -eq failed
+    Get-IntuneConfigurationStatus -Profile "Win 11 Baseline" -Status error
+    Get-IntuneComplianceStatus -Policy "Win 11 Corp Compliance" -Status noncompliant
+    Get-IntuneComplianceStatus -Device "LAPTOP-01"
+    Get-IntuneDeploymentSummary -Group "All Workstations" -FailuresOnly
+
+ANY REPORT  (the full Intune report catalog)
+    Get-IntuneReportCatalog
+    Export-IntuneReport -Name DeviceNonCompliance -As Csv -Path noncompliant.csv
+
+AUDITING
+    Get-IntuneAuditLog -Since 7d -Activity Assign
+    Get-IntuneApprovalRequest -Status needsApproval     # Multi Admin Approval
+
+AUDIT / EXPORT OF ASSIGNMENTS
+    Get-IntuneAssignmentAudit -CheckEmptyGroups
+    Export-IntuneAssignmentReport -Format Html -Path assignments.html
+
+GRAPH PERMISSIONS
+    Read needs DeviceManagementConfiguration.Read.All,
+    DeviceManagementApps.Read.All, DeviceManagementServiceConfig.Read.All,
+    Group.Read.All, Directory.Read.All. Writes need the matching
+    *.ReadWrite.All scopes (requested by Connect-IntuneTide by default).
+
+SEE ALSO
+    Get-Help Start-IntuneTide -Examples
+    Get-Help Export-IntuneReport -Full
+    Get-Command -Module IntuneTide

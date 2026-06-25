@@ -9,6 +9,23 @@
 # Every Graph call still flows through Invoke-IaRequest; the one extra seam is
 # Invoke-IaDownload (the SAS blob fetch), kept separate so tests can mock it.
 
+function ConvertTo-IaDateTime {
+    # Accept a DateTime, an absolute string, or a relative '7d'/'24h'/'30m'/'2w'.
+    param([Parameter(Mandatory)][string]$Value)
+    if ($Value -match '^\s*(\d+)\s*([smhdw])\s*$') {
+        $n = [int]$Matches[1]
+        $span = switch ($Matches[2]) {
+            's' { [timespan]::FromSeconds($n) }
+            'm' { [timespan]::FromMinutes($n) }
+            'h' { [timespan]::FromHours($n) }
+            'd' { [timespan]::FromDays($n) }
+            'w' { [timespan]::FromDays($n * 7) }
+        }
+        return (Get-Date).ToUniversalTime().Subtract($span)
+    }
+    [datetime]::Parse($Value).ToUniversalTime()
+}
+
 function Invoke-IaDownload {
     # Download a pre-authenticated SAS blob URL to a file (no bearer needed).
     param([Parameter(Mandatory)][string]$Url, [Parameter(Mandatory)][string]$OutFile)
@@ -77,17 +94,49 @@ function Invoke-IaReportExport {
 }
 
 # ---- per-resource status helpers -------------------------------------
-function Get-IaStatusOverview {
-    # Normalize a deviceStatusOverview / installSummary into ordered counts.
-    param([Parameter(Mandatory)][object]$Overview)
-    $map = [ordered]@{}
-    foreach ($p in $Overview.PSObject.Properties) {
-        if ($p.Name -match 'Count$' -and $p.Value -is [int] -or ($p.Value -as [int]) -ne $null) {
-            $label = ($p.Name -replace 'DeviceCount$', '' -replace 'Count$', '' -replace 'Device$', '')
-            if ($label -and $p.Name -match 'Count$') { $map[$label] = [int]$p.Value }
+function ConvertTo-IaDeploymentCounts {
+    # Normalize an installSummary (apps) or deviceStatusOverview (config /
+    # compliance) into a consistent counts object.
+    param([Parameter(Mandatory)][object]$Overview, [ValidateSet('app', 'config')][string]$Kind = 'config')
+    if ($Kind -eq 'app') {
+        [pscustomobject][ordered]@{
+            Success       = [int]$Overview.installedDeviceCount
+            Failed        = [int]$Overview.failedDeviceCount
+            NotApplicable = [int]$Overview.notApplicableDeviceCount
+            Pending       = [int]$Overview.pendingInstallDeviceCount
+            NotInstalled  = [int]$Overview.notInstalledDeviceCount
+        }
+    } else {
+        [pscustomobject][ordered]@{
+            Success       = [int]$Overview.successCount
+            Error         = [int]$Overview.errorCount
+            Failed        = [int]$Overview.failedCount
+            Conflict      = [int]$Overview.conflictCount
+            NotApplicable = [int]$Overview.notApplicableCount
+            Pending       = [int]$Overview.pendingCount
         }
     }
-    [pscustomobject]$map
+}
+
+function Get-IaResourceDeploymentCounts {
+    # Fetch + normalize deployment counts for one inventory item, or $null if
+    # the resource type has no simple overview (use Export-IntuneReport instead).
+    param([Parameter(Mandatory)][object]$Item)
+    switch ($Item.ResourceType) {
+        'mobileApps' {
+            $o = Invoke-IaRequest -Method GET -Uri (Resolve-IaUri "deviceAppManagement/mobileApps/$($Item.Id)/installSummary")
+            return ConvertTo-IaDeploymentCounts -Overview $o -Kind app
+        }
+        { $_ -in 'deviceConfigurations', 'windowsUpdateRings' } {
+            $o = Invoke-IaRequest -Method GET -Uri (Resolve-IaUri "deviceManagement/deviceConfigurations/$($Item.Id)/deviceStatusOverview")
+            return ConvertTo-IaDeploymentCounts -Overview $o -Kind config
+        }
+        'deviceCompliancePolicies' {
+            $o = Invoke-IaRequest -Method GET -Uri (Resolve-IaUri "deviceManagement/deviceCompliancePolicies/$($Item.Id)/deviceStatusOverview")
+            return ConvertTo-IaDeploymentCounts -Overview $o -Kind config
+        }
+        default { return $null }
+    }
 }
 
 function Resolve-IaResourceId {

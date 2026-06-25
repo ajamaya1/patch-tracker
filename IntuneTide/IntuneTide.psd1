@@ -23,6 +23,15 @@
         'Import-IntuneAssignmentTemplate',
         'Get-IntuneAssignmentAudit',
         'Export-IntuneAssignmentReport',
+        # --- reporting & auditing ---
+        'Get-IntuneReportCatalog',
+        'Export-IntuneReport',
+        'Get-IntuneAppInstallStatus',
+        'Get-IntuneConfigurationStatus',
+        'Get-IntuneComplianceStatus',
+        'Get-IntuneDeploymentSummary',
+        'Get-IntuneAuditLog',
+        'Get-IntuneApprovalRequest',
         'Start-IntuneTide'
     )
     CmdletsToExport   = @()
