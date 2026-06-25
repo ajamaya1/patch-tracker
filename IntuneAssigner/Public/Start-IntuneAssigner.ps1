@@ -12,7 +12,7 @@ function Start-IntuneAssigner {
         Connect-IntuneAssigner -UseDeviceCode; Start-IntuneAssigner
     #>
     [CmdletBinding()]
-    param([ValidateSet('green', 'amber')][string]$Theme = 'green')
+    param([ValidateSet('green', 'amber', 'lego')][string]$Theme = 'green')
 
     if (-not (Get-Command Read-SpectreSelection -ErrorAction SilentlyContinue)) {
         throw "The TUI needs PwshSpectreConsole. Install it with: Install-Module PwshSpectreConsole -Scope CurrentUser"
@@ -22,7 +22,7 @@ function Start-IntuneAssigner {
         Connect-IntuneAssigner -UseDeviceCode | Out-Null
     }
 
-    $accent = if ($Theme -eq 'amber') { 'orange1' } else { 'green' }
+    $accent = switch ($Theme) { 'amber' { 'orange1' } 'lego' { 'yellow' } default { 'green' } }
     $script:IaTuiInventory = $null
 
     function Get-IaTuiInventory {
