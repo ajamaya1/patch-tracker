@@ -1,4 +1,4 @@
-# IntuneAssigner (PowerShell)
+# TIDE — Intune assignments & reporting (PowerShell)
 
 A cross-platform **PowerShell module + retro Spectre.Console TUI** for inspecting
 and managing Microsoft Intune assignments across every assignable area. Runs on
@@ -31,12 +31,12 @@ Install-Module PwshSpectreConsole            -Scope CurrentUser   # for the TUI
 ## Quick start
 
 ```powershell
-Import-Module ./IntuneAssigner/IntuneAssigner.psd1
+Import-Module ./IntuneTide/IntuneTide.psd1
 
 # Sign in (device code is handy on a Mac / over SSH)
-Connect-IntuneAssigner -UseDeviceCode
+Connect-IntuneTide -UseDeviceCode
 # ...or app-only for automation:
-# Connect-IntuneAssigner -TenantId contoso.com -ClientId <id> -ClientSecret <secret>
+# Connect-IntuneTide -TenantId contoso.com -ClientId <id> -ClientSecret <secret>
 
 Get-IntuneAssignment -AssignedOnly | Format-Table Area, Name, AssignedTo
 Get-IntuneGroupAssignment -Group "All Workstations"
@@ -56,8 +56,8 @@ Import-IntuneAssignmentTemplate -Path gold.json -Group "New Store Devices" -What
 Export-IntuneAssignmentReport -Format Html -Path assignments.html
 
 # The interactive retro TUI (pick what to mirror with a checklist)
-Start-IntuneAssigner            # green phosphor
-Start-IntuneAssigner -Theme amber
+Start-IntuneTide            # green phosphor
+Start-IntuneTide -Theme amber
 ```
 
 ## Selective mirror (your "config profiles but not endpoint security")
@@ -69,7 +69,7 @@ schedules and filters:
 Copy-IntuneAssignment -FromGroup A -ToGroup B -Area Configuration      # whole area(s)
 Copy-IntuneAssignment -FromGroup A -ToGroup B -NameLike "Defender"     # by name
 Copy-IntuneAssignment -FromGroup A -ToGroup B -Include "Win Baseline","Edge"  # explicit list
-Start-IntuneAssigner   # → "Mirror assignments" → tick exactly what you want
+Start-IntuneTide   # → "Mirror assignments" → tick exactly what you want
 ```
 
 Every write goes through the resource's `/assign` action, which replaces the
@@ -81,7 +81,7 @@ never clobbered, and identical targets are skipped.
 Read needs `DeviceManagementConfiguration.Read.All`,
 `DeviceManagementApps.Read.All`, `DeviceManagementServiceConfig.Read.All`,
 `Group.Read.All`, `Directory.Read.All`. Writes need the matching
-`*.ReadWrite.All` scopes (the default `Connect-IntuneAssigner` scope set
+`*.ReadWrite.All` scopes (the default `Connect-IntuneTide` scope set
 requests these). A 403 on one area is treated as "no permission / not licensed"
 for that area and skipped — the rest of the sweep continues.
 
@@ -89,7 +89,7 @@ for that area and skipped — the rest of the sweep continues.
 
 | Cmdlet | Purpose |
 | ------ | ------- |
-| `Connect-IntuneAssigner` | Sign in (interactive / device-code / app-only) |
+| `Connect-IntuneTide` | Sign in (interactive / device-code / app-only) |
 | `Get-IntuneAssignment` | List all assignments (`-Flat` for one row per edge) |
 | `Get-IntuneGroupAssignment` | Reverse lookup for a group |
 | `Compare-IntuneAssignment` | Diff two groups |
@@ -99,12 +99,12 @@ for that area and skipped — the rest of the sweep continues.
 | `Export-/Import-IntuneAssignmentTemplate` | Save / apply a template |
 | `Get-IntuneAssignmentAudit` | Tenant audit (+ empty groups) |
 | `Export-IntuneAssignmentReport` | HTML / CSV / JSON report |
-| `Start-IntuneAssigner` | Interactive retro TUI |
+| `Start-IntuneTide` | Interactive retro TUI |
 
 ## Tests
 
 ```powershell
-Invoke-Pester ./IntuneAssigner/IntuneAssigner.Tests.ps1
+Invoke-Pester ./IntuneTide/IntuneTide.Tests.ps1
 ```
 
 Graph is mocked at the `Invoke-IaRequest` seam, so the suite runs fully offline.

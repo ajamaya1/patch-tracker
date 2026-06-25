@@ -1,18 +1,18 @@
 @{
-    RootModule        = 'IntuneAssigner.psm1'
+    RootModule        = 'IntuneTide.psm1'
     ModuleVersion     = '0.1.0'
     GUID              = 'b7e4a2c1-9f3d-4e6a-8c2b-1a5d7e9f0c34'
     Author            = 'Aaron'
-    Description       = 'Inspect and manage Microsoft Intune assignments across every assignable area: list/reverse-lookup/compare/what-if, copy & selectively mirror, bulk-assign, templates, audit, HTML report, and an interactive retro Spectre.Console TUI. Cross-platform (macOS/Windows/Linux) via the Microsoft Graph PowerShell SDK.'
+    Description       = 'TIDE (Targeted Intune Deployment & Endpoints) — inspect, manage and report on Microsoft Intune assignments across every assignable area: list/reverse-lookup/compare/what-if, copy & selectively mirror, bulk-assign, templates, audit, deployment/install/compliance reporting, HTML report, and an interactive Deep Sea Spectre.Console TUI. Cross-platform (macOS/Windows/Linux) via the Microsoft Graph PowerShell SDK.'
     PowerShellVersion = '7.2'
 
     # Not hard-required so the module imports cleanly; cmdlets check at runtime
     # and give actionable install hints:
     #   Microsoft.Graph.Authentication  (all cmdlets)
-    #   PwshSpectreConsole              (Start-IntuneAssigner TUI only)
+    #   PwshSpectreConsole              (Start-IntuneTide TUI only)
 
     FunctionsToExport = @(
-        'Connect-IntuneAssigner',
+        'Connect-IntuneTide',
         'Get-IntuneAssignment',
         'Get-IntuneGroupAssignment',
         'Compare-IntuneAssignment',
@@ -23,11 +23,11 @@
         'Import-IntuneAssignmentTemplate',
         'Get-IntuneAssignmentAudit',
         'Export-IntuneAssignmentReport',
-        'Start-IntuneAssigner'
+        'Start-IntuneTide'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()
-    AliasesToExport   = @()
+    AliasesToExport   = @('tide')
 
     PrivateData = @{
         PSData = @{

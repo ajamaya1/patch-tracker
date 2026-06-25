@@ -30,7 +30,7 @@ state survives feed refreshes.
 > dependencies. Runs anywhere with Python 3.9+. The web dashboard is plain
 > static HTML/CSS/JS — no framework, no build step.
 
-## Also in this repo: `IntuneAssigner` (PowerShell)
+## Also in this repo: `IntuneTide` (PowerShell)
 
 A cross-platform **PowerShell module + Spectre.Console TUI** for inspecting and
 managing Microsoft Intune assignments across every assignable area. It resolves
@@ -41,14 +41,14 @@ assignments. Auth is via the Microsoft Graph PowerShell SDK, so it runs on
 macOS, Windows and Linux under `pwsh`.
 
 ```powershell
-Import-Module ./IntuneAssigner/IntuneAssigner.psd1
-Connect-IntuneAssigner -UseDeviceCode
+Import-Module ./IntuneTide/IntuneTide.psd1
+Connect-IntuneTide -UseDeviceCode
 Get-IntuneAssignment -AssignedOnly | Format-Table
 Get-IntuneGroupAssignment -Group "All Workstations"
-Start-IntuneAssigner            # launch the retro Spectre.Console TUI
+Start-IntuneTide            # launch the retro Spectre.Console TUI
 ```
 
-See **[IntuneAssigner/README.md](IntuneAssigner/README.md)** for the full guide.
+See **[IntuneTide/README.md](IntuneTide/README.md)** for the full guide.
 
 ## Web dashboard (auto-updating)
 
@@ -184,12 +184,12 @@ src/patch_tracker/
   sources/
     apple_sofa.py        SOFA macOS/iOS feed parser
     microsoft_msrc.py    MSRC CVRF v3.0 parser
-IntuneAssigner/          PowerShell module + Spectre.Console TUI for Intune
-  IntuneAssigner.psd1    module manifest
-  IntuneAssigner.psm1    loader (dot-sources Public/Private)
+IntuneTide/          PowerShell module + Spectre.Console TUI for Intune
+  IntuneTide.psd1    module manifest
+  IntuneTide.psm1    loader (dot-sources Public/Private)
   Public/                exported cmdlets (Get/Compare/Copy/…-IntuneAssignment)
   Private/               Graph helpers, resource registry, directory, model
-  IntuneAssigner.Tests.ps1   Pester tests (mocked Graph)
+  IntuneTide.Tests.ps1   Pester tests (mocked Graph)
 web/                     static dashboard (index.html, app.js, styles.css,
                          data.json)
 .github/workflows/

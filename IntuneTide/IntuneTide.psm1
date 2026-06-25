@@ -10,4 +10,6 @@ foreach ($file in @($Private + $Public)) {
     catch { throw "Failed to load $($file.FullName): $_" }
 }
 
-Export-ModuleMember -Function $Public.BaseName
+# Short launch alias: `tide` opens the TUI.
+Set-Alias -Name tide -Value Start-IntuneTide
+Export-ModuleMember -Function $Public.BaseName -Alias tide

@@ -3,12 +3,12 @@
 # fully offline. Run from the module folder:  Invoke-Pester
 
 BeforeAll {
-    Import-Module (Join-Path $PSScriptRoot 'IntuneAssigner.psd1') -Force
+    Import-Module (Join-Path $PSScriptRoot 'IntuneTide.psd1') -Force
 }
 
 Describe 'Resource registry' {
     It 'has unique keys and covers new areas' {
-        InModuleScope IntuneAssigner {
+        InModuleScope IntuneTide {
             $reg = Get-IaResourceRegistry
             ($reg.Key | Select-Object -Unique).Count | Should -Be $reg.Count
             $reg.Key | Should -Contain 'cloudPcProvisioningPolicies'
@@ -17,7 +17,7 @@ Describe 'Resource registry' {
         }
     }
     It 'resolves types by area and key' {
-        InModuleScope IntuneAssigner {
+        InModuleScope IntuneTide {
             (Resolve-IaResourceType -Area 'Apps').Key | Should -Contain 'mobileApps'
             (Resolve-IaResourceType -Type 'intents').Count | Should -Be 1
         }
@@ -26,7 +26,7 @@ Describe 'Resource registry' {
 
 Describe 'Assignment model' {
     It 'parses a group target with a filter' {
-        InModuleScope IntuneAssigner {
+        InModuleScope IntuneTide {
             $t = ConvertFrom-IaTarget -Target ([pscustomobject]@{
                 '@odata.type' = '#microsoft.graph.groupAssignmentTarget'; groupId = 'g1'
                 deviceAndAppManagementAssignmentFilterId = 'f1'
@@ -37,7 +37,7 @@ Describe 'Assignment model' {
         }
     }
     It 'preserves a Cloud PC target @odata.type on write' {
-        InModuleScope IntuneAssigner {
+        InModuleScope IntuneTide {
             $t = ConvertFrom-IaTarget -Target ([pscustomobject]@{
                 '@odata.type' = '#microsoft.graph.cloudPcManagementGroupAssignmentTarget'; groupId = 'g1' })
             $t.Kind | Should -Be 'group'
@@ -46,7 +46,7 @@ Describe 'Assignment model' {
         }
     }
     It 'keeps type-specific assignment fields (remediation runSchedule)' {
-        InModuleScope IntuneAssigner {
+        InModuleScope IntuneTide {
             $a = ConvertFrom-IaAssignment -Item ([pscustomobject]@{
                 id = 'x'; source = 'direct'
                 target = [pscustomobject]@{ '@odata.type' = '#microsoft.graph.groupAssignmentTarget'; groupId = 'g1' }
@@ -62,7 +62,7 @@ Describe 'Assignment model' {
 
 Describe 'Inventory, compare and copy (mocked Graph)' {
     BeforeEach {
-        InModuleScope IntuneAssigner {
+        InModuleScope IntuneTide {
             Reset-IaDirectoryCache
             $script:Posts = [System.Collections.Generic.List[object]]::new()
             $script:Groups = @{
@@ -94,7 +94,7 @@ Describe 'Inventory, compare and copy (mocked Graph)' {
     }
 
     It 'enumerates and resolves group names + exclude intent' {
-        InModuleScope IntuneAssigner {
+        InModuleScope IntuneTide {
             $items = Get-IaInventory -Type 'configurationPolicies' -AssignedOnly
             $cp = $items | Where-Object Name -eq 'Win Baseline'
             ($cp.Assignments | Where-Object { -not $_.Target.IsExclude }).Target.GroupName | Should -Be 'All Workstations'
@@ -103,7 +103,7 @@ Describe 'Inventory, compare and copy (mocked Graph)' {
     }
 
     It 'compares two groups into buckets' {
-        InModuleScope IntuneAssigner {
+        InModuleScope IntuneTide {
             $items = Get-IaInventory -Type 'configurationPolicies' -AssignedOnly
             (Get-IaItemGroupMode -Item ($items | Where-Object Name -eq 'Win Baseline') -GroupId 'bbbb') | Should -Be 'exclude'
             (Get-IaItemGroupMode -Item ($items | Where-Object Name -eq 'Only-A') -GroupId 'bbbb') | Should -Be 'none'
@@ -111,7 +111,7 @@ Describe 'Inventory, compare and copy (mocked Graph)' {
     }
 
     It 'copies selected resources and posts merged assignments' {
-        InModuleScope IntuneAssigner {
+        InModuleScope IntuneTide {
             $items = Get-IaInventory -Type 'configurationPolicies' -AssignedOnly
             $plans = Invoke-IaCopy -Items $items -SrcId 'aaaa' -DstId 'cccc' -DstName 'New Devices' -IncludeIds @('cp2') -Commit
             @($plans | Where-Object Added).Count | Should -Be 1
@@ -121,7 +121,7 @@ Describe 'Inventory, compare and copy (mocked Graph)' {
     }
 
     It 'preview (no -Commit) writes nothing' {
-        InModuleScope IntuneAssigner {
+        InModuleScope IntuneTide {
             $items = Get-IaInventory -Type 'configurationPolicies' -AssignedOnly
             $null = Invoke-IaCopy -Items $items -SrcId 'aaaa' -DstId 'cccc'
             $script:Posts.Count | Should -Be 0

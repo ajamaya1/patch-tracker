@@ -1,4 +1,4 @@
-function Start-IntuneAssigner {
+function Start-IntuneTide {
     <#
     .SYNOPSIS
         Launch the interactive retro Spectre.Console TUI.
@@ -9,7 +9,7 @@ function Start-IntuneAssigner {
         checklist so you choose exactly which ones (e.g. config profiles but not
         endpoint security). Cross-platform; needs the PwshSpectreConsole module.
     .EXAMPLE
-        Connect-IntuneAssigner -UseDeviceCode; Start-IntuneAssigner
+        Connect-IntuneTide -UseDeviceCode; Start-IntuneTide
     #>
     [CmdletBinding()]
     param([ValidateSet('green', 'amber', 'lego')][string]$Theme = 'green')
@@ -19,7 +19,7 @@ function Start-IntuneAssigner {
     }
     if (-not (Get-MgContext)) {
         Write-SpectreHost "[yellow]Not connected.[/] Starting device-code sign-in…"
-        Connect-IntuneAssigner -UseDeviceCode | Out-Null
+        Connect-IntuneTide -UseDeviceCode | Out-Null
     }
 
     $accent = switch ($Theme) { 'amber' { 'orange1' } 'lego' { 'yellow' } default { 'green' } }
@@ -35,10 +35,10 @@ function Start-IntuneAssigner {
     }
 
     Clear-Host
-    Write-SpectreFigletText -Text 'IntuneAssigner' -Color $accent
+    Write-SpectreFigletText -Text 'TIDE' -Color $accent
     $ctx = Get-MgContext
     Write-SpectreHost "[$accent]●[/] $($ctx.Account)  ·  tenant [grey]$($ctx.TenantId)[/]  ·  app [grey]$($ctx.AppName)[/]"
-    Write-SpectreRule -Title 'retro intune assignment console' -Color $accent
+    Write-SpectreRule -Title 'TIDE · targeted intune deployment & endpoints' -Color $accent
 
     while ($true) {
         $choice = Read-SpectreSelection -Title "Choose an action" -Color $accent -Choices @(
