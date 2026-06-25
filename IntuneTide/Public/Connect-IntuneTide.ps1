@@ -31,7 +31,10 @@ function Connect-IntuneTide {
             'DeviceManagementServiceConfig.ReadWrite.All',
             'DeviceManagementManagedDevices.Read.All',
             'Group.Read.All',
-            'Directory.Read.All'
+            'Directory.Read.All',
+            'RoleManagementPolicy.Read.Directory',
+            'RoleEligibilitySchedule.Read.Directory',
+            'RoleAssignmentSchedule.ReadWrite.Directory'
         )
     )
 

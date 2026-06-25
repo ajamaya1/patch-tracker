@@ -32,6 +32,11 @@
         'Get-IntuneDeploymentSummary',
         'Get-IntuneAuditLog',
         'Get-IntuneApprovalRequest',
+        # --- PIM (privileged role elevation) ---
+        'Get-IntuneEligibleRole',
+        'Enable-IntuneAdminRole',
+        'Get-IntuneActiveRole',
+        'Get-IntunePimActivation',
         'Start-IntuneTide'
     )
     CmdletsToExport   = @()

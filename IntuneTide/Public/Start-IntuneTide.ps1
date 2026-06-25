@@ -37,7 +37,8 @@ function Start-IntuneTide {
     Clear-Host
     Write-SpectreFigletText -Text 'TIDE' -Color $accent
     $ctx = Get-MgContext
-    Write-SpectreHost "[$accent]●[/] $($ctx.Account)  ·  tenant [grey]$($ctx.TenantId)[/]  ·  app [grey]$($ctx.AppName)[/]"
+    $elev = try { if (Test-IaPrivileged) { "[green]● elevated[/]" } else { "[yellow]○ not elevated[/]" } } catch { '' }
+    Write-SpectreHost "[$accent]●[/] $($ctx.Account)  ·  tenant [grey]$($ctx.TenantId)[/]  ·  $elev"
     Write-SpectreRule -Title 'TIDE · targeted intune deployment & endpoints' -Color $accent
 
     while ($true) {
@@ -49,6 +50,7 @@ function Start-IntuneTide {
             'Mirror assignments (copy A -> B, pick which)',
             'Assign a group to many (pick which)',
             'Templates (capture / apply)',
+            'Elevate (PIM) — activate an eligible role',
             'Audit',
             'Export HTML report',
             'Refresh data',
@@ -66,6 +68,7 @@ function Start-IntuneTide {
                 'Mirror*'       { Invoke-IaTuiMirror -Accent $accent }
                 'Assign a group*' { Invoke-IaTuiBulkAssign -Accent $accent }
                 'Templates*'    { Invoke-IaTuiTemplates -Accent $accent }
+                'Elevate*'      { Invoke-IaTuiElevate -Accent $accent }
                 'Audit'         { Invoke-IaTuiAudit -Accent $accent }
                 'Export*'       { $p = Read-SpectreText -Question 'Output path' -DefaultAnswer 'intune-assignments.html'
                                   New-IaHtmlReport -Items (Get-IaTuiInventory) | Set-Content -Path $p -Encoding utf8
@@ -255,4 +258,29 @@ function Invoke-IaTuiTemplates {
         } | Format-SpectreTable -Color $Accent
         if ($commit) { $script:IaTuiInventory = $null }
     }
+}
+
+function Invoke-IaTuiElevate {
+    param([string]$Accent)
+    $eligible = Get-IntuneEligibleRole
+    if (-not $eligible) {
+        Write-SpectreHost '[yellow]You have no PIM-eligible roles to activate (or this is an app-only sign-in).[/]'
+        $active = Get-IntuneActiveRole
+        if ($active) { Write-SpectreHost 'Currently active:'; $active | Format-SpectreTable -Color $Accent }
+        return
+    }
+    $role = Read-SpectreSelection -Title 'Activate which eligible role?' -Color $Accent `
+        -Choices @($eligible | ForEach-Object Role)
+    $just = Read-SpectreText -Question 'Justification'
+    $dur = Read-SpectreText -Question 'Duration (e.g. 2h, 30m, 8h)' -DefaultAnswer '2h'
+    $confirm = Read-SpectreSelection -Title "Activate [$Accent]$role[/] for $dur?" `
+        -Choices @('Yes, activate now', 'Cancel') -Color $Accent
+    if ($confirm -notlike 'Yes*') { Write-SpectreHost '[grey]Cancelled.[/]'; return }
+
+    $res = Enable-IntuneAdminRole -Role $role -Justification $just -Duration $dur -Confirm:$false
+    Write-SpectreHost "[$Accent]$($res.Role)[/] → status [$Accent]$($res.Status)[/] (expires after $($res.Duration))"
+    if ($res.Status -in 'PendingApproval', 'PendingProvisioning') {
+        Write-SpectreHost '[yellow]Activation needs approval / is provisioning — re-check with Get-IntuneActiveRole.[/]'
+    }
+    Get-IntuneActiveRole | Format-SpectreTable -Color $Accent
 }
