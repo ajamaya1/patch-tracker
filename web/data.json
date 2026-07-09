@@ -1,34 +1,34 @@
 {
-  "generated_at": "2026-07-09T10:03:46+00:00",
+  "generated_at": "2026-07-09T19:49:22+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
     "apple": 186,
     "cisa-kev": 47,
     "microsoft": 1,
-    "nvd": 9
+    "nvd": 7
   },
   "stats": {
-    "total_patches": 29,
-    "total_cves": 564,
+    "total_patches": 27,
+    "total_cves": 559,
     "exploited_cves": 26,
     "new_cves": 405,
     "by_source": {
       "microsoft": 1,
-      "nvd": 9,
+      "nvd": 7,
       "cisa-kev": 17,
       "apple": 2
     },
     "by_severity": {
-      "Critical": 8,
+      "Critical": 6,
       "High": 19,
       "unknown": 2
     },
     "by_status": {
-      "new": 29
+      "new": 27
     },
     "by_product_kind": {
-      "other": 527
+      "other": 522
     }
   },
   "patches": [
@@ -8238,7 +8238,7 @@
       "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Adobe",
       "severity": "Critical",
       "status": "new",
-      "cve_count": 6,
+      "cve_count": 4,
       "exploited_count": 0,
       "new_count": 0,
       "ransomware_count": 0,
@@ -8255,7 +8255,7 @@
       "affected": {
         "client": 0,
         "server": 0,
-        "other": 6
+        "other": 4
       },
       "remediation": {
         "summary": "Patch Adobe to the vendor's fixed release (recent high/critical CVEs from NVD).",
@@ -8280,44 +8280,6 @@
         ]
       },
       "cves": [
-        {
-          "cve_id": "CVE-2026-34691",
-          "severity": "Critical",
-          "base_score": 9.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Experience Manager Forms JEE versions LTS SP1, 6.5.24.0 and earlier are affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34691",
-          "first_seen": "2026-06-09",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-34693",
-          "severity": "High",
-          "base_score": 8.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Experience Manager Forms JEE versions LTS SP1, 6.5.24.0 and earlier are affected by a reflected Cross-Site Scripting (XSS) vulnerability. An attacker coul\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34693",
-          "first_seen": "2026-06-09",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
         {
           "cve_id": "CVE-2026-47938",
           "severity": "Critical",
@@ -13706,196 +13668,6 @@
           ],
           "products": [
             "Google Chromium V8"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "nvd:Fortinet",
-      "source": "nvd",
-      "platform": "Fortinet",
-      "title": "Fortinet",
-      "product": "Fortinet",
-      "version": null,
-      "release_date": "2026-06-09",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Fortinet",
-      "severity": "Critical",
-      "status": "new",
-      "cve_count": 1,
-      "exploited_count": 0,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 0,
-      "max_cvss": 9.8,
-      "due_date": null,
-      "priority": {
-        "score": 60,
-        "band": "high",
-        "reasons": [
-          "critical severity"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 1
-      },
-      "remediation": {
-        "summary": "Patch Fortinet to the vendor's fixed release (recent high/critical CVEs from NVD).",
-        "urgency": "high",
-        "note": "Critical-severity fixes included \u2014 schedule promptly.",
-        "links": [
-          {
-            "label": "NVD advisories",
-            "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Fortinet"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Fortinet (all installs)",
-            "icon": "\ud83e\udde9",
-            "steps": [
-              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
-              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
-              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-25089",
-          "severity": "Critical",
-          "base_score": 9.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "A improper neutralization of special elements used in an os command ('os command injection') vulnerability in Fortinet FortiSandbox 5.0.0 through 5.0.5, FortiSa\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25089",
-          "first_seen": "2026-06-09",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Fortinet"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "nvd:Ivanti",
-      "source": "nvd",
-      "platform": "Ivanti",
-      "title": "Ivanti",
-      "product": "Ivanti",
-      "version": null,
-      "release_date": "2026-06-09",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Ivanti",
-      "severity": "Critical",
-      "status": "new",
-      "cve_count": 3,
-      "exploited_count": 0,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 0,
-      "max_cvss": 10.0,
-      "due_date": null,
-      "priority": {
-        "score": 60,
-        "band": "high",
-        "reasons": [
-          "critical severity"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 3
-      },
-      "remediation": {
-        "summary": "Patch Ivanti to the vendor's fixed release (recent high/critical CVEs from NVD).",
-        "urgency": "high",
-        "note": "Critical-severity fixes included \u2014 schedule promptly.",
-        "links": [
-          {
-            "label": "NVD advisories",
-            "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Ivanti"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Ivanti (all installs)",
-            "icon": "\ud83e\udde9",
-            "steps": [
-              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
-              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
-              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-10520",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "An OS Command Injection vulnerability\u00a0in Ivanti\u00a0Sentry before\u00a0the\u00a0R10.5.2, R10.6.2 and R10.7.1\u00a0versions\u00a0allows\u00a0a remote unauthenticated user to achieve root-lev\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10520",
-          "first_seen": "2026-06-09",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Ivanti"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-10523",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "An Authentication Bypass vulnerability (CWE-288)\u00a0in Ivanti\u00a0Sentry before the\u00a0R10.5.2, R10.6.2 and R10.7.1\u00a0versions\u00a0allows\u00a0a remote unauthenticated attacker to c\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10523",
-          "first_seen": "2026-06-09",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Ivanti"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-10727",
-          "severity": "High",
-          "base_score": 7.2,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "An OS command injection vulnerability in Ivanti EPMM before\u00a012.9.0.1, 12.8.0.3 and 12.7.0.2 versions\u00a0allows a remote authenticated attacker to execute arbitrary\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10727",
-          "first_seen": "2026-06-09",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Ivanti"
           ]
         }
       ]
