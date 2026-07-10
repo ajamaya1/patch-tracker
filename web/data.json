@@ -1,34 +1,34 @@
 {
-  "generated_at": "2026-07-10T09:54:29+00:00",
+  "generated_at": "2026-07-10T19:35:56+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
     "apple": 186,
-    "cisa-kev": 47,
+    "cisa-kev": 49,
     "microsoft": 1,
     "nvd": 7
   },
   "stats": {
-    "total_patches": 25,
-    "total_cves": 558,
-    "exploited_cves": 24,
-    "new_cves": 408,
+    "total_patches": 27,
+    "total_cves": 560,
+    "exploited_cves": 26,
+    "new_cves": 410,
     "by_source": {
       "microsoft": 1,
+      "cisa-kev": 17,
       "nvd": 7,
-      "cisa-kev": 15,
       "apple": 2
     },
     "by_severity": {
       "Critical": 6,
-      "High": 17,
+      "High": 19,
       "unknown": 2
     },
     "by_status": {
-      "new": 25
+      "new": 27
     },
     "by_product_kind": {
-      "other": 521
+      "other": 523
     }
   },
   "patches": [
@@ -7758,6 +7758,162 @@
             "azl3 rust 1.75.0-30 on Azure Linux 3.0",
             "azl3 rust 1.90.0-9 on Azure Linux 3.0",
             "azl3 tensorflow 2.16.1-11 on Azure Linux 3.0"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:Balbooa:Forms",
+      "source": "cisa-kev",
+      "platform": "Balbooa",
+      "title": "Balbooa Forms",
+      "product": "Balbooa",
+      "version": null,
+      "release_date": "2026-07-10",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-07-13",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 3d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Balbooa Forms has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Balbooa Forms (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-56291",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Balbooa Forms Unrestricted Upload of File with Dangerous Type Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56291",
+          "first_seen": "2026-07-10",
+          "due_date": "2026-07-13",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Balbooa Forms"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:iCagenda:iCagenda",
+      "source": "cisa-kev",
+      "platform": "iCagenda",
+      "title": "iCagenda iCagenda",
+      "product": "iCagenda",
+      "version": null,
+      "release_date": "2026-07-10",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-07-13",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 3d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "iCagenda iCagenda has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "iCagenda iCagenda (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-48939",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "iCagenda Unrestricted Upload of File with Dangerous Type Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48939",
+          "first_seen": "2026-07-10",
+          "due_date": "2026-07-13",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "iCagenda iCagenda"
           ]
         }
       ]
