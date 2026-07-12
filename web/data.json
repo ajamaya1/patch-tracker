@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T08:32:21+00:00",
+  "generated_at": "2026-07-12T19:08:20+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
@@ -10,9 +10,9 @@
   },
   "stats": {
     "total_patches": 26,
-    "total_cves": 688,
+    "total_cves": 683,
     "exploited_cves": 25,
-    "new_cves": 584,
+    "new_cves": 580,
     "by_source": {
       "microsoft": 1,
       "cisa-kev": 16,
@@ -29,7 +29,7 @@
     },
     "by_product_kind": {
       "server": 1,
-      "other": 651
+      "other": 646
     }
   },
   "patches": [
@@ -40,7 +40,7 @@
       "title": "July 2026 Early Security Updates",
       "product": "Microsoft Security Update",
       "version": "2026-Jul",
-      "release_date": "2026-07-12T01:01:47Z",
+      "release_date": "2026-07-12T07:00:00Z",
       "patch_tuesday": "2026-07-14",
       "servicing": {
         "channel": "B",
@@ -58,9 +58,9 @@
       "url": "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2026-Jul",
       "severity": "Critical",
       "status": "new",
-      "cve_count": 574,
+      "cve_count": 570,
       "exploited_count": 0,
-      "new_count": 574,
+      "new_count": 570,
       "ransomware_count": 0,
       "disclosed_count": 0,
       "max_cvss": 9.9,
@@ -76,10 +76,10 @@
       "affected": {
         "client": 0,
         "server": 1,
-        "other": 574
+        "other": 570
       },
       "remediation": {
-        "summary": "Apply the July 2026 Early Security Updates (1 affecting Windows Server; 574 affecting other Microsoft products).",
+        "summary": "Apply the July 2026 Early Security Updates (1 affecting Windows Server; 570 affecting other Microsoft products).",
         "urgency": "high",
         "note": "Critical-severity fixes included \u2014 schedule promptly.",
         "links": [
@@ -113,7 +113,7 @@
         {
           "cve_id": "CVE-2026-10536",
           "severity": "Low",
-          "base_score": 5.5,
+          "base_score": 9.8,
           "exploited": false,
           "publicly_disclosed": false,
           "impact": null,
@@ -8485,25 +8485,6 @@
           ]
         },
         {
-          "cve_id": "CVE-2026-15308",
-          "severity": null,
-          "base_score": 7.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-15308",
-          "first_seen": "2026-07-12",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 python3 3.12.9-13 on Azure Linux 3.0"
-          ]
-        },
-        {
           "cve_id": "CVE-2026-20213",
           "severity": "Important",
           "base_score": 7.5,
@@ -10501,63 +10482,6 @@
           ],
           "products": [
             "azl3 python-tensorboard 2.16.2-6 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-59871",
-          "severity": null,
-          "base_score": 5.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59871",
-          "first_seen": "2026-07-12",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 tar 1.35-2 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-59873",
-          "severity": null,
-          "base_score": 7.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59873",
-          "first_seen": "2026-07-12",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 tar 1.35-2 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-59874",
-          "severity": null,
-          "base_score": 7.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59874",
-          "first_seen": "2026-07-12",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 tar 1.35-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -16595,7 +16519,7 @@
       "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Zoom",
       "severity": "High",
       "status": "new",
-      "cve_count": 3,
+      "cve_count": 2,
       "exploited_count": 0,
       "new_count": 0,
       "ransomware_count": 0,
@@ -16610,7 +16534,7 @@
       "affected": {
         "client": 0,
         "server": 0,
-        "other": 3
+        "other": 2
       },
       "remediation": {
         "summary": "Patch Zoom to the vendor's fixed release (recent high/critical CVEs from NVD).",
@@ -16635,25 +16559,6 @@
         ]
       },
       "cves": [
-        {
-          "cve_id": "CVE-2026-53406",
-          "severity": "High",
-          "base_score": 7.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient Verification of Data Authenticity in Remote Control for Zoom Contact Center for Windows before version 7.0.0 may allow an authenticated user to ena\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53406",
-          "first_seen": "2026-06-12",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Zoom"
-          ]
-        },
         {
           "cve_id": "CVE-2026-53407",
           "severity": "High",
