@@ -1,36 +1,36 @@
 {
-  "generated_at": "2026-07-13T09:48:50+00:00",
+  "generated_at": "2026-07-13T19:25:38+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
     "apple": 186,
-    "cisa-kev": 47,
+    "cisa-kev": 48,
     "microsoft": 1,
     "nvd": 6
   },
   "stats": {
-    "total_patches": 24,
-    "total_cves": 720,
-    "exploited_cves": 25,
-    "new_cves": 537,
+    "total_patches": 25,
+    "total_cves": 721,
+    "exploited_cves": 26,
+    "new_cves": 538,
     "by_source": {
       "microsoft": 1,
-      "cisa-kev": 15,
+      "cisa-kev": 16,
       "nvd": 6,
       "apple": 2
     },
     "by_severity": {
       "Critical": 5,
-      "High": 17,
+      "High": 18,
       "unknown": 2
     },
     "by_status": {
-      "new": 24
+      "new": 25
     },
     "by_product_kind": {
       "client": 84,
       "server": 115,
-      "other": 571
+      "other": 572
     }
   },
   "patches": [
@@ -13782,6 +13782,84 @@
           ],
           "products": [
             "Microsoft Edge (Chromium-based)"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:Cisco:IOS",
+      "source": "cisa-kev",
+      "platform": "Cisco",
+      "title": "Cisco IOS",
+      "product": "Cisco",
+      "version": null,
+      "release_date": "2026-07-13",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-07-16",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 3d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Cisco IOS has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Cisco IOS (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2008-4128",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Cisco IOS Cross-Site Request Forgery Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2008-4128",
+          "first_seen": "2026-07-13",
+          "due_date": "2026-07-16",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco IOS"
           ]
         }
       ]
