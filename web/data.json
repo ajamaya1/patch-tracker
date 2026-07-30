@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T09:11:11+00:00",
+  "generated_at": "2026-07-30T09:03:44+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
@@ -9,31 +9,471 @@
     "nvd": 8
   },
   "stats": {
-    "total_patches": 32,
-    "total_cves": 1962,
+    "total_patches": 30,
+    "total_cves": 1932,
     "exploited_cves": 25,
-    "new_cves": 1868,
+    "new_cves": 1869,
     "by_source": {
-      "microsoft": 1,
       "nvd": 8,
-      "apple": 6,
-      "cisa-kev": 17
+      "cisa-kev": 17,
+      "microsoft": 1,
+      "apple": 4
     },
     "by_severity": {
       "Critical": 5,
-      "unknown": 6,
-      "High": 21
+      "High": 21,
+      "unknown": 4
     },
     "by_status": {
-      "new": 32
+      "new": 30
     },
     "by_product_kind": {
       "client": 438,
       "server": 495,
-      "other": 1295
+      "other": 1297
     }
   },
   "patches": [
+    {
+      "patch_id": "nvd:Adobe",
+      "source": "nvd",
+      "platform": "Adobe",
+      "title": "Adobe",
+      "product": "Adobe",
+      "version": null,
+      "release_date": "2026-07-30",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Adobe",
+      "severity": "Critical",
+      "status": "new",
+      "cve_count": 16,
+      "exploited_count": 0,
+      "new_count": 3,
+      "ransomware_count": 0,
+      "disclosed_count": 0,
+      "max_cvss": 10.0,
+      "due_date": null,
+      "priority": {
+        "score": 75,
+        "band": "critical",
+        "reasons": [
+          "newly released",
+          "critical severity"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 16
+      },
+      "remediation": {
+        "summary": "Patch Adobe to the vendor's fixed release (recent high/critical CVEs from NVD).",
+        "urgency": "high",
+        "note": "Critical-severity fixes included \u2014 schedule promptly.",
+        "links": [
+          {
+            "label": "NVD advisories",
+            "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Adobe"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Adobe (all installs)",
+            "icon": "\ud83e\udde9",
+            "steps": [
+              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
+              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
+              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-47984",
+          "severity": "High",
+          "base_score": 8.2,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerabi\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47984",
+          "first_seen": "2026-07-14",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-47988",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerabi\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47988",
+          "first_seen": "2026-07-14",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-47992",
+          "severity": "High",
+          "base_score": 7.2,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Commerce is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitra\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47992",
+          "first_seen": "2026-07-14",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-47994",
+          "severity": "High",
+          "base_score": 8.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Commerce is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts in\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47994",
+          "first_seen": "2026-07-14",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-47995",
+          "severity": "High",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Commerce is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a high-privileged attacker to inject malicious scripts i\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47995",
+          "first_seen": "2026-07-14",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-47996",
+          "severity": "High",
+          "base_score": 7.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. A high-privileged attacker could leverage\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47996",
+          "first_seen": "2026-07-14",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48252",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Experience Manager is affected by a Missing Authentication for Critical Function vulnerability that could result in a Security feature bypass. An attacker\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48252",
+          "first_seen": "2026-07-14",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48259",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Experience Manager is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in arbitrary code execution in the context of the c\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48259",
+          "first_seen": "2026-07-14",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48286",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) versions 7.4.3 build 9396 and earlier are affected by an Incorrect Authorization vulnerability that could result in arbitrary code \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48286",
+          "first_seen": "2026-06-30",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48310",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Experience Manager is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbit\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48310",
+          "first_seen": "2026-07-14",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48356",
+          "severity": "Critical",
+          "base_score": 9.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Commerce is affected by an Unrestricted Upload of File with Dangerous Type vulnerability that could result in arbitrary code execution in the context of t\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48356",
+          "first_seen": "2026-07-14",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48358",
+          "severity": "Critical",
+          "base_score": 9.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Commerce is affected by an Improper Encoding or Escaping of Output vulnerability that could result in arbitrary code execution in the context of the curre\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48358",
+          "first_seen": "2026-07-14",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48359",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Experience Manager is affected by an Improper Restriction of XML External Entity Reference ('XXE') vulnerability that could result in arbitrary code execu\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48359",
+          "first_seen": "2026-07-14",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48388",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Photoshop Installer was affected by an Uncontrolled Search Path Element vulnerability that could have resulted in arbitrary code execution in the context \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48388",
+          "first_seen": "2026-07-28",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48448",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could lea\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48448",
+          "first_seen": "2026-07-30",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48449",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48449",
+          "first_seen": "2026-07-30",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:Cisco:Secure Firewall Management Center (FMC)",
+      "source": "cisa-kev",
+      "platform": "Cisco",
+      "title": "Cisco Secure Firewall Management Center (FMC)",
+      "product": "Cisco",
+      "version": null,
+      "release_date": "2026-07-29",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-08-01",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 2d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Cisco Secure Firewall Management Center (FMC) has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Cisco Secure Firewall Management Center (FMC) (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-20316",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Cisco Secure Firewall Management Center Use of Hard-coded Password Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20316",
+          "first_seen": "2026-07-29",
+          "due_date": "2026-08-01",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco Secure Firewall Management Center (FMC)"
+          ]
+        }
+      ]
+    },
     {
       "patch_id": "msrc:2026-Jul",
       "source": "microsoft",
@@ -42686,330 +43126,6 @@
       ]
     },
     {
-      "patch_id": "nvd:Adobe",
-      "source": "nvd",
-      "platform": "Adobe",
-      "title": "Adobe",
-      "product": "Adobe",
-      "version": null,
-      "release_date": "2026-07-28",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Adobe",
-      "severity": "Critical",
-      "status": "new",
-      "cve_count": 14,
-      "exploited_count": 0,
-      "new_count": 1,
-      "ransomware_count": 0,
-      "disclosed_count": 0,
-      "max_cvss": 10.0,
-      "due_date": null,
-      "priority": {
-        "score": 75,
-        "band": "critical",
-        "reasons": [
-          "newly released",
-          "critical severity"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 14
-      },
-      "remediation": {
-        "summary": "Patch Adobe to the vendor's fixed release (recent high/critical CVEs from NVD).",
-        "urgency": "high",
-        "note": "Critical-severity fixes included \u2014 schedule promptly.",
-        "links": [
-          {
-            "label": "NVD advisories",
-            "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Adobe"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Adobe (all installs)",
-            "icon": "\ud83e\udde9",
-            "steps": [
-              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
-              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
-              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-47984",
-          "severity": "High",
-          "base_score": 8.2,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerabi\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47984",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-47988",
-          "severity": "High",
-          "base_score": 8.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerabi\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47988",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-47992",
-          "severity": "High",
-          "base_score": 7.2,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitra\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47992",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-47994",
-          "severity": "High",
-          "base_score": 8.7,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts in\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47994",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-47995",
-          "severity": "High",
-          "base_score": 8.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a high-privileged attacker to inject malicious scripts i\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47995",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-47996",
-          "severity": "High",
-          "base_score": 7.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. A high-privileged attacker could leverage\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47996",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48252",
-          "severity": "High",
-          "base_score": 8.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Experience Manager is affected by a Missing Authentication for Critical Function vulnerability that could result in a Security feature bypass. An attacker\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48252",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48259",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Experience Manager is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in arbitrary code execution in the context of the c\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48259",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48286",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) versions 7.4.3 build 9396 and earlier are affected by an Incorrect Authorization vulnerability that could result in arbitrary code \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48286",
-          "first_seen": "2026-06-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48310",
-          "severity": "High",
-          "base_score": 8.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Experience Manager is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbit\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48310",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48356",
-          "severity": "Critical",
-          "base_score": 9.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Unrestricted Upload of File with Dangerous Type vulnerability that could result in arbitrary code execution in the context of t\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48356",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48358",
-          "severity": "Critical",
-          "base_score": 9.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Improper Encoding or Escaping of Output vulnerability that could result in arbitrary code execution in the context of the curre\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48358",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48359",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Experience Manager is affected by an Improper Restriction of XML External Entity Reference ('XXE') vulnerability that could result in arbitrary code execu\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48359",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48388",
-          "severity": "High",
-          "base_score": 8.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Photoshop Installer was affected by an Uncontrolled Search Path Element vulnerability that could have resulted in arbitrary code execution in the context \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48388",
-          "first_seen": "2026-07-28",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        }
-      ]
-    },
-    {
       "patch_id": "apple:iOS 26.6 and iPadOS 26.6",
       "source": "apple",
       "platform": "iPadOS",
@@ -43022,9 +43138,9 @@
       "url": "https://support.apple.com/en-us/128066",
       "severity": null,
       "status": "new",
-      "cve_count": 87,
+      "cve_count": 86,
       "exploited_count": 0,
-      "new_count": 87,
+      "new_count": 86,
       "ransomware_count": 0,
       "disclosed_count": 0,
       "max_cvss": null,
@@ -43246,21 +43362,6 @@
         },
         {
           "cve_id": "CVE-2026-43739",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/128066",
-          "first_seen": "2026-07-27",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43740",
           "severity": null,
           "base_score": null,
           "exploited": false,
@@ -48473,9 +48574,9 @@
       "url": "https://support.apple.com/en-us/128067",
       "severity": null,
       "status": "new",
-      "cve_count": 155,
+      "cve_count": 153,
       "exploited_count": 0,
-      "new_count": 155,
+      "new_count": 153,
       "ransomware_count": 0,
       "disclosed_count": 0,
       "max_cvss": null,
@@ -48831,21 +48932,6 @@
           "products": []
         },
         {
-          "cve_id": "CVE-2026-43698",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/128067",
-          "first_seen": "2026-07-27",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [],
-          "products": []
-        },
-        {
           "cve_id": "CVE-2026-43710",
           "severity": null,
           "base_score": null,
@@ -48967,21 +49053,6 @@
         },
         {
           "cve_id": "CVE-2026-43739",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/128067",
-          "first_seen": "2026-07-27",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43740",
           "severity": null,
           "base_score": null,
           "exploited": false,
@@ -50868,7 +50939,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 1d"
+          "KEV due in 0d"
         ]
       },
       "affected": {
@@ -51012,18 +51083,17 @@
       "status": "new",
       "cve_count": 1,
       "exploited_count": 1,
-      "new_count": 1,
+      "new_count": 0,
       "ransomware_count": 0,
       "disclosed_count": 1,
       "max_cvss": null,
       "due_date": "2026-07-25",
       "priority": {
-        "score": 100,
+        "score": 98,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "newly released",
-          "KEV overdue by 4d"
+          "KEV overdue by 5d"
         ]
       },
       "affected": {
@@ -51065,7 +51135,7 @@
           "first_seen": "2026-07-22",
           "due_date": "2026-07-25",
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -51100,7 +51170,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 5d"
+          "KEV overdue by 6d"
         ]
       },
       "affected": {
@@ -51177,7 +51247,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 55d"
+          "KEV overdue by 56d"
         ]
       },
       "affected": {
@@ -51292,7 +51362,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 5d"
+          "KEV overdue by 6d"
         ]
       },
       "affected": {
@@ -51690,7 +51760,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 10d"
+          "KEV overdue by 11d"
         ]
       },
       "affected": {
@@ -51915,11 +51985,11 @@
       "max_cvss": null,
       "due_date": "2026-07-29",
       "priority": {
-        "score": 85,
+        "score": 98,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV due in 0d"
+          "KEV overdue by 1d"
         ]
       },
       "affected": {
@@ -51996,7 +52066,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 11d"
+          "KEV overdue by 12d"
         ]
       },
       "affected": {
@@ -52337,7 +52407,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 12d"
+          "KEV overdue by 13d"
         ]
       },
       "affected": {
@@ -52638,7 +52708,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 13d"
+          "KEV overdue by 14d"
         ]
       },
       "affected": {
@@ -52715,7 +52785,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 16d"
+          "KEV overdue by 17d"
         ]
       },
       "affected": {
@@ -52792,7 +52862,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 16d"
+          "KEV overdue by 17d"
         ]
       },
       "affected": {
@@ -52869,7 +52939,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 19d"
+          "KEV overdue by 20d"
         ]
       },
       "affected": {
@@ -52946,7 +53016,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 19d"
+          "KEV overdue by 20d"
         ]
       },
       "affected": {
@@ -53023,7 +53093,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 19d"
+          "KEV overdue by 20d"
         ]
       },
       "affected": {
@@ -54933,1333 +55003,6 @@
           ],
           "products": [
             "Google Chrome"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "apple:iOS 26.5.2 and iPadOS 26.5.2",
-      "source": "apple",
-      "platform": "iPadOS",
-      "title": "iOS 26.5.2 and iPadOS 26.5.2",
-      "product": "iOS and iPadOS",
-      "version": "26.5.2",
-      "release_date": "2026-06-29T00:00:00Z",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://support.apple.com/en-us/127594",
-      "severity": null,
-      "status": "new",
-      "cve_count": 38,
-      "exploited_count": 0,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 0,
-      "max_cvss": null,
-      "due_date": null,
-      "priority": {
-        "score": 0,
-        "band": "low",
-        "reasons": []
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 0
-      },
-      "remediation": {
-        "summary": "Update affected iPadOS devices to iOS and iPadOS 26.5.2.",
-        "urgency": "normal",
-        "note": "Apply within your normal patch cycle.",
-        "links": [
-          {
-            "label": "Apple security release notes",
-            "url": "https://support.apple.com/en-us/127594"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "All affected iPadOS devices",
-            "icon": "\ud83d\udcf1",
-            "steps": [
-              "On the device: Settings \u25b8 General \u25b8 Software Update \u2014 install iOS and iPadOS 26.5.2 and restart if prompted.",
-              "Managed fleets: push the update via MDM (Jamf, Kandji, Intune, Mosyle\u2026) or a software-update enforcement / deferral policy with a deadline.",
-              "Confirm the OS build matches the fixed version afterwards; remind users that a restart is required for kernel fixes."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-28979",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-39868",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-39872",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43663",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43676",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43699",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43700",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43701",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43703",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43704",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43705",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43706",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43707",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43708",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43709",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43712",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43713",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43715",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43716",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43717",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43718",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43720",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43721",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43722",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43724",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43725",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43726",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43727",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43731",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43732",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43734",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43735",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43740",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43742",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43743",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43745",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43746",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43807",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127594",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        }
-      ]
-    },
-    {
-      "patch_id": "apple:macOS Tahoe 26.5.2",
-      "source": "apple",
-      "platform": "macOS",
-      "title": "macOS Tahoe 26.5.2",
-      "product": "macOS",
-      "version": "26.5.2",
-      "release_date": "2026-06-29T00:00:00Z",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://support.apple.com/en-us/127595",
-      "severity": null,
-      "status": "new",
-      "cve_count": 38,
-      "exploited_count": 0,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 0,
-      "max_cvss": null,
-      "due_date": null,
-      "priority": {
-        "score": 0,
-        "band": "low",
-        "reasons": []
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 0
-      },
-      "remediation": {
-        "summary": "Update affected macOS devices to macOS 26.5.2.",
-        "urgency": "normal",
-        "note": "Apply within your normal patch cycle.",
-        "links": [
-          {
-            "label": "Apple security release notes",
-            "url": "https://support.apple.com/en-us/127595"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "All affected macOS devices",
-            "icon": "\ud83d\udcbb",
-            "steps": [
-              "On the device: System Settings \u25b8 General \u25b8 Software Update \u2014 install macOS 26.5.2 and restart if prompted.",
-              "Managed fleets: push the update via MDM (Jamf, Kandji, Intune, Mosyle\u2026) or a software-update enforcement / deferral policy with a deadline.",
-              "Confirm the OS build matches the fixed version afterwards; remind users that a restart is required for kernel fixes."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-28979",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-39868",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-39872",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43663",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43676",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43699",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43700",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43701",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43703",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43704",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43705",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43706",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43707",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43708",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43709",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43712",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43713",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43715",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43716",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43717",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43718",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43720",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43721",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43722",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43724",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43725",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43726",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43727",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43731",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43732",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43734",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43735",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43740",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43742",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43743",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43745",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43746",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        },
-        {
-          "cve_id": "CVE-2026-43807",
-          "severity": null,
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://support.apple.com/en-us/127595",
-          "first_seen": "2026-06-29",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [],
-          "products": []
-        }
-      ]
-    },
-    {
-      "patch_id": "kev:SimpleHelp:SimpleHelp",
-      "source": "cisa-kev",
-      "platform": "SimpleHelp",
-      "title": "SimpleHelp SimpleHelp",
-      "product": "SimpleHelp",
-      "version": null,
-      "release_date": "2026-06-29",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 1,
-      "exploited_count": 1,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 1,
-      "max_cvss": null,
-      "due_date": "2026-07-02",
-      "priority": {
-        "score": 98,
-        "band": "critical",
-        "reasons": [
-          "actively exploited",
-          "KEV overdue by 27d"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 1
-      },
-      "remediation": {
-        "summary": "SimpleHelp SimpleHelp has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
-        "urgency": "critical",
-        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
-        "links": [
-          {
-            "label": "CISA KEV catalog",
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "SimpleHelp SimpleHelp (all installs)",
-            "icon": "\ud83c\udf10",
-            "steps": [
-              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
-              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
-              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-48558",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "SimpleHelp Authentication Bypass Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48558",
-          "first_seen": "2026-06-29",
-          "due_date": "2026-07-02",
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "SimpleHelp SimpleHelp"
           ]
         }
       ]
