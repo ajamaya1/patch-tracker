@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01T08:34:46+00:00",
+  "generated_at": "2026-08-02T08:37:37+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
@@ -52945,7 +52945,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 0d"
+          "KEV overdue by 1d"
         ]
       },
       "affected": {
@@ -60811,7 +60811,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 2d"
+          "KEV overdue by 3d"
         ]
       },
       "affected": {
@@ -60965,7 +60965,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 7d"
+          "KEV overdue by 8d"
         ]
       },
       "affected": {
@@ -61042,7 +61042,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 8d"
+          "KEV overdue by 9d"
         ]
       },
       "affected": {
@@ -61119,7 +61119,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 58d"
+          "KEV overdue by 59d"
         ]
       },
       "affected": {
@@ -61234,7 +61234,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 8d"
+          "KEV overdue by 9d"
         ]
       },
       "affected": {
@@ -61442,7 +61442,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 13d"
+          "KEV overdue by 14d"
         ]
       },
       "affected": {
@@ -61671,7 +61671,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 3d"
+          "KEV overdue by 4d"
         ]
       },
       "affected": {
@@ -61748,7 +61748,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 14d"
+          "KEV overdue by 15d"
         ]
       },
       "affected": {
@@ -62070,7 +62070,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 15d"
+          "KEV overdue by 16d"
         ]
       },
       "affected": {
@@ -62371,7 +62371,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 16d"
+          "KEV overdue by 17d"
         ]
       },
       "affected": {
@@ -62448,7 +62448,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 19d"
+          "KEV overdue by 20d"
         ]
       },
       "affected": {
@@ -62525,7 +62525,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 19d"
+          "KEV overdue by 20d"
         ]
       },
       "affected": {
@@ -62602,7 +62602,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 22d"
+          "KEV overdue by 23d"
         ]
       },
       "affected": {
@@ -62679,7 +62679,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 22d"
+          "KEV overdue by 23d"
         ]
       },
       "affected": {
@@ -62756,7 +62756,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 22d"
+          "KEV overdue by 23d"
         ]
       },
       "affected": {
