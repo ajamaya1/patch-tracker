@@ -1,39 +1,292 @@
 {
-  "generated_at": "2026-08-04T09:10:51+00:00",
+  "generated_at": "2026-08-04T19:40:23+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
     "apple": 190,
-    "cisa-kev": 47,
+    "cisa-kev": 49,
     "microsoft": 1,
     "nvd": 8
   },
   "stats": {
-    "total_patches": 31,
-    "total_cves": 2328,
-    "exploited_cves": 26,
-    "new_cves": 2086,
+    "total_patches": 33,
+    "total_cves": 2331,
+    "exploited_cves": 29,
+    "new_cves": 2089,
     "by_source": {
+      "cisa-kev": 20,
       "microsoft": 1,
-      "cisa-kev": 18,
       "nvd": 8,
       "apple": 4
     },
     "by_severity": {
+      "High": 23,
       "Critical": 6,
-      "High": 21,
       "unknown": 4
     },
     "by_status": {
-      "new": 31
+      "new": 33
     },
     "by_product_kind": {
       "client": 438,
       "server": 495,
-      "other": 1693
+      "other": 1696
     }
   },
   "patches": [
+    {
+      "patch_id": "kev:Apache:Tomcat",
+      "source": "cisa-kev",
+      "platform": "Apache",
+      "title": "Apache Tomcat",
+      "product": "Apache",
+      "version": null,
+      "release_date": "2026-08-04",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-08-07",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 3d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Apache Tomcat has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Apache Tomcat (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-34486",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Apache Tomcat Missing Encryption of Sensitive Data Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34486",
+          "first_seen": "2026-08-04",
+          "due_date": "2026-08-07",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Apache Tomcat"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:IBM:Langflow",
+      "source": "cisa-kev",
+      "platform": "IBM",
+      "title": "IBM Langflow",
+      "product": "IBM",
+      "version": null,
+      "release_date": "2026-08-04",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-08-07",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 3d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "IBM Langflow has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "IBM Langflow (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-9198",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "IBM Langflow Code Injection Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9198",
+          "first_seen": "2026-08-04",
+          "due_date": "2026-08-07",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "IBM Langflow"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:N-able:N-central",
+      "source": "cisa-kev",
+      "platform": "N-able",
+      "title": "N-able N-central",
+      "product": "N-able",
+      "version": null,
+      "release_date": "2026-08-04",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 2,
+      "exploited_count": 2,
+      "new_count": 2,
+      "ransomware_count": 0,
+      "disclosed_count": 2,
+      "max_cvss": null,
+      "due_date": "2026-08-06",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 2d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 2
+      },
+      "remediation": {
+        "summary": "N-able N-central has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "2 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "N-able N-central (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-18556",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "N-able N-central Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18556",
+          "first_seen": "2026-08-04",
+          "due_date": "2026-08-07",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "N-able N-central"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-18577",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "N-able N-central Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18577",
+          "first_seen": "2026-08-03",
+          "due_date": "2026-08-06",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "N-able N-central"
+          ]
+        }
+      ]
+    },
     {
       "patch_id": "msrc:2026-Jul",
       "source": "microsoft",
@@ -50043,84 +50296,6 @@
             "azl3 rust 1.75.0-30 on Azure Linux 3.0",
             "azl3 rust 1.90.0-9 on Azure Linux 3.0",
             "azl3 tensorflow 2.16.1-11 on Azure Linux 3.0"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "kev:N-able:N-central",
-      "source": "cisa-kev",
-      "platform": "N-able",
-      "title": "N-able N-central",
-      "product": "N-able",
-      "version": null,
-      "release_date": "2026-08-03",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 1,
-      "exploited_count": 1,
-      "new_count": 1,
-      "ransomware_count": 0,
-      "disclosed_count": 1,
-      "max_cvss": null,
-      "due_date": "2026-08-06",
-      "priority": {
-        "score": 100,
-        "band": "critical",
-        "reasons": [
-          "actively exploited",
-          "newly released",
-          "KEV due in 2d"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 1
-      },
-      "remediation": {
-        "summary": "N-able N-central has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
-        "urgency": "critical",
-        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
-        "links": [
-          {
-            "label": "CISA KEV catalog",
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "N-able N-central (all installs)",
-            "icon": "\ud83c\udf10",
-            "steps": [
-              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
-              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
-              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-18577",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "N-able N-central Authentication Bypass Using an Alternate Path or Channel Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18577",
-          "first_seen": "2026-08-03",
-          "due_date": "2026-08-06",
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "N-able N-central"
           ]
         }
       ]
