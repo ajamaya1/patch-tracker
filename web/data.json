@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T09:07:19+00:00",
+  "generated_at": "2026-08-06T09:07:40+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
@@ -9,31 +9,661 @@
     "nvd": 8
   },
   "stats": {
-    "total_patches": 33,
-    "total_cves": 2330,
-    "exploited_cves": 29,
-    "new_cves": 2088,
+    "total_patches": 34,
+    "total_cves": 2347,
+    "exploited_cves": 30,
+    "new_cves": 2104,
     "by_source": {
-      "cisa-kev": 20,
-      "microsoft": 1,
+      "cisa-kev": 21,
       "nvd": 8,
+      "microsoft": 1,
       "apple": 4
     },
     "by_severity": {
       "High": 23,
-      "Critical": 6,
+      "Critical": 7,
       "unknown": 4
     },
     "by_status": {
-      "new": 33
+      "new": 34
     },
     "by_product_kind": {
       "client": 438,
       "server": 495,
-      "other": 1695
+      "other": 1712
     }
   },
   "patches": [
+    {
+      "patch_id": "kev:JetBrains:TeamCity",
+      "source": "cisa-kev",
+      "platform": "JetBrains",
+      "title": "JetBrains TeamCity",
+      "product": "JetBrains",
+      "version": null,
+      "release_date": "2026-08-05",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-08-08",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 2d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "JetBrains TeamCity has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "JetBrains TeamCity (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-63077",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "JetBrains TeamCity Deserialization of Untrusted Data Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63077",
+          "first_seen": "2026-08-05",
+          "due_date": "2026-08-08",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "JetBrains TeamCity"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "nvd:Cisco",
+      "source": "nvd",
+      "platform": "Cisco",
+      "title": "Cisco",
+      "product": "Cisco",
+      "version": null,
+      "release_date": "2026-08-05",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Cisco",
+      "severity": "Critical",
+      "status": "new",
+      "cve_count": 26,
+      "exploited_count": 0,
+      "new_count": 16,
+      "ransomware_count": 0,
+      "disclosed_count": 0,
+      "max_cvss": 9.9,
+      "due_date": null,
+      "priority": {
+        "score": 75,
+        "band": "critical",
+        "reasons": [
+          "newly released",
+          "critical severity"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 26
+      },
+      "remediation": {
+        "summary": "Patch Cisco to the vendor's fixed release (recent high/critical CVEs from NVD).",
+        "urgency": "high",
+        "note": "Critical-severity fixes included \u2014 schedule promptly.",
+        "links": [
+          {
+            "label": "NVD advisories",
+            "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Cisco"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Cisco (all installs)",
+            "icon": "\ud83e\udde9",
+            "steps": [
+              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
+              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
+              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-20124",
+          "severity": "High",
+          "base_score": 7.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "A vulnerability in the Simple Network Management Protocol (SNMP) subsystem of Cisco IOS XE Software could allow an authenticated, remote attacker to cause an af\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20124",
+          "first_seen": "2026-08-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20150",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco RoomOS engineering team has conducted a comprehensive internal securi\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20150",
+          "first_seen": "2026-07-15",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20153",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco RoomOS engineering team has conducted a comprehensive internal securi\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20153",
+          "first_seen": "2026-07-15",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20156",
+          "severity": "High",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco RoomOS engineering team has conducted a comprehensive internal securi\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20156",
+          "first_seen": "2026-07-15",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20157",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco RoomOS engineering team has conducted a comprehensive internal securi\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20157",
+          "first_seen": "2026-07-15",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20158",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco RoomOS engineering team has conducted a comprehensive internal securi\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20158",
+          "first_seen": "2026-07-15",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20187",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco RoomOS engineering team has conducted a comprehensive internal securi\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20187",
+          "first_seen": "2026-07-15",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20200",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "A vulnerability in the web-based management interface of Cisco IMC could allow an authenticated, remote attacker with low privileges to execute arbitrary comman\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20200",
+          "first_seen": "2026-08-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20263",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "A vulnerability in the Blocks Extensible Exchange Protocol (BEEP) feature of Cisco IOS XE Software could allow an unauthenticated, remote attacker to cause a de\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20263",
+          "first_seen": "2026-08-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20267",
+          "severity": "Critical",
+          "base_score": 9.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco IOS XE Software engineering team has conducted a comprehensive intern\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20267",
+          "first_seen": "2026-08-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20268",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco IOS XE Software engineering team has conducted a comprehensive intern\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20268",
+          "first_seen": "2026-08-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20269",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco IOS XE Software engineering team has conducted a comprehensive intern\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20269",
+          "first_seen": "2026-08-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20270",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco IOS XE Software engineering team has conducted a comprehensive intern\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20270",
+          "first_seen": "2026-08-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20271",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco IOS XE Software engineering team has conducted a comprehensive intern\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20271",
+          "first_seen": "2026-08-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20272",
+          "severity": "Critical",
+          "base_score": 9.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco IOS XE Software engineering team has conducted a comprehensive intern\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20272",
+          "first_seen": "2026-08-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20273",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco IOS XE Software engineering team has conducted a comprehensive intern\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20273",
+          "first_seen": "2026-08-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20301",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "A vulnerability in the Extensible Messaging Client Protocol (XMCP), also referred to as the External Client protocol, of Cisco IOS Software and Cisco IOS XE Sof\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20301",
+          "first_seen": "2026-08-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20303",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco Catalyst SD-WAN engineering team has conducted a comprehensive intern\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20303",
+          "first_seen": "2026-08-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20304",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco Catalyst SD-WAN engineering team has conducted a comprehensive intern\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20304",
+          "first_seen": "2026-08-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20310",
+          "severity": "Critical",
+          "base_score": 9.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco Catalyst SD-WAN engineering team has conducted a comprehensive intern\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20310",
+          "first_seen": "2026-08-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20312",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco Catalyst SD-WAN engineering team has conducted a comprehensive intern\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20312",
+          "first_seen": "2026-08-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-20313",
+          "severity": "High",
+          "base_score": 7.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco Catalyst SD-WAN engineering team has conducted a comprehensive intern\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20313",
+          "first_seen": "2026-08-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-24697",
+          "severity": "High",
+          "base_score": 7.2,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "An OS command injection vulnerability exists in the start_bonjour() function of the \"rc\" binary in Cisco RV130/RV130W with firmware 1.0.3.55 and RV110W routers \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24697",
+          "first_seen": "2026-07-08",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-24698",
+          "severity": "High",
+          "base_score": 7.2,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "An OS command injection vulnerability exists in the save_syslog_to_file() function of the \"httpd\" binary in Cisco RV130/RV130W with firmware 1.0.3.55 and RV110W\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24698",
+          "first_seen": "2026-07-08",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-24699",
+          "severity": "High",
+          "base_score": 7.2,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "An OS command injection vulnerability exists in the sub_34984() function of the \"rc\" binary in Cisco RV130/RV130W with firmware 1.0.3.55 and RV110W routers with\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24699",
+          "first_seen": "2026-07-08",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-24700",
+          "severity": "High",
+          "base_score": 7.2,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "An OS command injection vulnerability exists in the start_lltd() function of the \"rc\" binary in Cisco RV130/RV130W with firmware 1.0.3.55 and RV110W routers wit\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24700",
+          "first_seen": "2026-07-08",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco"
+          ]
+        }
+      ]
+    },
     {
       "patch_id": "kev:Apache:Tomcat",
       "source": "cisa-kev",
@@ -60,7 +690,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 2d"
+          "KEV due in 1d"
         ]
       },
       "affected": {
@@ -138,7 +768,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 2d"
+          "KEV due in 1d"
         ]
       },
       "affected": {
@@ -216,7 +846,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 1d"
+          "KEV due in 0d"
         ]
       },
       "affected": {
@@ -50770,9 +51400,9 @@
       "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Google%20Chrome",
       "severity": "Critical",
       "status": "new",
-      "cve_count": 119,
+      "cve_count": 120,
       "exploited_count": 0,
-      "new_count": 70,
+      "new_count": 71,
       "ransomware_count": 0,
       "disclosed_count": 0,
       "max_cvss": 9.6,
@@ -50788,7 +51418,7 @@
       "affected": {
         "client": 0,
         "server": 0,
-        "other": 119
+        "other": 120
       },
       "remediation": {
         "summary": "Patch Google Chrome to the vendor's fixed release (recent high/critical CVEs from NVD).",
@@ -52847,6 +53477,25 @@
           ]
         },
         {
+          "cve_id": "CVE-2026-17735",
+          "severity": "High",
+          "base_score": 8.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Insufficient validation of untrusted input in BFCache in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17735",
+          "first_seen": "2026-07-30",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
           "cve_id": "CVE-2026-17738",
           "severity": "Critical",
           "base_score": 9.6,
@@ -53358,18 +54007,17 @@
       "status": "new",
       "cve_count": 1,
       "exploited_count": 1,
-      "new_count": 1,
+      "new_count": 0,
       "ransomware_count": 0,
       "disclosed_count": 1,
       "max_cvss": null,
       "due_date": "2026-08-01",
       "priority": {
-        "score": 100,
+        "score": 98,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "newly released",
-          "KEV overdue by 4d"
+          "KEV overdue by 5d"
         ]
       },
       "affected": {
@@ -53411,7 +54059,7 @@
           "first_seen": "2026-07-29",
           "due_date": "2026-08-01",
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -61226,7 +61874,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 6d"
+          "KEV overdue by 7d"
         ]
       },
       "affected": {
@@ -61303,7 +61951,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV due in 5d"
+          "KEV due in 4d"
         ]
       },
       "affected": {
@@ -61380,7 +62028,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 11d"
+          "KEV overdue by 12d"
         ]
       },
       "affected": {
@@ -61457,7 +62105,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 12d"
+          "KEV overdue by 13d"
         ]
       },
       "affected": {
@@ -61534,7 +62182,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 62d"
+          "KEV overdue by 63d"
         ]
       },
       "affected": {
@@ -61649,7 +62297,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 12d"
+          "KEV overdue by 13d"
         ]
       },
       "affected": {
@@ -61857,7 +62505,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 17d"
+          "KEV overdue by 18d"
         ]
       },
       "affected": {
@@ -62086,7 +62734,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 7d"
+          "KEV overdue by 8d"
         ]
       },
       "affected": {
@@ -62163,7 +62811,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 18d"
+          "KEV overdue by 19d"
         ]
       },
       "affected": {
@@ -62216,251 +62864,6 @@
       ]
     },
     {
-      "patch_id": "nvd:Cisco",
-      "source": "nvd",
-      "platform": "Cisco",
-      "title": "Cisco",
-      "product": "Cisco",
-      "version": null,
-      "release_date": "2026-07-15",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Cisco",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 10,
-      "exploited_count": 0,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 0,
-      "max_cvss": 8.8,
-      "due_date": null,
-      "priority": {
-        "score": 46,
-        "band": "high",
-        "reasons": []
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 10
-      },
-      "remediation": {
-        "summary": "Patch Cisco to the vendor's fixed release (recent high/critical CVEs from NVD).",
-        "urgency": "normal",
-        "note": "Apply within your normal patch cycle.",
-        "links": [
-          {
-            "label": "NVD advisories",
-            "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Cisco"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Cisco (all installs)",
-            "icon": "\ud83e\udde9",
-            "steps": [
-              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
-              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
-              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-20150",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco RoomOS engineering team has conducted a comprehensive internal securi\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20150",
-          "first_seen": "2026-07-15",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Cisco"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-20153",
-          "severity": "High",
-          "base_score": 7.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco RoomOS engineering team has conducted a comprehensive internal securi\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20153",
-          "first_seen": "2026-07-15",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Cisco"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-20156",
-          "severity": "High",
-          "base_score": 8.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco RoomOS engineering team has conducted a comprehensive internal securi\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20156",
-          "first_seen": "2026-07-15",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Cisco"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-20157",
-          "severity": "High",
-          "base_score": 7.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco RoomOS engineering team has conducted a comprehensive internal securi\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20157",
-          "first_seen": "2026-07-15",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Cisco"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-20158",
-          "severity": "High",
-          "base_score": 7.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco RoomOS engineering team has conducted a comprehensive internal securi\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20158",
-          "first_seen": "2026-07-15",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Cisco"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-20187",
-          "severity": "High",
-          "base_score": 7.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco RoomOS engineering team has conducted a comprehensive internal securi\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20187",
-          "first_seen": "2026-07-15",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Cisco"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-24697",
-          "severity": "High",
-          "base_score": 7.2,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "An OS command injection vulnerability exists in the start_bonjour() function of the \"rc\" binary in Cisco RV130/RV130W with firmware 1.0.3.55 and RV110W routers \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24697",
-          "first_seen": "2026-07-08",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Cisco"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-24698",
-          "severity": "High",
-          "base_score": 7.2,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "An OS command injection vulnerability exists in the save_syslog_to_file() function of the \"httpd\" binary in Cisco RV130/RV130W with firmware 1.0.3.55 and RV110W\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24698",
-          "first_seen": "2026-07-08",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Cisco"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-24699",
-          "severity": "High",
-          "base_score": 7.2,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "An OS command injection vulnerability exists in the sub_34984() function of the \"rc\" binary in Cisco RV130/RV130W with firmware 1.0.3.55 and RV110W routers with\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24699",
-          "first_seen": "2026-07-08",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Cisco"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-24700",
-          "severity": "High",
-          "base_score": 7.2,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "An OS command injection vulnerability exists in the start_lltd() function of the \"rc\" binary in Cisco RV130/RV130W with firmware 1.0.3.55 and RV110W routers wit\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24700",
-          "first_seen": "2026-07-08",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Cisco"
-          ]
-        }
-      ]
-    },
-    {
       "patch_id": "kev:SonicWall:SMA1000 Appliances",
       "source": "cisa-kev",
       "platform": "SonicWall",
@@ -62487,7 +62890,7 @@
           "actively exploited",
           "ransomware-linked",
           "critical severity",
-          "KEV overdue by 19d"
+          "KEV overdue by 20d"
         ]
       },
       "affected": {
@@ -62788,7 +63191,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 20d"
+          "KEV overdue by 21d"
         ]
       },
       "affected": {
@@ -62865,7 +63268,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 23d"
+          "KEV overdue by 24d"
         ]
       },
       "affected": {
@@ -62942,7 +63345,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 23d"
+          "KEV overdue by 24d"
         ]
       },
       "affected": {
@@ -63019,7 +63422,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 26d"
+          "KEV overdue by 27d"
         ]
       },
       "affected": {
@@ -63096,7 +63499,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 26d"
+          "KEV overdue by 27d"
         ]
       },
       "affected": {
@@ -63173,7 +63576,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 26d"
+          "KEV overdue by 27d"
         ]
       },
       "affected": {
