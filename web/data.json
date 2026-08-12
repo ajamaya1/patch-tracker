@@ -1,36 +1,36 @@
 {
-  "generated_at": "2026-08-11T19:03:50+00:00",
+  "generated_at": "2026-08-12T07:53:56+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
     "apple": 193,
-    "cisa-kev": 50,
+    "cisa-kev": 52,
     "microsoft": 1,
     "nvd": 9
   },
   "stats": {
-    "total_patches": 34,
-    "total_cves": 1144,
-    "exploited_cves": 24,
-    "new_cves": 789,
+    "total_patches": 36,
+    "total_cves": 1184,
+    "exploited_cves": 26,
+    "new_cves": 826,
     "by_source": {
       "microsoft": 1,
+      "cisa-kev": 19,
       "nvd": 9,
-      "cisa-kev": 17,
       "apple": 7
     },
     "by_severity": {
       "Critical": 7,
-      "High": 20,
+      "High": 22,
       "unknown": 7
     },
     "by_status": {
-      "new": 34
+      "new": 36
     },
     "by_product_kind": {
       "client": 246,
       "server": 256,
-      "other": 691
+      "other": 733
     }
   },
   "patches": [
@@ -41,7 +41,7 @@
       "title": "August 2026 Security Updates",
       "product": "Microsoft Security Update",
       "version": "2026-Aug",
-      "release_date": "2026-08-11T07:00:00Z",
+      "release_date": "2026-08-11T17:03:35Z",
       "patch_tuesday": "2026-08-11",
       "servicing": {
         "channel": "B",
@@ -59,9 +59,9 @@
       "url": "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2026-Aug",
       "severity": "Critical",
       "status": "new",
-      "cve_count": 751,
+      "cve_count": 790,
       "exploited_count": 1,
-      "new_count": 751,
+      "new_count": 790,
       "ransomware_count": 0,
       "disclosed_count": 2,
       "max_cvss": 10.0,
@@ -78,10 +78,10 @@
       "affected": {
         "client": 246,
         "server": 256,
-        "other": 479
+        "other": 520
       },
       "remediation": {
-        "summary": "Apply the August 2026 Security Updates (246 affecting Windows clients; 256 affecting Windows Server; 479 affecting other Microsoft products).",
+        "summary": "Apply the August 2026 Security Updates (246 affecting Windows clients; 256 affecting Windows Server; 520 affecting other Microsoft products).",
         "urgency": "critical",
         "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
         "links": [
@@ -389,6 +389,728 @@
           ],
           "products": [
             "azl3 hdf5 1.14.6-4 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19137",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19137",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19138",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19138",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19139",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19139",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19140",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19140",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19142",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19142",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19144",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19144",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19145",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19145",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19146",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19146",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19147",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19147",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19148",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19148",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19149",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19149",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19150",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19150",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19151",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19151",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19152",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19152",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19153",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19153",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19155",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19155",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19156",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19156",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19157",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19157",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19158",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19158",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19159",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19159",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19160",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19160",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19161",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19161",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19162",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19162",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19163",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19163",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19164",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19164",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19165",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19165",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19166",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19166",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19167",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19167",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19168",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19168",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19169",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19169",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19170",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19170",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19171",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19171",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19172",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19172",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19173",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19173",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19174",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19174",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19175",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19175",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19176",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19176",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19177",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-19177",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
           ]
         },
         {
@@ -13667,6 +14389,7 @@
           "is_new": true,
           "product_kinds": [
             "client",
+            "other",
             "server"
           ],
           "products": [
@@ -13688,6 +14411,12 @@
             "Windows 11 Version 25H2 for x64-based Systems",
             "Windows 11 Version 26H1 for ARM64-based Systems",
             "Windows 11 version 26H1 for x64-based Systems",
+            "Azure Confidential Compute VM SKU DCasv5/DCadsv5",
+            "Azure Confidential Compute VM SKU DCasv6/DCadsv6",
+            "Azure Confidential Compute VM SKU ECasv5/ECadsv5",
+            "Azure Confidential Compute VM SKU ECasv6/ECadsv6",
+            "DCesv6-series Azure VM",
+            "Ecesv6-series Azure VM",
             "Windows Server 2019",
             "Windows Server 2019 (Server Core installation)",
             "Windows Server 2022",
@@ -13710,6 +14439,7 @@
           "is_new": true,
           "product_kinds": [
             "client",
+            "other",
             "server"
           ],
           "products": [
@@ -13731,6 +14461,12 @@
             "Windows 11 Version 25H2 for x64-based Systems",
             "Windows 11 Version 26H1 for ARM64-based Systems",
             "Windows 11 version 26H1 for x64-based Systems",
+            "Azure Confidential Compute VM SKU DCasv5/DCadsv5",
+            "Azure Confidential Compute VM SKU DCasv6/DCadsv6",
+            "Azure Confidential Compute VM SKU ECasv5/ECadsv5",
+            "Azure Confidential Compute VM SKU ECasv6/ECadsv6",
+            "DCesv6-series Azure VM",
+            "Ecesv6-series Azure VM",
             "Windows Server 2019",
             "Windows Server 2019 (Server Core installation)",
             "Windows Server 2022",
@@ -20377,6 +21113,25 @@
           ]
         },
         {
+          "cve_id": "CVE-2026-70339",
+          "severity": "Important",
+          "base_score": 5.4,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Remote Code Execution",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70339",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
           "cve_id": "CVE-2026-70340",
           "severity": "Important",
           "base_score": 8.1,
@@ -20959,6 +21714,162 @@
           "products": [
             "Windows 11 Version 26H1 for ARM64-based Systems",
             "Windows 11 version 26H1 for x64-based Systems"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:Cisco:Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD)",
+      "source": "cisa-kev",
+      "platform": "Cisco",
+      "title": "Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD)",
+      "product": "Cisco",
+      "version": null,
+      "release_date": "2026-08-11",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-08-14",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 2d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-20349",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) Heap Inspection Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20349",
+          "first_seen": "2026-08-11",
+          "due_date": "2026-08-14",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD)"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:Metabase:Metabase",
+      "source": "cisa-kev",
+      "platform": "Metabase",
+      "title": "Metabase Metabase",
+      "product": "Metabase",
+      "version": null,
+      "release_date": "2026-08-11",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-08-14",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 2d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Metabase Metabase has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Metabase Metabase (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-72898",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Metabase SQL Injection Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72898",
+          "first_seen": "2026-08-11",
+          "due_date": "2026-08-14",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Metabase Metabase"
           ]
         }
       ]
@@ -22379,7 +23290,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 1d"
+          "KEV overdue by 2d"
         ]
       },
       "affected": {
@@ -22978,7 +23889,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 3d"
+          "KEV overdue by 4d"
         ]
       },
       "affected": {
@@ -23045,18 +23956,17 @@
       "status": "new",
       "cve_count": 1,
       "exploited_count": 1,
-      "new_count": 1,
+      "new_count": 0,
       "ransomware_count": 0,
       "disclosed_count": 1,
       "max_cvss": null,
       "due_date": "2026-08-07",
       "priority": {
-        "score": 100,
+        "score": 98,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "newly released",
-          "KEV overdue by 4d"
+          "KEV overdue by 5d"
         ]
       },
       "affected": {
@@ -23098,7 +24008,7 @@
           "first_seen": "2026-08-04",
           "due_date": "2026-08-07",
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -23123,18 +24033,17 @@
       "status": "new",
       "cve_count": 1,
       "exploited_count": 1,
-      "new_count": 1,
+      "new_count": 0,
       "ransomware_count": 0,
       "disclosed_count": 1,
       "max_cvss": null,
       "due_date": "2026-08-07",
       "priority": {
-        "score": 100,
+        "score": 98,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "newly released",
-          "KEV overdue by 4d"
+          "KEV overdue by 5d"
         ]
       },
       "affected": {
@@ -23176,7 +24085,7 @@
           "first_seen": "2026-08-04",
           "due_date": "2026-08-07",
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -23201,18 +24110,17 @@
       "status": "new",
       "cve_count": 2,
       "exploited_count": 2,
-      "new_count": 1,
+      "new_count": 0,
       "ransomware_count": 0,
       "disclosed_count": 2,
       "max_cvss": null,
       "due_date": "2026-08-06",
       "priority": {
-        "score": 100,
+        "score": 98,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "newly released",
-          "KEV overdue by 5d"
+          "KEV overdue by 6d"
         ]
       },
       "affected": {
@@ -23254,7 +24162,7 @@
           "first_seen": "2026-08-04",
           "due_date": "2026-08-07",
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -25398,7 +26306,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 10d"
+          "KEV overdue by 11d"
         ]
       },
       "affected": {
@@ -33255,7 +34163,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 12d"
+          "KEV overdue by 13d"
         ]
       },
       "affected": {
@@ -33332,7 +34240,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 1d"
+          "KEV overdue by 2d"
         ]
       },
       "affected": {
@@ -33409,7 +34317,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 17d"
+          "KEV overdue by 18d"
         ]
       },
       "affected": {
@@ -33486,7 +34394,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 18d"
+          "KEV overdue by 19d"
         ]
       },
       "affected": {
@@ -33563,7 +34471,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 68d"
+          "KEV overdue by 69d"
         ]
       },
       "affected": {
@@ -33678,7 +34586,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 18d"
+          "KEV overdue by 19d"
         ]
       },
       "affected": {
@@ -33886,7 +34794,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 23d"
+          "KEV overdue by 24d"
         ]
       },
       "affected": {
@@ -33982,7 +34890,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 13d"
+          "KEV overdue by 14d"
         ]
       },
       "affected": {
@@ -34059,7 +34967,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 24d"
+          "KEV overdue by 25d"
         ]
       },
       "affected": {
@@ -34138,7 +35046,7 @@
           "actively exploited",
           "ransomware-linked",
           "critical severity",
-          "KEV overdue by 25d"
+          "KEV overdue by 26d"
         ]
       },
       "affected": {
@@ -34439,7 +35347,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 26d"
+          "KEV overdue by 27d"
         ]
       },
       "affected": {
