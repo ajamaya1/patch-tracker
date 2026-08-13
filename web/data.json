@@ -1,31 +1,31 @@
 {
-  "generated_at": "2026-08-12T19:03:26+00:00",
+  "generated_at": "2026-08-13T07:54:55+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
     "apple": 193,
-    "cisa-kev": 52,
+    "cisa-kev": 51,
     "microsoft": 1,
     "nvd": 9
   },
   "stats": {
-    "total_patches": 36,
+    "total_patches": 35,
     "total_cves": 526,
-    "exploited_cves": 26,
-    "new_cves": 168,
+    "exploited_cves": 25,
+    "new_cves": 152,
     "by_source": {
       "microsoft": 1,
       "nvd": 9,
-      "cisa-kev": 19,
+      "cisa-kev": 18,
       "apple": 7
     },
     "by_severity": {
       "Critical": 8,
-      "High": 21,
+      "High": 20,
       "unknown": 7
     },
     "by_status": {
-      "new": 36
+      "new": 35
     },
     "by_product_kind": {
       "client": 32,
@@ -3761,6 +3761,139 @@
       ]
     },
     {
+      "patch_id": "nvd:Atlassian",
+      "source": "nvd",
+      "platform": "Atlassian",
+      "title": "Atlassian",
+      "product": "Atlassian",
+      "version": null,
+      "release_date": "2026-08-12",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Atlassian",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 4,
+      "exploited_count": 0,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 0,
+      "max_cvss": 8.2,
+      "due_date": null,
+      "priority": {
+        "score": 59,
+        "band": "high",
+        "reasons": [
+          "newly released"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 4
+      },
+      "remediation": {
+        "summary": "Patch Atlassian to the vendor's fixed release (recent high/critical CVEs from NVD).",
+        "urgency": "normal",
+        "note": "Apply within your normal patch cycle.",
+        "links": [
+          {
+            "label": "NVD advisories",
+            "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Atlassian"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Atlassian (all installs)",
+            "icon": "\ud83e\udde9",
+            "steps": [
+              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
+              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
+              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-21575",
+          "severity": "High",
+          "base_score": 8.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "This High severity RCE (Remote Code Execution) vulnerability was introduced in version 3.4.11 of Sourcetree for Mac and Sourcetree for Windows. \n\t\n\tThis RCE (Re\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21575",
+          "first_seen": "2026-07-21",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Atlassian"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-21577",
+          "severity": "High",
+          "base_score": 7.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "This High severity DoS (Denial of Service) vulnerability was introduced in versions 9.0.1, 9.1.0, 9.2.0, 9.3.1, 9.4.0, 9.5.1, 10.0.2, 10.1.0 and 10.2.0 of Confl\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21577",
+          "first_seen": "2026-07-21",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Atlassian"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-21579",
+          "severity": "High",
+          "base_score": 8.2,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "This High severity Information Disclosure vulnerability was introduced in versions 7.17.0, 7.19.0, 8.5.0, 8.9.0, 9.0.1, 9.1.0, 9.2.0, 10.0.2, 10.1.0, and 10.2.0\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21579",
+          "first_seen": "2026-07-21",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Atlassian"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-73498",
+          "severity": "High",
+          "base_score": 7.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "MCP Atlassian is a Model Context Protocol (MCP) server for Atlassian products (Confluence and Jira). Prior to 0.22.0, confluence_upload_attachment passes its cl\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73498",
+          "first_seen": "2026-08-12",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Atlassian"
+          ]
+        }
+      ]
+    },
+    {
       "patch_id": "nvd:Fortinet",
       "source": "nvd",
       "platform": "Fortinet",
@@ -3977,7 +4110,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 2d"
+          "KEV due in 1d"
         ]
       },
       "affected": {
@@ -4055,7 +4188,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 2d"
+          "KEV due in 1d"
         ]
       },
       "affected": {
@@ -4731,7 +4864,7 @@
       "status": "new",
       "cve_count": 23,
       "exploited_count": 0,
-      "new_count": 17,
+      "new_count": 1,
       "ransomware_count": 0,
       "disclosed_count": 0,
       "max_cvss": 9.9,
@@ -4783,7 +4916,7 @@
           "first_seen": "2026-08-05",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -4916,7 +5049,7 @@
           "first_seen": "2026-08-05",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -4935,7 +5068,7 @@
           "first_seen": "2026-08-05",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -4954,7 +5087,7 @@
           "first_seen": "2026-08-05",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -4973,7 +5106,7 @@
           "first_seen": "2026-08-05",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -4992,7 +5125,7 @@
           "first_seen": "2026-08-05",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -5011,7 +5144,7 @@
           "first_seen": "2026-08-05",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -5030,7 +5163,7 @@
           "first_seen": "2026-08-05",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -5049,7 +5182,7 @@
           "first_seen": "2026-08-05",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -5068,7 +5201,7 @@
           "first_seen": "2026-08-05",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -5087,7 +5220,7 @@
           "first_seen": "2026-08-05",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -5106,7 +5239,7 @@
           "first_seen": "2026-08-05",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -5125,7 +5258,7 @@
           "first_seen": "2026-08-05",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -5144,7 +5277,7 @@
           "first_seen": "2026-08-05",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -5163,7 +5296,7 @@
           "first_seen": "2026-08-05",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -5182,7 +5315,7 @@
           "first_seen": "2026-08-05",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -5523,7 +5656,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 2d"
+          "KEV overdue by 3d"
         ]
       },
       "affected": {
@@ -6111,18 +6244,17 @@
       "status": "new",
       "cve_count": 1,
       "exploited_count": 1,
-      "new_count": 1,
+      "new_count": 0,
       "ransomware_count": 0,
       "disclosed_count": 1,
       "max_cvss": null,
       "due_date": "2026-08-08",
       "priority": {
-        "score": 100,
+        "score": 98,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "newly released",
-          "KEV overdue by 4d"
+          "KEV overdue by 5d"
         ]
       },
       "affected": {
@@ -6164,7 +6296,7 @@
           "first_seen": "2026-08-05",
           "due_date": "2026-08-08",
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -6199,7 +6331,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 5d"
+          "KEV overdue by 6d"
         ]
       },
       "affected": {
@@ -6276,7 +6408,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 5d"
+          "KEV overdue by 6d"
         ]
       },
       "affected": {
@@ -6353,7 +6485,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 6d"
+          "KEV overdue by 7d"
         ]
       },
       "affected": {
@@ -8539,7 +8671,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 11d"
+          "KEV overdue by 12d"
         ]
       },
       "affected": {
@@ -16396,7 +16528,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 13d"
+          "KEV overdue by 14d"
         ]
       },
       "affected": {
@@ -16473,7 +16605,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 2d"
+          "KEV overdue by 3d"
         ]
       },
       "affected": {
@@ -16550,7 +16682,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 18d"
+          "KEV overdue by 19d"
         ]
       },
       "affected": {
@@ -16627,7 +16759,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 19d"
+          "KEV overdue by 20d"
         ]
       },
       "affected": {
@@ -16704,7 +16836,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 69d"
+          "KEV overdue by 70d"
         ]
       },
       "affected": {
@@ -16819,7 +16951,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 19d"
+          "KEV overdue by 20d"
         ]
       },
       "affected": {
@@ -16891,118 +17023,6 @@
       ]
     },
     {
-      "patch_id": "nvd:Atlassian",
-      "source": "nvd",
-      "platform": "Atlassian",
-      "title": "Atlassian",
-      "product": "Atlassian",
-      "version": null,
-      "release_date": "2026-07-21",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Atlassian",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 3,
-      "exploited_count": 0,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 0,
-      "max_cvss": 8.2,
-      "due_date": null,
-      "priority": {
-        "score": 44,
-        "band": "medium",
-        "reasons": []
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 3
-      },
-      "remediation": {
-        "summary": "Patch Atlassian to the vendor's fixed release (recent high/critical CVEs from NVD).",
-        "urgency": "normal",
-        "note": "Apply within your normal patch cycle.",
-        "links": [
-          {
-            "label": "NVD advisories",
-            "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Atlassian"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Atlassian (all installs)",
-            "icon": "\ud83e\udde9",
-            "steps": [
-              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
-              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
-              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-21575",
-          "severity": "High",
-          "base_score": 8.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "This High severity RCE (Remote Code Execution) vulnerability was introduced in version 3.4.11 of Sourcetree for Mac and Sourcetree for Windows. \n\t\n\tThis RCE (Re\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21575",
-          "first_seen": "2026-07-21",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Atlassian"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-21577",
-          "severity": "High",
-          "base_score": 7.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "This High severity DoS (Denial of Service) vulnerability was introduced in versions 9.0.1, 9.1.0, 9.2.0, 9.3.1, 9.4.0, 9.5.1, 10.0.2, 10.1.0 and 10.2.0 of Confl\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21577",
-          "first_seen": "2026-07-21",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Atlassian"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-21579",
-          "severity": "High",
-          "base_score": 8.2,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "This High severity Information Disclosure vulnerability was introduced in versions 7.17.0, 7.19.0, 8.5.0, 8.9.0, 9.0.1, 9.1.0, 9.2.0, 10.0.2, 10.1.0, and 10.2.0\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21579",
-          "first_seen": "2026-07-21",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Atlassian"
-          ]
-        }
-      ]
-    },
-    {
       "patch_id": "kev:Fortinet:FortiSandbox",
       "source": "cisa-kev",
       "platform": "Fortinet",
@@ -17027,7 +17047,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 24d"
+          "KEV overdue by 25d"
         ]
       },
       "affected": {
@@ -17123,7 +17143,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 14d"
+          "KEV overdue by 15d"
         ]
       },
       "affected": {
@@ -17200,7 +17220,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 25d"
+          "KEV overdue by 26d"
         ]
       },
       "affected": {
@@ -17279,7 +17299,7 @@
           "actively exploited",
           "ransomware-linked",
           "critical severity",
-          "KEV overdue by 26d"
+          "KEV overdue by 27d"
         ]
       },
       "affected": {
@@ -17420,83 +17440,6 @@
           ],
           "products": [
             "Citrix"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "kev:Cisco:IOS",
-      "source": "cisa-kev",
-      "platform": "Cisco",
-      "title": "Cisco IOS",
-      "product": "Cisco",
-      "version": null,
-      "release_date": "2026-07-13",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 1,
-      "exploited_count": 1,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 1,
-      "max_cvss": null,
-      "due_date": "2026-07-16",
-      "priority": {
-        "score": 98,
-        "band": "critical",
-        "reasons": [
-          "actively exploited",
-          "KEV overdue by 27d"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 1
-      },
-      "remediation": {
-        "summary": "Cisco IOS has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
-        "urgency": "critical",
-        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
-        "links": [
-          {
-            "label": "CISA KEV catalog",
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Cisco IOS (all installs)",
-            "icon": "\ud83c\udf10",
-            "steps": [
-              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
-              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
-              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2008-4128",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "Cisco IOS Cross-Site Request Forgery Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2008-4128",
-          "first_seen": "2026-07-13",
-          "due_date": "2026-07-16",
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Cisco IOS"
           ]
         }
       ]
