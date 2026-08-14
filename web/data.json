@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T19:04:49+00:00",
+  "generated_at": "2026-08-14T07:52:09+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
@@ -9,28 +9,28 @@
     "nvd": 8
   },
   "stats": {
-    "total_patches": 34,
-    "total_cves": 1182,
-    "exploited_cves": 25,
-    "new_cves": 813,
+    "total_patches": 33,
+    "total_cves": 1161,
+    "exploited_cves": 23,
+    "new_cves": 810,
     "by_source": {
       "microsoft": 1,
       "nvd": 8,
-      "cisa-kev": 18,
+      "cisa-kev": 17,
       "apple": 7
     },
     "by_severity": {
-      "Critical": 8,
+      "Critical": 7,
       "High": 19,
       "unknown": 7
     },
     "by_status": {
-      "new": 34
+      "new": 33
     },
     "by_product_kind": {
       "client": 246,
       "server": 281,
-      "other": 731
+      "other": 710
     }
   },
   "patches": [
@@ -12689,7 +12689,7 @@
         },
         {
           "cve_id": "CVE-2026-65679",
-          "severity": "Important",
+          "severity": "Critical",
           "base_score": 8.1,
           "exploited": false,
           "publicly_disclosed": false,
@@ -22006,7 +22006,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 1d"
+          "KEV due in 0d"
         ]
       },
       "affected": {
@@ -22084,7 +22084,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 1d"
+          "KEV due in 0d"
         ]
       },
       "affected": {
@@ -22149,7 +22149,7 @@
       "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Adobe",
       "severity": "Critical",
       "status": "new",
-      "cve_count": 29,
+      "cve_count": 18,
       "exploited_count": 0,
       "new_count": 8,
       "ransomware_count": 0,
@@ -22167,7 +22167,7 @@
       "affected": {
         "client": 0,
         "server": 0,
-        "other": 29
+        "other": 18
       },
       "remediation": {
         "summary": "Patch Adobe to the vendor's fixed release (recent high/critical CVEs from NVD).",
@@ -22204,158 +22204,6 @@
           "due_date": null,
           "ransomware": false,
           "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-47984",
-          "severity": "High",
-          "base_score": 8.2,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerabi\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47984",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-47988",
-          "severity": "High",
-          "base_score": 8.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerabi\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47988",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-47992",
-          "severity": "High",
-          "base_score": 7.2,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitra\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47992",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-47994",
-          "severity": "High",
-          "base_score": 8.7,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts in\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47994",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-47995",
-          "severity": "High",
-          "base_score": 8.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a high-privileged attacker to inject malicious scripts i\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47995",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48252",
-          "severity": "High",
-          "base_score": 8.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Experience Manager is affected by a Missing Authentication for Critical Function vulnerability that could result in a Security feature bypass. An attacker\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48252",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48259",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Experience Manager is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in arbitrary code execution in the context of the c\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48259",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48310",
-          "severity": "High",
-          "base_score": 8.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Experience Manager is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbit\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48310",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -22467,63 +22315,6 @@
           "impact": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. An attacker could exploit this v\u2026",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48333",
           "first_seen": "2026-08-03",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48356",
-          "severity": "Critical",
-          "base_score": 9.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Unrestricted Upload of File with Dangerous Type vulnerability that could result in arbitrary code execution in the context of t\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48356",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48358",
-          "severity": "Critical",
-          "base_score": 9.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Improper Encoding or Escaping of Output vulnerability that could result in arbitrary code execution in the context of the curre\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48358",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48359",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Experience Manager is affected by an Improper Restriction of XML External Entity Reference ('XXE') vulnerability that could result in arbitrary code execu\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48359",
-          "first_seen": "2026-07-14",
           "due_date": null,
           "ransomware": false,
           "is_new": false,
@@ -23552,7 +23343,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 3d"
+          "KEV overdue by 4d"
         ]
       },
       "affected": {
@@ -23619,17 +23410,15 @@
       "status": "new",
       "cve_count": 1,
       "exploited_count": 0,
-      "new_count": 1,
+      "new_count": 0,
       "ransomware_count": 0,
       "disclosed_count": 0,
       "max_cvss": null,
       "due_date": null,
       "priority": {
-        "score": 15,
+        "score": 0,
         "band": "low",
-        "reasons": [
-          "newly released"
-        ]
+        "reasons": []
       },
       "affected": {
         "client": 0,
@@ -23670,7 +23459,7 @@
           "first_seen": "2026-08-06",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [],
           "products": []
         }
@@ -23691,17 +23480,15 @@
       "status": "new",
       "cve_count": 1,
       "exploited_count": 0,
-      "new_count": 1,
+      "new_count": 0,
       "ransomware_count": 0,
       "disclosed_count": 0,
       "max_cvss": null,
       "due_date": null,
       "priority": {
-        "score": 15,
+        "score": 0,
         "band": "low",
-        "reasons": [
-          "newly released"
-        ]
+        "reasons": []
       },
       "affected": {
         "client": 0,
@@ -23742,7 +23529,7 @@
           "first_seen": "2026-08-06",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [],
           "products": []
         }
@@ -23763,17 +23550,15 @@
       "status": "new",
       "cve_count": 1,
       "exploited_count": 0,
-      "new_count": 1,
+      "new_count": 0,
       "ransomware_count": 0,
       "disclosed_count": 0,
       "max_cvss": null,
       "due_date": null,
       "priority": {
-        "score": 15,
+        "score": 0,
         "band": "low",
-        "reasons": [
-          "newly released"
-        ]
+        "reasons": []
       },
       "affected": {
         "client": 0,
@@ -23814,7 +23599,7 @@
           "first_seen": "2026-08-06",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [],
           "products": []
         }
@@ -23835,16 +23620,15 @@
       "status": "new",
       "cve_count": 13,
       "exploited_count": 0,
-      "new_count": 2,
+      "new_count": 0,
       "ransomware_count": 0,
       "disclosed_count": 0,
       "max_cvss": 9.8,
       "due_date": null,
       "priority": {
-        "score": 75,
-        "band": "critical",
+        "score": 60,
+        "band": "high",
         "reasons": [
-          "newly released",
           "critical severity"
         ]
       },
@@ -24058,7 +23842,7 @@
           "first_seen": "2026-08-06",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -24115,7 +23899,7 @@
           "first_seen": "2026-08-06",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -24150,7 +23934,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 5d"
+          "KEV overdue by 6d"
         ]
       },
       "affected": {
@@ -24227,7 +24011,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 6d"
+          "KEV overdue by 7d"
         ]
       },
       "affected": {
@@ -24304,7 +24088,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 6d"
+          "KEV overdue by 7d"
         ]
       },
       "affected": {
@@ -24381,7 +24165,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 7d"
+          "KEV overdue by 8d"
         ]
       },
       "affected": {
@@ -24465,7 +24249,7 @@
       "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Google%20Chrome",
       "severity": "Critical",
       "status": "new",
-      "cve_count": 107,
+      "cve_count": 99,
       "exploited_count": 0,
       "new_count": 0,
       "ransomware_count": 0,
@@ -24482,7 +24266,7 @@
       "affected": {
         "client": 0,
         "server": 0,
-        "other": 107
+        "other": 99
       },
       "remediation": {
         "summary": "Patch Google Chrome to the vendor's fixed release (recent high/critical CVEs from NVD).",
@@ -24507,177 +24291,6 @@
         ]
       },
       "cves": [
-        {
-          "cve_id": "CVE-2026-15764",
-          "severity": "High",
-          "base_score": 7.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Ozone in Google Chrome on Linux prior to 150.0.7871.125 allowed a remote attacker who convinced a user to engage in specific UI gestures to po\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15764",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-15765",
-          "severity": "High",
-          "base_score": 7.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Ozone in Google Chrome prior to 150.0.7871.125 allowed a remote attacker who convinced a user to engage in specific UI gestures to potentially\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15765",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-15767",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Heap buffer overflow in libyuv in Google Chrome on Windows prior to 150.0.7871.125 allowed a remote attacker to execute arbitrary code inside a sandbox via a cr\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15767",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-15769",
-          "severity": "High",
-          "base_score": 8.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in Linux Toolkit Theming in Google Chrome on Linux prior to 150.0.7871.125 allowed a remote attacker who had compromi\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15769",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-15772",
-          "severity": "High",
-          "base_score": 8.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in GPU in Google Chrome on Android prior to 150.0.7871.125 allowed a remote attacker who had compromised the renderer process to potentially perf\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15772",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-15773",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Core in Google Chrome on Windows prior to 150.0.7871.125 allowed a remote attacker to potentially perform a sandbox escape via a crafted HTML \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15773",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-15774",
-          "severity": "High",
-          "base_score": 8.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Skia in Google Chrome prior to 150.0.7871.125 allowed a remote attacker who had compromised the renderer process to potentially perform a sand\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15774",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-15776",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Inappropriate implementation in V8 in Google Chrome prior to 150.0.7871.125 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted H\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15776",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-15777",
-          "severity": "High",
-          "base_score": 7.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in UI in Google Chrome on Linux prior to 150.0.7871.125 allowed a remote attacker who convinced a user to engage in specific UI gestures to poten\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15777",
-          "first_seen": "2026-07-14",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
         {
           "cve_id": "CVE-2026-15899",
           "severity": "Critical",
@@ -26539,6 +26152,25 @@
           "products": [
             "Google Chrome"
           ]
+        },
+        {
+          "cve_id": "CVE-2026-17816",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Insufficient policy enforcement in Speech in Google Chrome on Android prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17816",
+          "first_seen": "2026-07-30",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
         }
       ]
     },
@@ -26567,7 +26199,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 12d"
+          "KEV overdue by 13d"
         ]
       },
       "affected": {
@@ -34424,7 +34056,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 14d"
+          "KEV overdue by 15d"
         ]
       },
       "affected": {
@@ -34501,7 +34133,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 3d"
+          "KEV overdue by 4d"
         ]
       },
       "affected": {
@@ -34578,7 +34210,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 19d"
+          "KEV overdue by 20d"
         ]
       },
       "affected": {
@@ -34655,7 +34287,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 20d"
+          "KEV overdue by 21d"
         ]
       },
       "affected": {
@@ -34732,7 +34364,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 70d"
+          "KEV overdue by 71d"
         ]
       },
       "affected": {
@@ -34847,7 +34479,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 20d"
+          "KEV overdue by 21d"
         ]
       },
       "affected": {
@@ -34943,7 +34575,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 25d"
+          "KEV overdue by 26d"
         ]
       },
       "affected": {
@@ -35039,7 +34671,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 15d"
+          "KEV overdue by 16d"
         ]
       },
       "affected": {
@@ -35116,7 +34748,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 26d"
+          "KEV overdue by 27d"
         ]
       },
       "affected": {
@@ -35164,104 +34796,6 @@
           ],
           "products": [
             "Oracle E-Business Suite"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "kev:SonicWall:SMA1000 Appliances",
-      "source": "cisa-kev",
-      "platform": "SonicWall",
-      "title": "SonicWall SMA1000 Appliances",
-      "product": "SonicWall",
-      "version": null,
-      "release_date": "2026-07-14",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": "Critical",
-      "status": "new",
-      "cve_count": 2,
-      "exploited_count": 2,
-      "new_count": 0,
-      "ransomware_count": 2,
-      "disclosed_count": 2,
-      "max_cvss": null,
-      "due_date": "2026-07-17",
-      "priority": {
-        "score": 100,
-        "band": "critical",
-        "reasons": [
-          "actively exploited",
-          "ransomware-linked",
-          "critical severity",
-          "KEV overdue by 27d"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 2
-      },
-      "remediation": {
-        "summary": "SonicWall SMA1000 Appliances has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
-        "urgency": "critical",
-        "note": "2 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
-        "links": [
-          {
-            "label": "CISA KEV catalog",
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "SonicWall SMA1000 Appliances (all installs)",
-            "icon": "\ud83c\udf10",
-            "steps": [
-              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
-              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
-              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-15409",
-          "severity": "Critical",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "SonicWall SMA1000 Appliances Server-Side Request Forgery Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15409",
-          "first_seen": "2026-07-14",
-          "due_date": "2026-07-17",
-          "ransomware": true,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "SonicWall SMA1000 Appliances"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-15410",
-          "severity": "Critical",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "SonicWall SMA1000 Appliances Code Injection Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15410",
-          "first_seen": "2026-07-14",
-          "due_date": "2026-07-17",
-          "ransomware": true,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "SonicWall SMA1000 Appliances"
           ]
         }
       ]
