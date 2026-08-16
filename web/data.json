@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T06:58:27+00:00",
+  "generated_at": "2026-08-16T07:00:44+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
@@ -9,28 +9,28 @@
     "nvd": 8
   },
   "stats": {
-    "total_patches": 31,
-    "total_cves": 2413,
-    "exploited_cves": 23,
+    "total_patches": 30,
+    "total_cves": 2407,
+    "exploited_cves": 21,
     "new_cves": 2168,
     "by_source": {
       "microsoft": 1,
       "nvd": 8,
-      "cisa-kev": 15,
+      "cisa-kev": 14,
       "apple": 7
     },
     "by_severity": {
-      "Critical": 7,
+      "Critical": 6,
       "High": 17,
       "unknown": 7
     },
     "by_status": {
-      "new": 31
+      "new": 30
     },
     "by_product_kind": {
       "client": 438,
       "server": 497,
-      "other": 1775
+      "other": 1769
     }
   },
   "patches": [
@@ -51995,7 +51995,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 1d"
+          "KEV overdue by 2d"
         ]
       },
       "affected": {
@@ -52073,7 +52073,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 1d"
+          "KEV overdue by 2d"
         ]
       },
       "affected": {
@@ -53012,32 +53012,31 @@
       "patch_tuesday": null,
       "servicing": null,
       "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Zoom",
-      "severity": "Critical",
+      "severity": "High",
       "status": "new",
-      "cve_count": 7,
+      "cve_count": 3,
       "exploited_count": 0,
       "new_count": 3,
       "ransomware_count": 0,
       "disclosed_count": 0,
-      "max_cvss": 9.8,
+      "max_cvss": 8.3,
       "due_date": null,
       "priority": {
-        "score": 75,
-        "band": "critical",
+        "score": 60,
+        "band": "high",
         "reasons": [
-          "newly released",
-          "critical severity"
+          "newly released"
         ]
       },
       "affected": {
         "client": 0,
         "server": 0,
-        "other": 7
+        "other": 3
       },
       "remediation": {
         "summary": "Patch Zoom to the vendor's fixed release (recent high/critical CVEs from NVD).",
-        "urgency": "high",
-        "note": "Critical-severity fixes included \u2014 schedule promptly.",
+        "urgency": "normal",
+        "note": "Apply within your normal patch cycle.",
         "links": [
           {
             "label": "NVD advisories",
@@ -53057,82 +53056,6 @@
         ]
       },
       "cves": [
-        {
-          "cve_id": "CVE-2026-53409",
-          "severity": "High",
-          "base_score": 7.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Improper Privilege Management in Zoom Rooms for Windows before version 7.1.0 may allow an authenticated user to conduct an escalation of privilege via local acc\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53409",
-          "first_seen": "2026-07-16",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Zoom"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-53410",
-          "severity": "High",
-          "base_score": 7.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "A time-of-check to time-of-use (TOCTOU) race condition in the installation and uninstallation process of certain Zoom Clients for Windows could allow an authent\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53410",
-          "first_seen": "2026-07-16",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Zoom"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-53411",
-          "severity": "High",
-          "base_score": 7.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "A time-of-check to time-of-use (TOCTOU) race condition in the installation and uninstallation process of certain Zoom Clients for Windows could allow an authent\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53411",
-          "first_seen": "2026-07-16",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Zoom"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-53412",
-          "severity": "Critical",
-          "base_score": 9.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Improper Input Validation in Zoom Desktop Client for Windows, Zoom VDI Client for Windows, and Zoom Meeting SDK for Windows may allow an unauthenticated user to\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53412",
-          "first_seen": "2026-07-16",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Zoom"
-          ]
-        },
         {
           "cve_id": "CVE-2026-53413",
           "severity": "High",
@@ -53217,7 +53140,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 5d"
+          "KEV overdue by 6d"
         ]
       },
       "affected": {
@@ -53808,7 +53731,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 7d"
+          "KEV overdue by 8d"
         ]
       },
       "affected": {
@@ -53885,7 +53808,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 8d"
+          "KEV overdue by 9d"
         ]
       },
       "affected": {
@@ -53962,7 +53885,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 8d"
+          "KEV overdue by 9d"
         ]
       },
       "affected": {
@@ -54039,7 +53962,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 9d"
+          "KEV overdue by 10d"
         ]
       },
       "affected": {
@@ -56073,7 +55996,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 14d"
+          "KEV overdue by 15d"
         ]
       },
       "affected": {
@@ -63930,7 +63853,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 16d"
+          "KEV overdue by 17d"
         ]
       },
       "affected": {
@@ -64007,7 +63930,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 5d"
+          "KEV overdue by 6d"
         ]
       },
       "affected": {
@@ -64084,7 +64007,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 21d"
+          "KEV overdue by 22d"
         ]
       },
       "affected": {
@@ -64161,7 +64084,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 22d"
+          "KEV overdue by 23d"
         ]
       },
       "affected": {
@@ -64238,7 +64161,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 72d"
+          "KEV overdue by 73d"
         ]
       },
       "affected": {
@@ -64353,7 +64276,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 22d"
+          "KEV overdue by 23d"
         ]
       },
       "affected": {
@@ -64420,102 +64343,6 @@
           ],
           "products": [
             "WordPress Core"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "kev:Fortinet:FortiSandbox",
-      "source": "cisa-kev",
-      "platform": "Fortinet",
-      "title": "Fortinet FortiSandbox",
-      "product": "Fortinet",
-      "version": null,
-      "release_date": "2026-07-16",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 2,
-      "exploited_count": 2,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 2,
-      "max_cvss": null,
-      "due_date": "2026-07-19",
-      "priority": {
-        "score": 98,
-        "band": "critical",
-        "reasons": [
-          "actively exploited",
-          "KEV overdue by 27d"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 2
-      },
-      "remediation": {
-        "summary": "Fortinet FortiSandbox has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
-        "urgency": "critical",
-        "note": "2 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
-        "links": [
-          {
-            "label": "CISA KEV catalog",
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Fortinet FortiSandbox (all installs)",
-            "icon": "\ud83c\udf10",
-            "steps": [
-              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
-              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
-              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-25089",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "Fortinet FortiSandbox OS Command Injection Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25089",
-          "first_seen": "2026-07-16",
-          "due_date": "2026-07-19",
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Fortinet FortiSandbox"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-39808",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "Fortinet FortiSandbox OS Command Injection Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39808",
-          "first_seen": "2026-07-16",
-          "due_date": "2026-07-19",
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Fortinet FortiSandbox"
           ]
         }
       ]
