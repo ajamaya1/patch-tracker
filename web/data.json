@@ -1,36 +1,36 @@
 {
-  "generated_at": "2026-08-25T07:09:48+00:00",
+  "generated_at": "2026-08-25T18:41:07+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
     "apple": 196,
-    "cisa-kev": 54,
+    "cisa-kev": 55,
     "microsoft": 1,
     "nvd": 8
   },
   "stats": {
-    "total_patches": 35,
-    "total_cves": 1603,
-    "exploited_cves": 20,
-    "new_cves": 1222,
+    "total_patches": 36,
+    "total_cves": 1608,
+    "exploited_cves": 21,
+    "new_cves": 1227,
     "by_source": {
       "microsoft": 1,
-      "cisa-kev": 16,
+      "cisa-kev": 17,
       "nvd": 8,
       "apple": 10
     },
     "by_severity": {
       "Critical": 7,
-      "High": 18,
+      "High": 19,
       "unknown": 10
     },
     "by_status": {
-      "new": 35
+      "new": 36
     },
     "by_product_kind": {
       "client": 249,
       "server": 283,
-      "other": 1092
+      "other": 1097
     }
   },
   "patches": [
@@ -41,7 +41,7 @@
       "title": "August 2026 Security Updates",
       "product": "Microsoft Security Update",
       "version": "2026-Aug",
-      "release_date": "2026-08-25T01:07:44Z",
+      "release_date": "2026-08-25T07:00:00Z",
       "patch_tuesday": "2026-08-11",
       "servicing": {
         "channel": "B",
@@ -29692,6 +29692,560 @@
       ]
     },
     {
+      "patch_id": "kev:Gitea:Gitea",
+      "source": "cisa-kev",
+      "platform": "Gitea",
+      "title": "Gitea Gitea",
+      "product": "Gitea",
+      "version": null,
+      "release_date": "2026-08-25",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-08-28",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 3d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Gitea Gitea has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Gitea Gitea (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-60004",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Gitea Code Injection Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60004",
+          "first_seen": "2026-08-25",
+          "due_date": "2026-08-28",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Gitea Gitea"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "nvd:Adobe",
+      "source": "nvd",
+      "platform": "Adobe",
+      "title": "Adobe",
+      "product": "Adobe",
+      "version": null,
+      "release_date": "2026-08-25",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Adobe",
+      "severity": "Critical",
+      "status": "new",
+      "cve_count": 22,
+      "exploited_count": 0,
+      "new_count": 4,
+      "ransomware_count": 0,
+      "disclosed_count": 0,
+      "max_cvss": 10.0,
+      "due_date": null,
+      "priority": {
+        "score": 75,
+        "band": "critical",
+        "reasons": [
+          "newly released",
+          "critical severity"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 22
+      },
+      "remediation": {
+        "summary": "Patch Adobe to the vendor's fixed release (recent high/critical CVEs from NVD).",
+        "urgency": "high",
+        "note": "Critical-severity fixes included \u2014 schedule promptly.",
+        "links": [
+          {
+            "label": "NVD advisories",
+            "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Adobe"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Adobe (all installs)",
+            "icon": "\ud83e\udde9",
+            "steps": [
+              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
+              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
+              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-27302",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27302",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48317",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection') vulnerability that could r\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48317",
+          "first_seen": "2026-08-03",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48323",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements Used in a Template Engine vulnerability that could result in arbitrar\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48323",
+          "first_seen": "2026-08-03",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48326",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48326",
+          "first_seen": "2026-08-03",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48330",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48330",
+          "first_seen": "2026-08-03",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48331",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in privilege escalation. Exploitation of this i\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48331",
+          "first_seen": "2026-08-03",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48333",
+          "severity": "Critical",
+          "base_score": 9.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. An attacker could exploit this v\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48333",
+          "first_seen": "2026-08-03",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48381",
+          "severity": "Critical",
+          "base_score": 9.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48381",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48388",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Photoshop Installer was affected by an Uncontrolled Search Path Element vulnerability that could have resulted in arbitrary code execution in the context \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48388",
+          "first_seen": "2026-07-28",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48399",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by a Violation of Secure Design Principles vulnerability that could result in a Security feature bypass. An attacker co\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48399",
+          "first_seen": "2026-08-03",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48413",
+          "severity": "High",
+          "base_score": 8.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Commerce is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts in\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48413",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48414",
+          "severity": "High",
+          "base_score": 7.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Commerce is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts in\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48414",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48415",
+          "severity": "High",
+          "base_score": 7.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. A low-privileged attacker could leverage \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48415",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48416",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerabi\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48416",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48448",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could lea\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48448",
+          "first_seen": "2026-07-30",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48449",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48449",
+          "first_seen": "2026-07-30",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-71362",
+          "severity": "Critical",
+          "base_score": 9.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. An attacker could leverage this vulnerability \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71362",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-71398",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71398",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-71399",
+          "severity": "High",
+          "base_score": 7.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe XD is affected by a Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could expl\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71399",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76193",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in arbitrary code execution in the context of t\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76193",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76195",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability that cou\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76195",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76197",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability that cou\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76197",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        }
+      ]
+    },
+    {
       "patch_id": "kev:Oracle:HTTP Server and Oracle Weblogic Server Proxy Plug-in",
       "source": "cisa-kev",
       "platform": "Oracle",
@@ -34014,405 +34568,6 @@
           ],
           "products": [
             "Metabase Metabase"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "nvd:Adobe",
-      "source": "nvd",
-      "platform": "Adobe",
-      "title": "Adobe",
-      "product": "Adobe",
-      "version": null,
-      "release_date": "2026-08-11",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Adobe",
-      "severity": "Critical",
-      "status": "new",
-      "cve_count": 18,
-      "exploited_count": 0,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 0,
-      "max_cvss": 10.0,
-      "due_date": null,
-      "priority": {
-        "score": 60,
-        "band": "high",
-        "reasons": [
-          "critical severity"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 18
-      },
-      "remediation": {
-        "summary": "Patch Adobe to the vendor's fixed release (recent high/critical CVEs from NVD).",
-        "urgency": "high",
-        "note": "Critical-severity fixes included \u2014 schedule promptly.",
-        "links": [
-          {
-            "label": "NVD advisories",
-            "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Adobe"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Adobe (all installs)",
-            "icon": "\ud83e\udde9",
-            "steps": [
-              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
-              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
-              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-27302",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27302",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48317",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection') vulnerability that could r\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48317",
-          "first_seen": "2026-08-03",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48323",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements Used in a Template Engine vulnerability that could result in arbitrar\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48323",
-          "first_seen": "2026-08-03",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48326",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48326",
-          "first_seen": "2026-08-03",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48330",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48330",
-          "first_seen": "2026-08-03",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48331",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in privilege escalation. Exploitation of this i\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48331",
-          "first_seen": "2026-08-03",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48333",
-          "severity": "Critical",
-          "base_score": 9.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. An attacker could exploit this v\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48333",
-          "first_seen": "2026-08-03",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48381",
-          "severity": "Critical",
-          "base_score": 9.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48381",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48388",
-          "severity": "High",
-          "base_score": 8.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Photoshop Installer was affected by an Uncontrolled Search Path Element vulnerability that could have resulted in arbitrary code execution in the context \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48388",
-          "first_seen": "2026-07-28",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48399",
-          "severity": "High",
-          "base_score": 7.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by a Violation of Secure Design Principles vulnerability that could result in a Security feature bypass. An attacker co\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48399",
-          "first_seen": "2026-08-03",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48413",
-          "severity": "High",
-          "base_score": 8.7,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts in\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48413",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48414",
-          "severity": "High",
-          "base_score": 7.7,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts in\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48414",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48415",
-          "severity": "High",
-          "base_score": 7.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. A low-privileged attacker could leverage \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48415",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48416",
-          "severity": "High",
-          "base_score": 7.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerabi\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48416",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48448",
-          "severity": "High",
-          "base_score": 8.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could lea\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48448",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48449",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48449",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-71362",
-          "severity": "Critical",
-          "base_score": 9.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. An attacker could leverage this vulnerability \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71362",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-71398",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71398",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
           ]
         }
       ]
