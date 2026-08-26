@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-25T18:41:07+00:00",
+  "generated_at": "2026-08-26T07:10:00+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
     "apple": 196,
-    "cisa-kev": 55,
+    "cisa-kev": 52,
     "microsoft": 1,
     "nvd": 8
   },
@@ -12,7 +12,7 @@
     "total_patches": 36,
     "total_cves": 1608,
     "exploited_cves": 21,
-    "new_cves": 1227,
+    "new_cves": 1223,
     "by_source": {
       "microsoft": 1,
       "cisa-kev": 17,
@@ -29717,7 +29717,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 3d"
+          "KEV due in 2d"
         ]
       },
       "affected": {
@@ -30271,7 +30271,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 2d"
+          "KEV due in 1d"
         ]
       },
       "affected": {
@@ -30349,7 +30349,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 1d"
+          "KEV overdue by 2d"
         ]
       },
       "affected": {
@@ -30427,7 +30427,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 2d"
+          "KEV overdue by 3d"
         ]
       },
       "affected": {
@@ -30519,11 +30519,12 @@
       "max_cvss": null,
       "due_date": "2026-09-02",
       "priority": {
-        "score": 88,
+        "score": 100,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "newly released"
+          "newly released",
+          "KEV due in 7d"
         ]
       },
       "affected": {
@@ -31180,18 +31181,17 @@
       "status": "new",
       "cve_count": 1,
       "exploited_count": 1,
-      "new_count": 1,
+      "new_count": 0,
       "ransomware_count": 0,
       "disclosed_count": 1,
       "max_cvss": null,
       "due_date": "2026-08-21",
       "priority": {
-        "score": 100,
+        "score": 98,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "newly released",
-          "KEV overdue by 4d"
+          "KEV overdue by 5d"
         ]
       },
       "affected": {
@@ -31233,7 +31233,7 @@
           "first_seen": "2026-08-18",
           "due_date": "2026-08-21",
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -31258,16 +31258,15 @@
       "status": "new",
       "cve_count": 4,
       "exploited_count": 0,
-      "new_count": 3,
+      "new_count": 0,
       "ransomware_count": 0,
       "disclosed_count": 0,
       "max_cvss": 9.3,
       "due_date": null,
       "priority": {
-        "score": 74,
-        "band": "critical",
+        "score": 59,
+        "band": "high",
         "reasons": [
-          "newly released",
           "critical severity"
         ]
       },
@@ -31310,7 +31309,7 @@
           "first_seen": "2026-08-18",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -31329,7 +31328,7 @@
           "first_seen": "2026-08-18",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -31348,7 +31347,7 @@
           "first_seen": "2026-08-18",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -34252,7 +34251,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 5d"
+          "KEV overdue by 6d"
         ]
       },
       "affected": {
@@ -34443,7 +34442,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 11d"
+          "KEV overdue by 12d"
         ]
       },
       "affected": {
@@ -34520,7 +34519,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 11d"
+          "KEV overdue by 12d"
         ]
       },
       "affected": {
@@ -34802,7 +34801,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 15d"
+          "KEV overdue by 16d"
         ]
       },
       "affected": {
@@ -35266,7 +35265,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 17d"
+          "KEV overdue by 18d"
         ]
       },
       "affected": {
@@ -35343,7 +35342,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 18d"
+          "KEV overdue by 19d"
         ]
       },
       "affected": {
@@ -35420,7 +35419,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 18d"
+          "KEV overdue by 19d"
         ]
       },
       "affected": {
@@ -35497,7 +35496,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 19d"
+          "KEV overdue by 20d"
         ]
       },
       "affected": {
@@ -37246,7 +37245,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 24d"
+          "KEV overdue by 25d"
         ]
       },
       "affected": {
@@ -45103,7 +45102,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 26d"
+          "KEV overdue by 27d"
         ]
       },
       "affected": {
@@ -45180,7 +45179,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 15d"
+          "KEV overdue by 16d"
         ]
       },
       "affected": {
