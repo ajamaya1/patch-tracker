@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T18:45:07+00:00",
+  "generated_at": "2026-08-29T12:42:39+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
@@ -9,28 +9,28 @@
     "nvd": 8
   },
   "stats": {
-    "total_patches": 37,
-    "total_cves": 1814,
-    "exploited_cves": 28,
-    "new_cves": 1521,
+    "total_patches": 36,
+    "total_cves": 1745,
+    "exploited_cves": 27,
+    "new_cves": 1525,
     "by_source": {
       "microsoft": 1,
-      "cisa-kev": 22,
+      "cisa-kev": 21,
       "nvd": 8,
       "apple": 6
     },
     "by_severity": {
       "Critical": 7,
-      "High": 24,
+      "High": 23,
       "unknown": 6
     },
     "by_status": {
-      "new": 37
+      "new": 36
     },
     "by_product_kind": {
       "client": 248,
       "server": 283,
-      "other": 1407
+      "other": 1338
     }
   },
   "patches": [
@@ -35567,7 +35567,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 84d"
+          "KEV overdue by 85d"
         ]
       },
       "affected": {
@@ -35683,7 +35683,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 2d"
+          "KEV due in 1d"
         ]
       },
       "affected": {
@@ -35838,7 +35838,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 1d"
+          "KEV due in 0d"
         ]
       },
       "affected": {
@@ -36070,7 +36070,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 0d"
+          "KEV overdue by 1d"
         ]
       },
       "affected": {
@@ -36135,7 +36135,7 @@
       "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Adobe",
       "severity": "Critical",
       "status": "new",
-      "cve_count": 21,
+      "cve_count": 19,
       "exploited_count": 0,
       "new_count": 4,
       "ransomware_count": 0,
@@ -36153,7 +36153,7 @@
       "affected": {
         "client": 0,
         "server": 0,
-        "other": 21
+        "other": 19
       },
       "remediation": {
         "summary": "Patch Adobe to the vendor's fixed release (recent high/critical CVEs from NVD).",
@@ -36426,44 +36426,6 @@
           ]
         },
         {
-          "cve_id": "CVE-2026-48448",
-          "severity": "High",
-          "base_score": 8.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could lea\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48448",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48449",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48449",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
           "cve_id": "CVE-2026-71362",
           "severity": "Critical",
           "base_score": 9.1,
@@ -36580,6 +36542,2154 @@
       ]
     },
     {
+      "patch_id": "nvd:Google Chrome",
+      "source": "nvd",
+      "platform": "Google Chrome",
+      "title": "Google Chrome",
+      "product": "Google Chrome",
+      "version": null,
+      "release_date": "2026-08-25",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Google%20Chrome",
+      "severity": "Critical",
+      "status": "new",
+      "cve_count": 110,
+      "exploited_count": 0,
+      "new_count": 49,
+      "ransomware_count": 0,
+      "disclosed_count": 0,
+      "max_cvss": 9.6,
+      "due_date": null,
+      "priority": {
+        "score": 74,
+        "band": "critical",
+        "reasons": [
+          "newly released",
+          "critical severity"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 110
+      },
+      "remediation": {
+        "summary": "Patch Google Chrome to the vendor's fixed release (recent high/critical CVEs from NVD).",
+        "urgency": "high",
+        "note": "Critical-severity fixes included \u2014 schedule promptly.",
+        "links": [
+          {
+            "label": "NVD advisories",
+            "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Google%20Chrome"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Google Chrome (all installs)",
+            "icon": "\ud83e\udde9",
+            "steps": [
+              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
+              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
+              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-19137",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in WebGL in Google Chrome on Android prior to 151.0.7922.109 allowed a remote attacker who had compromised the renderer process to potentially pe\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19137",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19138",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Heap buffer overflow in CrashReporting in Google Chrome prior to 151.0.7922.109 allowed a remote attacker who had compromised the renderer process to potentiall\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19138",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19139",
+          "severity": "High",
+          "base_score": 7.4,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Race in CredentialProvider in Google Chrome on Windows prior to 151.0.7922.109 allowed a local attacker to perform OS-level privilege escalation via a malicious\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19139",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19140",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in GPU in Google Chrome prior to 151.0.7922.109 allowed a remote attacker who had compromised the renderer process to potentially perform a sandb\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19140",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19141",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Resources in Google Chrome on Android prior to 151.0.7922.109 allowed a remote attacker who had compromised the renderer process to potentiall\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19141",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19142",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Views in Google Chrome prior to 151.0.7922.109 allowed a remote attacker who convinced a user to engage in specific UI gestures to potentially\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19142",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19143",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Insufficient validation of untrusted input in WebAPKs in Google Chrome on Android prior to 151.0.7922.109 allowed a local attacker to potentially perform a sand\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19143",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19144",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in HTML in Google Chrome prior to 151.0.7922.109 allowed a remote attacker to potentially exploit heap corruption via a crafted HTML page. (Chrom\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19144",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19145",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Translate in Google Chrome prior to 151.0.7922.109 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML pag\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19145",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19147",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Aura in Google Chrome on Linux prior to 151.0.7922.109 allowed a remote attacker who had compromised the renderer process to potentially perfo\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19147",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19148",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Out of bounds write in GPU in Google Chrome on Linux prior to 151.0.7922.109 allowed a remote attacker who had compromised the renderer process to potentially p\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19148",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19149",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Aura in Google Chrome on Linux prior to 151.0.7922.109 allowed a remote attacker to potentially perform a sandbox escape via a crafted HTML pa\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19149",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19150",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Inappropriate implementation in V8 in Google Chrome prior to 151.0.7922.109 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted H\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19150",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19151",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in V8 in Google Chrome prior to 151.0.7922.109 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (Chr\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19151",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19152",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Insufficient policy enforcement in Navigation in Google Chrome prior to 151.0.7922.109 allowed a remote attacker who had compromised the renderer process to pot\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19152",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19153",
+          "severity": "High",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Insufficient validation of untrusted input in Workers in Google Chrome prior to 151.0.7922.109 allowed a remote attacker who had compromised the renderer proces\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19153",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19154",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Skia in Google Chrome on Android prior to 151.0.7922.109 allowed a remote attacker who had compromised the renderer process to potentially per\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19154",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19155",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Payments in Google Chrome prior to 151.0.7922.109 allowed a remote attacker who had compromised the renderer process to potentially perform a \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19155",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19156",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Heap buffer overflow in Base in Google Chrome prior to 151.0.7922.109 allowed an attacker who convinced a user to install a malicious extension to potentially e\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19156",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19157",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Out of bounds write in ANGLE in Google Chrome on Android prior to 151.0.7922.109 allowed a remote attacker to potentially perform a sandbox escape via a crafted\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19157",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19158",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Views in Google Chrome on Windows prior to 151.0.7922.109 allowed a remote attacker who convinced a user to engage in specific UI gestures to \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19158",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19159",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Views in Google Chrome prior to 151.0.7922.109 allowed a remote attacker who convinced a user to engage in specific UI gestures to potentially\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19159",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19162",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Out of bounds write in V8 in Google Chrome prior to 151.0.7922.109 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page.\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19162",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19163",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Media in Google Chrome on Windows prior to 151.0.7922.109 allowed a remote attacker who had compromised the renderer process to potentially pe\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19163",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19164",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Insufficient validation of untrusted input in Codecs in Google Chrome prior to 151.0.7922.109 allowed a remote attacker to potentially perform a sandbox escape \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19164",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19165",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Extensions in Google Chrome prior to 151.0.7922.109 allowed an attacker who convinced a user to install a malicious extension to execute arbit\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19165",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19166",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Web Authentication in Google Chrome prior to 151.0.7922.109 allowed a remote attacker to potentially perform a sandbox escape via a crafted HT\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19166",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19168",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Inappropriate implementation in V8 in Google Chrome prior to 151.0.7922.109 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted H\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19168",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19169",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Insufficient validation of untrusted input in Contextual Tasks in Google Chrome prior to 151.0.7922.109 allowed a remote attacker to perform privilege escalatio\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19169",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19170",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in WebGL in Google Chrome on Android prior to 151.0.7922.109 allowed a remote attacker to potentially perform a sandbox escape via a crafted HTML\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19170",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19171",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Media in Google Chrome on Windows prior to 151.0.7922.109 allowed a remote attacker to potentially perform a sandbox escape via a crafted HTML\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19171",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19172",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Views in Google Chrome prior to 151.0.7922.109 allowed a remote attacker who had compromised the renderer process to potentially perform a san\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19172",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19173",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Out of bounds write in Skia in Google Chrome prior to 151.0.7922.109 allowed a remote attacker who had compromised the renderer process to potentially perform a\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19173",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19174",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Integer overflow in V8 in Google Chrome prior to 151.0.7922.109 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (C\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19174",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19175",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Payments in Google Chrome prior to 151.0.7922.109 allowed a remote attacker to potentially perform a sandbox escape via a crafted HTML page. (\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19175",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19176",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Skia in Google Chrome prior to 151.0.7922.109 allowed a remote attacker who had compromised the renderer process to execute arbitrary code ins\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19176",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19177",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Insufficient validation of untrusted input in UI in Google Chrome prior to 151.0.7922.109 allowed a remote attacker who had compromised the renderer process to \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19177",
+          "first_seen": "2026-08-06",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19556",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in V8 in Google Chrome prior to 151.0.7922.137 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (Chr\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19556",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19557",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in TabStrip in Google Chrome on Mac prior to 151.0.7922.137 allowed a remote attacker who had compromised the renderer process to potentially per\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19557",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19558",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Extensions in Google Chrome prior to 151.0.7922.137 allowed an attacker who convinced a user to install a malicious extension to execute arbit\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19558",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19559",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in HTML in Google Chrome prior to 151.0.7922.137 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (C\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19559",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-19560",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Blink in Google Chrome prior to 151.0.7922.137 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19560",
+          "first_seen": "2026-08-11",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-54730",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "authentik is an open-source identity provider. Prior to 2026.2.6 and 2026.5.5, the enterprise Google Chrome device-trust stages advance the flow without confirm\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54730",
+          "first_seen": "2026-08-18",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76017",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Chromoting in Google Chrome prior to 151.0.7922.173 allowed a remote attacker to execute arbitrary code outside the sandbox via crafted networ\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76017",
+          "first_seen": "2026-08-20",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76018",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Privilege elevation in Import in Google Chrome prior to 151.0.7922.173 allowed a remote attacker leveraging social engineering to potentially execute arbitrary \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76018",
+          "first_seen": "2026-08-20",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76019",
+          "severity": "High",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Incorrect authorization in Workers in Google Chrome prior to 151.0.7922.173 allowed a remote attacker who had compromised the renderer process and leveraged soc\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76019",
+          "first_seen": "2026-08-20",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76020",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Race condition in V8 in Google Chrome prior to 151.0.7922.173 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (C\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76020",
+          "first_seen": "2026-08-20",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76021",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in DOM in Google Chrome prior to 151.0.7922.173 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76021",
+          "first_seen": "2026-08-20",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76022",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Buffer overflow in Network in Google Chrome prior to 151.0.7922.173 allowed a remote attacker to execute arbitrary code outside the sandbox via a crafted HTML p\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76022",
+          "first_seen": "2026-08-20",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76023",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Improper resource control in Linux Toolkit Theming in Google Chrome prior to 151.0.7922.173 allowed a remote attacker who had compromised the renderer process t\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76023",
+          "first_seen": "2026-08-20",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76034",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Buffer overflow in WebGL in Google Chrome prior to 151.0.7922.169 allowed a remote attacker to execute arbitrary code outside the sandbox via a crafted HTML pag\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76034",
+          "first_seen": "2026-08-18",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76035",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Inappropriate implementation in Media in Google Chrome on on Mac prior to 151.0.7922.169 allowed a remote attacker to execute arbitrary code outside the sandbox\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76035",
+          "first_seen": "2026-08-18",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76036",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Buffer overflow in Dawn in Google Chrome on on Android prior to 151.0.7922.169 allowed a remote attacker to execute arbitrary code outside the sandbox via a cra\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76036",
+          "first_seen": "2026-08-18",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76037",
+          "severity": "High",
+          "base_score": 8.4,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Link following in CredentialProvider in Google Chrome on on Windows prior to 151.0.7922.169 allowed a local attacker to potentially execute arbitrary code outsi\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76037",
+          "first_seen": "2026-08-18",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76038",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Type confusion in V8 in Google Chrome prior to 151.0.7922.169 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (C\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76038",
+          "first_seen": "2026-08-18",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76040",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Browser in Google Chrome on on Mac prior to 151.0.7922.169 allowed a remote attacker leveraging social engineering to execute arbitrary code o\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76040",
+          "first_seen": "2026-08-18",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76043",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Incorrect calculation in V8 in Google Chrome prior to 151.0.7922.169 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML p\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76043",
+          "first_seen": "2026-08-18",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76044",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Race condition in USB in Google Chrome prior to 151.0.7922.169 allowed a remote attacker who had compromised the renderer process to potentially execute arbitra\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76044",
+          "first_seen": "2026-08-18",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76045",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in WebGL in Google Chrome prior to 151.0.7922.169 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page.\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76045",
+          "first_seen": "2026-08-18",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76046",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Buffer overflow in ANGLE in Google Chrome on on Android prior to 151.0.7922.169 allowed a remote attacker who had compromised the renderer process to execute ar\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76046",
+          "first_seen": "2026-08-18",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76047",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Type confusion in V8 in Google Chrome prior to 151.0.7922.169 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (C\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76047",
+          "first_seen": "2026-08-18",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78891",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Buffer overflow in WebRTC in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78891",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78892",
+          "severity": "High",
+          "base_score": 7.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Incorrect authorization in Chromoting in Google Chrome on on Windows prior to 152.0.7977.65 allowed a local attacker to bypass system access restrictions via a \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78892",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78899",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in V8 in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Ch\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78899",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78900",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Improper input validation in Media in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to potentially execute arbitrary code outside the sandbox v\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78900",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78901",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Race condition in V8 in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Ch\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78901",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78904",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Type confusion in ANGLE in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafte\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78904",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78905",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Type confusion in ANGLE in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafte\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78905",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78906",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Race condition in ANGLE in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafte\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78906",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78909",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Views in Google Chrome prior to 152.0.7977.65 allowed a remote attacker leveraging social engineering to execute arbitrary code outside the sa\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78909",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78910",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Buffer overflow in V8 in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (C\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78910",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78911",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Incorrect authorization in USB in Google Chrome prior to 152.0.7977.65 allowed a remote attacker who had compromised the renderer process and leveraged social e\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78911",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78913",
+          "severity": "High",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Chromoting in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via cra\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78913",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78915",
+          "severity": "High",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Race condition in Enterprise in Google Chrome on on Windows prior to 152.0.7977.65 allowed an adjacent attacker to potentially execute arbitrary code outside th\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78915",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78934",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Race condition in ReadAloud in Google Chrome prior to 152.0.7977.65 allowed a remote attacker leveraging social engineering to execute arbitrary code inside the\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78934",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78935",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use of uninitialized variable in Mobile in Google Chrome on on iOS prior to 152.0.7977.65 allowed a remote attacker to potentially execute arbitrary code outsid\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78935",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78937",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Search in Google Chrome on on Android prior to 152.0.7977.65 allowed a remote attacker leveraging social engineering to potentially execute ar\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78937",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78938",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Type confusion in V8 in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Ch\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78938",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78939",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Chromecast in Google Chrome prior to 152.0.7977.65 allowed a remote attacker who had compromised the renderer process to execute arbitrary cod\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78939",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78944",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in DevTools in Google Chrome prior to 152.0.7977.65 allowed a remote attacker leveraging social engineering to execute arbitrary code inside the \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78944",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78945",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Views in Google Chrome prior to 152.0.7977.65 allowed a remote attacker leveraging social engineering to potentially execute arbitrary code ou\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78945",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78948",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Buffer overflow in WebGL in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to execute arbitrary code outside the sandbox via a crafted HTML page\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78948",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78950",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Integer overflow in WebRTC in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a craf\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78950",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78951",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in ServiceWorker in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to execute arbitrary code outside the sandbox via a crafted HT\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78951",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78952",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Out of bounds write in Crashpad in Google Chrome on on Windows prior to 152.0.7977.65 allowed a remote attacker who had compromised the renderer process to exec\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78952",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78956",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Type confusion in V8 in Google Chrome prior to 152.0.7977.65 allowed a remote attacker leveraging social engineering to execute arbitrary code inside the sandbo\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78956",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78963",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Improper input validation in Media in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to potentially execute arbitrary code outside the sandbox v\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78963",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78964",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Sync in Google Chrome on on iOS prior to 152.0.7977.65 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78964",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78978",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Out of bounds read in ANGLE in Google Chrome on on Windows prior to 152.0.7977.65 allowed a remote attacker to potentially execute arbitrary code outside the sa\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78978",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78983",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Views in Google Chrome prior to 152.0.7977.65 allowed a remote attacker who had compromised the renderer process to execute arbitrary code out\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78983",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78985",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Incorrect reference resolution in FileSystem in Google Chrome prior to 152.0.7977.65 allowed a remote attacker leveraging social engineering to potentially exec\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78985",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78989",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Out of bounds read in ANGLE in Google Chrome on on Windows prior to 152.0.7977.65 allowed a remote attacker to potentially execute arbitrary code outside the sa\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78989",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78990",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Compositing in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78990",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78999",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Improper privilege management in Navigation in Google Chrome prior to 152.0.7977.65 allowed a remote attacker who had compromised the renderer process and lever\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78999",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-79008",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Improper input validation in GPU in Google Chrome on on Android prior to 152.0.7977.65 allowed a remote attacker who had compromised the renderer process to pot\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79008",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-79012",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Safebrowsing in Google Chrome on on Mac prior to 152.0.7977.65 allowed a remote attacker leveraging social engineering to execute arbitrary co\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79012",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-79019",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Out of bounds write in ANGLE in Google Chrome on on Windows prior to 152.0.7977.65 allowed a remote attacker to potentially execute arbitrary code outside the s\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79019",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-79020",
+          "severity": "High",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Out of bounds read in Skia in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to potentially read memory inside the sandbox via a crafted media f\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79020",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-79026",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Extensions in Google Chrome prior to 152.0.7977.65 allowed a remote attacker leveraging social engineering to potentially execute arbitrary co\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79026",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-79027",
+          "severity": "High",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in WebRTC in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to execute arbitrary code inside the sandbox via crafted network traf\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79027",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-79033",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Insufficient control flow management in DevTools in Google Chrome prior to 152.0.7977.65 allowed a remote attacker leveraging social engineering to potentially \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79033",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-79039",
+          "severity": "High",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Mobile in Google Chrome on on iOS prior to 152.0.7977.65 allowed a remote attacker to execute arbitrary code outside the sandbox via crafted n\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79039",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-79043",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Out of bounds write in ANGLE in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a c\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79043",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-79045",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Type confusion in V8 in Google Chrome prior to 152.0.7977.65 allowed a remote attacker leveraging social engineering to read memory inside the sandbox via a cra\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79045",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-79047",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Views in Google Chrome prior to 152.0.7977.65 allowed a remote attacker leveraging social engineering to execute arbitrary code outside the sa\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79047",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-79048",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Out of bounds write in ANGLE in Google Chrome on on Windows prior to 152.0.7977.65 allowed a remote attacker to potentially execute arbitrary code inside the sa\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79048",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-79052",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Aura in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to execute arbitrary code outside the sandbox via a crafted HTML page. \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79052",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-79054",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in Chromecast in Google Chrome prior to 152.0.7977.65 allowed a remote attacker who had compromised the renderer process to execute arbitrary cod\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79054",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-79056",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Use after free in ServiceWorker in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79056",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-79057",
+          "severity": "High",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Race condition in Start in Google Chrome on on Android prior to 152.0.7977.65 allowed a local attacker leveraging social engineering to potentially execute arbi\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79057",
+          "first_seen": "2026-08-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chrome"
+          ]
+        }
+      ]
+    },
+    {
       "patch_id": "kev:Oracle:HTTP Server and Oracle Weblogic Server Proxy Plug-in",
       "source": "cisa-kev",
       "platform": "Oracle",
@@ -36605,7 +38715,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 1d"
+          "KEV overdue by 2d"
         ]
       },
       "affected": {
@@ -36672,18 +38782,17 @@
       "status": "new",
       "cve_count": 1,
       "exploited_count": 1,
-      "new_count": 1,
+      "new_count": 0,
       "ransomware_count": 0,
       "disclosed_count": 1,
       "max_cvss": null,
       "due_date": "2026-08-24",
       "priority": {
-        "score": 100,
+        "score": 98,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "newly released",
-          "KEV overdue by 4d"
+          "KEV overdue by 5d"
         ]
       },
       "affected": {
@@ -36725,7 +38834,7 @@
           "first_seen": "2026-08-21",
           "due_date": "2026-08-24",
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -36760,7 +38869,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 5d"
+          "KEV overdue by 6d"
         ]
       },
       "affected": {
@@ -36856,7 +38965,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV due in 5d"
+          "KEV due in 4d"
         ]
       },
       "affected": {
@@ -37522,7 +39631,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 7d"
+          "KEV overdue by 8d"
         ]
       },
       "affected": {
@@ -40582,7 +42691,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 8d"
+          "KEV overdue by 9d"
         ]
       },
       "affected": {
@@ -40773,7 +42882,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 14d"
+          "KEV overdue by 15d"
         ]
       },
       "affected": {
@@ -40850,7 +42959,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 14d"
+          "KEV overdue by 15d"
         ]
       },
       "affected": {
@@ -41132,7 +43241,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 18d"
+          "KEV overdue by 19d"
         ]
       },
       "affected": {
@@ -41596,7 +43705,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 20d"
+          "KEV overdue by 21d"
         ]
       },
       "affected": {
@@ -41673,7 +43782,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 21d"
+          "KEV overdue by 22d"
         ]
       },
       "affected": {
@@ -41750,7 +43859,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 21d"
+          "KEV overdue by 22d"
         ]
       },
       "affected": {
@@ -41827,7 +43936,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 22d"
+          "KEV overdue by 23d"
         ]
       },
       "affected": {
@@ -41894,1736 +44003,6 @@
           ],
           "products": [
             "N-able N-central"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "nvd:Google Chrome",
-      "source": "nvd",
-      "platform": "Google Chrome",
-      "title": "Google Chrome",
-      "product": "Google Chrome",
-      "version": null,
-      "release_date": "2026-07-30",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Google%20Chrome",
-      "severity": "Critical",
-      "status": "new",
-      "cve_count": 84,
-      "exploited_count": 0,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 0,
-      "max_cvss": 9.6,
-      "due_date": null,
-      "priority": {
-        "score": 59,
-        "band": "high",
-        "reasons": [
-          "critical severity"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 84
-      },
-      "remediation": {
-        "summary": "Patch Google Chrome to the vendor's fixed release (recent high/critical CVEs from NVD).",
-        "urgency": "high",
-        "note": "Critical-severity fixes included \u2014 schedule promptly.",
-        "links": [
-          {
-            "label": "NVD advisories",
-            "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Google%20Chrome"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Google Chrome (all installs)",
-            "icon": "\ud83e\udde9",
-            "steps": [
-              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
-              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
-              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-17650",
-          "severity": "High",
-          "base_score": 8.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Compositing in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17650",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17651",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in Dawn in Google Chrome on Android prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17651",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17652",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Views in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform a sand\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17652",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17653",
-          "severity": "High",
-          "base_score": 8.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Skia in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform a sandb\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17653",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17654",
-          "severity": "High",
-          "base_score": 7.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Race in Updater in Google Chrome on Mac prior to 151.0.7922.72 allowed a local attacker to perform OS-level privilege escalation via a malicious file. (Chromium\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17654",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17655",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in ANGLE in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape vi\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17655",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17656",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Ozone in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape via a crafted HTML page. (Chro\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17656",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17657",
-          "severity": "High",
-          "base_score": 8.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Navigation in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform a\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17657",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17658",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in V8 in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (Chro\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17658",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17660",
-          "severity": "High",
-          "base_score": 8.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in Network in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17660",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17661",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Loader in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17661",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17663",
-          "severity": "High",
-          "base_score": 8.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in GPU in Google Chrome on Android prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17663",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17665",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in V8 in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (Chro\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17665",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17666",
-          "severity": "Critical",
-          "base_score": 9.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Cryptographic Flaw in Enterprise in Google Chrome prior to 151.0.7922.72 allowed an attacker in a privileged network position to bypass discretionary access con\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17666",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17669",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Inappropriate implementation in Chrome for iOS in Google Chrome on iOS prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17669",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17670",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Views in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform a sand\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17670",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17671",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in ANGLE in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process t\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17671",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17672",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in Chromecast in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer proc\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17672",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17673",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Integer overflow in QUIC in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform a san\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17673",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17675",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Out of bounds write in ANGLE in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform a\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17675",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17676",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Inappropriate implementation in ANGLE in Google Chrome on Android prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to p\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17676",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17677",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Inappropriate implementation in ANGLE in Google Chrome on Android prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape via a\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17677",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17678",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Out of bounds read in ANGLE in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform a \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17678",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17680",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Heap buffer overflow in Color in Google Chrome on ChromeOS prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentia\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17680",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17681",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in Web Authentication in Google Chrome on Android prior to 151.0.7922.72 allowed a remote attacker who had compromise\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17681",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17682",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Integer overflow in ANGLE in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform a sa\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17682",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17684",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in Chrome for iOS in Google Chrome on iOS prior to 151.0.7922.72 allowed a remote attacker who had compromised the re\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17684",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17685",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Autofill in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page.\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17685",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17686",
-          "severity": "High",
-          "base_score": 8.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in Passwords in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer proce\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17686",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17687",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Type Confusion in ANGLE in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform a sand\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17687",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17688",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Input in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform a sand\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17688",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17691",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Out of bounds write in ANGLE in Google Chrome on Windows prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape via a crafted \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17691",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17692",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in DataTransfer in Google Chrome on Windows prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentia\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17692",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17694",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in DOM in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (Chr\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17694",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17695",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Inappropriate implementation in ANGLE in Google Chrome on Mac prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape via a cra\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17695",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17697",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Type Confusion in ANGLE in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape via a crafted HTML page. (Chro\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17697",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17698",
-          "severity": "High",
-          "base_score": 7.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in UI in Google Chrome on Android prior to 151.0.7922.72 allowed a local attacker to leak cross-origin data via a cra\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17698",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17699",
-          "severity": "High",
-          "base_score": 8.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Views in Google Chrome prior to 151.0.7922.72 allowed a local attacker to potentially perform a sandbox escape via a malicious file. (Chromium\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17699",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17701",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in ANGLE in Google Chrome on Mac prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer pr\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17701",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17704",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in ANGLE in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform a sand\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17704",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17705",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Integer overflow in libxml in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page.\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17705",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17708",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Audio in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform a sand\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17708",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17709",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Race in Downloads in Google Chrome on Mac prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform a san\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17709",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17710",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Inappropriate implementation in MHTML in Google Chrome on Mac prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to poten\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17710",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17711",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Race in Downloads in Google Chrome on Mac prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform a san\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17711",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17712",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Race in Skia in Google Chrome on Mac prior to 151.0.7922.72 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (Chrom\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17712",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17713",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in Accessibility in Google Chrome on Android prior to 151.0.7922.72 allowed a remote attacker who had compromised the\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17713",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17716",
-          "severity": "High",
-          "base_score": 8.4,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Updater in Google Chrome on Mac prior to 151.0.7922.72 allowed a local attacker to perform privilege escalation via malicious network traffic.\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17716",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17717",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Integer overflow in ANGLE in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape via a crafted HTML page. (Ch\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17717",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17718",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in ANGLE in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape via a crafted HTML page. (Chro\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17718",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17719",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Input in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (C\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17719",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17721",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Out of bounds write in ANGLE in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape via a crafted HTML page. \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17721",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17722",
-          "severity": "High",
-          "base_score": 8.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Object lifecycle issue in WebView in Google Chrome on Android prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to poten\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17722",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17723",
-          "severity": "High",
-          "base_score": 8.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Media in Google Chrome on Windows prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially per\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17723",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17725",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Type Confusion in V8 in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (Chro\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17725",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17726",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Integer overflow in WebGL in Google Chrome on Android prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape via a crafted HTM\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17726",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17727",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Out of bounds write in WebGL in Google Chrome on Android prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape via a crafted \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17727",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17729",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in V8 in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform out of bo\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17729",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17735",
-          "severity": "High",
-          "base_score": 8.7,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in BFCache in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17735",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17738",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in Payments in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer proces\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17738",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17741",
-          "severity": "High",
-          "base_score": 7.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in WebView in Google Chrome on Android prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sand\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17741",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17744",
-          "severity": "High",
-          "base_score": 7.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Inappropriate implementation in File Input in Google Chrome on Linux prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape vi\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17744",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17749",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in Extensions in Google Chrome prior to 151.0.7922.72 allowed an attacker who convinced a user to install a malicious\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17749",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17750",
-          "severity": "High",
-          "base_score": 7.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in ANGLE in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape via a crafted HTML page. (Chro\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17750",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17751",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Inappropriate implementation in AdFilter in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to execute arbitrary code inside a sandbox via a craf\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17751",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17752",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Views in Google Chrome on Mac prior to 151.0.7922.72 allowed a remote attacker to potentially exploit heap corruption via a crafted HTML page.\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17752",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17758",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Heap buffer overflow in Dawn in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape via a crafted HTML page. \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17758",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17768",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in WebSockets in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer proc\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17768",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17774",
-          "severity": "High",
-          "base_score": 7.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in Variations in Google Chrome prior to 151.0.7922.72 allowed an attacker in a privileged network position to potenti\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17774",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17778",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Extensions in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted Chrome E\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17778",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17784",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Audio in Google Chrome on Mac prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17784",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17786",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in DevTools in Google Chrome prior to 151.0.7922.72 allowed an attacker who convinced a user to install a malicious e\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17786",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17801",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Out of bounds read and write in ANGLE in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape via a crafted HT\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17801",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17803",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in Save to Drive in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer p\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17803",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17804",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in Media in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform a sand\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17804",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17807",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in V8 in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (Chro\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17807",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17811",
-          "severity": "High",
-          "base_score": 7.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in ANGLE in Google Chrome on Windows prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape via a crafted HTML \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17811",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17816",
-          "severity": "High",
-          "base_score": 7.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient policy enforcement in Speech in Google Chrome on Android prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17816",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17832",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in ANGLE in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer process to potentially perform a sand\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17832",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17834",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in Passwords in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer proce\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17834",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17836",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after free in V8 in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (Chro\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17836",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17837",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in DevTools in Google Chrome prior to 151.0.7922.72 allowed a remote attacker who had compromised the renderer proces\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17837",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17847",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Insufficient validation of untrusted input in ANGLE in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape vi\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17847",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-17848",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Integer overflow in Codecs in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape via a crafted video file. (\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17848",
-          "first_seen": "2026-07-30",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "kev:Cisco:Secure Firewall Management Center (FMC)",
-      "source": "cisa-kev",
-      "platform": "Cisco",
-      "title": "Cisco Secure Firewall Management Center (FMC)",
-      "product": "Cisco",
-      "version": null,
-      "release_date": "2026-07-29",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 1,
-      "exploited_count": 1,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 1,
-      "max_cvss": null,
-      "due_date": "2026-08-01",
-      "priority": {
-        "score": 98,
-        "band": "critical",
-        "reasons": [
-          "actively exploited",
-          "KEV overdue by 27d"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 1
-      },
-      "remediation": {
-        "summary": "Cisco Secure Firewall Management Center (FMC) has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
-        "urgency": "critical",
-        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
-        "links": [
-          {
-            "label": "CISA KEV catalog",
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Cisco Secure Firewall Management Center (FMC) (all installs)",
-            "icon": "\ud83c\udf10",
-            "steps": [
-              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
-              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
-              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-20316",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "Cisco Secure Firewall Management Center Use of Hard-coded Password Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20316",
-          "first_seen": "2026-07-29",
-          "due_date": "2026-08-01",
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Cisco Secure Firewall Management Center (FMC)"
           ]
         }
       ]
