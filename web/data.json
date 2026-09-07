@@ -1,34 +1,34 @@
 {
-  "generated_at": "2026-09-06T11:00:20+00:00",
+  "generated_at": "2026-09-07T12:38:05+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
     "apple": 196,
-    "cisa-kev": 57,
+    "cisa-kev": 56,
     "microsoft": 1,
     "nvd": 7
   },
   "stats": {
-    "total_patches": 35,
-    "total_cves": 375,
-    "exploited_cves": 33,
-    "new_cves": 99,
+    "total_patches": 34,
+    "total_cves": 474,
+    "exploited_cves": 31,
+    "new_cves": 200,
     "by_source": {
       "microsoft": 1,
-      "cisa-kev": 24,
+      "cisa-kev": 23,
       "nvd": 7,
       "apple": 3
     },
     "by_severity": {
       "Critical": 7,
-      "High": 25,
+      "High": 24,
       "unknown": 3
     },
     "by_status": {
-      "new": 35
+      "new": 34
     },
     "by_product_kind": {
-      "other": 243
+      "other": 342
     }
   },
   "patches": [
@@ -39,7 +39,7 @@
       "title": "September 2026 Early Security Updates",
       "product": "Microsoft Security Update",
       "version": "2026-Sep",
-      "release_date": "2026-09-06T04:36:00Z",
+      "release_date": "2026-09-07T02:04:33Z",
       "patch_tuesday": "2026-09-08",
       "servicing": {
         "channel": "B",
@@ -57,9 +57,9 @@
       "url": "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2026-Sep",
       "severity": "Critical",
       "status": "new",
-      "cve_count": 80,
+      "cve_count": 181,
       "exploited_count": 0,
-      "new_count": 80,
+      "new_count": 181,
       "ransomware_count": 0,
       "disclosed_count": 0,
       "max_cvss": 10.0,
@@ -75,10 +75,10 @@
       "affected": {
         "client": 0,
         "server": 0,
-        "other": 80
+        "other": 181
       },
       "remediation": {
-        "summary": "Apply the September 2026 Early Security Updates (80 affecting other Microsoft products).",
+        "summary": "Apply the September 2026 Early Security Updates (181 affecting other Microsoft products).",
         "urgency": "high",
         "note": "Critical-severity fixes included \u2014 schedule promptly.",
         "links": [
@@ -107,7 +107,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-14957",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -119,14 +119,14 @@
           ]
         },
         {
-          "cve_id": "CVE-2026-18743",
-          "severity": "Low",
-          "base_score": 2.5,
+          "cve_id": "CVE-2026-18329",
+          "severity": "Moderate",
+          "base_score": 8.2,
           "exploited": false,
           "publicly_disclosed": false,
           "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-18743",
-          "first_seen": "2026-09-06",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-18329",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -134,7 +134,27 @@
             "other"
           ],
           "products": [
-            "azl3 popt 1.19-1 on Azure Linux 3.0"
+            "azl3 nginx 1.28.3-8 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-18743",
+          "severity": "Low",
+          "base_score": 2.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-18743",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 popt 1.19-1 on Azure Linux 3.0",
+            "azl3 rsync 3.4.3-1 on Azure Linux 3.0"
           ]
         },
         {
@@ -145,7 +165,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-33630",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -165,7 +185,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55951",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -184,7 +204,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56143",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -196,432 +216,14 @@
           ]
         },
         {
-          "cve_id": "CVE-2026-59696",
-          "severity": "Moderate",
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59696",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-62906",
-          "severity": "Critical",
-          "base_score": 7.4,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Information Disclosure",
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62906",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Microsoft Discovery Studio"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-62916",
-          "severity": "Critical",
-          "base_score": 9.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Elevation of Privilege",
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62916",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Microsoft Entra ID"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-65818",
-          "severity": "Critical",
-          "base_score": 8.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Elevation of Privilege",
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-65818",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Microsoft Power Platform"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-66357",
-          "severity": "Important",
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-66357",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-66835",
-          "severity": "Important",
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-66835",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-69664",
-          "severity": "Important",
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69664",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-69857",
-          "severity": "Critical",
-          "base_score": 8.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Spoofing",
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69857",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Azure Cosmos DB"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-70178",
-          "severity": "Critical",
-          "base_score": 8.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Elevation of Privilege",
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70178",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Microsoft Fabric"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-70352",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Elevation of Privilege",
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70352",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Azure AI Language Authoring"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-70409",
-          "severity": "Moderate",
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70409",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-71380",
-          "severity": "Important",
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-71380",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-71562",
-          "severity": "Moderate",
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-71562",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-72649",
-          "severity": "Important",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-72649",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 rubygem-elasticsearch 8.9.0-1 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-73270",
-          "severity": "Important",
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-73270",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-73276",
-          "severity": "Important",
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-73276",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-73812",
-          "severity": "Important",
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-73812",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-74835",
-          "severity": "Important",
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-74835",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-74994",
-          "severity": "Moderate",
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-74994",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-75538",
-          "severity": "Important",
-          "base_score": null,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-75538",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-76642",
-          "severity": "Moderate",
-          "base_score": 7.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-76642",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 util-linux 2.40.2-5 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-78607",
-          "severity": "Moderate",
-          "base_score": 5.4,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-78607",
-          "first_seen": "2026-09-06",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "azl3 rubygem-elasticsearch 8.9.0-1 on Azure Linux 3.0"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-78662",
+          "cve_id": "CVE-2026-56855",
           "severity": "Moderate",
           "base_score": 7.5,
           "exploited": false,
           "publicly_disclosed": false,
           "impact": null,
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-78662",
-          "first_seen": "2026-09-06",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56855",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -644,6 +246,530 @@
           ]
         },
         {
+          "cve_id": "CVE-2026-59696",
+          "severity": "Moderate",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59696",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-62906",
+          "severity": "Critical",
+          "base_score": 7.4,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Information Disclosure",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62906",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Discovery Studio"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-62916",
+          "severity": "Critical",
+          "base_score": 9.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Elevation of Privilege",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62916",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Entra ID"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-65818",
+          "severity": "Critical",
+          "base_score": 8.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Elevation of Privilege",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-65818",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Power Platform"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-66357",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-66357",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-66835",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-66835",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-69664",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69664",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-69857",
+          "severity": "Critical",
+          "base_score": 8.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Spoofing",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69857",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Azure Cosmos DB"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-70178",
+          "severity": "Critical",
+          "base_score": 8.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Elevation of Privilege",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70178",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Fabric"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-70352",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Elevation of Privilege",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70352",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Azure AI Language Authoring"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-70409",
+          "severity": "Moderate",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70409",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-71380",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-71380",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-71562",
+          "severity": "Moderate",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-71562",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-72649",
+          "severity": "Important",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-72649",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 rubygem-elasticsearch 8.9.0-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-73270",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-73270",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-73276",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-73276",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-73812",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-73812",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-74835",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-74835",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-74994",
+          "severity": "Moderate",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-74994",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-75538",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-75538",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 erlang 26.2.5.21-4 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-76642",
+          "severity": "Moderate",
+          "base_score": 7.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-76642",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 util-linux 2.40.2-5 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78222",
+          "severity": "Moderate",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-78222",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 nginx 1.28.3-8 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78408",
+          "severity": "Important",
+          "base_score": 7.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-78408",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 util-linux 2.40.2-5 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78410",
+          "severity": "Important",
+          "base_score": 7.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-78410",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 util-linux 2.40.2-5 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78607",
+          "severity": "Moderate",
+          "base_score": 5.4,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-78607",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 rubygem-elasticsearch 8.9.0-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78662",
+          "severity": "Moderate",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-78662",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 cert-manager 1.12.15-11 on Azure Linux 3.0",
+            "azl3 cf-cli 8.7.11-8 on Azure Linux 3.0",
+            "azl3 docker-buildx 0.14.0-16 on Azure Linux 3.0",
+            "azl3 docker-compose 2.27.0-13 on Azure Linux 3.0",
+            "azl3 gh 2.62.0-20 on Azure Linux 3.0",
+            "azl3 kubernetes 1.30.10-27 on Azure Linux 3.0",
+            "azl3 kubevirt 1.7.1-8 on Azure Linux 3.0",
+            "azl3 libcontainers-common 20240213-3 on Azure Linux 3.0",
+            "azl3 moby-engine 25.0.3-19 on Azure Linux 3.0",
+            "azl3 nvidia-container-toolkit 1.17.8-4 on Azure Linux 3.0",
+            "azl3 packer 1.9.5-18 on Azure Linux 3.0",
+            "azl3 telegraf 1.31.0-28 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-78689",
+          "severity": "Important",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-78689",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 nginx 1.28.3-8 on Azure Linux 3.0"
+          ]
+        },
+        {
           "cve_id": "CVE-2026-80098",
           "severity": "Critical",
           "base_score": 9.3,
@@ -651,7 +777,7 @@
           "publicly_disclosed": false,
           "impact": "Elevation of Privilege",
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80098",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -670,7 +796,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80726",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -689,7 +815,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80728",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -708,7 +834,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80730",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -727,7 +853,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80731",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -746,7 +872,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80732",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -765,7 +891,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80733",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -784,7 +910,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80737",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -803,7 +929,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80738",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -822,7 +948,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80742",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -841,7 +967,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80743",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -860,7 +986,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80744",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -879,7 +1005,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80747",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -898,7 +1024,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80752",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -917,7 +1043,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80755",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -936,7 +1062,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80756",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -955,7 +1081,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80757",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -967,6 +1093,1754 @@
           ]
         },
         {
+          "cve_id": "CVE-2026-80761",
+          "severity": "Low",
+          "base_score": 3.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80761",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80762",
+          "severity": "Moderate",
+          "base_score": 4.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80762",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80763",
+          "severity": "Moderate",
+          "base_score": 4.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80763",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80764",
+          "severity": "Moderate",
+          "base_score": 4.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80764",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80765",
+          "severity": "Moderate",
+          "base_score": 4.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80765",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80766",
+          "severity": "Moderate",
+          "base_score": 4.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80766",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80767",
+          "severity": "Moderate",
+          "base_score": 4.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80767",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80768",
+          "severity": "Moderate",
+          "base_score": 5.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80768",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80770",
+          "severity": "Moderate",
+          "base_score": 4.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80770",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80771",
+          "severity": "Moderate",
+          "base_score": 4.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80771",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80772",
+          "severity": "Moderate",
+          "base_score": 4.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80772",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80780",
+          "severity": "Moderate",
+          "base_score": 5.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80780",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80782",
+          "severity": "Moderate",
+          "base_score": 4.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80782",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80783",
+          "severity": "Moderate",
+          "base_score": 5.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80783",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80784",
+          "severity": "Low",
+          "base_score": 2.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80784",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80785",
+          "severity": "Moderate",
+          "base_score": 6.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80785",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80788",
+          "severity": "Important",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80788",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80789",
+          "severity": "Important",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80789",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80790",
+          "severity": "Moderate",
+          "base_score": 5.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80790",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80791",
+          "severity": "Important",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80791",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80792",
+          "severity": "Important",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80792",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80793",
+          "severity": "Moderate",
+          "base_score": 4.4,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80793",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80794",
+          "severity": "Moderate",
+          "base_score": 4.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80794",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80796",
+          "severity": "Moderate",
+          "base_score": 4.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80796",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80797",
+          "severity": "Low",
+          "base_score": 1.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80797",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80798",
+          "severity": "Important",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80798",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80799",
+          "severity": "Important",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80799",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80800",
+          "severity": "Important",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80800",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80801",
+          "severity": "Moderate",
+          "base_score": 4.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80801",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80802",
+          "severity": "Moderate",
+          "base_score": 5.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80802",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80803",
+          "severity": "Important",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80803",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80805",
+          "severity": "Moderate",
+          "base_score": 4.4,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80805",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80806",
+          "severity": "Moderate",
+          "base_score": 4.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80806",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80807",
+          "severity": "Moderate",
+          "base_score": 6.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80807",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80808",
+          "severity": "Moderate",
+          "base_score": 4.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80808",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80809",
+          "severity": "Moderate",
+          "base_score": 4.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80809",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80819",
+          "severity": "Moderate",
+          "base_score": 6.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80819",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80820",
+          "severity": "Moderate",
+          "base_score": 4.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80820",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80823",
+          "severity": "Important",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80823",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80824",
+          "severity": "Moderate",
+          "base_score": 4.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80824",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80826",
+          "severity": "Moderate",
+          "base_score": 4.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80826",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80827",
+          "severity": "Low",
+          "base_score": 1.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80827",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80828",
+          "severity": "Moderate",
+          "base_score": 4.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80828",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80829",
+          "severity": "Moderate",
+          "base_score": 5.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80829",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80830",
+          "severity": "Moderate",
+          "base_score": 4.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80830",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80831",
+          "severity": "Moderate",
+          "base_score": 6.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80831",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80832",
+          "severity": "Moderate",
+          "base_score": 5.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80832",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80833",
+          "severity": "Moderate",
+          "base_score": 4.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80833",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80834",
+          "severity": "Moderate",
+          "base_score": 4.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80834",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80836",
+          "severity": "Moderate",
+          "base_score": 4.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80836",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80837",
+          "severity": "Important",
+          "base_score": 7.4,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80837",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80840",
+          "severity": "Important",
+          "base_score": 7.4,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80840",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80841",
+          "severity": "Moderate",
+          "base_score": 5.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80841",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80842",
+          "severity": "Moderate",
+          "base_score": 5.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80842",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80843",
+          "severity": "Low",
+          "base_score": 2.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80843",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80844",
+          "severity": "Moderate",
+          "base_score": 6.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80844",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80846",
+          "severity": "Moderate",
+          "base_score": 5.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80846",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80847",
+          "severity": "Moderate",
+          "base_score": 4.4,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80847",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80848",
+          "severity": "Moderate",
+          "base_score": 5.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80848",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80851",
+          "severity": "Moderate",
+          "base_score": 5.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80851",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80852",
+          "severity": "Moderate",
+          "base_score": 6.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80852",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80854",
+          "severity": "Moderate",
+          "base_score": 5.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80854",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80855",
+          "severity": "Moderate",
+          "base_score": 4.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80855",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80856",
+          "severity": "Moderate",
+          "base_score": 4.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80856",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80861",
+          "severity": "Moderate",
+          "base_score": 4.2,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80861",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80863",
+          "severity": "Moderate",
+          "base_score": 4.4,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80863",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80864",
+          "severity": "Moderate",
+          "base_score": 4.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80864",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80866",
+          "severity": "Moderate",
+          "base_score": 4.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80866",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80872",
+          "severity": "Moderate",
+          "base_score": 4.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80872",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80888",
+          "severity": "Moderate",
+          "base_score": 5.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80888",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80889",
+          "severity": "Low",
+          "base_score": 2.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80889",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80890",
+          "severity": "Moderate",
+          "base_score": 4.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80890",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80891",
+          "severity": "Moderate",
+          "base_score": 5.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80891",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80892",
+          "severity": "Low",
+          "base_score": 3.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80892",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80893",
+          "severity": "Low",
+          "base_score": 2.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80893",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80902",
+          "severity": "Moderate",
+          "base_score": 4.4,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80902",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80904",
+          "severity": "Moderate",
+          "base_score": 5.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80904",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80905",
+          "severity": "Moderate",
+          "base_score": 5.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80905",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80909",
+          "severity": "Important",
+          "base_score": 7.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80909",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80910",
+          "severity": "Low",
+          "base_score": 3.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80910",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80912",
+          "severity": "Moderate",
+          "base_score": 4.4,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80912",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-80913",
+          "severity": "Moderate",
+          "base_score": 4.4,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-80913",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-83605",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83605",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 python-tensorboard 2.16.2-6 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-83607",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83607",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 python-tensorboard 2.16.2-6 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-83608",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83608",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 python-tensorboard 2.16.2-6 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-83610",
+          "severity": "Moderate",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83610",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 python-tensorboard 2.16.2-6 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-83611",
+          "severity": "Moderate",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83611",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 python-tensorboard 2.16.2-6 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-83613",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83613",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 python-tensorboard 2.16.2-6 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-83614",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83614",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 python-tensorboard 2.16.2-6 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-83615",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83615",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 python-tensorboard 2.16.2-6 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-83616",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83616",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 python-tensorboard 2.16.2-6 on Azure Linux 3.0"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-83619",
+          "severity": "Important",
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83619",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 python-tensorboard 2.16.2-6 on Azure Linux 3.0"
+          ]
+        },
+        {
           "cve_id": "CVE-2026-83711",
           "severity": "Critical",
           "base_score": 10.0,
@@ -974,7 +2848,7 @@
           "publicly_disclosed": false,
           "impact": "Elevation of Privilege",
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83711",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -993,7 +2867,7 @@
           "publicly_disclosed": false,
           "impact": "Elevation of Privilege",
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83941",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1005,6 +2879,25 @@
           ]
         },
         {
+          "cve_id": "CVE-2026-84233",
+          "severity": "Moderate",
+          "base_score": 7.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84233",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 rpm 4.18.2-1 on Azure Linux 3.0"
+          ]
+        },
+        {
           "cve_id": "CVE-2026-84304",
           "severity": "Important",
           "base_score": null,
@@ -1012,7 +2905,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84304",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1064,7 +2957,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84323",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1083,7 +2976,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84324",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1102,7 +2995,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84325",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1121,7 +3014,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84326",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1140,7 +3033,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84327",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1159,7 +3052,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84328",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1178,7 +3071,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84329",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1197,7 +3090,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84331",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1216,7 +3109,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84332",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1235,7 +3128,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84334",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1254,7 +3147,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84335",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1273,7 +3166,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84347",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1292,7 +3185,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84348",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1311,7 +3204,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84349",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1330,7 +3223,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84350",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1349,7 +3242,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84351",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1368,7 +3261,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84353",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1387,7 +3280,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84354",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1406,7 +3299,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84355",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1425,7 +3318,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84356",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1444,7 +3337,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84357",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1463,7 +3356,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84358",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1482,7 +3375,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84359",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1494,6 +3387,25 @@
           ]
         },
         {
+          "cve_id": "CVE-2026-84838",
+          "severity": "Important",
+          "base_score": 7.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84838",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 rpm 4.18.2-1 on Azure Linux 3.0"
+          ]
+        },
+        {
           "cve_id": "CVE-2026-85062",
           "severity": "Moderate",
           "base_score": null,
@@ -1501,7 +3413,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85062",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1520,7 +3432,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85091",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1537,6 +3449,25 @@
           ]
         },
         {
+          "cve_id": "CVE-2026-85393",
+          "severity": "Important",
+          "base_score": 7.5,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85393",
+          "first_seen": "2026-09-07",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "azl3 python-tensorboard 2.16.2-6 on Azure Linux 3.0"
+          ]
+        },
+        {
           "cve_id": "CVE-2026-85396",
           "severity": "Important",
           "base_score": 7.5,
@@ -1544,7 +3475,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85396",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1563,7 +3494,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85504",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1582,7 +3513,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85505",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1601,7 +3532,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85506",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1620,7 +3551,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85507",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1639,7 +3570,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85508",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1658,7 +3589,7 @@
           "publicly_disclosed": false,
           "impact": null,
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85509",
-          "first_seen": "2026-09-06",
+          "first_seen": "2026-09-07",
           "due_date": null,
           "ransomware": false,
           "is_new": true,
@@ -1697,7 +3628,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 75d"
+          "KEV overdue by 76d"
         ]
       },
       "affected": {
@@ -1781,31 +3712,30 @@
       "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "severity": "High",
       "status": "new",
-      "cve_count": 2,
-      "exploited_count": 2,
+      "cve_count": 1,
+      "exploited_count": 1,
       "new_count": 1,
       "ransomware_count": 0,
-      "disclosed_count": 2,
+      "disclosed_count": 1,
       "max_cvss": null,
-      "due_date": "2026-06-22",
+      "due_date": "2026-09-16",
       "priority": {
-        "score": 100,
+        "score": 88,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "newly released",
-          "KEV overdue by 76d"
+          "newly released"
         ]
       },
       "affected": {
         "client": 0,
         "server": 0,
-        "other": 2
+        "other": 1
       },
       "remediation": {
         "summary": "BerriAI LiteLLM has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
         "urgency": "critical",
-        "note": "2 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
         "links": [
           {
             "label": "CISA KEV catalog",
@@ -1825,25 +3755,6 @@
         ]
       },
       "cves": [
-        {
-          "cve_id": "CVE-2026-42271",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "BerriAI LiteLLM Command Injection Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42271",
-          "first_seen": "2026-06-08",
-          "due_date": "2026-06-22",
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "BerriAI LiteLLM"
-          ]
-        },
         {
           "cve_id": "CVE-2026-59822",
           "severity": "High",
@@ -1891,7 +3802,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 1d"
+          "KEV overdue by 2d"
         ]
       },
       "affected": {
@@ -1988,7 +3899,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 1d"
+          "KEV overdue by 2d"
         ]
       },
       "affected": {
@@ -2143,7 +4054,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 1d"
+          "KEV overdue by 2d"
         ]
       },
       "affected": {
@@ -2809,11 +4720,12 @@
       "max_cvss": null,
       "due_date": "2026-09-14",
       "priority": {
-        "score": 88,
+        "score": 100,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "newly released"
+          "newly released",
+          "KEV due in 7d"
         ]
       },
       "affected": {
@@ -2909,7 +4821,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 7d"
+          "KEV overdue by 8d"
         ]
       },
       "affected": {
@@ -3005,7 +4917,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 7d"
+          "KEV overdue by 8d"
         ]
       },
       "affected": {
@@ -3082,7 +4994,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV due in 3d"
+          "KEV due in 2d"
         ]
       },
       "affected": {
@@ -3159,7 +5071,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 8d"
+          "KEV overdue by 9d"
         ]
       },
       "affected": {
@@ -3236,7 +5148,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV due in 3d"
+          "KEV due in 2d"
         ]
       },
       "affected": {
@@ -3313,7 +5225,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV due in 3d"
+          "KEV due in 2d"
         ]
       },
       "affected": {
@@ -3390,7 +5302,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 9d"
+          "KEV overdue by 10d"
         ]
       },
       "affected": {
@@ -5443,7 +7355,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 10d"
+          "KEV overdue by 11d"
         ]
       },
       "affected": {
@@ -5520,7 +7432,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 13d"
+          "KEV overdue by 14d"
         ]
       },
       "affected": {
@@ -5597,7 +7509,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 14d"
+          "KEV overdue by 15d"
         ]
       },
       "affected": {
@@ -5693,7 +7605,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 4d"
+          "KEV overdue by 5d"
         ]
       },
       "affected": {
@@ -5770,7 +7682,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 16d"
+          "KEV overdue by 17d"
         ]
       },
       "affected": {
@@ -8830,7 +10742,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 17d"
+          "KEV overdue by 18d"
         ]
       },
       "affected": {
@@ -9021,7 +10933,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 23d"
+          "KEV overdue by 24d"
         ]
       },
       "affected": {
@@ -9098,7 +11010,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 23d"
+          "KEV overdue by 24d"
         ]
       },
       "affected": {
@@ -9351,83 +11263,6 @@
           ],
           "products": [
             "Zoom"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "kev:Progress:LoadMaster",
-      "source": "cisa-kev",
-      "platform": "Progress",
-      "title": "Progress LoadMaster",
-      "product": "Progress",
-      "version": null,
-      "release_date": "2026-08-07",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 1,
-      "exploited_count": 1,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 1,
-      "max_cvss": null,
-      "due_date": "2026-08-10",
-      "priority": {
-        "score": 98,
-        "band": "critical",
-        "reasons": [
-          "actively exploited",
-          "KEV overdue by 27d"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 1
-      },
-      "remediation": {
-        "summary": "Progress LoadMaster has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
-        "urgency": "critical",
-        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
-        "links": [
-          {
-            "label": "CISA KEV catalog",
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Progress LoadMaster (all installs)",
-            "icon": "\ud83c\udf10",
-            "steps": [
-              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
-              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
-              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-8037",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "Progress LoadMaster Command Injection Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8037",
-          "first_seen": "2026-08-07",
-          "due_date": "2026-08-10",
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Progress LoadMaster"
           ]
         }
       ]
