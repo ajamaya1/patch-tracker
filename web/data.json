@@ -1,36 +1,36 @@
 {
-  "generated_at": "2026-09-09T11:26:58+00:00",
+  "generated_at": "2026-09-09T20:37:39+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
     "apple": 197,
-    "cisa-kev": 56,
+    "cisa-kev": 59,
     "microsoft": 1,
     "nvd": 7
   },
   "stats": {
-    "total_patches": 37,
-    "total_cves": 1504,
-    "exploited_cves": 36,
-    "new_cves": 1227,
+    "total_patches": 40,
+    "total_cves": 1508,
+    "exploited_cves": 40,
+    "new_cves": 1231,
     "by_source": {
       "microsoft": 1,
+      "cisa-kev": 28,
       "apple": 4,
-      "cisa-kev": 25,
       "nvd": 7
     },
     "by_severity": {
       "Critical": 8,
-      "unknown": 4,
-      "High": 25
+      "High": 28,
+      "unknown": 4
     },
     "by_status": {
-      "new": 37
+      "new": 40
     },
     "by_product_kind": {
       "client": 722,
       "server": 797,
-      "other": 553
+      "other": 557
     }
   },
   "patches": [
@@ -41,7 +41,7 @@
       "title": "September 2026 Security Updates",
       "product": "Microsoft Security Update",
       "version": "2026-Sep",
-      "release_date": "2026-09-09T01:58:23Z",
+      "release_date": "2026-09-09T15:09:50Z",
       "patch_tuesday": "2026-09-08",
       "servicing": {
         "channel": "B",
@@ -59,9 +59,9 @@
       "url": "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2026-Sep",
       "severity": "Critical",
       "status": "new",
-      "cve_count": 1185,
+      "cve_count": 1186,
       "exploited_count": 2,
-      "new_count": 1185,
+      "new_count": 1186,
       "ransomware_count": 0,
       "disclosed_count": 0,
       "max_cvss": 10.0,
@@ -78,10 +78,10 @@
       "affected": {
         "client": 722,
         "server": 797,
-        "other": 366
+        "other": 367
       },
       "remediation": {
-        "summary": "Apply the September 2026 Security Updates (722 affecting Windows clients; 797 affecting Windows Server; 366 affecting other Microsoft products).",
+        "summary": "Apply the September 2026 Security Updates (722 affecting Windows clients; 797 affecting Windows Server; 367 affecting other Microsoft products).",
         "urgency": "critical",
         "note": "2 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
         "links": [
@@ -41165,6 +41165,25 @@
           ]
         },
         {
+          "cve_id": "CVE-2026-85046",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85046",
+          "first_seen": "2026-09-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft Edge (Chromium-based)"
+          ]
+        },
+        {
           "cve_id": "CVE-2026-85062",
           "severity": "Moderate",
           "base_score": null,
@@ -41779,6 +41798,336 @@
           ],
           "products": [
             "azl3 pcre2 10.42-3 on Azure Linux 3.0"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:Cisco:Secure Firewall Management Center (FMC) and Security Cloud Control (SCC) Firewall Management",
+      "source": "cisa-kev",
+      "platform": "Cisco",
+      "title": "Cisco Secure Firewall Management Center (FMC) and Security Cloud Control (SCC) Firewall Management",
+      "product": "Cisco",
+      "version": null,
+      "release_date": "2026-09-09",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-09-12",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 3d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Cisco Secure Firewall Management Center (FMC) and Security Cloud Control (SCC) Firewall Management has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Cisco Secure Firewall Management Center (FMC) and Security Cloud Control (SCC) Firewall Management (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-20079",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Cisco Firewall Management Center Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20079",
+          "first_seen": "2026-09-09",
+          "due_date": "2026-09-12",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Cisco Secure Firewall Management Center (FMC) and Security Cloud Control (SCC) Firewall Management"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:Citrix:NetScaler",
+      "source": "cisa-kev",
+      "platform": "Citrix",
+      "title": "Citrix NetScaler",
+      "product": "Citrix",
+      "version": null,
+      "release_date": "2026-09-09",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-09-12",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 3d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Citrix NetScaler has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Citrix NetScaler (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-19490",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Citrix NetScaler Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19490",
+          "first_seen": "2026-09-09",
+          "due_date": "2026-09-12",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Citrix NetScaler"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:Fortinet:Multiple Products",
+      "source": "cisa-kev",
+      "platform": "Fortinet",
+      "title": "Fortinet Multiple Products",
+      "product": "Fortinet",
+      "version": null,
+      "release_date": "2026-09-09",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-09-12",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 3d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Fortinet Multiple Products has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Fortinet Multiple Products (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2025-25249",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Fortinet Multiple Products Heap-based Buffer Overflow Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-25249",
+          "first_seen": "2026-09-09",
+          "due_date": "2026-09-12",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Fortinet Multiple Products"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:Google:Chromium V8",
+      "source": "cisa-kev",
+      "platform": "Google",
+      "title": "Google Chromium V8",
+      "product": "Google",
+      "version": null,
+      "release_date": "2026-09-09",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 2,
+      "exploited_count": 2,
+      "new_count": 2,
+      "ransomware_count": 0,
+      "disclosed_count": 2,
+      "max_cvss": null,
+      "due_date": "2026-09-18",
+      "priority": {
+        "score": 88,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 2
+      },
+      "remediation": {
+        "summary": "Google Chromium V8 has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "2 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Google Chromium V8 (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-85046",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Google Chromium V8 Type Confusion Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85046",
+          "first_seen": "2026-09-04",
+          "due_date": "2026-09-18",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chromium V8"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-87491",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Google Chromium V8 Out of Bounds Write Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87491",
+          "first_seen": "2026-09-09",
+          "due_date": "2026-09-23",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Google Chromium V8"
           ]
         }
       ]
@@ -43437,83 +43786,6 @@
           ],
           "products": [
             "Ivanti"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "kev:Google:Chromium V8",
-      "source": "cisa-kev",
-      "platform": "Google",
-      "title": "Google Chromium V8",
-      "product": "Google",
-      "version": null,
-      "release_date": "2026-09-04",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 1,
-      "exploited_count": 1,
-      "new_count": 1,
-      "ransomware_count": 0,
-      "disclosed_count": 1,
-      "max_cvss": null,
-      "due_date": "2026-09-18",
-      "priority": {
-        "score": 88,
-        "band": "critical",
-        "reasons": [
-          "actively exploited",
-          "newly released"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 1
-      },
-      "remediation": {
-        "summary": "Google Chromium V8 has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
-        "urgency": "critical",
-        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
-        "links": [
-          {
-            "label": "CISA KEV catalog",
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Google Chromium V8 (all installs)",
-            "icon": "\ud83c\udf10",
-            "steps": [
-              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
-              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
-              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-85046",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "Google Chromium V8 Type Confusion Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85046",
-          "first_seen": "2026-09-04",
-          "due_date": "2026-09-18",
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chromium V8"
           ]
         }
       ]
