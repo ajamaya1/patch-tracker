@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-09-10T11:23:30+00:00",
+  "generated_at": "2026-09-10T20:32:46+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
     "apple": 197,
-    "cisa-kev": 58,
+    "cisa-kev": 59,
     "microsoft": 1,
-    "nvd": 7
+    "nvd": 6
   },
   "stats": {
     "total_patches": 40,
-    "total_cves": 1899,
-    "exploited_cves": 39,
-    "new_cves": 1677,
+    "total_cves": 1888,
+    "exploited_cves": 41,
+    "new_cves": 1679,
     "by_source": {
       "microsoft": 1,
-      "cisa-kev": 28,
+      "cisa-kev": 29,
       "apple": 4,
-      "nvd": 7
+      "nvd": 6
     },
     "by_severity": {
       "Critical": 8,
@@ -30,7 +30,7 @@
     "by_product_kind": {
       "client": 233,
       "server": 284,
-      "other": 1494
+      "other": 1483
     }
   },
   "patches": [
@@ -38244,6 +38244,103 @@
       ]
     },
     {
+      "patch_id": "kev:MikroTik:RouterOS",
+      "source": "cisa-kev",
+      "platform": "MikroTik",
+      "title": "MikroTik RouterOS",
+      "product": "MikroTik",
+      "version": null,
+      "release_date": "2026-09-10",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 2,
+      "exploited_count": 2,
+      "new_count": 2,
+      "ransomware_count": 0,
+      "disclosed_count": 2,
+      "max_cvss": null,
+      "due_date": "2026-09-13",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 3d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 2
+      },
+      "remediation": {
+        "summary": "MikroTik RouterOS has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "2 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "MikroTik RouterOS (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-67277",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "MikroTik RouterOS Missing Authentication for Critical Function Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67277",
+          "first_seen": "2026-09-10",
+          "due_date": "2026-09-13",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "MikroTik RouterOS"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-86060",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "MikroTik RouterOS Improper Neutralization of Argument Delimiters in a Command Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86060",
+          "first_seen": "2026-09-10",
+          "due_date": "2026-09-13",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "MikroTik RouterOS"
+          ]
+        }
+      ]
+    },
+    {
       "patch_id": "kev:Cisco:Secure Firewall Management Center (FMC) and Security Cloud Control (SCC) Firewall Management",
       "source": "cisa-kev",
       "platform": "Cisco",
@@ -38834,7 +38931,7 @@
       "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Adobe",
       "severity": "Critical",
       "status": "new",
-      "cve_count": 23,
+      "cve_count": 15,
       "exploited_count": 0,
       "new_count": 11,
       "ransomware_count": 0,
@@ -38852,7 +38949,7 @@
       "affected": {
         "client": 0,
         "server": 0,
-        "other": 23
+        "other": 15
       },
       "remediation": {
         "summary": "Patch Adobe to the vendor's fixed release (recent high/critical CVEs from NVD).",
@@ -38889,158 +38986,6 @@
           "due_date": null,
           "ransomware": false,
           "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-27302",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27302",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48381",
-          "severity": "Critical",
-          "base_score": 9.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48381",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48413",
-          "severity": "High",
-          "base_score": 8.7,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts in\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48413",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48414",
-          "severity": "High",
-          "base_score": 7.7,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts in\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48414",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48415",
-          "severity": "High",
-          "base_score": 7.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. A low-privileged attacker could leverage \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48415",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48416",
-          "severity": "High",
-          "base_score": 7.5,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerabi\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48416",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-71362",
-          "severity": "Critical",
-          "base_score": 9.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. An attacker could leverage this vulnerability \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71362",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-71398",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71398",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -39329,7 +39274,7 @@
       "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Cisco",
       "severity": "Critical",
       "status": "new",
-      "cve_count": 22,
+      "cve_count": 21,
       "exploited_count": 0,
       "new_count": 1,
       "ransomware_count": 0,
@@ -39347,7 +39292,7 @@
       "affected": {
         "client": 0,
         "server": 0,
-        "other": 22
+        "other": 21
       },
       "remediation": {
         "summary": "Patch Cisco to the vendor's fixed release (recent high/critical CVEs from NVD).",
@@ -39696,25 +39641,6 @@
           ]
         },
         {
-          "cve_id": "CVE-2026-20349",
-          "severity": "High",
-          "base_score": 8.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "A vulnerability in the Remote Access SSL VPN service for Cisco Secure Firewall Adaptive Security Appliance (ASA) Software and Cisco Secure Firewall Threat Defen\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20349",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Cisco"
-          ]
-        },
-        {
           "cve_id": "CVE-2026-20357",
           "severity": "Critical",
           "base_score": 10.0,
@@ -39977,7 +39903,7 @@
       "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Ivanti",
       "severity": "Critical",
       "status": "new",
-      "cve_count": 11,
+      "cve_count": 9,
       "exploited_count": 0,
       "new_count": 9,
       "ransomware_count": 0,
@@ -39995,7 +39921,7 @@
       "affected": {
         "client": 0,
         "server": 0,
-        "other": 11
+        "other": 9
       },
       "remediation": {
         "summary": "Patch Ivanti to the vendor's fixed release (recent high/critical CVEs from NVD).",
@@ -40165,44 +40091,6 @@
           "due_date": null,
           "ransomware": false,
           "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Ivanti"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-18127",
-          "severity": "High",
-          "base_score": 7.7,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "External control of a filename in the Core of Ivanti Endpoint Manager before version 2024 SU7 allows a remote authenticated attacker full write control over an \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18127",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Ivanti"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-18129",
-          "severity": "High",
-          "base_score": 8.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Cleartext transmission of sensitive information in the Core of Ivanti Endpoint Manager before version 2024 SU7 allows a remote unauthenticated attacker in a MIT\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18129",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -46730,118 +46618,6 @@
           ],
           "products": [
             "Metabase Metabase"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "nvd:Zoom",
-      "source": "nvd",
-      "platform": "Zoom",
-      "title": "Zoom",
-      "product": "Zoom",
-      "version": null,
-      "release_date": "2026-08-11",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Zoom",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 3,
-      "exploited_count": 0,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 0,
-      "max_cvss": 8.3,
-      "due_date": null,
-      "priority": {
-        "score": 45,
-        "band": "high",
-        "reasons": []
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 3
-      },
-      "remediation": {
-        "summary": "Patch Zoom to the vendor's fixed release (recent high/critical CVEs from NVD).",
-        "urgency": "normal",
-        "note": "Apply within your normal patch cycle.",
-        "links": [
-          {
-            "label": "NVD advisories",
-            "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Zoom"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Zoom (all installs)",
-            "icon": "\ud83e\udde9",
-            "steps": [
-              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
-              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
-              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-53413",
-          "severity": "High",
-          "base_score": 8.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Missing bounds check in the annotator function of Zoom Clients allows buffer over-write, which may allow a meeting participant to achieve remote code execution \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53413",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Zoom"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-53415",
-          "severity": "High",
-          "base_score": 8.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Use after Free in the annotator function of Zoom Clients may allow a meeting participant to achieve remote code execution of another participant via network acc\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53415",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Zoom"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-53416",
-          "severity": "High",
-          "base_score": 7.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Path traversal in Zoom VDI Client and Plugins may allow an authenticated user to conduct information disclosure via local access.",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53416",
-          "first_seen": "2026-08-11",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Zoom"
           ]
         }
       ]
