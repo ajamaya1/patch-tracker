@@ -1,36 +1,36 @@
 {
-  "generated_at": "2026-09-25T11:54:16+00:00",
+  "generated_at": "2026-09-26T11:28:18+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
     "apple": 173,
     "cisa-kev": 60,
     "microsoft": 1,
-    "nvd": 7
+    "nvd": 8
   },
   "stats": {
-    "total_patches": 45,
-    "total_cves": 1209,
+    "total_patches": 43,
+    "total_cves": 1210,
     "exploited_cves": 52,
     "new_cves": 751,
     "by_source": {
       "microsoft": 1,
-      "cisa-kev": 31,
-      "nvd": 7,
+      "cisa-kev": 28,
+      "nvd": 8,
       "apple": 6
     },
     "by_severity": {
       "Critical": 8,
-      "High": 31,
+      "High": 29,
       "unknown": 6
     },
     "by_status": {
-      "new": 45
+      "new": 43
     },
     "by_product_kind": {
       "client": 132,
       "server": 144,
-      "other": 819
+      "other": 820
     }
   },
   "patches": [
@@ -41,7 +41,7 @@
       "title": "April 2026 Security Updates",
       "product": "Microsoft Security Update",
       "version": "2026-Apr",
-      "release_date": "2026-09-25T02:46:32Z",
+      "release_date": "2026-09-25T07:00:00Z",
       "patch_tuesday": "2026-04-14",
       "servicing": {
         "channel": "B",
@@ -186,8 +186,8 @@
         },
         {
           "cve_id": "CVE-2025-48431",
-          "severity": "Important",
-          "base_score": 7.5,
+          "severity": "Moderate",
+          "base_score": 6.2,
           "exploited": false,
           "publicly_disclosed": false,
           "impact": null,
@@ -200,8 +200,7 @@
             "other"
           ],
           "products": [
-            "azl3 thrift 0.15.0-5 on Azure Linux 3.0",
-            "cbl2 ceph 16.2.10-11 on CBL Mariner 2.0"
+            "azl3 thrift 0.15.0-5 on Azure Linux 3.0"
           ]
         },
         {
@@ -275,7 +274,6 @@
           ],
           "products": [
             "azl3 python3 3.12.9-10 on Azure Linux 3.0",
-            "azl3 python3 3.12.9-11 on Azure Linux 3.0",
             "cbl2 python3 3.9.19-19 on CBL Mariner 2.0"
           ]
         },
@@ -1039,10 +1037,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -1062,17 +1057,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -1091,7 +1076,8 @@
             "other"
           ],
           "products": [
-            "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0"
+            "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -2821,9 +2807,7 @@
           ],
           "products": [
             "azl3 libsoup 3.4.4-15 on Azure Linux 3.0",
-            "azl3 libsoup 3.4.4-16 on Azure Linux 3.0",
-            "cbl2 libsoup 3.0.4-13 on CBL Mariner 2.0",
-            "cbl2 libsoup 3.0.4-13 on CBL-Mariner 2.0"
+            "cbl2 libsoup 3.0.4-13 on CBL Mariner 2.0"
           ]
         },
         {
@@ -2846,11 +2830,9 @@
             "azl3 golang 1.25.9-1 on Azure Linux 3.0",
             "azl3 golang 1.26.1-1 on Azure Linux 3.0",
             "azl3 golang 1.26.2-1 on Azure Linux 3.0",
-            "azl3 golang 1.27.0-1 on Azure Linux 3.0",
             "cbl2 golang 1.18.8-10 on CBL Mariner 2.0",
             "cbl2 golang 1.22.7-5 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL-Mariner 2.0"
+            "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -2873,11 +2855,9 @@
             "azl3 golang 1.25.9-1 on Azure Linux 3.0",
             "azl3 golang 1.26.1-1 on Azure Linux 3.0",
             "azl3 golang 1.26.2-1 on Azure Linux 3.0",
-            "azl3 golang 1.27.0-1 on Azure Linux 3.0",
             "cbl2 golang 1.18.8-10 on CBL Mariner 2.0",
             "cbl2 golang 1.22.7-5 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL-Mariner 2.0"
+            "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -2900,11 +2880,9 @@
             "azl3 golang 1.25.9-1 on Azure Linux 3.0",
             "azl3 golang 1.26.1-1 on Azure Linux 3.0",
             "azl3 golang 1.26.2-1 on Azure Linux 3.0",
-            "azl3 golang 1.27.0-1 on Azure Linux 3.0",
             "cbl2 golang 1.18.8-10 on CBL Mariner 2.0",
             "cbl2 golang 1.22.7-5 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL-Mariner 2.0"
+            "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -2924,8 +2902,7 @@
           ],
           "products": [
             "azl3 cups 2.4.16-1 on Azure Linux 3.0",
-            "cbl2 cups 2.3.3op2-11 on CBL Mariner 2.0",
-            "cbl2 cups 2.3.3op2-11 on CBL-Mariner 2.0"
+            "cbl2 cups 2.3.3op2-11 on CBL Mariner 2.0"
           ]
         },
         {
@@ -2946,8 +2923,7 @@
           "products": [
             "azl3 util-linux 2.40.2-3 on Azure Linux 3.0",
             "azl3 util-linux 2.40.2-4 on Azure Linux 3.0",
-            "cbl2 util-linux 2.37.4-10 on CBL Mariner 2.0",
-            "cbl2 util-linux 2.37.4-10 on CBL-Mariner 2.0"
+            "cbl2 util-linux 2.37.4-10 on CBL Mariner 2.0"
           ]
         },
         {
@@ -2967,7 +2943,6 @@
           ],
           "products": [
             "azl3 ruby 3.3.5-7 on Azure Linux 3.0",
-            "azl3 ruby 3.3.5-8 on Azure Linux 3.0",
             "azl3 zlib 1.3.2-1 on Azure Linux 3.0"
           ]
         },
@@ -4132,11 +4107,8 @@
             "azl3 rust 1.75.0-27 on Azure Linux 3.0",
             "azl3 rust 1.90.0-6 on Azure Linux 3.0",
             "cbl2 edk2 20230301gitf80f052277c8-47 on CBL Mariner 2.0",
-            "cbl2 edk2 20230301gitf80f052277c8-47 on CBL-Mariner 2.0",
             "cbl2 hvloader 1.0.1-18 on CBL Mariner 2.0",
-            "cbl2 hvloader 1.0.1-18 on CBL-Mariner 2.0",
-            "cbl2 openssl 1.1.1k-39 on CBL Mariner 2.0",
-            "cbl2 openssl 1.1.1k-39 on CBL-Mariner 2.0"
+            "cbl2 openssl 1.1.1k-39 on CBL Mariner 2.0"
           ]
         },
         {
@@ -4162,11 +4134,8 @@
             "azl3 rust 1.75.0-27 on Azure Linux 3.0",
             "azl3 rust 1.90.0-6 on Azure Linux 3.0",
             "cbl2 edk2 20230301gitf80f052277c8-47 on CBL Mariner 2.0",
-            "cbl2 edk2 20230301gitf80f052277c8-47 on CBL-Mariner 2.0",
             "cbl2 hvloader 1.0.1-18 on CBL Mariner 2.0",
-            "cbl2 hvloader 1.0.1-18 on CBL-Mariner 2.0",
-            "cbl2 openssl 1.1.1k-39 on CBL Mariner 2.0",
-            "cbl2 openssl 1.1.1k-39 on CBL-Mariner 2.0"
+            "cbl2 openssl 1.1.1k-39 on CBL Mariner 2.0"
           ]
         },
         {
@@ -4194,8 +4163,7 @@
             "azl3 qemu 9.1.0-1 on Azure Linux 3.0",
             "azl3 rust 1.75.0-27 on Azure Linux 3.0",
             "azl3 rust 1.90.0-6 on Azure Linux 3.0",
-            "cbl2 openssl 1.1.1k-39 on CBL Mariner 2.0",
-            "cbl2 openssl 1.1.1k-39 on CBL-Mariner 2.0"
+            "cbl2 openssl 1.1.1k-39 on CBL Mariner 2.0"
           ]
         },
         {
@@ -4221,8 +4189,7 @@
             "azl3 openssl 3.3.5-4 on Azure Linux 3.0",
             "azl3 qemu 9.1.0-1 on Azure Linux 3.0",
             "azl3 rust 1.90.0-6 on Azure Linux 3.0",
-            "cbl2 openssl 1.1.1k-39 on CBL Mariner 2.0",
-            "cbl2 openssl 1.1.1k-39 on CBL-Mariner 2.0"
+            "cbl2 openssl 1.1.1k-39 on CBL Mariner 2.0"
           ]
         },
         {
@@ -4263,8 +4230,7 @@
           "products": [
             "azl3 erlang 26.2.5.18-1 on Azure Linux 3.0",
             "azl3 erlang 26.2.5.20-1 on Azure Linux 3.0",
-            "cbl2 erlang 25.3.2.21-5 on CBL Mariner 2.0",
-            "cbl2 erlang 25.3.2.21-5 on CBL-Mariner 2.0"
+            "cbl2 erlang 25.3.2.21-5 on CBL Mariner 2.0"
           ]
         },
         {
@@ -4312,18 +4278,13 @@
             "azl3 coredns 1.11.4-15 on Azure Linux 3.0",
             "azl3 cri-tools 1.32.0-4 on Azure Linux 3.0",
             "azl3 etcd 3.5.28-1 on Azure Linux 3.0",
-            "azl3 etcd 3.5.30-2 on Azure Linux 3.0",
             "azl3 gh 2.62.0-13 on Azure Linux 3.0",
             "azl3 gh 2.62.0-15 on Azure Linux 3.0",
             "azl3 ignition-flatcar 2.22.0-1 on Azure Linux 3.0",
-            "azl3 ignition-flatcar 2.22.0-2 on Azure Linux 3.0",
-            "azl3 ignition-flatcar 2.22.0-5 on Azure Linux 3.0",
             "azl3 keda 2.14.1-11 on Azure Linux 3.0",
             "azl3 telegraf 1.31.0-17 on Azure Linux 3.0",
             "azl3 telegraf 1.31.0-19 on Azure Linux 3.0",
-            "cbl2 etcd 3.5.28-1",
-            "cbl2 etcd 3.5.28-1 on CBL Mariner 2.0",
-            "cbl2 etcd 3.5.28-1 on CBL-Mariner 2.0"
+            "cbl2 etcd 3.5.28-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -4542,12 +4503,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -4744,7 +4700,7 @@
         {
           "cve_id": "CVE-2026-31431",
           "severity": "Moderate",
-          "base_score": 7.8,
+          "base_score": 5.5,
           "exploited": false,
           "publicly_disclosed": false,
           "impact": null,
@@ -4758,11 +4714,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel-hwe 0:6.12-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -4820,9 +4772,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -4937,11 +4887,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -5113,17 +5059,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -5181,8 +5117,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5277,8 +5212,7 @@
             "other"
           ],
           "products": [
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5298,8 +5232,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5319,8 +5252,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5341,13 +5273,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5368,24 +5294,13 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
           "cve_id": "CVE-2026-31488",
           "severity": "Moderate",
-          "base_score": 6.4,
+          "base_score": 6.3,
           "exploited": false,
           "publicly_disclosed": false,
           "impact": null,
@@ -5399,11 +5314,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -5424,12 +5335,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5448,8 +5354,7 @@
             "other"
           ],
           "products": [
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5470,18 +5375,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5501,8 +5395,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5522,8 +5415,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5543,8 +5435,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5564,8 +5455,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5584,8 +5474,7 @@
             "other"
           ],
           "products": [
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5604,17 +5493,7 @@
             "other"
           ],
           "products": [
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -5634,8 +5513,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5674,8 +5552,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5695,8 +5572,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5716,17 +5592,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -5746,17 +5612,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -5776,8 +5632,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5797,8 +5652,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5818,8 +5672,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5839,8 +5692,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5859,13 +5711,12 @@
             "other"
           ],
           "products": [
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
           "cve_id": "CVE-2026-31515",
-          "severity": "Moderate",
+          "severity": "Important",
           "base_score": 7.0,
           "exploited": false,
           "publicly_disclosed": false,
@@ -5880,8 +5731,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5902,18 +5752,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5933,8 +5772,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5954,8 +5792,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -5994,8 +5831,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6015,8 +5851,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6036,8 +5871,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6057,8 +5891,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6155,18 +5988,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6186,9 +6008,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -6230,10 +6050,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6253,8 +6070,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6273,8 +6089,7 @@
             "other"
           ],
           "products": [
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6293,8 +6108,7 @@
             "other"
           ],
           "products": [
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6313,8 +6127,7 @@
             "other"
           ],
           "products": [
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6333,8 +6146,7 @@
             "other"
           ],
           "products": [
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6353,8 +6165,7 @@
             "other"
           ],
           "products": [
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6373,8 +6184,7 @@
             "other"
           ],
           "products": [
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6393,8 +6203,7 @@
             "other"
           ],
           "products": [
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6413,8 +6222,7 @@
             "other"
           ],
           "products": [
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6434,8 +6242,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6456,18 +6263,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6488,18 +6284,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6538,8 +6323,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6579,18 +6363,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6610,8 +6383,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6632,11 +6404,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6657,18 +6425,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6708,8 +6465,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6730,8 +6486,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6752,24 +6507,13 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
           "cve_id": "CVE-2026-31580",
-          "severity": "Moderate",
-          "base_score": 5.5,
+          "severity": "Important",
+          "base_score": 7.8,
           "exploited": false,
           "publicly_disclosed": false,
           "impact": null,
@@ -6782,7 +6526,8 @@
             "other"
           ],
           "products": [
-            "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0"
+            "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6880,8 +6625,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6902,8 +6646,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -6983,8 +6726,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -7024,18 +6766,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -7114,9 +6845,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -7136,9 +6865,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -7157,7 +6884,8 @@
             "other"
           ],
           "products": [
-            "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0"
+            "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -7177,9 +6905,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -7236,7 +6962,8 @@
             "other"
           ],
           "products": [
-            "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0"
+            "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -7256,9 +6983,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -7298,9 +7023,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -7320,11 +7043,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -7345,8 +7064,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -7384,10 +7102,7 @@
             "other"
           ],
           "products": [
-            "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0"
           ]
         },
         {
@@ -7407,9 +7122,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -7429,9 +7142,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -7451,15 +7162,13 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
           "cve_id": "CVE-2026-31613",
           "severity": "Moderate",
-          "base_score": 7.1,
+          "base_score": 7.0,
           "exploited": false,
           "publicly_disclosed": false,
           "impact": null,
@@ -7473,11 +7182,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -7498,8 +7203,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -7519,13 +7223,12 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
           "cve_id": "CVE-2026-31617",
-          "severity": "Moderate",
+          "severity": "Important",
           "base_score": 7.8,
           "exploited": false,
           "publicly_disclosed": false,
@@ -7540,8 +7243,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -7562,8 +7264,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -7584,8 +7285,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -7664,8 +7364,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -7686,8 +7385,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -7708,8 +7406,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -7750,8 +7447,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -7772,8 +7468,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -7814,18 +7509,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -7846,8 +7530,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -7868,8 +7551,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -7930,8 +7612,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -7951,17 +7632,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -8022,8 +7693,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8044,8 +7714,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8086,8 +7755,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8108,8 +7776,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8130,8 +7797,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8152,8 +7818,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8174,8 +7839,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8196,8 +7860,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8218,8 +7881,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8240,18 +7902,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8272,8 +7923,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8294,8 +7944,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8316,8 +7965,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8338,8 +7986,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8380,8 +8027,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8402,8 +8048,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8424,8 +8069,7 @@
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
             "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0",
-            "cbl2 kernel 5.15.202.1-1 on CBL-Mariner 2.0"
+            "cbl2 kernel 5.15.202.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -8523,17 +8167,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.141.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.143.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.144.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.145.2-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.150.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.152.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.157.1-1 on Azure Linux 3.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -8708,10 +8342,7 @@
           ],
           "products": [
             "azl3 kernel 6.6.130.1-3 on Azure Linux 3.0",
-            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.137.1-2 on Azure Linux 3.0",
-            "azl3 kernel 6.6.138.1-1 on Azure Linux 3.0",
-            "azl3 kernel 6.6.139.1-1 on Azure Linux 3.0"
+            "azl3 kernel 6.6.134.1-2 on Azure Linux 3.0"
           ]
         },
         {
@@ -8823,8 +8454,7 @@
           "products": [
             "azl3 util-linux 2.40.2-3 on Azure Linux 3.0",
             "azl3 util-linux 2.40.2-4 on Azure Linux 3.0",
-            "cbl2 util-linux 2.37.4-10 on CBL Mariner 2.0",
-            "cbl2 util-linux 2.37.4-10 on CBL-Mariner 2.0"
+            "cbl2 util-linux 2.37.4-10 on CBL Mariner 2.0"
           ]
         },
         {
@@ -9987,8 +9617,7 @@
           ],
           "products": [
             "azl3 erlang 26.2.5.18-1 on Azure Linux 3.0",
-            "cbl2 erlang 25.3.2.21-5 on CBL Mariner 2.0",
-            "cbl2 erlang 25.3.2.21-5 on CBL-Mariner 2.0"
+            "cbl2 erlang 25.3.2.21-5 on CBL Mariner 2.0"
           ]
         },
         {
@@ -10385,7 +10014,6 @@
             "Windows 11 Version 25H2 for x64-based Systems",
             "Windows 11 Version 26H1 for ARM64-based Systems",
             "Windows 11 version 26H1 for x64-based Systems",
-            "Windows App Client for Windows Desktop",
             "Windows Server 2012",
             "Windows Server 2012 (Server Core installation)",
             "Windows Server 2012 R2",
@@ -11069,14 +10697,10 @@
           ],
           "products": [
             "azl3 python-pip 24.2-6 on Azure Linux 3.0",
-            "azl3 python-pip 24.2-8 on Azure Linux 3.0",
             "azl3 python-virtualenv 20.36.1-2 on Azure Linux 3.0",
-            "azl3 python-virtualenv 20.36.1-4 on Azure Linux 3.0",
-            "cbl2 python-virtualenv 20.26.6-3",
+            "azl3 python3 3.12.9-10 on Azure Linux 3.0",
             "cbl2 python-virtualenv 20.26.6-3 on CBL Mariner 2.0",
-            "cbl2 python-virtualenv 20.26.6-3 on CBL-Mariner 2.0",
-            "cbl2 python3 3.9.19-19 on CBL Mariner 2.0",
-            "cbl2 python3 3.9.19-19 on CBL-Mariner 2.0"
+            "cbl2 python3 3.9.19-19 on CBL Mariner 2.0"
           ]
         },
         {
@@ -11998,17 +11622,15 @@
             "azl3 golang 1.25.9-1 on Azure Linux 3.0",
             "azl3 golang 1.26.1-1 on Azure Linux 3.0",
             "azl3 golang 1.26.2-1 on Azure Linux 3.0",
-            "azl3 golang 1.27.0-1 on Azure Linux 3.0",
             "cbl2 golang 1.18.8-10 on CBL Mariner 2.0",
             "cbl2 golang 1.22.7-5 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL-Mariner 2.0"
+            "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0"
           ]
         },
         {
           "cve_id": "CVE-2026-32281",
           "severity": "Moderate",
-          "base_score": 7.5,
+          "base_score": 5.9,
           "exploited": false,
           "publicly_disclosed": false,
           "impact": null,
@@ -12025,17 +11647,15 @@
             "azl3 golang 1.25.9-1 on Azure Linux 3.0",
             "azl3 golang 1.26.1-1 on Azure Linux 3.0",
             "azl3 golang 1.26.2-1 on Azure Linux 3.0",
-            "azl3 golang 1.27.0-1 on Azure Linux 3.0",
             "cbl2 golang 1.18.8-10 on CBL Mariner 2.0",
             "cbl2 golang 1.22.7-5 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL-Mariner 2.0"
+            "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0"
           ]
         },
         {
           "cve_id": "CVE-2026-32282",
           "severity": "Moderate",
-          "base_score": 7.0,
+          "base_score": 5.3,
           "exploited": false,
           "publicly_disclosed": false,
           "impact": null,
@@ -12052,11 +11672,9 @@
             "azl3 golang 1.25.9-1 on Azure Linux 3.0",
             "azl3 golang 1.26.1-1 on Azure Linux 3.0",
             "azl3 golang 1.26.2-1 on Azure Linux 3.0",
-            "azl3 golang 1.27.0-1 on Azure Linux 3.0",
             "cbl2 golang 1.18.8-10 on CBL Mariner 2.0",
             "cbl2 golang 1.22.7-5 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL-Mariner 2.0"
+            "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -12079,17 +11697,15 @@
             "azl3 golang 1.25.9-1 on Azure Linux 3.0",
             "azl3 golang 1.26.1-1 on Azure Linux 3.0",
             "azl3 golang 1.26.2-1 on Azure Linux 3.0",
-            "azl3 golang 1.27.0-1 on Azure Linux 3.0",
             "cbl2 golang 1.18.8-10 on CBL Mariner 2.0",
             "cbl2 golang 1.22.7-5 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL-Mariner 2.0"
+            "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0"
           ]
         },
         {
           "cve_id": "CVE-2026-32288",
           "severity": "Moderate",
-          "base_score": 6.5,
+          "base_score": 5.5,
           "exploited": false,
           "publicly_disclosed": false,
           "impact": null,
@@ -12110,23 +11726,17 @@
             "azl3 golang 1.25.9-1 on Azure Linux 3.0",
             "azl3 golang 1.26.1-1 on Azure Linux 3.0",
             "azl3 golang 1.26.2-1 on Azure Linux 3.0",
-            "azl3 golang 1.27.0-1 on Azure Linux 3.0",
             "azl3 moby-engine 25.0.3-15 on Azure Linux 3.0",
             "azl3 moby-engine 25.0.3-17 on Azure Linux 3.0",
             "azl3 skopeo 1.14.4-10 on Azure Linux 3.0",
             "azl3 skopeo 1.14.4-9 on Azure Linux 3.0",
             "cbl2 containerized-data-importer 1.55.0-28 on CBL Mariner 2.0",
-            "cbl2 containerized-data-importer 1.55.0-28 on CBL-Mariner 2.0",
             "cbl2 cri-o 1.22.3-20 on CBL Mariner 2.0",
-            "cbl2 cri-o 1.22.3-20 on CBL-Mariner 2.0",
             "cbl2 golang 1.18.8-10 on CBL Mariner 2.0",
             "cbl2 golang 1.22.7-5 on CBL Mariner 2.0",
             "cbl2 moby-engine 24.0.9-19 on CBL Mariner 2.0",
-            "cbl2 moby-engine 24.0.9-19 on CBL-Mariner 2.0",
             "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL-Mariner 2.0",
-            "cbl2 skopeo 1.14.2-15 on CBL Mariner 2.0",
-            "cbl2 skopeo 1.14.2-15 on CBL-Mariner 2.0"
+            "cbl2 skopeo 1.14.2-15 on CBL Mariner 2.0"
           ]
         },
         {
@@ -12149,11 +11759,9 @@
             "azl3 golang 1.25.9-1 on Azure Linux 3.0",
             "azl3 golang 1.26.1-1 on Azure Linux 3.0",
             "azl3 golang 1.26.2-1 on Azure Linux 3.0",
-            "azl3 golang 1.27.0-1 on Azure Linux 3.0",
             "cbl2 golang 1.18.8-10 on CBL Mariner 2.0",
             "cbl2 golang 1.22.7-5 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0",
-            "cbl2 msft-golang 1.25.8-1 on CBL-Mariner 2.0"
+            "cbl2 msft-golang 1.25.8-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -12173,8 +11781,7 @@
           ],
           "products": [
             "azl3 jq 1.7.1-4 on Azure Linux 3.0",
-            "cbl2 jq 1.6-5 on CBL Mariner 2.0",
-            "cbl2 jq 1.6-5 on CBL-Mariner 2.0"
+            "cbl2 jq 1.6-5 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13052,8 +12659,7 @@
           ],
           "products": [
             "azl3 jq 1.7.1-4 on Azure Linux 3.0",
-            "cbl2 jq 1.6-5 on CBL Mariner 2.0",
-            "cbl2 jq 1.6-5 on CBL-Mariner 2.0"
+            "cbl2 jq 1.6-5 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13073,8 +12679,7 @@
           ],
           "products": [
             "azl3 jq 1.7.1-4 on Azure Linux 3.0",
-            "cbl2 jq 1.6-5 on CBL Mariner 2.0",
-            "cbl2 jq 1.6-5 on CBL-Mariner 2.0"
+            "cbl2 jq 1.6-5 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13094,9 +12699,7 @@
           ],
           "products": [
             "azl3 xorg-x11-server-Xwayland 24.1.6-3 on Azure Linux 3.0",
-            "azl3 xorg-x11-server-Xwayland 24.1.6-4 on Azure Linux 3.0",
-            "cbl2 xorg-x11-server 1.20.10-16 on CBL Mariner 2.0",
-            "cbl2 xorg-x11-server 1.20.10-16 on CBL-Mariner 2.0"
+            "cbl2 xorg-x11-server 1.20.10-16 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13116,10 +12719,7 @@
           ],
           "products": [
             "azl3 xorg-x11-server-Xwayland 24.1.6-3 on Azure Linux 3.0",
-            "azl3 xorg-x11-server-Xwayland 24.1.6-4 on Azure Linux 3.0",
-            "cbl2 xorg-x11-server 1.20.10-16",
-            "cbl2 xorg-x11-server 1.20.10-16 on CBL Mariner 2.0",
-            "cbl2 xorg-x11-server 1.20.10-16 on CBL-Mariner 2.0"
+            "cbl2 xorg-x11-server 1.20.10-16 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13139,10 +12739,7 @@
           ],
           "products": [
             "azl3 xorg-x11-server-Xwayland 24.1.6-3 on Azure Linux 3.0",
-            "azl3 xorg-x11-server-Xwayland 24.1.6-4 on Azure Linux 3.0",
-            "cbl2 xorg-x11-server 1.20.10-16",
-            "cbl2 xorg-x11-server 1.20.10-16 on CBL Mariner 2.0",
-            "cbl2 xorg-x11-server 1.20.10-16 on CBL-Mariner 2.0"
+            "cbl2 xorg-x11-server 1.20.10-16 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13162,8 +12759,7 @@
           ],
           "products": [
             "azl3 mysql 8.0.45-2 on Azure Linux 3.0",
-            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0",
-            "cbl2 mysql 8.0.45-3 on CBL-Mariner 2.0"
+            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13183,8 +12779,7 @@
           ],
           "products": [
             "azl3 mysql 8.0.45-2 on Azure Linux 3.0",
-            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0",
-            "cbl2 mysql 8.0.45-3 on CBL-Mariner 2.0"
+            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13204,8 +12799,7 @@
           ],
           "products": [
             "azl3 mysql 8.0.45-2 on Azure Linux 3.0",
-            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0",
-            "cbl2 mysql 8.0.45-3 on CBL-Mariner 2.0"
+            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13225,8 +12819,7 @@
           ],
           "products": [
             "azl3 mysql 8.0.45-2 on Azure Linux 3.0",
-            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0",
-            "cbl2 mysql 8.0.45-3 on CBL-Mariner 2.0"
+            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13246,8 +12839,7 @@
           ],
           "products": [
             "azl3 mysql 8.0.45-2 on Azure Linux 3.0",
-            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0",
-            "cbl2 mysql 8.0.45-3 on CBL-Mariner 2.0"
+            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13267,8 +12859,7 @@
           ],
           "products": [
             "azl3 mysql 8.0.45-2 on Azure Linux 3.0",
-            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0",
-            "cbl2 mysql 8.0.45-3 on CBL-Mariner 2.0"
+            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13288,8 +12879,7 @@
           ],
           "products": [
             "azl3 mysql 8.0.45-2 on Azure Linux 3.0",
-            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0",
-            "cbl2 mysql 8.0.45-3 on CBL-Mariner 2.0"
+            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13309,8 +12899,7 @@
           ],
           "products": [
             "azl3 mysql 8.0.45-2 on Azure Linux 3.0",
-            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0",
-            "cbl2 mysql 8.0.45-3 on CBL-Mariner 2.0"
+            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13330,8 +12919,7 @@
           ],
           "products": [
             "azl3 mysql 8.0.45-2 on Azure Linux 3.0",
-            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0",
-            "cbl2 mysql 8.0.45-3 on CBL-Mariner 2.0"
+            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13371,8 +12959,7 @@
           ],
           "products": [
             "azl3 pytorch 2.2.2-12 on Azure Linux 3.0",
-            "cbl2 pytorch 2.0.0-15 on CBL Mariner 2.0",
-            "cbl2 pytorch 2.0.0-15 on CBL-Mariner 2.0"
+            "cbl2 pytorch 2.0.0-15 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13392,9 +12979,7 @@
           ],
           "products": [
             "azl3 pytorch 2.2.2-12 on Azure Linux 3.0",
-            "cbl2 pytorch 2.0.0-15",
-            "cbl2 pytorch 2.0.0-15 on CBL Mariner 2.0",
-            "cbl2 pytorch 2.0.0-15 on CBL-Mariner 2.0"
+            "cbl2 pytorch 2.0.0-15 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13420,7 +13005,7 @@
         {
           "cve_id": "CVE-2026-34743",
           "severity": "Low",
-          "base_score": 5.3,
+          "base_score": null,
           "exploited": false,
           "publicly_disclosed": false,
           "impact": null,
@@ -13437,13 +13022,9 @@
             "azl3 rust 1.90.0-6 on Azure Linux 3.0",
             "azl3 xz 5.4.4-2 on Azure Linux 3.0",
             "azl3 xz 5.4.4-3 on Azure Linux 3.0",
-            "cbl2 cmake 3.21.4-23",
             "cbl2 cmake 3.21.4-23 on CBL Mariner 2.0",
-            "cbl2 cmake 3.21.4-23 on CBL-Mariner 2.0",
             "cbl2 rust 1.72.0-15 on CBL Mariner 2.0",
-            "cbl2 rust 1.72.0-15 on CBL-Mariner 2.0",
-            "cbl2 xz 5.2.5-1 on CBL Mariner 2.0",
-            "cbl2 xz 5.2.5-1 on CBL-Mariner 2.0"
+            "cbl2 xz 5.2.5-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13463,8 +13044,7 @@
           ],
           "products": [
             "azl3 libpng 1.6.56-1 on Azure Linux 3.0",
-            "cbl2 libpng 1.6.56-1 on CBL Mariner 2.0",
-            "cbl2 libpng 1.6.56-1 on CBL-Mariner 2.0"
+            "cbl2 libpng 1.6.56-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13504,8 +13084,7 @@
           "products": [
             "azl3 avahi 0.8-7 on Azure Linux 3.0",
             "azl3 avahi 0.8-8 on Azure Linux 3.0",
-            "cbl2 avahi 0.8-5 on CBL Mariner 2.0",
-            "cbl2 avahi 0.8-5 on CBL-Mariner 2.0"
+            "cbl2 avahi 0.8-5 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13544,8 +13123,7 @@
           ],
           "products": [
             "azl3 cups 2.4.16-1 on Azure Linux 3.0",
-            "cbl2 cups 2.3.3op2-11 on CBL Mariner 2.0",
-            "cbl2 cups 2.3.3op2-11 on CBL-Mariner 2.0"
+            "cbl2 cups 2.3.3op2-11 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13565,8 +13143,7 @@
           ],
           "products": [
             "azl3 cups 2.4.16-1 on Azure Linux 3.0",
-            "cbl2 cups 2.3.3op2-11 on CBL Mariner 2.0",
-            "cbl2 cups 2.3.3op2-11 on CBL-Mariner 2.0"
+            "cbl2 cups 2.3.3op2-11 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13586,8 +13163,7 @@
           ],
           "products": [
             "azl3 vim 9.2.0240-1 on Azure Linux 3.0",
-            "cbl2 vim 9.2.0240-1 on CBL Mariner 2.0",
-            "cbl2 vim 9.2.0240-1 on CBL-Mariner 2.0"
+            "cbl2 vim 9.2.0240-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13607,8 +13183,7 @@
           ],
           "products": [
             "azl3 cups 2.4.16-1 on Azure Linux 3.0",
-            "cbl2 cups 2.3.3op2-11 on CBL Mariner 2.0",
-            "cbl2 cups 2.3.3op2-11 on CBL-Mariner 2.0"
+            "cbl2 cups 2.3.3op2-11 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13628,8 +13203,7 @@
           ],
           "products": [
             "azl3 vim 9.2.0240-1 on Azure Linux 3.0",
-            "cbl2 vim 9.2.0240-1 on CBL Mariner 2.0",
-            "cbl2 vim 9.2.0240-1 on CBL-Mariner 2.0"
+            "cbl2 vim 9.2.0240-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13668,8 +13242,7 @@
           ],
           "products": [
             "azl3 rubygem-rdiscount 2.2.7.1-1 on Azure Linux 3.0",
-            "cbl2 rubygem-rdiscount 2.2.0.2-3 on CBL Mariner 2.0",
-            "cbl2 rubygem-rdiscount 2.2.0.2-3 on CBL-Mariner 2.0"
+            "cbl2 rubygem-rdiscount 2.2.0.2-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13688,8 +13261,7 @@
             "other"
           ],
           "products": [
-            "cbl2 helm 3.14.2-10 on CBL Mariner 2.0",
-            "cbl2 helm 3.14.2-10 on CBL-Mariner 2.0"
+            "cbl2 helm 3.14.2-10 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13709,8 +13281,7 @@
           ],
           "products": [
             "azl3 mysql 8.0.45-2 on Azure Linux 3.0",
-            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0",
-            "cbl2 mysql 8.0.45-3 on CBL-Mariner 2.0"
+            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13730,8 +13301,7 @@
           ],
           "products": [
             "azl3 mysql 8.0.45-2 on Azure Linux 3.0",
-            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0",
-            "cbl2 mysql 8.0.45-3 on CBL-Mariner 2.0"
+            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13751,8 +13321,7 @@
           ],
           "products": [
             "azl3 mysql 8.0.45-2 on Azure Linux 3.0",
-            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0",
-            "cbl2 mysql 8.0.45-3 on CBL-Mariner 2.0"
+            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13772,8 +13341,7 @@
           ],
           "products": [
             "azl3 mysql 8.0.45-2 on Azure Linux 3.0",
-            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0",
-            "cbl2 mysql 8.0.45-3 on CBL-Mariner 2.0"
+            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13793,8 +13361,7 @@
           ],
           "products": [
             "azl3 mysql 8.0.45-2 on Azure Linux 3.0",
-            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0",
-            "cbl2 mysql 8.0.45-3 on CBL-Mariner 2.0"
+            "cbl2 mysql 8.0.45-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13814,8 +13381,7 @@
           ],
           "products": [
             "azl3 openssh 9.8p1-5 on Azure Linux 3.0",
-            "cbl2 openssh 8.9p1-9 on CBL Mariner 2.0",
-            "cbl2 openssh 8.9p1-9 on CBL-Mariner 2.0"
+            "cbl2 openssh 8.9p1-9 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13835,8 +13401,7 @@
           ],
           "products": [
             "azl3 openssh 9.8p1-5 on Azure Linux 3.0",
-            "cbl2 openssh 8.9p1-9 on CBL Mariner 2.0",
-            "cbl2 openssh 8.9p1-9 on CBL-Mariner 2.0"
+            "cbl2 openssh 8.9p1-9 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13857,9 +13422,7 @@
           "products": [
             "azl3 openssh 9.8p1-5 on Azure Linux 3.0",
             "azl3 openssh 9.8p1-6 on Azure Linux 3.0",
-            "azl3 openssh 9.8p1-8 on Azure Linux 3.0",
-            "cbl2 openssh 8.9p1-9 on CBL Mariner 2.0",
-            "cbl2 openssh 8.9p1-9 on CBL-Mariner 2.0"
+            "cbl2 openssh 8.9p1-9 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13879,9 +13442,7 @@
           ],
           "products": [
             "azl3 openssh 9.8p1-5 on Azure Linux 3.0",
-            "cbl2 openssh 8.9p1-9",
-            "cbl2 openssh 8.9p1-9 on CBL Mariner 2.0",
-            "cbl2 openssh 8.9p1-9 on CBL-Mariner 2.0"
+            "cbl2 openssh 8.9p1-9 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13902,9 +13463,7 @@
           "products": [
             "azl3 openssh 9.8p1-5 on Azure Linux 3.0",
             "azl3 openssh 9.8p1-6 on Azure Linux 3.0",
-            "cbl2 openssh 8.9p1-9",
-            "cbl2 openssh 8.9p1-9 on CBL Mariner 2.0",
-            "cbl2 openssh 8.9p1-9 on CBL-Mariner 2.0"
+            "cbl2 openssh 8.9p1-9 on CBL Mariner 2.0"
           ]
         },
         {
@@ -13942,17 +13501,7 @@
             "other"
           ],
           "products": [
-            "azl3 cert-manager 1.12.15-6 on Azure Linux 3.0",
-            "azl3 containerd2 0.0.0-1 on Azure Linux 3.0",
-            "azl3 containerized-data-importer 1.62.0-3 on Azure Linux 3.0",
-            "azl3 cri-tools 1.32.0-4 on Azure Linux 3.0",
-            "azl3 docker-buildx 0.14.0-11 on Azure Linux 3.0",
-            "azl3 docker-compose 2.27.0-9 on Azure Linux 3.0",
-            "azl3 keda 2.14.1-11 on Azure Linux 3.0",
-            "azl3 kubernetes 1.30.10-23 on Azure Linux 3.0",
-            "azl3 kubevirt 1.7.1-2 on Azure Linux 3.0",
-            "azl3 kured 1.15.0-3 on Azure Linux 3.0",
-            "azl3 moby-containerd-cc 1.7.7-11 on Azure Linux 3.0"
+            "azl3 containerd2 0.0.0-1 on Azure Linux 3.0"
           ]
         },
         {
@@ -13972,8 +13521,7 @@
           ],
           "products": [
             "azl3 sudo 1.9.17-1 on Azure Linux 3.0",
-            "cbl2 sudo 1.9.17-1 on CBL Mariner 2.0",
-            "cbl2 sudo 1.9.17-1 on CBL-Mariner 2.0"
+            "cbl2 sudo 1.9.17-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14012,8 +13560,7 @@
           ],
           "products": [
             "azl3 rubygem-addressable 2.8.5-2 on Azure Linux 3.0",
-            "cbl2 rubygem-addressable 2.8.0-2 on CBL Mariner 2.0",
-            "cbl2 rubygem-addressable 2.8.0-2 on CBL-Mariner 2.0"
+            "cbl2 rubygem-addressable 2.8.0-2 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14074,8 +13621,7 @@
           ],
           "products": [
             "azl3 cups 2.4.16-1 on Azure Linux 3.0",
-            "cbl2 cups 2.3.3op2-11 on CBL Mariner 2.0",
-            "cbl2 cups 2.3.3op2-11 on CBL-Mariner 2.0"
+            "cbl2 cups 2.3.3op2-11 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14095,8 +13641,7 @@
           ],
           "products": [
             "azl3 cups 2.4.16-1 on Azure Linux 3.0",
-            "cbl2 cups 2.3.3op2-11 on CBL Mariner 2.0",
-            "cbl2 cups 2.3.3op2-11 on CBL-Mariner 2.0"
+            "cbl2 cups 2.3.3op2-11 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14115,8 +13660,7 @@
             "other"
           ],
           "products": [
-            "cbl2 osslsigncode 2.7-1 on CBL Mariner 2.0",
-            "cbl2 osslsigncode 2.7-1 on CBL-Mariner 2.0"
+            "cbl2 osslsigncode 2.7-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14135,8 +13679,7 @@
             "other"
           ],
           "products": [
-            "cbl2 osslsigncode 2.7-1 on CBL Mariner 2.0",
-            "cbl2 osslsigncode 2.7-1 on CBL-Mariner 2.0"
+            "cbl2 osslsigncode 2.7-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14155,8 +13698,7 @@
             "other"
           ],
           "products": [
-            "cbl2 osslsigncode 2.7-1 on CBL Mariner 2.0",
-            "cbl2 osslsigncode 2.7-1 on CBL-Mariner 2.0"
+            "cbl2 osslsigncode 2.7-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14176,8 +13718,7 @@
           ],
           "products": [
             "azl3 vim 9.2.0240-1 on Azure Linux 3.0",
-            "cbl2 vim 9.2.0240-1 on CBL Mariner 2.0",
-            "cbl2 vim 9.2.0240-1 on CBL-Mariner 2.0"
+            "cbl2 vim 9.2.0240-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14199,8 +13740,6 @@
             "azl3 azurelinux-image-tools 1.2.0-2 on Azure Linux 3.0",
             "azl3 containerd2 2.0.0-18 on Azure Linux 3.0",
             "azl3 containerd2 2.1.6-1 on Azure Linux 3.0",
-            "azl3 containerd2 2.1.6-2 on Azure Linux 3.0",
-            "azl3 containerd2 2.2.4-2 on Azure Linux 3.0",
             "azl3 docker-buildx 0.14.0-10 on Azure Linux 3.0",
             "azl3 docker-buildx 0.14.0-11 on Azure Linux 3.0",
             "azl3 docker-compose 2.27.0-8 on Azure Linux 3.0",
@@ -14210,17 +13749,11 @@
             "azl3 moby-engine 25.0.3-15 on Azure Linux 3.0",
             "azl3 moby-engine 25.0.3-17 on Azure Linux 3.0",
             "cbl2 moby-buildx 0.7.1-28 on CBL Mariner 2.0",
-            "cbl2 moby-buildx 0.7.1-28 on CBL-Mariner 2.0",
             "cbl2 moby-compose 2.17.3-14 on CBL Mariner 2.0",
-            "cbl2 moby-compose 2.17.3-14 on CBL-Mariner 2.0",
             "cbl2 moby-containerd 1.6.26-13 on CBL Mariner 2.0",
-            "cbl2 moby-containerd 1.6.26-13 on CBL-Mariner 2.0",
             "cbl2 moby-containerd-cc 1.7.7-13 on CBL Mariner 2.0",
-            "cbl2 moby-containerd-cc 1.7.7-13 on CBL-Mariner 2.0",
             "cbl2 moby-engine 24.0.9-19 on CBL Mariner 2.0",
-            "cbl2 moby-engine 24.0.9-19 on CBL-Mariner 2.0",
-            "cbl2 prometheus 2.37.9-7 on CBL Mariner 2.0",
-            "cbl2 prometheus 2.37.9-7 on CBL-Mariner 2.0"
+            "cbl2 prometheus 2.37.9-7 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14240,8 +13773,7 @@
           ],
           "products": [
             "azl3 jq 1.7.1-4 on Azure Linux 3.0",
-            "cbl2 jq 1.6-5 on CBL Mariner 2.0",
-            "cbl2 jq 1.6-5 on CBL-Mariner 2.0"
+            "cbl2 jq 1.6-5 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14261,8 +13793,7 @@
           ],
           "products": [
             "azl3 jq 1.7.1-4 on Azure Linux 3.0",
-            "cbl2 jq 1.6-5 on CBL Mariner 2.0",
-            "cbl2 jq 1.6-5 on CBL-Mariner 2.0"
+            "cbl2 jq 1.6-5 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14282,8 +13813,7 @@
           ],
           "products": [
             "azl3 sleuthkit 4.12.1-1 on Azure Linux 3.0",
-            "cbl2 sleuthkit 4.9.0-4 on CBL Mariner 2.0",
-            "cbl2 sleuthkit 4.9.0-4 on CBL-Mariner 2.0"
+            "cbl2 sleuthkit 4.9.0-4 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14303,8 +13833,7 @@
           ],
           "products": [
             "azl3 sleuthkit 4.12.1-1 on Azure Linux 3.0",
-            "cbl2 sleuthkit 4.9.0-4 on CBL Mariner 2.0",
-            "cbl2 sleuthkit 4.9.0-4 on CBL-Mariner 2.0"
+            "cbl2 sleuthkit 4.9.0-4 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14324,8 +13853,7 @@
           ],
           "products": [
             "azl3 sleuthkit 4.12.1-1 on Azure Linux 3.0",
-            "cbl2 sleuthkit 4.9.0-4 on CBL Mariner 2.0",
-            "cbl2 sleuthkit 4.9.0-4 on CBL-Mariner 2.0"
+            "cbl2 sleuthkit 4.9.0-4 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14345,8 +13873,7 @@
           ],
           "products": [
             "azl3 jq 1.7.1-4 on Azure Linux 3.0",
-            "cbl2 jq 1.6-5 on CBL Mariner 2.0",
-            "cbl2 jq 1.6-5 on CBL-Mariner 2.0"
+            "cbl2 jq 1.6-5 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14365,8 +13892,7 @@
             "other"
           ],
           "products": [
-            "cbl2 prometheus 2.37.9-7 on CBL Mariner 2.0",
-            "cbl2 prometheus 2.37.9-7 on CBL-Mariner 2.0"
+            "cbl2 prometheus 2.37.9-7 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14387,9 +13913,7 @@
           "products": [
             "azl3 systemd 255-26 on Azure Linux 3.0",
             "azl3 systemd 255-27 on Azure Linux 3.0",
-            "azl3 systemd 255-30 on Azure Linux 3.0",
-            "cbl2 systemd 250.3-24 on CBL Mariner 2.0",
-            "cbl2 systemd 250.3-24 on CBL-Mariner 2.0"
+            "cbl2 systemd 250.3-24 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14410,9 +13934,7 @@
           "products": [
             "azl3 systemd 255-26 on Azure Linux 3.0",
             "azl3 systemd 255-27 on Azure Linux 3.0",
-            "azl3 systemd 255-30 on Azure Linux 3.0",
-            "cbl2 systemd 250.3-24 on CBL Mariner 2.0",
-            "cbl2 systemd 250.3-24 on CBL-Mariner 2.0"
+            "cbl2 systemd 250.3-24 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14516,8 +14038,7 @@
           "products": [
             "azl3 libexif 0.6.24-2 on Azure Linux 3.0",
             "azl3 libexif 0.6.24-3 on Azure Linux 3.0",
-            "cbl2 libexif 0.6.24-2 on CBL Mariner 2.0",
-            "cbl2 libexif 0.6.24-2 on CBL-Mariner 2.0"
+            "cbl2 libexif 0.6.24-2 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14538,8 +14059,7 @@
           "products": [
             "azl3 libexif 0.6.24-2 on Azure Linux 3.0",
             "azl3 libexif 0.6.24-3 on Azure Linux 3.0",
-            "cbl2 libexif 0.6.24-2 on CBL Mariner 2.0",
-            "cbl2 libexif 0.6.24-2 on CBL-Mariner 2.0"
+            "cbl2 libexif 0.6.24-2 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14559,8 +14079,7 @@
           ],
           "products": [
             "azl3 mesa 24.0.1-6 on Azure Linux 3.0",
-            "cbl2 mesa 21.0.0-4 on CBL Mariner 2.0",
-            "cbl2 mesa 21.0.0-4 on CBL-Mariner 2.0"
+            "cbl2 mesa 21.0.0-4 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14580,8 +14099,7 @@
           ],
           "products": [
             "azl3 ntfs-3g 2022.10.3-2 on Azure Linux 3.0",
-            "cbl2 ntfs-3g 2022.10.3-2 on CBL Mariner 2.0",
-            "cbl2 ntfs-3g 2022.10.3-2 on CBL-Mariner 2.0"
+            "cbl2 ntfs-3g 2022.10.3-2 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14600,8 +14118,7 @@
             "other"
           ],
           "products": [
-            "cbl2 cri-o 1.22.3-20 on CBL Mariner 2.0",
-            "cbl2 cri-o 1.22.3-20 on CBL-Mariner 2.0"
+            "cbl2 cri-o 1.22.3-20 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14621,8 +14138,7 @@
           ],
           "products": [
             "azl3 rsync 3.4.1-2 on Azure Linux 3.0",
-            "cbl2 rsync 3.4.1-2 on CBL Mariner 2.0",
-            "cbl2 rsync 3.4.1-2 on CBL-Mariner 2.0"
+            "cbl2 rsync 3.4.1-2 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14642,9 +14158,7 @@
           ],
           "products": [
             "azl3 python-lxml 4.9.3-1 on Azure Linux 3.0",
-            "azl3 python-lxml 4.9.3-2 on Azure Linux 3.0",
-            "cbl2 python-lxml 4.9.1-1 on CBL Mariner 2.0",
-            "cbl2 python-lxml 4.9.1-1 on CBL-Mariner 2.0"
+            "cbl2 python-lxml 4.9.1-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14664,8 +14178,7 @@
           ],
           "products": [
             "azl3 cups 2.4.16-1 on Azure Linux 3.0",
-            "cbl2 cups 2.3.3op2-11 on CBL Mariner 2.0",
-            "cbl2 cups 2.3.3op2-11 on CBL-Mariner 2.0"
+            "cbl2 cups 2.3.3op2-11 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14686,8 +14199,7 @@
           "products": [
             "azl3 expat 2.6.4-5 on Azure Linux 3.0",
             "azl3 expat 2.6.4-6 on Azure Linux 3.0",
-            "cbl2 expat 2.6.4-4 on CBL Mariner 2.0",
-            "cbl2 expat 2.6.4-4 on CBL-Mariner 2.0"
+            "cbl2 expat 2.6.4-4 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14707,8 +14219,7 @@
           ],
           "products": [
             "azl3 poetry 1.8.3-1 on Azure Linux 3.0",
-            "azl3 poetry 1.8.5-1 on Azure Linux 3.0",
-            "azl3 poetry 1.8.5-2 on Azure Linux 3.0"
+            "azl3 poetry 1.8.5-1 on Azure Linux 3.0"
           ]
         },
         {
@@ -14728,9 +14239,7 @@
           ],
           "products": [
             "azl3 python-mako 1.2.4-2 on Azure Linux 3.0",
-            "azl3 python-mako 1.2.4-3 on Azure Linux 3.0",
-            "cbl2 python-mako 1.2.2-2 on CBL Mariner 2.0",
-            "cbl2 python-mako 1.2.2-2 on CBL-Mariner 2.0"
+            "cbl2 python-mako 1.2.2-2 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14751,8 +14260,7 @@
           "products": [
             "azl3 lcms2 2.15-1 on Azure Linux 3.0",
             "azl3 lcms2 2.15-2 on Azure Linux 3.0",
-            "cbl2 lcms2 2.13.1-2 on CBL Mariner 2.0",
-            "cbl2 lcms2 2.13.1-2 on CBL-Mariner 2.0"
+            "cbl2 lcms2 2.13.1-2 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14772,8 +14280,7 @@
           ],
           "products": [
             "azl3 vim 9.2.0240-1 on Azure Linux 3.0",
-            "cbl2 vim 9.2.0240-1 on CBL Mariner 2.0",
-            "cbl2 vim 9.2.0240-1 on CBL-Mariner 2.0"
+            "cbl2 vim 9.2.0240-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -14814,22 +14321,7 @@
             "other"
           ],
           "products": [
-            "azl3 influxdb 2.7.5-15 on Azure Linux 3.0",
-            "azl3 kata-containers 3.19.1.kata3-1 on Azure Linux 3.0",
-            "azl3 kata-containers-cc 3.15.0.aks0-9 on Azure Linux 3.0",
-            "azl3 telegraf 1.31.0-19 on Azure Linux 3.0",
-            "azl3 thrift 0.15.0-5 on Azure Linux 3.0",
-            "cbl2 ceph 16.2.10-11 on CBL Mariner 2.0",
-            "cbl2 ceph 16.2.10-11 on CBL-Mariner 2.0",
-            "cbl2 kata-containers 3.2.0.azl2-7",
-            "cbl2 kata-containers 3.2.0.azl2-7 on CBL Mariner 2.0",
-            "cbl2 kata-containers 3.2.0.azl2-7 on CBL-Mariner 2.0",
-            "cbl2 kata-containers-cc 3.2.0.azl2-8",
-            "cbl2 kata-containers-cc 3.2.0.azl2-8 on CBL Mariner 2.0",
-            "cbl2 kata-containers-cc 3.2.0.azl2-8 on CBL-Mariner 2.0",
-            "cbl2 telegraf 1.29.4-22",
-            "cbl2 telegraf 1.29.4-22 on CBL Mariner 2.0",
-            "cbl2 telegraf 1.29.4-22 on CBL-Mariner 2.0"
+            "azl3 thrift 0.15.0-5 on Azure Linux 3.0"
           ]
         },
         {
@@ -14867,9 +14359,7 @@
             "other"
           ],
           "products": [
-            "azl3 thrift 0.15.0-5 on Azure Linux 3.0",
-            "cbl2 ceph 16.2.10-11 on CBL Mariner 2.0",
-            "cbl2 ceph 16.2.10-11 on CBL-Mariner 2.0"
+            "azl3 thrift 0.15.0-5 on Azure Linux 3.0"
           ]
         },
         {
@@ -14888,9 +14378,7 @@
             "other"
           ],
           "products": [
-            "azl3 thrift 0.15.0-5 on Azure Linux 3.0",
-            "cbl2 ceph 16.2.10-11 on CBL Mariner 2.0",
-            "cbl2 ceph 16.2.10-11 on CBL-Mariner 2.0"
+            "azl3 thrift 0.15.0-5 on Azure Linux 3.0"
           ]
         },
         {
@@ -14909,10 +14397,7 @@
             "other"
           ],
           "products": [
-            "azl3 thrift 0.15.0-5 on Azure Linux 3.0",
-            "azl3 thrift 0.15.0-6 on Azure Linux 3.0",
-            "cbl2 ceph 16.2.10-11 on CBL Mariner 2.0",
-            "cbl2 ceph 16.2.10-11 on CBL-Mariner 2.0"
+            "azl3 thrift 0.15.0-5 on Azure Linux 3.0"
           ]
         },
         {
@@ -14931,10 +14416,7 @@
             "other"
           ],
           "products": [
-            "azl3 thrift 0.15.0-5 on Azure Linux 3.0",
-            "azl3 thrift 0.15.0-6 on Azure Linux 3.0",
-            "cbl2 ceph 16.2.10-11 on CBL Mariner 2.0",
-            "cbl2 ceph 16.2.10-11 on CBL-Mariner 2.0"
+            "azl3 thrift 0.15.0-5 on Azure Linux 3.0"
           ]
         },
         {
@@ -14953,9 +14435,7 @@
             "other"
           ],
           "products": [
-            "azl3 thrift 0.15.0-5 on Azure Linux 3.0",
-            "cbl2 ceph 16.2.10-11 on CBL Mariner 2.0",
-            "cbl2 ceph 16.2.10-11 on CBL-Mariner 2.0"
+            "azl3 thrift 0.15.0-5 on Azure Linux 3.0"
           ]
         },
         {
@@ -14979,9 +14459,7 @@
             "azl3 rust 1.75.0-27 on Azure Linux 3.0",
             "azl3 rust 1.90.0-6 on Azure Linux 3.0",
             "cbl2 rpm-ostree 2022.1-8 on CBL Mariner 2.0",
-            "cbl2 rpm-ostree 2022.1-8 on CBL-Mariner 2.0",
-            "cbl2 rust 1.72.0-15 on CBL Mariner 2.0",
-            "cbl2 rust 1.72.0-15 on CBL-Mariner 2.0"
+            "cbl2 rust 1.72.0-15 on CBL Mariner 2.0"
           ]
         },
         {
@@ -15108,9 +14586,7 @@
           ],
           "products": [
             "azl3 libgcrypt 1.10.3-1 on Azure Linux 3.0",
-            "azl3 libgcrypt 1.10.3-2 on Azure Linux 3.0",
-            "cbl2 libgcrypt 1.10.3-1 on CBL Mariner 2.0",
-            "cbl2 libgcrypt 1.10.3-1 on CBL-Mariner 2.0"
+            "cbl2 libgcrypt 1.10.3-1 on CBL Mariner 2.0"
           ]
         },
         {
@@ -15148,10 +14624,7 @@
             "other"
           ],
           "products": [
-            "azl3 python3 3.12.9-10 on Azure Linux 3.0",
-            "azl3 python3 3.12.9-11 on Azure Linux 3.0",
-            "azl3 python3 3.12.9-13 on Azure Linux 3.0",
-            "azl3 python3 3.12.9-14 on Azure Linux 3.0"
+            "azl3 python3 3.12.9-10 on Azure Linux 3.0"
           ]
         },
         {
@@ -15172,8 +14645,7 @@
           "products": [
             "azl3 libcap 2.69-13 on Azure Linux 3.0",
             "azl3 libcap 2.69-14 on Azure Linux 3.0",
-            "cbl2 libcap 2.60-7 on CBL Mariner 2.0",
-            "cbl2 libcap 2.60-7 on CBL-Mariner 2.0"
+            "cbl2 libcap 2.60-7 on CBL Mariner 2.0"
           ]
         },
         {
@@ -15197,9 +14669,7 @@
             "azl3 telegraf 1.31.0-17 on Azure Linux 3.0",
             "azl3 telegraf 1.31.0-19 on Azure Linux 3.0",
             "cbl2 gh 2.13.0-26 on CBL Mariner 2.0",
-            "cbl2 gh 2.13.0-26 on CBL-Mariner 2.0",
-            "cbl2 telegraf 1.29.4-22 on CBL Mariner 2.0",
-            "cbl2 telegraf 1.29.4-22 on CBL-Mariner 2.0"
+            "cbl2 telegraf 1.29.4-22 on CBL Mariner 2.0"
           ]
         },
         {
@@ -15561,8 +15031,6 @@
           ],
           "products": [
             "azl3 glibc 2.38-19 on Azure Linux 3.0",
-            "azl3 glibc 2.38-20 on Azure Linux 3.0",
-            "azl3 glibc 2.38-21 on Azure Linux 3.0",
             "cbl2 glibc 2.35-10 on CBL Mariner 2.0"
           ]
         },
@@ -15602,11 +15070,7 @@
           ],
           "products": [
             "azl3 glibc 2.38-19 on Azure Linux 3.0",
-            "azl3 glibc 2.38-20 on Azure Linux 3.0",
-            "azl3 glibc 2.38-21 on Azure Linux 3.0",
-            "cbl2 glibc 2.35-10",
-            "cbl2 glibc 2.35-10 on CBL Mariner 2.0",
-            "cbl2 glibc 2.35-10 on CBL-Mariner 2.0"
+            "cbl2 glibc 2.35-10 on CBL Mariner 2.0"
           ]
         },
         {
@@ -15645,11 +15109,7 @@
           ],
           "products": [
             "azl3 glibc 2.38-19 on Azure Linux 3.0",
-            "azl3 glibc 2.38-20 on Azure Linux 3.0",
-            "azl3 glibc 2.38-21 on Azure Linux 3.0",
-            "cbl2 glibc 2.35-10",
-            "cbl2 glibc 2.35-10 on CBL Mariner 2.0",
-            "cbl2 glibc 2.35-10 on CBL-Mariner 2.0"
+            "cbl2 glibc 2.35-10 on CBL Mariner 2.0"
           ]
         },
         {
@@ -16828,11 +16288,7 @@
           ],
           "products": [
             "azl3 glibc 2.38-19 on Azure Linux 3.0",
-            "azl3 glibc 2.38-20 on Azure Linux 3.0",
-            "azl3 glibc 2.38-21 on Azure Linux 3.0",
-            "cbl2 glibc 2.35-10",
-            "cbl2 glibc 2.35-10 on CBL Mariner 2.0",
-            "cbl2 glibc 2.35-10 on CBL-Mariner 2.0"
+            "cbl2 glibc 2.35-10 on CBL Mariner 2.0"
           ]
         },
         {
@@ -16853,9 +16309,7 @@
           "products": [
             "azl3 sed 4.9-1 on Azure Linux 3.0",
             "azl3 sed 4.9-2 on Azure Linux 3.0",
-            "cbl2 sed 4.8-3",
-            "cbl2 sed 4.8-3 on CBL Mariner 2.0",
-            "cbl2 sed 4.8-3 on CBL-Mariner 2.0"
+            "cbl2 sed 4.8-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -16874,14 +16328,8 @@
             "other"
           ],
           "products": [
-            "azl3 python3 3.12.14-1 on Azure Linux 3.0",
-            "azl3 python3 3.12.14-2 on Azure Linux 3.0",
             "azl3 python3 3.12.9-10 on Azure Linux 3.0",
-            "azl3 python3 3.12.9-11 on Azure Linux 3.0",
-            "azl3 python3 3.12.9-13 on Azure Linux 3.0",
-            "azl3 python3 3.12.9-14 on Azure Linux 3.0",
-            "cbl2 python3 3.9.19-19 on CBL Mariner 2.0",
-            "cbl2 python3 3.9.19-19 on CBL-Mariner 2.0"
+            "cbl2 python3 3.9.19-19 on CBL Mariner 2.0"
           ]
         },
         {
@@ -16900,10 +16348,7 @@
             "other"
           ],
           "products": [
-            "azl3 python3 3.12.9-10 on Azure Linux 3.0",
-            "azl3 python3 3.12.9-11 on Azure Linux 3.0",
-            "azl3 python3 3.12.9-13 on Azure Linux 3.0",
-            "azl3 python3 3.12.9-14 on Azure Linux 3.0"
+            "azl3 python3 3.12.9-10 on Azure Linux 3.0"
           ]
         },
         {
@@ -16922,12 +16367,7 @@
             "other"
           ],
           "products": [
-            "azl3 glibc 2.38-19 on Azure Linux 3.0",
-            "azl3 glibc 2.38-20 on Azure Linux 3.0",
-            "azl3 glibc 2.38-21 on Azure Linux 3.0",
-            "cbl2 glibc 2.35-10",
-            "cbl2 glibc 2.35-10 on CBL Mariner 2.0",
-            "cbl2 glibc 2.35-10 on CBL-Mariner 2.0"
+            "azl3 glibc 2.38-19 on Azure Linux 3.0"
           ]
         },
         {
@@ -17364,14 +16804,7 @@
             "other"
           ],
           "products": [
-            "azl3 python-pip 24.2-6 on Azure Linux 3.0",
-            "azl3 python-pip 24.2-8 on Azure Linux 3.0",
-            "azl3 python-virtualenv 20.36.1-2 on Azure Linux 3.0",
-            "azl3 python-virtualenv 20.36.1-4 on Azure Linux 3.0",
-            "cbl2 python-virtualenv 20.26.6-3 on CBL Mariner 2.0",
-            "cbl2 python-virtualenv 20.26.6-3 on CBL-Mariner 2.0",
-            "cbl2 python3 3.9.19-19 on CBL Mariner 2.0",
-            "cbl2 python3 3.9.19-19 on CBL-Mariner 2.0"
+            "azl3 python-pip 24.2-6 on Azure Linux 3.0"
           ]
         },
         {
@@ -17528,8 +16961,7 @@
             "azl3 mysql 8.0.45-2 on Azure Linux 3.0",
             "azl3 protobuf 25.3-6 on Azure Linux 3.0",
             "azl3 pytorch 2.2.2-12 on Azure Linux 3.0",
-            "cbl2 protobuf 3.17.3-5 on CBL Mariner 2.0",
-            "cbl2 protobuf 3.17.3-5 on CBL-Mariner 2.0"
+            "cbl2 protobuf 3.17.3-5 on CBL Mariner 2.0"
           ]
         },
         {
@@ -17548,6 +16980,7 @@
             "other"
           ],
           "products": [
+            "azl3 dnsmasq 2.90-1 on Azure Linux 3.0",
             "cbl2 dnsmasq 2.90-1 on CBL Mariner 2.0"
           ]
         },
@@ -17657,9 +17090,7 @@
           ],
           "products": [
             "azl3 emacs 29.4-3 on Azure Linux 3.0",
-            "azl3 emacs 29.4-4 on Azure Linux 3.0",
-            "cbl2 emacs 29.4-3 on CBL Mariner 2.0",
-            "cbl2 emacs 29.4-3 on CBL-Mariner 2.0"
+            "cbl2 emacs 29.4-3 on CBL Mariner 2.0"
           ]
         },
         {
@@ -17742,6 +17173,314 @@
       ]
     },
     {
+      "patch_id": "kev:MikroTik:RouterOS",
+      "source": "cisa-kev",
+      "platform": "MikroTik",
+      "title": "MikroTik RouterOS",
+      "product": "MikroTik",
+      "version": null,
+      "release_date": "2026-09-25",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 3,
+      "exploited_count": 3,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 3,
+      "max_cvss": null,
+      "due_date": "2026-09-13",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV overdue by 13d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 3
+      },
+      "remediation": {
+        "summary": "MikroTik RouterOS has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "3 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "MikroTik RouterOS (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-67277",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "MikroTik RouterOS Missing Authentication for Critical Function Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67277",
+          "first_seen": "2026-09-10",
+          "due_date": "2026-09-13",
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "MikroTik RouterOS"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-67279",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Mikrotik RouterOS Improper Enforcement of Behavioral Workflow Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67279",
+          "first_seen": "2026-09-25",
+          "due_date": "2026-09-28",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "MikroTik RouterOS"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-86060",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "MikroTik RouterOS Improper Neutralization of Argument Delimiters in a Command Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86060",
+          "first_seen": "2026-09-10",
+          "due_date": "2026-09-13",
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "MikroTik RouterOS"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:WordPress:Core",
+      "source": "cisa-kev",
+      "platform": "WordPress",
+      "title": "WordPress Core",
+      "product": "WordPress",
+      "version": null,
+      "release_date": "2026-09-25",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 3,
+      "exploited_count": 3,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 3,
+      "max_cvss": null,
+      "due_date": "2026-07-24",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV overdue by 64d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 3
+      },
+      "remediation": {
+        "summary": "WordPress Core has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "3 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "WordPress Core (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-60137",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "WordPress Core SQL Injection Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60137",
+          "first_seen": "2026-07-21",
+          "due_date": "2026-08-04",
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "WordPress Core"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-63030",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "WordPress Core Interpretation Conflict Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63030",
+          "first_seen": "2026-07-21",
+          "due_date": "2026-07-24",
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "WordPress Core"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-87902",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "WordPress Core Remote File Inclusion Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87902",
+          "first_seen": "2026-09-25",
+          "due_date": "2026-09-28",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "WordPress Core"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "nvd:VMware",
+      "source": "nvd",
+      "platform": "VMware",
+      "title": "VMware",
+      "product": "VMware",
+      "version": null,
+      "release_date": "2026-09-25",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=VMware",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 0,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 0,
+      "max_cvss": 8.1,
+      "due_date": null,
+      "priority": {
+        "score": 59,
+        "band": "high",
+        "reasons": [
+          "newly released"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Patch VMware to the vendor's fixed release (recent high/critical CVEs from NVD).",
+        "urgency": "normal",
+        "note": "Apply within your normal patch cycle.",
+        "links": [
+          {
+            "label": "NVD advisories",
+            "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=VMware"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "VMware (all installs)",
+            "icon": "\ud83e\udde9",
+            "steps": [
+              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
+              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
+              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-51773",
+          "severity": "High",
+          "base_score": 8.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "An issue in the VMware datastore driver of OpenStack glance_store. When an authenticated attacker provides a maliciously crafted image location URI pointing to \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-51773",
+          "first_seen": "2026-09-25",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "VMware"
+          ]
+        }
+      ]
+    },
+    {
       "patch_id": "kev:Adobe:Commerce and Magento",
       "source": "cisa-kev",
       "platform": "Adobe",
@@ -17767,7 +17506,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 14d"
+          "KEV overdue by 15d"
         ]
       },
       "affected": {
@@ -17864,7 +17603,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 2d"
+          "KEV due in 1d"
         ]
       },
       "affected": {
@@ -18018,7 +17757,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 57d"
+          "KEV overdue by 58d"
         ]
       },
       "affected": {
@@ -18115,7 +17854,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 0d"
+          "KEV overdue by 1d"
         ]
       },
       "affected": {
@@ -18212,7 +17951,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 0d"
+          "KEV overdue by 1d"
         ]
       },
       "affected": {
@@ -19813,7 +19552,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 1d"
+          "KEV overdue by 2d"
         ]
       },
       "affected": {
@@ -19880,18 +19619,17 @@
       "status": "new",
       "cve_count": 5,
       "exploited_count": 5,
-      "new_count": 3,
+      "new_count": 0,
       "ransomware_count": 0,
       "disclosed_count": 5,
       "max_cvss": null,
       "due_date": "2026-08-30",
       "priority": {
-        "score": 100,
+        "score": 98,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "newly released",
-          "KEV overdue by 26d"
+          "KEV overdue by 27d"
         ]
       },
       "affected": {
@@ -19952,7 +19690,7 @@
           "first_seen": "2026-09-18",
           "due_date": "2026-09-21",
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -19971,7 +19709,7 @@
           "first_seen": "2026-09-18",
           "due_date": "2026-09-21",
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -19990,7 +19728,7 @@
           "first_seen": "2026-09-18",
           "due_date": "2026-09-21",
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -20044,7 +19782,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 6d"
+          "KEV overdue by 7d"
         ]
       },
       "affected": {
@@ -20121,7 +19859,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 6d"
+          "KEV overdue by 7d"
         ]
       },
       "affected": {
@@ -20198,7 +19936,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 6d"
+          "KEV overdue by 7d"
         ]
       },
       "affected": {
@@ -32721,7 +32459,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 8d"
+          "KEV overdue by 9d"
         ]
       },
       "affected": {
@@ -32798,7 +32536,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 11d"
+          "KEV overdue by 12d"
         ]
       },
       "affected": {
@@ -32875,7 +32613,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 11d"
+          "KEV overdue by 12d"
         ]
       },
       "affected": {
@@ -32952,7 +32690,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 20d"
+          "KEV overdue by 21d"
         ]
       },
       "affected": {
@@ -33062,102 +32800,6 @@
       ]
     },
     {
-      "patch_id": "kev:MikroTik:RouterOS",
-      "source": "cisa-kev",
-      "platform": "MikroTik",
-      "title": "MikroTik RouterOS",
-      "product": "MikroTik",
-      "version": null,
-      "release_date": "2026-09-10",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 2,
-      "exploited_count": 2,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 2,
-      "max_cvss": null,
-      "due_date": "2026-09-13",
-      "priority": {
-        "score": 98,
-        "band": "critical",
-        "reasons": [
-          "actively exploited",
-          "KEV overdue by 12d"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 2
-      },
-      "remediation": {
-        "summary": "MikroTik RouterOS has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
-        "urgency": "critical",
-        "note": "2 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
-        "links": [
-          {
-            "label": "CISA KEV catalog",
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "MikroTik RouterOS (all installs)",
-            "icon": "\ud83c\udf10",
-            "steps": [
-              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
-              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
-              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-67277",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "MikroTik RouterOS Missing Authentication for Critical Function Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67277",
-          "first_seen": "2026-09-10",
-          "due_date": "2026-09-13",
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "MikroTik RouterOS"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-86060",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "MikroTik RouterOS Improper Neutralization of Argument Delimiters in a Command Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86060",
-          "first_seen": "2026-09-10",
-          "due_date": "2026-09-13",
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "MikroTik RouterOS"
-          ]
-        }
-      ]
-    },
-    {
       "patch_id": "kev:Cisco:Secure Firewall Management Center (FMC) and Security Cloud Control (SCC) Firewall Management",
       "source": "cisa-kev",
       "platform": "Cisco",
@@ -33182,7 +32824,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 13d"
+          "KEV overdue by 14d"
         ]
       },
       "affected": {
@@ -33259,7 +32901,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 13d"
+          "KEV overdue by 14d"
         ]
       },
       "affected": {
@@ -33336,7 +32978,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 13d"
+          "KEV overdue by 14d"
         ]
       },
       "affected": {
@@ -33413,7 +33055,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 7d"
+          "KEV overdue by 8d"
         ]
       },
       "affected": {
@@ -35235,7 +34877,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 50d"
+          "KEV overdue by 51d"
         ]
       },
       "affected": {
@@ -35578,7 +35220,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 9d"
+          "KEV overdue by 10d"
         ]
       },
       "affected": {
@@ -35655,7 +35297,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 20d"
+          "KEV overdue by 21d"
         ]
       },
       "affected": {
@@ -35732,7 +35374,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 9d"
+          "KEV overdue by 10d"
         ]
       },
       "affected": {
@@ -35809,7 +35451,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 20d"
+          "KEV overdue by 21d"
         ]
       },
       "affected": {
@@ -35888,7 +35530,7 @@
           "actively exploited",
           "ransomware-linked",
           "critical severity",
-          "KEV overdue by 70d"
+          "KEV overdue by 71d"
         ]
       },
       "affected": {
@@ -36022,7 +35664,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 11d"
+          "KEV overdue by 12d"
         ]
       },
       "affected": {
@@ -36118,7 +35760,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 26d"
+          "KEV overdue by 27d"
         ]
       },
       "affected": {
@@ -36166,314 +35808,6 @@
           ],
           "products": [
             "ownCloud ownCloud"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "kev:Ajax.NET Professional:Ajax.NET Professional",
-      "source": "cisa-kev",
-      "platform": "Ajax.NET Professional",
-      "title": "Ajax.NET Professional Ajax.NET Professional",
-      "product": "Ajax.NET Professional",
-      "version": null,
-      "release_date": "2026-08-26",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 1,
-      "exploited_count": 1,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 1,
-      "max_cvss": null,
-      "due_date": "2026-09-09",
-      "priority": {
-        "score": 98,
-        "band": "critical",
-        "reasons": [
-          "actively exploited",
-          "KEV overdue by 16d"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 1
-      },
-      "remediation": {
-        "summary": "Ajax.NET Professional Ajax.NET Professional has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
-        "urgency": "critical",
-        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
-        "links": [
-          {
-            "label": "CISA KEV catalog",
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Ajax.NET Professional Ajax.NET Professional (all installs)",
-            "icon": "\ud83c\udf10",
-            "steps": [
-              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
-              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
-              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2021-23758",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "Ajax.NET Professional Deserialization of Untrusted Data Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-23758",
-          "first_seen": "2026-08-26",
-          "due_date": "2026-09-09",
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Ajax.NET Professional Ajax.NET Professional"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "kev:Citrix:NetScaler ADC and NetScaler Gateway",
-      "source": "cisa-kev",
-      "platform": "Citrix",
-      "title": "Citrix NetScaler ADC and NetScaler Gateway",
-      "product": "Citrix",
-      "version": null,
-      "release_date": "2026-08-26",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 1,
-      "exploited_count": 1,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 1,
-      "max_cvss": null,
-      "due_date": "2026-08-29",
-      "priority": {
-        "score": 98,
-        "band": "critical",
-        "reasons": [
-          "actively exploited",
-          "KEV overdue by 27d"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 1
-      },
-      "remediation": {
-        "summary": "Citrix NetScaler ADC and NetScaler Gateway has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
-        "urgency": "critical",
-        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
-        "links": [
-          {
-            "label": "CISA KEV catalog",
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Citrix NetScaler ADC and NetScaler Gateway (all installs)",
-            "icon": "\ud83c\udf10",
-            "steps": [
-              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
-              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
-              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2026-8452",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "Citrix NetScaler ADC and NetScaler Gateway Improper Restriction of Operations within the Bounds of a Memory Buffer Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8452",
-          "first_seen": "2026-08-26",
-          "due_date": "2026-08-29",
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Citrix NetScaler ADC and NetScaler Gateway"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "kev:Red Hat:Automatic Bug Reporting Tool",
-      "source": "cisa-kev",
-      "platform": "Red Hat",
-      "title": "Red Hat Automatic Bug Reporting Tool",
-      "product": "Red Hat",
-      "version": null,
-      "release_date": "2026-08-26",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 1,
-      "exploited_count": 1,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 1,
-      "max_cvss": null,
-      "due_date": "2026-09-09",
-      "priority": {
-        "score": 98,
-        "band": "critical",
-        "reasons": [
-          "actively exploited",
-          "KEV overdue by 16d"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 1
-      },
-      "remediation": {
-        "summary": "Red Hat Automatic Bug Reporting Tool has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
-        "urgency": "critical",
-        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
-        "links": [
-          {
-            "label": "CISA KEV catalog",
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Red Hat Automatic Bug Reporting Tool (all installs)",
-            "icon": "\ud83c\udf10",
-            "steps": [
-              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
-              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
-              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2015-5287",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "Red Hat Automatic Bug Reporting Tool Privilege Escalation Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-5287",
-          "first_seen": "2026-08-26",
-          "due_date": "2026-09-09",
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Red Hat Automatic Bug Reporting Tool"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "kev:Red Hat:Libuser",
-      "source": "cisa-kev",
-      "platform": "Red Hat",
-      "title": "Red Hat Libuser",
-      "product": "Red Hat",
-      "version": null,
-      "release_date": "2026-08-26",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 1,
-      "exploited_count": 1,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 1,
-      "max_cvss": null,
-      "due_date": "2026-09-09",
-      "priority": {
-        "score": 98,
-        "band": "critical",
-        "reasons": [
-          "actively exploited",
-          "KEV overdue by 16d"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 1
-      },
-      "remediation": {
-        "summary": "Red Hat Libuser has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
-        "urgency": "critical",
-        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
-        "links": [
-          {
-            "label": "CISA KEV catalog",
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Red Hat Libuser (all installs)",
-            "icon": "\ud83c\udf10",
-            "steps": [
-              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
-              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
-              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2015-3246",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "Red Hat Libuser Race Condition Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-3246",
-          "first_seen": "2026-08-26",
-          "due_date": "2026-09-09",
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Red Hat Libuser"
           ]
         }
       ]
