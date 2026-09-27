@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T11:28:18+00:00",
+  "generated_at": "2026-09-27T12:06:22+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
@@ -9,28 +9,28 @@
     "nvd": 8
   },
   "stats": {
-    "total_patches": 43,
-    "total_cves": 1210,
-    "exploited_cves": 52,
+    "total_patches": 42,
+    "total_cves": 1208,
+    "exploited_cves": 51,
     "new_cves": 751,
     "by_source": {
       "microsoft": 1,
-      "cisa-kev": 28,
+      "cisa-kev": 27,
       "nvd": 8,
       "apple": 6
     },
     "by_severity": {
       "Critical": 8,
-      "High": 29,
+      "High": 28,
       "unknown": 6
     },
     "by_status": {
-      "new": 43
+      "new": 42
     },
     "by_product_kind": {
       "client": 132,
       "server": 144,
-      "other": 820
+      "other": 818
     }
   },
   "patches": [
@@ -17198,7 +17198,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 13d"
+          "KEV overdue by 14d"
         ]
       },
       "affected": {
@@ -17314,7 +17314,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 64d"
+          "KEV overdue by 65d"
         ]
       },
       "affected": {
@@ -17506,7 +17506,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 15d"
+          "KEV overdue by 16d"
         ]
       },
       "affected": {
@@ -17603,7 +17603,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 1d"
+          "KEV due in 0d"
         ]
       },
       "affected": {
@@ -17757,7 +17757,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 58d"
+          "KEV overdue by 59d"
         ]
       },
       "affected": {
@@ -17854,7 +17854,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 1d"
+          "KEV overdue by 2d"
         ]
       },
       "affected": {
@@ -17951,7 +17951,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 1d"
+          "KEV overdue by 2d"
         ]
       },
       "affected": {
@@ -19552,7 +19552,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 2d"
+          "KEV overdue by 3d"
         ]
       },
       "affected": {
@@ -19629,7 +19629,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 27d"
+          "KEV overdue by 28d"
         ]
       },
       "affected": {
@@ -19782,7 +19782,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 7d"
+          "KEV overdue by 8d"
         ]
       },
       "affected": {
@@ -19859,7 +19859,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 7d"
+          "KEV overdue by 8d"
         ]
       },
       "affected": {
@@ -19936,7 +19936,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 7d"
+          "KEV overdue by 8d"
         ]
       },
       "affected": {
@@ -32459,7 +32459,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 9d"
+          "KEV overdue by 10d"
         ]
       },
       "affected": {
@@ -32536,7 +32536,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 12d"
+          "KEV overdue by 13d"
         ]
       },
       "affected": {
@@ -32613,7 +32613,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 12d"
+          "KEV overdue by 13d"
         ]
       },
       "affected": {
@@ -32690,7 +32690,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 21d"
+          "KEV overdue by 22d"
         ]
       },
       "affected": {
@@ -32824,7 +32824,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 14d"
+          "KEV overdue by 15d"
         ]
       },
       "affected": {
@@ -32901,7 +32901,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 14d"
+          "KEV overdue by 15d"
         ]
       },
       "affected": {
@@ -32978,7 +32978,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 14d"
+          "KEV overdue by 15d"
         ]
       },
       "affected": {
@@ -33055,7 +33055,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 8d"
+          "KEV overdue by 9d"
         ]
       },
       "affected": {
@@ -33139,7 +33139,7 @@
       "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Google%20Chrome",
       "severity": "Critical",
       "status": "new",
-      "cve_count": 85,
+      "cve_count": 84,
       "exploited_count": 0,
       "new_count": 0,
       "ransomware_count": 0,
@@ -33156,7 +33156,7 @@
       "affected": {
         "client": 0,
         "server": 0,
-        "other": 85
+        "other": 84
       },
       "remediation": {
         "summary": "Patch Google Chrome to the vendor's fixed release (recent high/critical CVEs from NVD).",
@@ -33181,25 +33181,6 @@
         ]
       },
       "cves": [
-        {
-          "cve_id": "CVE-2026-82072",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Out of bounds read in V8 in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page.\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82072",
-          "first_seen": "2026-08-28",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Google Chrome"
-          ]
-        },
         {
           "cve_id": "CVE-2026-84324",
           "severity": "Critical",
@@ -34877,7 +34858,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 51d"
+          "KEV overdue by 52d"
         ]
       },
       "affected": {
@@ -35220,7 +35201,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 10d"
+          "KEV overdue by 11d"
         ]
       },
       "affected": {
@@ -35297,7 +35278,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 21d"
+          "KEV overdue by 22d"
         ]
       },
       "affected": {
@@ -35374,7 +35355,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 10d"
+          "KEV overdue by 11d"
         ]
       },
       "affected": {
@@ -35451,7 +35432,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 21d"
+          "KEV overdue by 22d"
         ]
       },
       "affected": {
@@ -35530,7 +35511,7 @@
           "actively exploited",
           "ransomware-linked",
           "critical severity",
-          "KEV overdue by 71d"
+          "KEV overdue by 72d"
         ]
       },
       "affected": {
@@ -35664,7 +35645,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 12d"
+          "KEV overdue by 13d"
         ]
       },
       "affected": {
@@ -35731,83 +35712,6 @@
           ],
           "products": [
             "PaperCut NG/MF"
-          ]
-        }
-      ]
-    },
-    {
-      "patch_id": "kev:ownCloud:ownCloud",
-      "source": "cisa-kev",
-      "platform": "ownCloud",
-      "title": "ownCloud ownCloud",
-      "product": "ownCloud",
-      "version": null,
-      "release_date": "2026-08-27",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "severity": "High",
-      "status": "new",
-      "cve_count": 1,
-      "exploited_count": 1,
-      "new_count": 0,
-      "ransomware_count": 0,
-      "disclosed_count": 1,
-      "max_cvss": null,
-      "due_date": "2026-08-30",
-      "priority": {
-        "score": 98,
-        "band": "critical",
-        "reasons": [
-          "actively exploited",
-          "KEV overdue by 27d"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 1
-      },
-      "remediation": {
-        "summary": "ownCloud ownCloud has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
-        "urgency": "critical",
-        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
-        "links": [
-          {
-            "label": "CISA KEV catalog",
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "ownCloud ownCloud (all installs)",
-            "icon": "\ud83c\udf10",
-            "steps": [
-              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
-              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
-              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2023-49105",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "ownCloud Improper Authentication Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-49105",
-          "first_seen": "2026-08-27",
-          "due_date": "2026-08-30",
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "ownCloud ownCloud"
           ]
         }
       ]
