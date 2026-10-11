@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T12:54:32+00:00",
+  "generated_at": "2026-10-11T21:37:18+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
@@ -10,7 +10,7 @@
   },
   "stats": {
     "total_patches": 45,
-    "total_cves": 862,
+    "total_cves": 861,
     "exploited_cves": 47,
     "new_cves": 352,
     "by_source": {
@@ -30,7 +30,7 @@
     "by_product_kind": {
       "client": 91,
       "server": 100,
-      "other": 513
+      "other": 512
     }
   },
   "patches": [
@@ -11227,7 +11227,7 @@
       "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Fortinet",
       "severity": "Critical",
       "status": "new",
-      "cve_count": 3,
+      "cve_count": 2,
       "exploited_count": 0,
       "new_count": 0,
       "ransomware_count": 0,
@@ -11244,7 +11244,7 @@
       "affected": {
         "client": 0,
         "server": 0,
-        "other": 3
+        "other": 2
       },
       "remediation": {
         "summary": "Patch Fortinet to the vendor's fixed release (recent high/critical CVEs from NVD).",
@@ -11297,25 +11297,6 @@
           "impact": "A improper restriction of rendered ui layers or frames vulnerability in Fortinet FortiPAM Chrome Extension 8.0 all versions, FortiPAM Chrome Extension 7.4 all v\u2026",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84388",
           "first_seen": "2026-09-22",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Fortinet"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-84390",
-          "severity": "Critical",
-          "base_score": 9.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "A inclusion of sensitive information in source code vulnerability in Fortinet FortiMonitorOnSight 7.2.4 through 7.2.7, FortiMonitorOnSight 7.2.0 through 7.2.2 m\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84390",
-          "first_seen": "2026-09-11",
           "due_date": null,
           "ransomware": false,
           "is_new": false,
