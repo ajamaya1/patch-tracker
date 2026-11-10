@@ -1,36 +1,36 @@
 {
-  "generated_at": "2026-11-09T16:26:24+00:00",
+  "generated_at": "2026-11-10T01:16:31+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
-    "apple": 185,
-    "cisa-kev": 64,
+    "apple": 191,
+    "cisa-kev": 66,
     "microsoft": 1,
     "nvd": 8
   },
   "stats": {
-    "total_patches": 37,
-    "total_cves": 1502,
-    "exploited_cves": 60,
-    "new_cves": 873,
+    "total_patches": 47,
+    "total_cves": 1515,
+    "exploited_cves": 64,
+    "new_cves": 887,
     "by_source": {
       "microsoft": 1,
-      "cisa-kev": 21,
-      "nvd": 8,
-      "apple": 7
+      "apple": 13,
+      "cisa-kev": 25,
+      "nvd": 8
     },
     "by_severity": {
       "Critical": 7,
-      "High": 23,
-      "unknown": 7
+      "unknown": 13,
+      "High": 27
     },
     "by_status": {
-      "new": 37
+      "new": 47
     },
     "by_product_kind": {
       "client": 73,
       "server": 97,
-      "other": 1076
+      "other": 1080
     }
   },
   "patches": [
@@ -21093,6 +21093,1370 @@
       ]
     },
     {
+      "patch_id": "apple:iOS 18.7.12 and iPadOS 18.7.12",
+      "source": "apple",
+      "platform": "iPadOS",
+      "title": "iOS 18.7.12 and iPadOS 18.7.12",
+      "product": "iOS and iPadOS",
+      "version": "18.7.12",
+      "release_date": "2026-11-09T00:00:00Z",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://support.apple.com/en-us/149717",
+      "severity": null,
+      "status": "new",
+      "cve_count": 6,
+      "exploited_count": 0,
+      "new_count": 6,
+      "ransomware_count": 0,
+      "disclosed_count": 0,
+      "max_cvss": null,
+      "due_date": null,
+      "priority": {
+        "score": 15,
+        "band": "low",
+        "reasons": [
+          "newly released"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 0
+      },
+      "remediation": {
+        "summary": "Update affected iPadOS devices to iOS and iPadOS 18.7.12.",
+        "urgency": "normal",
+        "note": "Apply within your normal patch cycle.",
+        "links": [
+          {
+            "label": "Apple security release notes",
+            "url": "https://support.apple.com/en-us/149717"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "All affected iPadOS devices",
+            "icon": "\ud83d\udcf1",
+            "steps": [
+              "On the device: Settings \u25b8 General \u25b8 Software Update \u2014 install iOS and iPadOS 18.7.12 and restart if prompted.",
+              "Managed fleets: push the update via MDM (Jamf, Kandji, Intune, Mosyle\u2026) or a software-update enforcement / deferral policy with a deadline.",
+              "Confirm the OS build matches the fixed version afterwards; remind users that a restart is required for kernel fixes."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-113964",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149717",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113965",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149717",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113968",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149717",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113969",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149717",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113970",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149717",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113971",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149717",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        }
+      ]
+    },
+    {
+      "patch_id": "apple:iOS 26.7.3 and iPadOS 26.7.3",
+      "source": "apple",
+      "platform": "iPadOS",
+      "title": "iOS 26.7.3 and iPadOS 26.7.3",
+      "product": "iOS and iPadOS",
+      "version": "26.7.3",
+      "release_date": "2026-11-09T00:00:00Z",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://support.apple.com/en-us/149716",
+      "severity": null,
+      "status": "new",
+      "cve_count": 8,
+      "exploited_count": 1,
+      "new_count": 8,
+      "ransomware_count": 0,
+      "disclosed_count": 0,
+      "max_cvss": null,
+      "due_date": null,
+      "priority": {
+        "score": 60,
+        "band": "high",
+        "reasons": [
+          "actively exploited",
+          "newly released"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 0
+      },
+      "remediation": {
+        "summary": "Update affected iPadOS devices to iOS and iPadOS 26.7.3.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "Apple security release notes",
+            "url": "https://support.apple.com/en-us/149716"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "All affected iPadOS devices",
+            "icon": "\ud83d\udcf1",
+            "steps": [
+              "On the device: Settings \u25b8 General \u25b8 Software Update \u2014 install iOS and iPadOS 26.7.3 and restart if prompted.",
+              "Managed fleets: push the update via MDM (Jamf, Kandji, Intune, Mosyle\u2026) or a software-update enforcement / deferral policy with a deadline.",
+              "Confirm the OS build matches the fixed version afterwards; remind users that a restart is required for kernel fixes."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-111497",
+          "severity": null,
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149716",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113960",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149716",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113961",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149716",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113964",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149716",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113965",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149716",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113968",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149716",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113969",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149716",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113970",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149716",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        }
+      ]
+    },
+    {
+      "patch_id": "apple:iOS 27.2.1 and iPadOS 27.2.1",
+      "source": "apple",
+      "platform": "iPadOS",
+      "title": "iOS 27.2.1 and iPadOS 27.2.1",
+      "product": "iOS and iPadOS",
+      "version": "27.2.1",
+      "release_date": "2026-11-09T00:00:00Z",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://support.apple.com/en-us/149715",
+      "severity": null,
+      "status": "new",
+      "cve_count": 9,
+      "exploited_count": 1,
+      "new_count": 9,
+      "ransomware_count": 0,
+      "disclosed_count": 0,
+      "max_cvss": null,
+      "due_date": null,
+      "priority": {
+        "score": 60,
+        "band": "high",
+        "reasons": [
+          "actively exploited",
+          "newly released"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 0
+      },
+      "remediation": {
+        "summary": "Update affected iPadOS devices to iOS and iPadOS 27.2.1.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "Apple security release notes",
+            "url": "https://support.apple.com/en-us/149715"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "All affected iPadOS devices",
+            "icon": "\ud83d\udcf1",
+            "steps": [
+              "On the device: Settings \u25b8 General \u25b8 Software Update \u2014 install iOS and iPadOS 27.2.1 and restart if prompted.",
+              "Managed fleets: push the update via MDM (Jamf, Kandji, Intune, Mosyle\u2026) or a software-update enforcement / deferral policy with a deadline.",
+              "Confirm the OS build matches the fixed version afterwards; remind users that a restart is required for kernel fixes."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-111497",
+          "severity": null,
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149715",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113960",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149715",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113961",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149715",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113963",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149715",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113964",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149715",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113965",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149715",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113968",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149715",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113969",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149715",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113970",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149715",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        }
+      ]
+    },
+    {
+      "patch_id": "apple:macOS Golden Gate 27.2.1",
+      "source": "apple",
+      "platform": "macOS",
+      "title": "macOS Golden Gate 27.2.1",
+      "product": "macOS",
+      "version": "27.2.1",
+      "release_date": "2026-11-09T00:00:00Z",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://support.apple.com/en-us/149718",
+      "severity": null,
+      "status": "new",
+      "cve_count": 8,
+      "exploited_count": 1,
+      "new_count": 8,
+      "ransomware_count": 0,
+      "disclosed_count": 0,
+      "max_cvss": null,
+      "due_date": null,
+      "priority": {
+        "score": 60,
+        "band": "high",
+        "reasons": [
+          "actively exploited",
+          "newly released"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 0
+      },
+      "remediation": {
+        "summary": "Update affected macOS devices to macOS 27.2.1.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "Apple security release notes",
+            "url": "https://support.apple.com/en-us/149718"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "All affected macOS devices",
+            "icon": "\ud83d\udcbb",
+            "steps": [
+              "On the device: System Settings \u25b8 General \u25b8 Software Update \u2014 install macOS 27.2.1 and restart if prompted.",
+              "Managed fleets: push the update via MDM (Jamf, Kandji, Intune, Mosyle\u2026) or a software-update enforcement / deferral policy with a deadline.",
+              "Confirm the OS build matches the fixed version afterwards; remind users that a restart is required for kernel fixes."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-111497",
+          "severity": null,
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149718",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113960",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149718",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113961",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149718",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113964",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149718",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113965",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149718",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113968",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149718",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113969",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149718",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113970",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149718",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        }
+      ]
+    },
+    {
+      "patch_id": "apple:macOS Sequoia 15.8.3",
+      "source": "apple",
+      "platform": "macOS",
+      "title": "macOS Sequoia 15.8.3",
+      "product": "macOS",
+      "version": "15.8.3",
+      "release_date": "2026-11-09T00:00:00Z",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://support.apple.com/en-us/149720",
+      "severity": null,
+      "status": "new",
+      "cve_count": 8,
+      "exploited_count": 1,
+      "new_count": 8,
+      "ransomware_count": 0,
+      "disclosed_count": 0,
+      "max_cvss": null,
+      "due_date": null,
+      "priority": {
+        "score": 60,
+        "band": "high",
+        "reasons": [
+          "actively exploited",
+          "newly released"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 0
+      },
+      "remediation": {
+        "summary": "Update affected macOS devices to macOS 15.8.3.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "Apple security release notes",
+            "url": "https://support.apple.com/en-us/149720"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "All affected macOS devices",
+            "icon": "\ud83d\udcbb",
+            "steps": [
+              "On the device: System Settings \u25b8 General \u25b8 Software Update \u2014 install macOS 15.8.3 and restart if prompted.",
+              "Managed fleets: push the update via MDM (Jamf, Kandji, Intune, Mosyle\u2026) or a software-update enforcement / deferral policy with a deadline.",
+              "Confirm the OS build matches the fixed version afterwards; remind users that a restart is required for kernel fixes."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-111497",
+          "severity": null,
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149720",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113960",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149720",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113961",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149720",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113964",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149720",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113965",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149720",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113968",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149720",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113969",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149720",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113970",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149720",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        }
+      ]
+    },
+    {
+      "patch_id": "apple:macOS Tahoe 26.7.3",
+      "source": "apple",
+      "platform": "macOS",
+      "title": "macOS Tahoe 26.7.3",
+      "product": "macOS",
+      "version": "26.7.3",
+      "release_date": "2026-11-09T00:00:00Z",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://support.apple.com/en-us/149719",
+      "severity": null,
+      "status": "new",
+      "cve_count": 8,
+      "exploited_count": 1,
+      "new_count": 8,
+      "ransomware_count": 0,
+      "disclosed_count": 0,
+      "max_cvss": null,
+      "due_date": null,
+      "priority": {
+        "score": 60,
+        "band": "high",
+        "reasons": [
+          "actively exploited",
+          "newly released"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 0
+      },
+      "remediation": {
+        "summary": "Update affected macOS devices to macOS 26.7.3.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "Apple security release notes",
+            "url": "https://support.apple.com/en-us/149719"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "All affected macOS devices",
+            "icon": "\ud83d\udcbb",
+            "steps": [
+              "On the device: System Settings \u25b8 General \u25b8 Software Update \u2014 install macOS 26.7.3 and restart if prompted.",
+              "Managed fleets: push the update via MDM (Jamf, Kandji, Intune, Mosyle\u2026) or a software-update enforcement / deferral policy with a deadline.",
+              "Confirm the OS build matches the fixed version afterwards; remind users that a restart is required for kernel fixes."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-111497",
+          "severity": null,
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149719",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113960",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149719",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113961",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149719",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113964",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149719",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113965",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149719",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113968",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149719",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113969",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149719",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        },
+        {
+          "cve_id": "CVE-2026-113970",
+          "severity": null,
+          "base_score": null,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": null,
+          "url": "https://support.apple.com/en-us/149719",
+          "first_seen": "2026-11-09",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [],
+          "products": []
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:GPUStack:GPUStack",
+      "source": "cisa-kev",
+      "platform": "GPUStack",
+      "title": "GPUStack GPUStack",
+      "product": "GPUStack",
+      "version": null,
+      "release_date": "2026-11-09",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-11-12",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 2d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "GPUStack GPUStack has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "GPUStack GPUStack (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-102895",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "GPUStack Improper Authentication Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102895",
+          "first_seen": "2026-11-09",
+          "due_date": "2026-11-12",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "GPUStack GPUStack"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:IBM:Aspera Faspex",
+      "source": "cisa-kev",
+      "platform": "IBM",
+      "title": "IBM Aspera Faspex",
+      "product": "IBM",
+      "version": null,
+      "release_date": "2026-11-09",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-11-12",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 2d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "IBM Aspera Faspex has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "IBM Aspera Faspex (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-123218",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "IBM Aspera Faspex Incorrect Authorization Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123218",
+          "first_seen": "2026-11-09",
+          "due_date": "2026-11-12",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "IBM Aspera Faspex"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:OpenBSD:OpenSSH",
+      "source": "cisa-kev",
+      "platform": "OpenBSD",
+      "title": "OpenBSD OpenSSH",
+      "product": "OpenBSD",
+      "version": null,
+      "release_date": "2026-11-09",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-11-12",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 2d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "OpenBSD OpenSSH has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "OpenBSD OpenSSH (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-123158",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "OpenBSD OpenSSH Unexpected Status Code or Return Value Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123158",
+          "first_seen": "2026-11-09",
+          "due_date": "2026-11-12",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "OpenBSD OpenSSH"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:SignalWire:FreeSwitch",
+      "source": "cisa-kev",
+      "platform": "SignalWire",
+      "title": "SignalWire FreeSwitch",
+      "product": "SignalWire",
+      "version": null,
+      "release_date": "2026-11-09",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-11-12",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 2d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "SignalWire FreeSwitch has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "SignalWire FreeSwitch (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-116779",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "SignalWire FreeSwitch Code Injection Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116779",
+          "first_seen": "2026-11-09",
+          "due_date": "2026-11-12",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "SignalWire FreeSwitch"
+          ]
+        }
+      ]
+    },
+    {
       "patch_id": "kev:SonicWall:SonicOS SSLVPN",
       "source": "cisa-kev",
       "platform": "SonicWall",
@@ -22774,7 +24138,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 3d"
+          "KEV overdue by 4d"
         ]
       },
       "affected": {
@@ -22851,7 +24215,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 24d"
+          "KEV overdue by 25d"
         ]
       },
       "affected": {
@@ -22966,7 +24330,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 8d"
+          "KEV overdue by 9d"
         ]
       },
       "affected": {
@@ -23043,7 +24407,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 56d"
+          "KEV overdue by 57d"
         ]
       },
       "affected": {
@@ -23139,7 +24503,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV due in 2d"
+          "KEV due in 1d"
         ]
       },
       "affected": {
@@ -23216,7 +24580,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 72d"
+          "KEV overdue by 73d"
         ]
       },
       "affected": {
@@ -23388,7 +24752,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 59d"
+          "KEV overdue by 60d"
         ]
       },
       "affected": {
@@ -23503,7 +24867,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV due in 1d"
+          "KEV due in 0d"
         ]
       },
       "affected": {
@@ -38895,7 +40259,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 11d"
+          "KEV overdue by 12d"
         ]
       },
       "affected": {
@@ -39045,7 +40409,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 45d"
+          "KEV overdue by 46d"
         ]
       },
       "affected": {
@@ -39141,7 +40505,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 14d"
+          "KEV overdue by 15d"
         ]
       },
       "affected": {
@@ -39218,7 +40582,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 17d"
+          "KEV overdue by 18d"
         ]
       },
       "affected": {
@@ -39295,7 +40659,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 17d"
+          "KEV overdue by 18d"
         ]
       },
       "affected": {
@@ -39429,7 +40793,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 6d"
+          "KEV overdue by 7d"
         ]
       },
       "affected": {
@@ -42888,7 +44252,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 21d"
+          "KEV overdue by 22d"
         ]
       },
       "affected": {
@@ -42965,7 +44329,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 58d"
+          "KEV overdue by 59d"
         ]
       },
       "affected": {
@@ -43061,7 +44425,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 22d"
+          "KEV overdue by 23d"
         ]
       },
       "affected": {
@@ -43290,7 +44654,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 23d"
+          "KEV overdue by 24d"
         ]
       },
       "affected": {
@@ -43386,7 +44750,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 53d"
+          "KEV overdue by 54d"
         ]
       },
       "affected": {
@@ -43482,7 +44846,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 23d"
+          "KEV overdue by 24d"
         ]
       },
       "affected": {
