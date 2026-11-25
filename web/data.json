@@ -1,36 +1,36 @@
 {
-  "generated_at": "2026-11-24T17:49:56+00:00",
+  "generated_at": "2026-11-25T01:58:46+00:00",
   "new_window_days": 7,
   "window_days": 30,
   "feeds": {
     "apple": 191,
-    "cisa-kev": 75,
+    "cisa-kev": 74,
     "microsoft": 1,
     "nvd": 9
   },
   "stats": {
-    "total_patches": 54,
-    "total_cves": 3087,
-    "exploited_cves": 48,
-    "new_cves": 2483,
+    "total_patches": 57,
+    "total_cves": 3108,
+    "exploited_cves": 50,
+    "new_cves": 2488,
     "by_source": {
       "microsoft": 1,
+      "cisa-kev": 35,
       "nvd": 9,
-      "cisa-kev": 32,
       "apple": 12
     },
     "by_severity": {
       "Critical": 9,
-      "High": 33,
+      "High": 36,
       "unknown": 12
     },
     "by_status": {
-      "new": 54
+      "new": 57
     },
     "by_product_kind": {
       "client": 704,
       "server": 856,
-      "other": 1895
+      "other": 1916
     }
   },
   "patches": [
@@ -41,7 +41,7 @@
       "title": "November 2026 Security Updates",
       "product": "Microsoft Security Update",
       "version": "2026-Nov",
-      "release_date": "2026-11-24T01:41:42Z",
+      "release_date": "2026-11-24T08:00:00Z",
       "patch_tuesday": "2026-11-10",
       "servicing": {
         "channel": "B",
@@ -59,9 +59,9 @@
       "url": "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2026-Nov",
       "severity": "Critical",
       "status": "new",
-      "cve_count": 2449,
+      "cve_count": 2450,
       "exploited_count": 1,
-      "new_count": 2449,
+      "new_count": 2450,
       "ransomware_count": 0,
       "disclosed_count": 0,
       "max_cvss": 10.0,
@@ -78,10 +78,10 @@
       "affected": {
         "client": 704,
         "server": 856,
-        "other": 1609
+        "other": 1610
       },
       "remediation": {
-        "summary": "Apply the November 2026 Security Updates (704 affecting Windows clients; 856 affecting Windows Server; 1609 affecting other Microsoft products).",
+        "summary": "Apply the November 2026 Security Updates (704 affecting Windows clients; 856 affecting Windows Server; 1610 affecting other Microsoft products).",
         "urgency": "critical",
         "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
         "links": [
@@ -8768,6 +8768,30 @@
             "Microsoft Office LTSC 2024 for 64-bit editions",
             "Microsoft Office LTSC for Mac 2021",
             "Microsoft Office LTSC for Mac 2024"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-112732",
+          "severity": "Critical",
+          "base_score": 9.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Remote Code Execution",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-112732",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Microsoft 365 Apps for Enterprise for 32-bit Systems",
+            "Microsoft 365 Apps for Enterprise for 64-bit Systems",
+            "Microsoft Office LTSC 2021 for 32-bit editions",
+            "Microsoft Office LTSC 2021 for 64-bit editions",
+            "Microsoft Office LTSC 2024 for 32-bit editions",
+            "Microsoft Office LTSC 2024 for 64-bit editions"
           ]
         },
         {
@@ -66667,6 +66691,1362 @@
       ]
     },
     {
+      "patch_id": "kev:Drupal:Core",
+      "source": "cisa-kev",
+      "platform": "Drupal",
+      "title": "Drupal Core",
+      "product": "Drupal",
+      "version": null,
+      "release_date": "2026-11-24",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-11-27",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 2d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Drupal Core has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Drupal Core (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-132165",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Drupal Core Remote Code Execution Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132165",
+          "first_seen": "2026-11-24",
+          "due_date": "2026-11-27",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Drupal Core"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:Idunno:AntiCsrf",
+      "source": "cisa-kev",
+      "platform": "Idunno",
+      "title": "Idunno AntiCsrf",
+      "product": "Idunno",
+      "version": null,
+      "release_date": "2026-11-24",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-11-27",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 2d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Idunno AntiCsrf has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Idunno AntiCsrf (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-131914",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Idunno AntiCsrf Deserialization of Untrusted Data Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131914",
+          "first_seen": "2026-11-24",
+          "due_date": "2026-11-27",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Idunno AntiCsrf"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "kev:Optimizely:Web Experimentation",
+      "source": "cisa-kev",
+      "platform": "Optimizely",
+      "title": "Optimizely Web Experimentation",
+      "product": "Optimizely",
+      "version": null,
+      "release_date": "2026-11-24",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "severity": "High",
+      "status": "new",
+      "cve_count": 1,
+      "exploited_count": 1,
+      "new_count": 1,
+      "ransomware_count": 0,
+      "disclosed_count": 1,
+      "max_cvss": null,
+      "due_date": "2026-11-27",
+      "priority": {
+        "score": 100,
+        "band": "critical",
+        "reasons": [
+          "actively exploited",
+          "newly released",
+          "KEV due in 2d"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 1
+      },
+      "remediation": {
+        "summary": "Optimizely Web Experimentation has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
+        "urgency": "critical",
+        "note": "1 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "links": [
+          {
+            "label": "CISA KEV catalog",
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Optimizely Web Experimentation (all installs)",
+            "icon": "\ud83c\udf10",
+            "steps": [
+              "Upgrade to the latest vendor-patched version. Browsers (Chrome, Edge, Firefox) self-update on relaunch \u2014 force a restart of the app to apply it.",
+              "Managed fleets: push the patched build via your deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; block older versions where possible.",
+              "Per CISA BOD 22-01, remediate by the catalog due date; given confirmed in-the-wild exploitation, treat as an emergency change regardless."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2026-132224",
+          "severity": "High",
+          "base_score": null,
+          "exploited": true,
+          "publicly_disclosed": true,
+          "impact": "Optimizely Web Experimentation External Control of Critical State Data Vulnerability",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132224",
+          "first_seen": "2026-11-24",
+          "due_date": "2026-11-27",
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Optimizely Web Experimentation"
+          ]
+        }
+      ]
+    },
+    {
+      "patch_id": "nvd:Adobe",
+      "source": "nvd",
+      "platform": "Adobe",
+      "title": "Adobe",
+      "product": "Adobe",
+      "version": null,
+      "release_date": "2026-11-24",
+      "patch_tuesday": null,
+      "servicing": null,
+      "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Adobe",
+      "severity": "Critical",
+      "status": "new",
+      "cve_count": 56,
+      "exploited_count": 0,
+      "new_count": 19,
+      "ransomware_count": 0,
+      "disclosed_count": 0,
+      "max_cvss": 10.0,
+      "due_date": null,
+      "priority": {
+        "score": 75,
+        "band": "critical",
+        "reasons": [
+          "newly released",
+          "critical severity"
+        ]
+      },
+      "affected": {
+        "client": 0,
+        "server": 0,
+        "other": 56
+      },
+      "remediation": {
+        "summary": "Patch Adobe to the vendor's fixed release (recent high/critical CVEs from NVD).",
+        "urgency": "high",
+        "note": "Critical-severity fixes included \u2014 schedule promptly.",
+        "links": [
+          {
+            "label": "NVD advisories",
+            "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Adobe"
+          }
+        ],
+        "sections": [
+          {
+            "audience": "Adobe (all installs)",
+            "icon": "\ud83e\udde9",
+            "steps": [
+              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
+              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
+              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
+            ]
+          }
+        ]
+      },
+      "cves": [
+        {
+          "cve_id": "CVE-2019-16447",
+          "severity": "High",
+          "base_score": 7.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Illustrator CC versions 23.1 and earlier have a binary planting vulnerability. Successful exploitation could lead to local code execution.",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-16447",
+          "first_seen": "2026-11-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2020-9709",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Photoshop versions Photoshop CC 2019, and Photoshop 2020 have a security bypass vulnerability. Successful exploitation could lead to privilege escalation.",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-9709",
+          "first_seen": "2026-11-05",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-104350",
+          "severity": "Critical",
+          "base_score": 9.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by a reflected Cross-Site Scripting (XSS) vulnerability. An attacker could exploit this vulnerability to inject malicio\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104350",
+          "first_seen": "2026-10-27",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-104351",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execu\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104351",
+          "first_seen": "2026-10-27",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-104353",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability that cou\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104353",
+          "first_seen": "2026-10-27",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-104354",
+          "severity": "Critical",
+          "base_score": 9.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104354",
+          "first_seen": "2026-10-27",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-105489",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105489",
+          "first_seen": "2026-10-27",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-105779",
+          "severity": "Critical",
+          "base_score": 9.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105779",
+          "first_seen": "2026-10-27",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-105780",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105780",
+          "first_seen": "2026-10-27",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-105781",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105781",
+          "first_seen": "2026-10-27",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-113579",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Experience Manager is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113579",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-113580",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Experience Manager is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113580",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-114371",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Experience Manager is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current use\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114371",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-119017",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Experience Manager is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current use\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119017",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-119579",
+          "severity": "High",
+          "base_score": 8.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Experience Manager is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119579",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121349",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could result in arbitrary code\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121349",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121350",
+          "severity": "High",
+          "base_score": 7.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could lead to disclosure\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121350",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121351",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbitrary file s\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121351",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121352",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. An attacker could exploit this vulnerability to\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121352",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121353",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Improper Neutralization of CRLF Sequences ('CRLF Injection') vulnerability that could result in arbitrary code execution in the \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121353",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121354",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbitrary file s\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121354",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121355",
+          "severity": "Critical",
+          "base_score": 9.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. An attacker could exploit this vulnerability to\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121355",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121356",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in privilege escalation. Exploitation of this issue does not r\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121356",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121357",
+          "severity": "High",
+          "base_score": 8.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Experience Manager is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121357",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121887",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Improper Restriction of XML External Entity Reference ('XXE') vulnerability that could result in arbitrary code execution in the\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121887",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121889",
+          "severity": "Critical",
+          "base_score": 10.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in privilege escalation. Exploitation of this issue does not r\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121889",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121890",
+          "severity": "High",
+          "base_score": 7.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Improper Restriction of XML External Entity Reference ('XXE') vulnerability that could lead to arbitrary file system read. A low\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121890",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121892",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the con\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121892",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121894",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrar\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121894",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121896",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrar\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121896",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121898",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrar\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121898",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121900",
+          "severity": "High",
+          "base_score": 8.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrar\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121900",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121902",
+          "severity": "Critical",
+          "base_score": 9.4,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrar\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121902",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121904",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts int\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121904",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121906",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbitrary file s\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121906",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121908",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrar\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121908",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-121913",
+          "severity": "High",
+          "base_score": 8.8,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. A low-privileged attacker could exploit this vu\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121913",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-122102",
+          "severity": "High",
+          "base_score": 8.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts int\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122102",
+          "first_seen": "2026-11-10",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-123253",
+          "severity": "High",
+          "base_score": 8.7,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Experience Manager is affected by an Improper Neutralization of Special Elements Used in a Template Engine vulnerability that could result in a Security f\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123253",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-123256",
+          "severity": "High",
+          "base_score": 7.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Experience Manager is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. A low-privileged attacker could\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123256",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-123266",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Experience Manager is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123266",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-123342",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execu\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123342",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-123721",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. A low-privileged attacker could \u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123721",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-123722",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execu\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123722",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-123723",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execu\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123723",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-123986",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execu\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123986",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-123987",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execu\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123987",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-125675",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execu\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125675",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-125676",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execu\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125676",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-125716",
+          "severity": "Critical",
+          "base_score": 9.3,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by a reflected Cross-Site Scripting (XSS) vulnerability. An attacker could exploit this vulnerability to inject malicio\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125716",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-125717",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125717",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-125718",
+          "severity": "Critical",
+          "base_score": 9.1,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125718",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-125723",
+          "severity": "Critical",
+          "base_score": 9.0,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Campaign Classic (ACC) is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malici\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125723",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-132877",
+          "severity": "Critical",
+          "base_score": 9.9,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Experience Manager is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132877",
+          "first_seen": "2026-11-24",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-48360",
+          "severity": "Critical",
+          "base_score": 9.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Adobe Connect is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the con\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48360",
+          "first_seen": "2026-10-27",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": false,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        },
+        {
+          "cve_id": "CVE-2026-82952",
+          "severity": "High",
+          "base_score": 8.6,
+          "exploited": false,
+          "publicly_disclosed": false,
+          "impact": "Latvijas Valsts radio un telev\u012bzijas centrs (LVRTC)\neParakst\u012bt\u0101js 3.0 version 1.10.0-resolute for Linux allows an unauthenticated\nremote attacker to execute arb\u2026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82952",
+          "first_seen": "2026-11-18",
+          "due_date": null,
+          "ransomware": false,
+          "is_new": true,
+          "product_kinds": [
+            "other"
+          ],
+          "products": [
+            "Adobe"
+          ]
+        }
+      ]
+    },
+    {
       "patch_id": "nvd:VMware",
       "source": "nvd",
       "platform": "VMware",
@@ -67074,7 +68454,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 2d"
+          "KEV due in 1d"
         ]
       },
       "affected": {
@@ -67152,7 +68532,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV due in 2d"
+          "KEV due in 1d"
         ]
       },
       "affected": {
@@ -67230,7 +68610,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 1d"
+          "KEV overdue by 2d"
         ]
       },
       "affected": {
@@ -67308,7 +68688,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 1d"
+          "KEV overdue by 2d"
         ]
       },
       "affected": {
@@ -67386,7 +68766,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 1d"
+          "KEV overdue by 2d"
         ]
       },
       "affected": {
@@ -67464,7 +68844,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 1d"
+          "KEV overdue by 2d"
         ]
       },
       "affected": {
@@ -67542,7 +68922,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 3d"
+          "KEV overdue by 4d"
         ]
       },
       "affected": {
@@ -67620,7 +69000,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 69d"
+          "KEV overdue by 70d"
         ]
       },
       "affected": {
@@ -67796,7 +69176,7 @@
         "reasons": [
           "actively exploited",
           "newly released",
-          "KEV overdue by 3d"
+          "KEV overdue by 4d"
         ]
       },
       "affected": {
@@ -67849,786 +69229,6 @@
       ]
     },
     {
-      "patch_id": "nvd:Adobe",
-      "source": "nvd",
-      "platform": "Adobe",
-      "title": "Adobe",
-      "product": "Adobe",
-      "version": null,
-      "release_date": "2026-11-18",
-      "patch_tuesday": null,
-      "servicing": null,
-      "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Adobe",
-      "severity": "Critical",
-      "status": "new",
-      "cve_count": 38,
-      "exploited_count": 0,
-      "new_count": 1,
-      "ransomware_count": 0,
-      "disclosed_count": 0,
-      "max_cvss": 10.0,
-      "due_date": null,
-      "priority": {
-        "score": 75,
-        "band": "critical",
-        "reasons": [
-          "newly released",
-          "critical severity"
-        ]
-      },
-      "affected": {
-        "client": 0,
-        "server": 0,
-        "other": 38
-      },
-      "remediation": {
-        "summary": "Patch Adobe to the vendor's fixed release (recent high/critical CVEs from NVD).",
-        "urgency": "high",
-        "note": "Critical-severity fixes included \u2014 schedule promptly.",
-        "links": [
-          {
-            "label": "NVD advisories",
-            "url": "https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&search_type=all&query=Adobe"
-          }
-        ],
-        "sections": [
-          {
-            "audience": "Adobe (all installs)",
-            "icon": "\ud83e\udde9",
-            "steps": [
-              "Identify affected versions in your estate (software inventory / SBOM) and upgrade to the vendor's patched build.",
-              "Managed fleets: deploy via your software-deployment tool (Intune, Jamf, SCCM, WSUS-imported) and enforce an app restart; remove end-of-life versions.",
-              "Subscribe to the vendor's PSIRT/security advisories so future fixes are caught early; prioritise internet-facing systems."
-            ]
-          }
-        ]
-      },
-      "cves": [
-        {
-          "cve_id": "CVE-2019-16447",
-          "severity": "High",
-          "base_score": 7.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Illustrator CC versions 23.1 and earlier have a binary planting vulnerability. Successful exploitation could lead to local code execution.",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-16447",
-          "first_seen": "2026-11-05",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2020-9709",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Photoshop versions Photoshop CC 2019, and Photoshop 2020 have a security bypass vulnerability. Successful exploitation could lead to privilege escalation.",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-9709",
-          "first_seen": "2026-11-05",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-104350",
-          "severity": "Critical",
-          "base_score": 9.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by a reflected Cross-Site Scripting (XSS) vulnerability. An attacker could exploit this vulnerability to inject malicio\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104350",
-          "first_seen": "2026-10-27",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-104351",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execu\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104351",
-          "first_seen": "2026-10-27",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-104353",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability that cou\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104353",
-          "first_seen": "2026-10-27",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-104354",
-          "severity": "Critical",
-          "base_score": 9.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104354",
-          "first_seen": "2026-10-27",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-105489",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105489",
-          "first_seen": "2026-10-27",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-105779",
-          "severity": "Critical",
-          "base_score": 9.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105779",
-          "first_seen": "2026-10-27",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-105780",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105780",
-          "first_seen": "2026-10-27",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-105781",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could res\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105781",
-          "first_seen": "2026-10-27",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-113579",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Experience Manager is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113579",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-113580",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Experience Manager is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113580",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-114371",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Experience Manager is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current use\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114371",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-119017",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Experience Manager is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current use\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119017",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121349",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could result in arbitrary code\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121349",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121350",
-          "severity": "High",
-          "base_score": 7.7,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could lead to disclosure\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121350",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121351",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbitrary file s\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121351",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121352",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. An attacker could exploit this vulnerability to\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121352",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121353",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Improper Neutralization of CRLF Sequences ('CRLF Injection') vulnerability that could result in arbitrary code execution in the \u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121353",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121354",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbitrary file s\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121354",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121355",
-          "severity": "Critical",
-          "base_score": 9.1,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. An attacker could exploit this vulnerability to\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121355",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121356",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in privilege escalation. Exploitation of this issue does not r\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121356",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121887",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Improper Restriction of XML External Entity Reference ('XXE') vulnerability that could result in arbitrary code execution in the\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121887",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121889",
-          "severity": "Critical",
-          "base_score": 10.0,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in privilege escalation. Exploitation of this issue does not r\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121889",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121890",
-          "severity": "High",
-          "base_score": 7.7,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Improper Restriction of XML External Entity Reference ('XXE') vulnerability that could lead to arbitrary file system read. A low\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121890",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121892",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the con\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121892",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121894",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrar\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121894",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121896",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrar\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121896",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121898",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrar\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121898",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121900",
-          "severity": "High",
-          "base_score": 8.3,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrar\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121900",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121902",
-          "severity": "Critical",
-          "base_score": 9.4,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrar\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121902",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121904",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts int\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121904",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121906",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbitrary file s\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121906",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121908",
-          "severity": "Critical",
-          "base_score": 9.9,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrar\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121908",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-121913",
-          "severity": "High",
-          "base_score": 8.8,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. A low-privileged attacker could exploit this vu\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121913",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-122102",
-          "severity": "High",
-          "base_score": 8.7,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts int\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122102",
-          "first_seen": "2026-11-10",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-48360",
-          "severity": "Critical",
-          "base_score": 9.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Adobe Connect is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the con\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48360",
-          "first_seen": "2026-10-27",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        },
-        {
-          "cve_id": "CVE-2026-82952",
-          "severity": "High",
-          "base_score": 8.6,
-          "exploited": false,
-          "publicly_disclosed": false,
-          "impact": "Latvijas Valsts radio un telev\u012bzijas centrs (LVRTC)\neParakst\u012bt\u0101js 3.0 version 1.10.0-resolute for Linux allows an unauthenticated\nremote attacker to execute arb\u2026",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82952",
-          "first_seen": "2026-11-18",
-          "due_date": null,
-          "ransomware": false,
-          "is_new": true,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Adobe"
-          ]
-        }
-      ]
-    },
-    {
       "patch_id": "kev:Perforce:Puppet Enterprise",
       "source": "cisa-kev",
       "platform": "Perforce",
@@ -68643,18 +69243,17 @@
       "status": "new",
       "cve_count": 1,
       "exploited_count": 1,
-      "new_count": 1,
+      "new_count": 0,
       "ransomware_count": 0,
       "disclosed_count": 1,
       "max_cvss": null,
       "due_date": "2026-12-01",
       "priority": {
-        "score": 100,
+        "score": 85,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "newly released",
-          "KEV due in 7d"
+          "KEV due in 6d"
         ]
       },
       "affected": {
@@ -68696,7 +69295,7 @@
           "first_seen": "2026-11-17",
           "due_date": "2026-12-01",
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -68721,17 +69320,15 @@
       "status": "new",
       "cve_count": 17,
       "exploited_count": 0,
-      "new_count": 17,
+      "new_count": 0,
       "ransomware_count": 0,
       "disclosed_count": 0,
       "max_cvss": 8.9,
       "due_date": null,
       "priority": {
-        "score": 61,
+        "score": 46,
         "band": "high",
-        "reasons": [
-          "newly released"
-        ]
+        "reasons": []
       },
       "affected": {
         "client": 0,
@@ -68772,7 +69369,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -68791,7 +69388,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -68810,7 +69407,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -68829,7 +69426,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -68848,7 +69445,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -68867,7 +69464,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -68886,7 +69483,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -68905,7 +69502,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -68924,7 +69521,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -68943,7 +69540,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -68962,7 +69559,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -68981,7 +69578,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -69000,7 +69597,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -69019,7 +69616,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -69038,7 +69635,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -69057,7 +69654,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -69076,7 +69673,7 @@
           "first_seen": "2026-11-17",
           "due_date": null,
           "ransomware": false,
-          "is_new": true,
+          "is_new": false,
           "product_kinds": [
             "other"
           ],
@@ -69111,7 +69708,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 60d"
+          "KEV overdue by 61d"
         ]
       },
       "affected": {
@@ -69226,7 +69823,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 8d"
+          "KEV overdue by 9d"
         ]
       },
       "affected": {
@@ -71697,7 +72294,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 11d"
+          "KEV overdue by 12d"
         ]
       },
       "affected": {
@@ -71774,7 +72371,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 11d"
+          "KEV overdue by 12d"
         ]
       },
       "affected": {
@@ -71847,11 +72444,11 @@
       "max_cvss": null,
       "due_date": "2026-11-24",
       "priority": {
-        "score": 85,
+        "score": 98,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV due in 0d"
+          "KEV overdue by 1d"
         ]
       },
       "affected": {
@@ -71924,11 +72521,11 @@
       "max_cvss": null,
       "due_date": "2026-11-24",
       "priority": {
-        "score": 85,
+        "score": 98,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV due in 0d"
+          "KEV overdue by 1d"
         ]
       },
       "affected": {
@@ -72001,11 +72598,11 @@
       "max_cvss": null,
       "due_date": "2026-11-24",
       "priority": {
-        "score": 85,
+        "score": 98,
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV due in 0d"
+          "KEV overdue by 1d"
         ]
       },
       "affected": {
@@ -73372,7 +73969,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 12d"
+          "KEV overdue by 13d"
         ]
       },
       "affected": {
@@ -73449,7 +74046,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 12d"
+          "KEV overdue by 13d"
         ]
       },
       "affected": {
@@ -73526,7 +74123,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 12d"
+          "KEV overdue by 13d"
         ]
       },
       "affected": {
@@ -73603,7 +74200,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 12d"
+          "KEV overdue by 13d"
         ]
       },
       "affected": {
@@ -73680,7 +74277,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 4d"
+          "KEV overdue by 5d"
         ]
       },
       "affected": {
@@ -73757,7 +74354,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 18d"
+          "KEV overdue by 19d"
         ]
       },
       "affected": {
@@ -76608,7 +77205,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 39d"
+          "KEV overdue by 40d"
         ]
       },
       "affected": {
@@ -76723,7 +77320,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 23d"
+          "KEV overdue by 24d"
         ]
       },
       "affected": {
@@ -76800,7 +77397,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 71d"
+          "KEV overdue by 72d"
         ]
       },
       "affected": {
@@ -76896,7 +77493,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 13d"
+          "KEV overdue by 14d"
         ]
       },
       "affected": {
@@ -76961,13 +77558,13 @@
       "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "severity": "High",
       "status": "new",
-      "cve_count": 6,
-      "exploited_count": 6,
+      "cve_count": 5,
+      "exploited_count": 5,
       "new_count": 0,
       "ransomware_count": 0,
-      "disclosed_count": 6,
+      "disclosed_count": 5,
       "max_cvss": null,
-      "due_date": "2026-08-29",
+      "due_date": "2026-08-30",
       "priority": {
         "score": 98,
         "band": "critical",
@@ -76979,12 +77576,12 @@
       "affected": {
         "client": 0,
         "server": 0,
-        "other": 6
+        "other": 5
       },
       "remediation": {
         "summary": "Linux Kernel has a vulnerability on CISA's Known Exploited Vulnerabilities catalog \u2014 update to the vendor's patched release as an emergency.",
         "urgency": "critical",
-        "note": "6 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
+        "note": "5 CVE(s) are being actively exploited \u2014 patch immediately, out-of-band if necessary.",
         "links": [
           {
             "label": "CISA KEV catalog",
@@ -77004,25 +77601,6 @@
         ]
       },
       "cves": [
-        {
-          "cve_id": "CVE-2022-0995",
-          "severity": "High",
-          "base_score": null,
-          "exploited": true,
-          "publicly_disclosed": true,
-          "impact": "Linux Kernel Out-of-Bounds Write Vulnerability",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-0995",
-          "first_seen": "2026-08-26",
-          "due_date": "2026-08-29",
-          "ransomware": false,
-          "is_new": false,
-          "product_kinds": [
-            "other"
-          ],
-          "products": [
-            "Linux Kernel"
-          ]
-        },
         {
           "cve_id": "CVE-2025-39682",
           "severity": "High",
@@ -77145,7 +77723,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 74d"
+          "KEV overdue by 75d"
         ]
       },
       "affected": {
@@ -77260,7 +77838,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 14d"
+          "KEV overdue by 15d"
         ]
       },
       "affected": {
@@ -92804,7 +93382,7 @@
         "band": "critical",
         "reasons": [
           "actively exploited",
-          "KEV overdue by 26d"
+          "KEV overdue by 27d"
         ]
       },
       "affected": {
